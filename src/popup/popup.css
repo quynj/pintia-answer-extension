@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --ink: #172026;
+  --muted: #758087;
+  --paper: #f4f1e9;
+  --acid: #d5f25b;
+  --coral: #ff8066;
+  --line: rgba(23, 32, 38, 0.14);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; width: 360px; color: var(--ink); background: var(--paper); font-family: 'Space Grotesk', sans-serif; }
+.shell { padding: 24px; background: radial-gradient(circle at 100% 0%, rgba(213, 242, 91, .6), transparent 38%), var(--paper); }
+.masthead { display: flex; gap: 13px; align-items: center; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.mark { display: grid; place-items: center; width: 42px; height: 42px; color: var(--paper); background: var(--ink); font: 500 17px 'DM Mono', monospace; transform: rotate(-5deg); }
+.kicker { margin: 0 0 4px; color: var(--coral); font: 500 10px 'DM Mono', monospace; letter-spacing: .08em; }
+h1 { margin: 0; font-size: 20px; letter-spacing: -.04em; }
+.status-panel { display: flex; gap: 12px; align-items: flex-start; margin: 25px 0 18px; padding: 15px; border: 1px solid var(--line); background: rgba(255,255,255,.32); }
+.status-dot { width: 9px; height: 9px; margin-top: 4px; border-radius: 50%; background: var(--muted); box-shadow: 0 0 0 4px rgba(117,128,135,.13); }
+.status-dot.ready { background: #4f8d4e; box-shadow: 0 0 0 4px rgba(79,141,78,.16); }
+.status-dot.busy { background: var(--coral); animation: pulse 1s infinite; }
+.status-label { margin: 0 0 5px; font-weight: 700; font-size: 14px; }
+.status-detail, .hint, footer, .error { margin: 0; color: var(--muted); font: 12px/1.5 'DM Mono', monospace; }
+.download-button { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 16px 17px; border: 0; color: var(--ink); background: var(--acid); box-shadow: 4px 4px 0 var(--ink); cursor: pointer; font: 700 15px 'Space Grotesk', sans-serif; transition: transform .15s, box-shadow .15s; }
+.download-button + .download-button { margin-top: 12px; }
+.download-button:not(:disabled):hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
+.download-button:disabled { opacity: .48; cursor: not-allowed; }
+.arrow { font-size: 21px; line-height: 12px; }
+.hint { margin-top: 16px; }
+.hint strong { color: var(--ink); font-weight: 500; }
+.error { margin-top: 14px; padding: 10px; color: #8d3020; border-left: 2px solid var(--coral); background: rgba(255,128,102,.12); }
+footer { margin-top: 30px; padding-top: 13px; border-top: 1px solid var(--line); font-size: 10px; }
+@keyframes pulse { 50% { opacity: .4; } }

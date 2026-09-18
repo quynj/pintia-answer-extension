@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pintia 题库下载器</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="masthead">
+        <div class="mark">P/</div>
+        <div>
+          <p class="kicker">LOCAL QUESTION ARCHIVE</p>
+          <h1>Pintia 题库下载器</h1>
+        </div>
+      </header>
+
+      <section class="status-panel" aria-live="polite">
+        <span class="status-dot" id="status-dot"></span>
+        <div>
+          <p class="status-label" id="status-label">等待检测</p>
+          <p class="status-detail" id="status-detail">点击检测题库后才会读取当前页面</p>
+        </div>
+      </section>
+
+      <button class="download-button detect-button" id="detect-button" type="button">
+        <span>检测题库</span>
+        <span class="arrow">↗</span>
+      </button>
+      <button class="download-button" id="download-button" type="button" disabled>
+        <span>下载当前题库</span>
+        <span class="arrow">↗</span>
+      </button>
+
+      <p class="hint">文件会保存为 <strong>pintia-题目集-日期.json</strong></p>
+      <p class="error" id="error" hidden></p>
+      <footer>仅处理当前打开页面，不上传任何题目内容。</footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Pintia 题库下载器",
+  "version": "1.0.0",
+  "description": "将当前 Pintia 作业中的题目整理为本地 JSON 文件。",
+  "permissions": ["activeTab", "downloads"],
+  "host_permissions": ["https://pintia.cn/*"],
+  "action": {
+    "default_title": "下载 Pintia 题库",
+    "default_popup": "src/popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://pintia.cn/*"],
+      "js": [
+        "src/content/extractor-common.js",
+        "src/content/api-extractor.js",
+        "src/content/content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -26,9 +26,39 @@ h1 { margin: 0; font-size: 20px; letter-spacing: -.04em; }
 .download-button + .download-button { margin-top: 12px; }
 .download-button:not(:disabled):hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--ink); }
 .download-button:disabled { opacity: .48; cursor: not-allowed; }
+.ai-button { color: var(--paper); background: var(--ink); box-shadow: 4px 4px 0 var(--coral); }
 .arrow { font-size: 21px; line-height: 12px; }
 .hint { margin-top: 16px; }
 .hint strong { color: var(--ink); font-weight: 500; }
 .error { margin-top: 14px; padding: 10px; color: #8d3020; border-left: 2px solid var(--coral); background: rgba(255,128,102,.12); }
+.ai-result { margin-top: 16px; border: 1px solid var(--ink); background: rgba(255,255,255,.42); }
+.result-heading { display: flex; justify-content: space-between; align-items: center; padding: 9px 11px; color: var(--coral); border-bottom: 1px solid var(--line); font: 500 10px 'DM Mono', monospace; letter-spacing: .08em; }
+.result-actions { display: flex; gap: 10px; align-items: center; }
+.result-actions button:first-child { padding: 4px 7px; border: 1px solid var(--line); color: var(--ink); background: transparent; cursor: pointer; font: 10px 'DM Mono', monospace; }
+.result-heading button { padding: 0; border: 0; color: var(--muted); background: transparent; cursor: pointer; font-size: 20px; line-height: 15px; }
+.ai-result pre { max-height: 270px; margin: 0; padding: 13px; overflow: auto; color: var(--ink); white-space: pre-wrap; font: 12px/1.65 'DM Mono', monospace; }
+.settings-link { display: flex; gap: 7px; align-items: center; margin: 21px 0 0 auto; padding: 0; border: 0; color: var(--ink); background: transparent; cursor: pointer; font: 500 12px 'DM Mono', monospace; text-decoration: underline; text-underline-offset: 4px; }
+.settings-link span { color: var(--coral); font-size: 16px; text-decoration: none; }
+.settings-view { min-height: 100%; padding: 24px; background: radial-gradient(circle at 0 0, rgba(255,128,102,.18), transparent 38%), var(--paper); }
+.settings-header { display: flex; gap: 13px; align-items: center; padding-bottom: 19px; border-bottom: 1px solid var(--line); }
+.back-button { width: 34px; height: 34px; border: 1px solid var(--line); color: var(--ink); background: transparent; cursor: pointer; font-size: 22px; }
+h2 { margin: 0; font-size: 22px; letter-spacing: -.04em; }
+.settings-intro { margin: 18px 0 21px; color: var(--muted); font: 12px/1.55 'DM Mono', monospace; }
+form { display: grid; gap: 14px; }
+form > label { display: grid; gap: 6px; font-size: 12px; font-weight: 700; }
+input[type='url'], input[type='text'], input[type='password'], select, textarea { width: 100%; padding: 10px 11px; border: 1px solid var(--line); border-radius: 0; color: var(--ink); background: rgba(255,255,255,.48); outline: none; font: 12px 'DM Mono', monospace; }
+textarea { resize: vertical; line-height: 1.5; }
+input:focus, select:focus, textarea:focus { border-color: var(--ink); box-shadow: 3px 3px 0 rgba(255,128,102,.55); }
+.question-types-panel { margin: 24px 0 0; padding: 0; border: 0; }
+fieldset { margin: 1px 0 0; padding: 0; border: 0; }
+legend { margin-bottom: 8px; font-size: 12px; font-weight: 700; }
+.type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.type-grid label { display: flex; gap: 7px; align-items: center; color: var(--muted); font: 11px 'DM Mono', monospace; }
+.type-grid input { accent-color: var(--coral); }
+.type-empty { grid-column: 1 / -1; margin: 0; color: var(--muted); font: 11px/1.5 'DM Mono', monospace; }
+.save-button { margin-top: 5px; padding: 13px; border: 0; color: var(--paper); background: var(--ink); cursor: pointer; font: 700 14px 'Space Grotesk', sans-serif; }
+.save-button:disabled { opacity: .5; cursor: wait; }
+.settings-error { margin: 0; padding: 9px; color: #8d3020; border-left: 2px solid var(--coral); background: rgba(255,128,102,.12); font: 11px/1.45 'DM Mono', monospace; }
+.settings-footnote { margin: 18px 0 0; color: var(--muted); font: 10px/1.5 'DM Mono', monospace; }
 footer { margin-top: 30px; padding-top: 13px; border-top: 1px solid var(--line); font-size: 10px; }
 @keyframes pulse { 50% { opacity: .4; } }

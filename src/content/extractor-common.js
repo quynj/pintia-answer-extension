@@ -31,7 +31,8 @@
       prompt,
       content: api.cleanText(item.content || item.description || item.question || item.text || item.body || item.title),
       options,
-      score: item.score || item.point || undefined
+      score: item.score || item.point || undefined,
+      apiData: item
     };
   };
 

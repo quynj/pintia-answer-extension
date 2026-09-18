@@ -38,7 +38,12 @@
     if (message.type !== 'inspect' && message.type !== 'export') return false;
     extract(message.type === 'inspect')
       .then((result) => message.type === 'inspect'
-        ? sendResponse({ questionCount: result.questions.length, extraction: result.extraction, reason: result.reason })
+        ? sendResponse({
+          questionCount: result.questions.length,
+          questionTypes: [...new Set(result.questions.map((question) => question.type))],
+          extraction: result.extraction,
+          reason: result.reason
+        })
         : sendResponse(result))
       .catch((error) => sendResponse({ error: error?.message || '题库接口读取失败' }));
     return true;

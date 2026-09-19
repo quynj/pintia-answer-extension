@@ -32,24 +32,10 @@
         <span>下载当前题库</span>
         <span class="arrow">↗</span>
       </button>
-      <button class="download-button ai-button" id="ai-button" type="button" disabled>
-        <span>AI 辅助分析</span>
-        <span class="arrow">✦</span>
-      </button>
+      <button class="assistant-button" id="open-assistant-button" type="button" disabled>打开悬浮助手 <span>＋</span></button>
 
-      <fieldset class="question-types-panel">
-        <legend>发送题型</legend>
-        <div class="type-grid" id="type-grid"><p class="type-empty">请先检测题库</p></div>
-      </fieldset>
-
-      <p class="hint">文件会保存为 <strong>pintia-题目集-日期.json</strong></p>
       <p class="error" id="error" hidden></p>
-      <section class="ai-result" id="ai-result" hidden>
-        <div class="result-heading"><span>AI ANALYSIS</span><div class="result-actions"><button id="save-answer" type="button">下载分析</button><button id="close-result" type="button" aria-label="关闭分析">×</button></div></div>
-        <pre id="ai-answer"></pre>
-      </section>
       <button class="settings-link" id="settings-button" type="button">AI 配置 <span>↗</span></button>
-      <footer>题目默认只在本地处理；AI 功能仅在主动使用时发送已选择的题目。</footer>
     </main>
 
     <section class="settings-view" id="settings-view" hidden>
@@ -85,6 +71,8 @@
       </form>
       <p class="settings-footnote">首次使用自定义地址时，浏览器会请求连接该站点的权限。</p>
     </section>
+    <script src="../content/prompt-builder.js"></script>
+    <script src="../content/answer-parser.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

@@ -19,8 +19,13 @@
       "js": [
         "src/content/extractor-common.js",
         "src/content/api-extractor.js",
+        "src/content/answer-parser.js",
+        "src/content/prompt-builder.js",
+        "src/content/autofill.js",
+        "src/content/assistant-panel.js",
         "src/content/content.js"
       ],
+      "css": ["src/content/assistant-panel.css"],
       "run_at": "document_idle"
     }
   ]

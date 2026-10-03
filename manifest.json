@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "Pintia 学习辅助工具",
   "version": "1.0.0",
-  "description": "整理 Pintia 作业题目，导出结构化数据，并提供可选的 AI 学习辅助。",
-  "permissions": ["activeTab", "downloads", "storage"],
+  "description": "Pintia 学习辅助工具，包含题目识别、题目导出、AI辅助学习、答案回填等功能。",
+  "permissions": ["activeTab", "storage"],
   "host_permissions": ["https://pintia.cn/*"],
   "optional_host_permissions": ["https://*/*", "http://*/*"],
   "background": {
@@ -17,9 +17,9 @@
     {
       "matches": ["https://pintia.cn/*"],
       "js": [
+        "src/shared/prompt-builder.js",
         "src/content/extractor-common.js",
         "src/content/api-extractor.js",
-        "src/content/prompt-builder.js",
         "src/content/answer-runner.js",
         "src/content/assistant-panel.js",
         "src/content/content.js"

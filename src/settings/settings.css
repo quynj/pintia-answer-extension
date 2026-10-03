@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  color-scheme: light;
+  --ink: #172026;
+  --muted: #758087;
+  --paper: #f4f1e9;
+  --acid: #d5f25b;
+  --coral: #ff8066;
+  --line: rgba(23, 32, 38, .16);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: 'Space Grotesk', sans-serif; }
+.settings-page { width: min(100% - 40px, 680px); margin: 48px auto; padding: 32px; border: 1px solid var(--line); background: rgba(255, 255, 255, .32); }
+header { margin-bottom: 26px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.eyebrow { margin: 0 0 6px; color: var(--coral); font: 500 11px 'DM Mono', monospace; letter-spacing: .08em; }
+h1 { margin: 0; font-size: 28px; letter-spacing: -.04em; }
+.intro, .footnote { color: var(--muted); font: 12px/1.6 'DM Mono', monospace; }
+.intro { margin: 10px 0 0; }
+form { display: grid; gap: 17px; }
+label { display: grid; gap: 7px; font-size: 13px; font-weight: 700; }
+input, select, textarea { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 0; color: var(--ink); background: rgba(255, 255, 255, .6); outline: none; font: 12px/1.5 'DM Mono', monospace; }
+textarea { resize: vertical; }
+input:focus, select:focus, textarea:focus { border-color: var(--ink); box-shadow: 3px 3px 0 rgba(255, 128, 102, .45); }
+.auto-apply-option { display: flex; gap: 11px; align-items: flex-start; padding: 14px; border: 1px solid rgba(255, 128, 102, .55); background: rgba(255, 128, 102, .09); }
+.auto-apply-option input { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--ink); }
+.auto-apply-option span { display: grid; gap: 5px; }
+.auto-apply-option strong { font-size: 13px; }
+.auto-apply-option small { color: var(--muted); font: 11px/1.5 'DM Mono', monospace; }
+button { padding: 13px; border: 0; color: var(--paper); background: var(--ink); cursor: pointer; font: 700 14px 'Space Grotesk', sans-serif; }
+button:disabled { opacity: .55; cursor: wait; }
+.form-message { margin: 0; padding: 10px; border-left: 2px solid var(--coral); color: #8d3020; background: rgba(255, 128, 102, .12); font: 12px/1.5 'DM Mono', monospace; }
+.form-message.success { border-color: #4f8d4e; color: #315e31; background: rgba(79, 141, 78, .12); }
+.footnote { margin: 20px 0 0; font-size: 10px; }
+@media (max-width: 560px) {
+  .settings-page { width: 100%; margin: 0; padding: 24px 18px; border: 0; }
+}

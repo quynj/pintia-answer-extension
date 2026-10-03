@@ -3,7 +3,14 @@
   z-index: 2147483647;
   top: 72px;
   right: 20px;
-  width: 330px;
+  width: 380px;
+  height: min(480px, 85vh);
+  min-width: min(300px, calc(100vw - 24px));
+  min-height: min(300px, calc(100vh - 24px));
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 24px);
+  overflow: auto;
+  resize: both;
   color: #172026;
   background: #f4f1e9;
   border: 1px solid rgba(23, 32, 38, .24);
@@ -50,14 +57,14 @@
   font: 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 #pintia-assistant-panel textarea:focus { outline: 2px solid #ff8066; }
-#pintia-assistant-panel .pintia-assistant-actions { display: flex; gap: 7px; margin-top: 9px; }
+#pintia-assistant-panel .pintia-assistant-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 9px; }
 #pintia-assistant-panel .pintia-assistant-actions button { flex: 1; }
 #pintia-assistant-panel .pintia-assistant-log { min-height: 18px; margin: 10px 0 0; color: #758087; font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
-#pintia-assistant-panel.is-collapsed { width: 130px; }
+#pintia-assistant-panel.is-collapsed { width: 130px; height: auto; min-width: 0; min-height: 0; resize: none; }
 #pintia-assistant-panel.is-collapsed .pintia-assistant-body { display: none; }
 #pintia-assistant-panel.is-collapsed .pintia-assistant-head button[data-action="collapse"] { font-size: 0; }
 #pintia-assistant-panel.is-collapsed .pintia-assistant-head button[data-action="collapse"]::after { content: "+"; font-size: 13px; }
 @media (max-width: 600px) {
-  #pintia-assistant-panel { top: 12px; right: 12px; left: 12px; width: auto; }
+  #pintia-assistant-panel { top: 12px; right: 12px; width: min(380px, calc(100vw - 24px)); }
   #pintia-assistant-panel.is-collapsed { right: 12px; left: auto; width: 130px; }
 }

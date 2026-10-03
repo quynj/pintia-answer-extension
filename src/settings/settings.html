@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI 配置 · Pintia 学习辅助工具</title>
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <main class="settings-page">
+      <header>
+        <p class="eyebrow">MODEL SETTINGS</p>
+        <h1>AI 服务配置</h1>
+        <p class="intro">密钥仅保存在当前浏览器扩展的本地存储中。</p>
+      </header>
+      <form id="settings-form">
+        <label>API 类型
+          <select id="api-type-input">
+            <option value="chat-completions">Chat Completions</option>
+            <option value="responses">Responses API</option>
+          </select>
+        </label>
+        <label>API 地址
+          <input id="endpoint-input" type="url" required />
+        </label>
+        <label>模型名称
+          <input id="model-input" type="text" required />
+        </label>
+        <label>API Key
+          <input id="api-key-input" type="password" autocomplete="off" required />
+        </label>
+        <label>回答提示词
+          <textarea id="prompt-input" rows="12" required></textarea>
+        </label>
+        <label class="auto-apply-option">
+          <input id="auto-apply-input" type="checkbox" />
+          <span>
+            <strong>API 返回后自动回填并保存</strong>
+            <small>将跳过人工确认，使用当前勾选题型自动填写答案并触发页面保存。请确认模型与题目数据可靠。</small>
+          </span>
+        </label>
+        <p class="form-message" id="form-message" hidden></p>
+        <button type="submit">保存配置</button>
+      </form>
+      <p class="footnote">首次连接新的 API 地址时，浏览器会提示授予该站点的连接权限。</p>
+    </main>
+    <script src="settings.js"></script>
+  </body>
+</html>

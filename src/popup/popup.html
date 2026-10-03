@@ -28,50 +28,10 @@
         <span>检测题库</span>
         <span class="arrow">↗</span>
       </button>
-      <button class="download-button" id="download-button" type="button" disabled>
-        <span>下载当前题库</span>
-        <span class="arrow">↗</span>
-      </button>
-      <button class="assistant-button" id="open-assistant-button" type="button" disabled>打开悬浮助手 <span>＋</span></button>
+      <button class="assistant-button" id="open-assistant-button" type="button">打开助手面板 <span>＋</span></button>
 
       <p class="error" id="error" hidden></p>
-      <button class="settings-link" id="settings-button" type="button">AI 配置 <span>↗</span></button>
     </main>
-
-    <section class="settings-view" id="settings-view" hidden>
-      <div class="settings-header">
-        <button class="back-button" id="back-button" type="button" aria-label="返回">←</button>
-        <div>
-          <p class="kicker">MODEL SETTINGS</p>
-          <h2>第三方 AI</h2>
-        </div>
-      </div>
-      <p class="settings-intro">支持 Chat Completions 和 Responses API。密钥仅保存于当前浏览器的扩展本地存储。</p>
-      <form id="settings-form">
-        <label>API 类型
-          <select id="api-type-input">
-            <option value="chat-completions">Chat Completions（默认）</option>
-            <option value="responses">Responses API</option>
-          </select>
-        </label>
-        <label>API 地址
-          <input id="endpoint-input" type="url" placeholder="https://api.openai.com/v1/chat/completions" required />
-        </label>
-        <label>模型名称
-          <input id="model-input" type="text" placeholder="gpt-4.1-mini" required />
-        </label>
-        <label>API Key
-          <input id="api-key-input" type="password" placeholder="sk-..." autocomplete="off" required />
-        </label>
-        <label>回答提示词
-          <textarea id="prompt-input" rows="4" required></textarea>
-        </label>
-        <p class="settings-error" id="settings-error" hidden></p>
-        <button class="save-button" type="submit">保存配置</button>
-      </form>
-      <p class="settings-footnote">首次使用自定义地址时，浏览器会请求连接该站点的权限。</p>
-    </section>
-    <script src="../content/prompt-builder.js"></script>
     <script src="popup.js"></script>
   </body>
 </html>

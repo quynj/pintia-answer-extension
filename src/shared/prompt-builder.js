@@ -1,5 +1,5 @@
 (() => {
-  const api = window.PintiaPrompt = window.PintiaPrompt || {};
+  const api = globalThis.PintiaPrompt = globalThis.PintiaPrompt || {};
 
   const outputRules = `请根据提供的题目数据，逐题分析并给出答案。
 
@@ -84,7 +84,7 @@
 
   api.systemPrompt = outputRules;
 
-  api.build = (title, questions, problemSetId) => {
+  api.buildInput = (title, questions, problemSetId) => {
     const questionData = {
       problemSetId: problemSetId ?? null,
       questions: questions.map((question) => ({
@@ -100,9 +100,10 @@
       `题库：${title || 'Pintia 题库'}`,
       '',
       '以下是题集 ID 和题目数据：',
-      JSON.stringify(questionData, null, 2),
-      '',
-      outputRules
+      JSON.stringify(questionData, null, 2)
     ].join('\n');
   };
+
+  api.build = (title, questions, problemSetId, prompt = outputRules) =>
+    `${api.buildInput(title, questions, problemSetId)}\n\n${prompt}`;
 })();

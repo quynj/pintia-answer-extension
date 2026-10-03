@@ -2,7 +2,8 @@
   const promptApi = window.PintiaPrompt;
   const state = {
     questions: [],
-    problemSetId: null
+    problemSetId: null,
+    aiConfig: null
   };
 
   const typeLabels = {
@@ -22,15 +23,16 @@
     panel.innerHTML = `
       <div class="pintia-assistant-head">
         <strong>Pintia 助手</strong>
-        <div><button data-action="collapse" title="收起">−</button><button data-action="close" title="关闭">×</button></div>
+        <div><button data-action="settings" title="AI 配置">AI 配置</button><button data-action="collapse" title="收起">−</button><button data-action="close" title="关闭">×</button></div>
       </div>
-      <div class="pintia-assistant-body">
+      <div class="pintia-assistant-body" data-view="assistant">
         <p class="pintia-assistant-status" data-status>等待选择题目</p>
         <div class="pintia-assistant-types" data-types><span>包含题型</span><em>正在读取题库...</em></div>
         <textarea data-answer placeholder="粘贴严格格式的答案 JSON，或使用 API 分析"></textarea>
         <div class="pintia-assistant-actions">
           <button data-action="prompt">复制 Prompt</button>
           <button data-action="api">API 辅助分析</button>
+          <button data-action="export">导出题库 JSON</button>
           <button data-action="apply">解析并回填</button>
         </div>
         <p class="pintia-assistant-log" data-log></p>
@@ -39,6 +41,7 @@
     bindPanel(panel);
     enableDragging(panel);
     loadQuestions(panel);
+    loadConfig(panel);
     return panel;
   }
 
@@ -48,6 +51,32 @@
 
   function setLog(panel, message) {
     panel.querySelector('[data-log]').textContent = message;
+  }
+
+  function sendRuntimeMessage(message) {
+    return new Promise((resolve, reject) => {
+      chrome.runtime.sendMessage(message, (response) => {
+        if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+        else if (response?.error) reject(new Error(response.error));
+        else resolve(response);
+      });
+    });
+  }
+
+  async function loadConfig(panel) {
+    try {
+      const { config } = await sendRuntimeMessage({ type: 'get-ai-config' });
+      state.aiConfig = config;
+    } catch (error) {
+      setLog(panel, error.message || '无法读取 AI 配置');
+    }
+  }
+
+  async function openSettings(panel) {
+    await sendRuntimeMessage({ type: 'open-ai-settings' });
+    state.aiConfig = null;
+    setStatus(panel, '已打开 AI 配置页');
+    setLog(panel, '请在新标签页中保存模型服务配置。');
   }
 
   async function loadQuestions(panel) {
@@ -71,17 +100,18 @@
   async function copyPrompt(panel) {
     const questions = selectedQuestions(panel);
     if (!questions.length) throw new Error('请至少选择一种题型。');
-    const prompt = promptApi.build(document.title, questions, state.problemSetId);
+    if (!state.aiConfig) await loadConfig(panel);
+    const prompt = promptApi.build(document.title, questions, state.problemSetId, state.aiConfig?.prompt);
     await navigator.clipboard.writeText(prompt);
     setStatus(panel, 'Prompt 已复制');
-    setLog(panel, 'Prompt 已复制，可粘贴到网页 AI。答案解析与页面回填功能开发中。');
+    setLog(panel, 'Prompt 已复制，可粘贴到网页 AI。');
   }
 
   async function requestApiAnswer(panel) {
     const questions = selectedQuestions(panel);
     if (!questions.length) throw new Error('请至少选择一种题型。');
     setStatus(panel, '正在请求 API 辅助分析');
-    const input = promptApi.build(document.title, questions, state.problemSetId);
+    const input = promptApi.buildInput(document.title, questions, state.problemSetId);
     const response = await new Promise((resolve, reject) => {
       chrome.runtime.sendMessage({ type: 'ask-ai', input }, (result) => {
         if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
@@ -91,8 +121,30 @@
     if (response?.error) throw new Error(response.error);
     if (typeof response?.text !== 'string' || !response.text.trim()) throw new Error('API 未返回答案文本。');
     panel.querySelector('[data-answer]').value = response.text;
+    if (response.autoApplyAnswers) {
+      setStatus(panel, 'API 已返回答案，正在自动回填并保存');
+      setLog(panel, '自动模式已开启，正在校验答案并按勾选题型回填。');
+      await applyAnswers(panel);
+      return;
+    }
     setStatus(panel, 'API 答案已放入文本框');
     setLog(panel, '请检查答案 JSON 后点击“解析并回填”。');
+  }
+
+  async function exportQuestionBank(panel) {
+    setStatus(panel, '正在导出题库');
+    const { result } = await sendRuntimeMessage({ type: 'get-question-bank' });
+    const filename = (result.title || document.title || 'pintia-question-bank')
+      .replace(/[\\/:*?"<>|]/g, '_')
+      .slice(0, 80) || 'pintia-question-bank';
+    const url = URL.createObjectURL(new Blob([JSON.stringify(result, null, 2)], { type: 'application/json' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${filename}.json`;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    setStatus(panel, '题库导出已开始');
+    setLog(panel, `正在保存包含 ${result.questions.length} 道题目的 JSON 文件。`);
   }
 
   async function applyAnswers(panel) {
@@ -135,8 +187,11 @@
     });
     head.addEventListener('pointermove', (event) => {
       if (!dragging) return;
-      panel.style.left = `${Math.max(0, event.clientX - offsetX)}px`;
-      panel.style.top = `${Math.max(0, event.clientY - offsetY)}px`;
+      const rect = panel.getBoundingClientRect();
+      const maxLeft = Math.max(0, window.innerWidth - rect.width);
+      const maxTop = Math.max(0, window.innerHeight - Math.min(rect.height, head.offsetHeight));
+      panel.style.left = `${Math.min(maxLeft, Math.max(0, event.clientX - offsetX))}px`;
+      panel.style.top = `${Math.min(maxTop, Math.max(0, event.clientY - offsetY))}px`;
       panel.style.right = 'auto';
     });
     head.addEventListener('pointerup', () => {
@@ -152,8 +207,10 @@
       try {
         if (action === 'collapse') panel.classList.toggle('is-collapsed');
         if (action === 'close') panel.remove();
+        if (action === 'settings') await openSettings(panel);
         if (action === 'prompt') await copyPrompt(panel);
         if (action === 'api') await requestApiAnswer(panel);
+        if (action === 'export') await exportQuestionBank(panel);
         if (action === 'apply') await applyAnswers(panel);
       } catch (error) {
         setStatus(panel, '操作失败');

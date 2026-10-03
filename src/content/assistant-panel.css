@@ -45,6 +45,8 @@
 #pintia-assistant-panel .pintia-assistant-types { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 9px; color: #758087; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-types label { display: inline-flex; gap: 3px; align-items: center; color: #172026; }
 #pintia-assistant-panel .pintia-assistant-types em { font-style: normal; }
+#pintia-assistant-panel .pintia-assistant-answer-label { display: block; margin: 0 0 4px; color: #172026; font-size: 11px; font-weight: 700; }
+#pintia-assistant-panel .pintia-assistant-answer-hint { margin: 0 0 7px; color: #758087; font: 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel textarea {
   display: block;
   width: 100%;

@@ -18,6 +18,10 @@ header { margin-bottom: 26px; padding-bottom: 20px; border-bottom: 1px solid var
 h1 { margin: 0; font-size: 28px; letter-spacing: -.04em; }
 .intro, .footnote { color: var(--muted); font: 12px/1.6 'DM Mono', monospace; }
 .intro { margin: 10px 0 0; }
+.study-reminder { display: grid; grid-template-columns: auto 1fr; gap: 13px; align-items: start; margin: 0 0 24px; padding: 15px 16px; border: 1px solid rgba(23, 32, 38, .22); border-left: 4px solid var(--acid); background: linear-gradient(110deg, rgba(213, 242, 91, .2), rgba(255, 255, 255, .4)); }
+.study-reminder-mark { padding: 3px 5px; color: var(--paper); background: var(--ink); font: 500 10px 'DM Mono', monospace; }
+.study-reminder strong { display: block; margin-bottom: 5px; font-size: 13px; }
+.study-reminder p { margin: 0; color: #4e5a60; font: 11px/1.7 'DM Mono', monospace; }
 form { display: grid; gap: 17px; }
 label { display: grid; gap: 7px; font-size: 13px; font-weight: 700; }
 input, select, textarea { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 0; color: var(--ink); background: rgba(255, 255, 255, .6); outline: none; font: 12px/1.5 'DM Mono', monospace; }
@@ -28,6 +32,21 @@ input:focus, select:focus, textarea:focus { border-color: var(--ink); box-shadow
 .auto-apply-option span { display: grid; gap: 5px; }
 .auto-apply-option strong { font-size: 13px; }
 .auto-apply-option small { color: var(--muted); font: 11px/1.5 'DM Mono', monospace; }
+.advanced-settings { border: 1px solid var(--line); background: rgba(255, 255, 255, .28); }
+.advanced-settings summary { display: flex; justify-content: space-between; gap: 12px; align-items: center; padding: 14px; cursor: pointer; list-style: none; }
+.advanced-settings summary::-webkit-details-marker { display: none; }
+.advanced-settings summary::after { content: '+'; margin-left: auto; font: 18px 'DM Mono', monospace; }
+.advanced-settings[open] summary::after { content: '−'; }
+.advanced-settings summary strong { font-size: 13px; }
+.advanced-settings summary small { color: var(--muted); font: 10px 'DM Mono', monospace; }
+.advanced-settings-body { display: grid; gap: 17px; padding: 0 14px 14px; }
+.advanced-option { display: flex; gap: 11px; align-items: flex-start; padding: 13px; border: 1px solid var(--line); background: rgba(255, 255, 255, .45); }
+.advanced-option input { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--ink); }
+.advanced-option span { display: grid; gap: 5px; }
+.advanced-option strong { font-size: 13px; }
+.advanced-option small { color: var(--muted); font: 11px/1.5 'DM Mono', monospace; }
+.verifier-config-fields { display: grid; gap: 17px; padding: 14px; border-left: 2px solid var(--coral); background: rgba(255, 128, 102, .06); }
+.verifier-config-fields[hidden] { display: none; }
 button { padding: 13px; border: 0; color: var(--paper); background: var(--ink); cursor: pointer; font: 700 14px 'Space Grotesk', sans-serif; }
 button:disabled { opacity: .55; cursor: wait; }
 .form-message { margin: 0; padding: 10px; border-left: 2px solid var(--coral); color: #8d3020; background: rgba(255, 128, 102, .12); font: 12px/1.5 'DM Mono', monospace; }

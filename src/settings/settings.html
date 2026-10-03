@@ -13,6 +13,13 @@
         <h1>AI 服务配置</h1>
         <p class="intro">密钥仅保存在当前浏览器扩展的本地存储中。</p>
       </header>
+      <aside class="study-reminder" aria-label="工具使用提醒">
+        <span class="study-reminder-mark" aria-hidden="true">P.S.</span>
+        <div>
+          <strong>给学习时间腾个位置</strong>
+          <p>水课省下来的时间，别全交给短视频——去学点真正想学的吧。还没掌握的内容，工具可以帮你整理，不能替你学会；期末考场也没有“自动回填”按钮。记得遵守课程要求，答案自己核对。</p>
+        </div>
+      </aside>
       <form id="settings-form">
         <label>API 类型
           <select id="api-type-input">
@@ -35,14 +42,56 @@
         <label class="auto-apply-option">
           <input id="auto-apply-input" type="checkbox" />
           <span>
-            <strong>API 返回后自动回填并保存</strong>
-            <small>将跳过人工确认，使用当前勾选题型自动填写答案并触发页面保存。请确认模型与题目数据可靠。</small>
+            <strong>AI 答案生成后自动回填并保存</strong>
+            <small>启用答案复核时，仅在最终答案返回并通过格式校验后回填保存；复核失败时不会自动使用初稿。</small>
           </span>
         </label>
+        <details class="advanced-settings">
+          <summary>
+            <strong>高级设置</strong>
+            <small id="advanced-summary-status">答案复核已关闭</small>
+          </summary>
+          <div class="advanced-settings-body">
+            <label class="advanced-option">
+              <input id="secondary-check-input" type="checkbox" />
+              <span>
+                <strong>启用答案复核</strong>
+                <small>初稿生成后，模型将重新解题并审阅初稿，复核结果作为最终答案。每次生成会额外产生一次模型请求。</small>
+              </span>
+            </label>
+            <label>答案复核提示词
+              <textarea id="secondary-prompt-input" rows="6"></textarea>
+            </label>
+            <label class="advanced-option">
+              <input id="separate-verifier-input" type="checkbox" />
+              <span>
+                <strong>单独配置复核模型</strong>
+                <small>默认复用主模型的 API 类型、地址、模型和密钥；启用后使用以下独立配置。</small>
+              </span>
+            </label>
+            <div id="verifier-config-fields" class="verifier-config-fields" hidden>
+              <label>复核模型 API 类型
+                <select id="verifier-api-type-input">
+                  <option value="chat-completions">Chat Completions</option>
+                  <option value="responses">Responses API</option>
+                </select>
+              </label>
+              <label>复核模型 API 地址
+                <input id="verifier-endpoint-input" type="url" />
+              </label>
+              <label>复核模型名称
+                <input id="verifier-model-input" type="text" />
+              </label>
+              <label>复核模型 API Key
+                <input id="verifier-api-key-input" type="password" autocomplete="off" />
+              </label>
+            </div>
+          </div>
+        </details>
         <p class="form-message" id="form-message" hidden></p>
         <button type="submit">保存配置</button>
       </form>
-      <p class="footnote">首次连接新的 API 地址时，浏览器会提示授予该站点的连接权限。</p>
+      <p class="footnote">首次连接新的 API 地址时，浏览器会请求该站点的连接权限。答案复核有助于发现错误，但不保证答案正确。</p>
     </main>
     <script src="settings.js"></script>
   </body>

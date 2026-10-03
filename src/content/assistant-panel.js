@@ -22,18 +22,20 @@
     panel.id = 'pintia-assistant-panel';
     panel.innerHTML = `
       <div class="pintia-assistant-head">
-        <strong>Pintia 助手</strong>
+        <strong>Pintia 学习助手</strong>
         <div><button data-action="settings" title="AI 配置">AI 配置</button><button data-action="collapse" title="收起">−</button><button data-action="close" title="关闭">×</button></div>
       </div>
       <div class="pintia-assistant-body" data-view="assistant">
-        <p class="pintia-assistant-status" data-status>等待选择题目</p>
-        <div class="pintia-assistant-types" data-types><span>包含题型</span><em>正在读取题库...</em></div>
-        <textarea data-answer placeholder="粘贴严格格式的答案 JSON，或使用 API 分析"></textarea>
+        <p class="pintia-assistant-status" data-status>请选择要处理的题型</p>
+        <div class="pintia-assistant-types" data-types><span>处理题型</span><em>正在读取题库…</em></div>
+        <label class="pintia-assistant-answer-label" for="pintia-assistant-answer">答案内容（JSON）</label>
+        <p class="pintia-assistant-answer-hint">AI 生成结果（含复核后的最终答案）会显示在此处。关闭自动回填时，请核对答案后手动执行回填。</p>
+        <textarea id="pintia-assistant-answer" data-answer placeholder="粘贴答案 JSON，或通过 AI 生成答案"></textarea>
         <div class="pintia-assistant-actions">
-          <button data-action="prompt">复制 Prompt</button>
-          <button data-action="api">API 辅助分析</button>
-          <button data-action="export">导出题库 JSON</button>
-          <button data-action="apply">解析并回填</button>
+          <button data-action="prompt">复制提示词</button>
+          <button data-action="api">AI 生成答案</button>
+          <button data-action="export">导出题库</button>
+          <button data-action="apply">校验并回填</button>
         </div>
         <p class="pintia-assistant-log" data-log></p>
       </div>`;
@@ -75,8 +77,8 @@
   async function openSettings(panel) {
     await sendRuntimeMessage({ type: 'open-ai-settings' });
     state.aiConfig = null;
-    setStatus(panel, '已打开 AI 配置页');
-    setLog(panel, '请在新标签页中保存模型服务配置。');
+    setStatus(panel, 'AI 配置页已打开');
+    setLog(panel, '请在新标签页中完成并保存模型服务配置。');
   }
 
   async function loadQuestions(panel) {
@@ -85,10 +87,10 @@
       state.questions = result.questions;
       state.problemSetId = result.problemSetId;
       const types = [...new Set(state.questions.map((question) => question.type))];
-      panel.querySelector('[data-types]').innerHTML = `<span>包含题型</span>${types.map((type) => `<label><input type="checkbox" value="${type}" checked />${typeLabels[type] || type}</label>`).join('')}`;
+      panel.querySelector('[data-types]').innerHTML = `<span>处理题型</span>${types.map((type) => `<label><input type="checkbox" value="${type}" checked />${typeLabels[type] || type}</label>`).join('')}`;
     } catch (error) {
-      panel.querySelector('[data-types]').innerHTML = '<span>包含题型</span><em>题库读取失败</em>';
-      setLog(panel, error.message || '题库读取失败');
+      panel.querySelector('[data-types]').innerHTML = '<span>处理题型</span><em>题库读取失败</em>';
+      setLog(panel, error.message || '无法读取题库。');
     }
   }
 
@@ -103,32 +105,47 @@
     if (!state.aiConfig) await loadConfig(panel);
     const prompt = promptApi.build(document.title, questions, state.problemSetId, state.aiConfig?.prompt);
     await navigator.clipboard.writeText(prompt);
-    setStatus(panel, 'Prompt 已复制');
-    setLog(panel, 'Prompt 已复制，可粘贴到网页 AI。');
+    setStatus(panel, '提示词已复制');
+    setLog(panel, '可将提示词粘贴至兼容的 AI 服务。');
   }
 
   async function requestApiAnswer(panel) {
     const questions = selectedQuestions(panel);
     if (!questions.length) throw new Error('请至少选择一种题型。');
-    setStatus(panel, '正在请求 API 辅助分析');
-    const input = promptApi.buildInput(document.title, questions, state.problemSetId);
-    const response = await new Promise((resolve, reject) => {
-      chrome.runtime.sendMessage({ type: 'ask-ai', input }, (result) => {
-        if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
-        else resolve(result);
+    const button = panel.querySelector('[data-action="api"]');
+    button.disabled = true;
+    try {
+      setStatus(panel, '正在生成答案');
+      const input = promptApi.buildInput(document.title, questions, state.problemSetId);
+      const response = await new Promise((resolve, reject) => {
+        chrome.runtime.sendMessage({ type: 'ask-ai', input }, (result) => {
+          if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+          else resolve(result);
+        });
       });
-    });
-    if (response?.error) throw new Error(response.error);
-    if (typeof response?.text !== 'string' || !response.text.trim()) throw new Error('API 未返回答案文本。');
-    panel.querySelector('[data-answer]').value = response.text;
-    if (response.autoApplyAnswers) {
-      setStatus(panel, 'API 已返回答案，正在自动回填并保存');
-      setLog(panel, '自动模式已开启，正在校验答案并按勾选题型回填。');
-      await applyAnswers(panel);
-      return;
+      if (response?.error) throw new Error(response.error);
+      if (typeof response?.text !== 'string' || !response.text.trim()) throw new Error('API 未返回答案文本。');
+      panel.querySelector('[data-answer]').value = response.text;
+      if (response.secondaryError) {
+        setStatus(panel, '答案复核未完成，未执行自动回填');
+        setLog(panel, `${response.secondaryError} 答案编辑区保留第一阶段草稿，请核对后再手动回填。`);
+        return;
+      }
+      if (response.autoApplyAnswers) {
+        setStatus(panel, '最终答案已生成，正在自动回填并保存');
+        setLog(panel, response.secondaryChecked
+          ? '答案复核已完成，正在校验最终答案并按所选题型回填。'
+          : '正在校验模型答案并按所选题型回填。');
+        await applyAnswers(panel);
+        return;
+      }
+      setStatus(panel, response.secondaryChecked ? '答案复核完成，最终答案已载入' : '答案已载入');
+      setLog(panel, response.secondaryChecked
+        ? '复核后的最终答案已载入答案编辑区。请核对 JSON 内容，再点击“校验并回填”。'
+        : '模型答案已载入答案编辑区。请核对 JSON 内容，再点击“校验并回填”。');
+    } finally {
+      button.disabled = false;
     }
-    setStatus(panel, 'API 答案已放入文本框');
-    setLog(panel, '请检查答案 JSON 后点击“解析并回填”。');
   }
 
   async function exportQuestionBank(panel) {
@@ -144,7 +161,7 @@
     link.click();
     window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     setStatus(panel, '题库导出已开始');
-    setLog(panel, `正在保存包含 ${result.questions.length} 道题目的 JSON 文件。`);
+    setLog(panel, `正在导出包含 ${result.questions.length} 道题目的 JSON 文件。`);
   }
 
   async function applyAnswers(panel) {
@@ -158,14 +175,14 @@
       const selectedTypes = [...panel.querySelectorAll('[data-types] input:checked')]
         .map((input) => input.value);
       if (!selectedTypes.length) throw new Error('请至少选择一种题型。');
-      setStatus(panel, '正在回填并验证答案');
+      setStatus(panel, '正在校验并回填答案');
       const report = await window.PintiaAnswerRunner.run(answers, selectedTypes);
       const { total, success, failed, skipped } = report.summary;
-      setStatus(panel, report.success ? '答案回填并保存完成' : '回填完成，存在未完成题目');
+      setStatus(panel, report.success ? '答案已回填并保存' : '回填流程已完成，部分题目未处理');
       const failures = report.results
         .filter((result) => !result.success)
         .map((result) => `第 ${result.questionNumber ?? '?'} 题：${result.reason}`);
-      setLog(panel, `共 ${total} 题，成功 ${success}，失败 ${failed}，跳过 ${skipped}${failures.length ? `。${failures.join('；')}` : ''}`);
+      setLog(panel, `题目总数 ${total}；成功 ${success}；失败 ${failed}；跳过 ${skipped}${failures.length ? `。${failures.join('；')}` : ''}`);
     } finally {
       button.disabled = false;
     }
@@ -213,8 +230,8 @@
         if (action === 'export') await exportQuestionBank(panel);
         if (action === 'apply') await applyAnswers(panel);
       } catch (error) {
-        setStatus(panel, '操作失败');
-        setLog(panel, error.message || '助手操作失败');
+        setStatus(panel, '操作未完成');
+        setLog(panel, error.message || '执行过程中发生错误。');
       }
     });
   }

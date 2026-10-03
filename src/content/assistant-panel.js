@@ -1,14 +1,8 @@
 (() => {
-  const parser = window.PintiaAnswer;
-  const autofill = window.PintiaAutofill;
   const promptApi = window.PintiaPrompt;
   const state = {
-    answers: [],
-    index: 0,
-    paused: false,
-    stopped: false,
-    running: false,
-    questions: []
+    questions: [],
+    problemSetId: null
   };
 
   const typeLabels = {
@@ -18,7 +12,7 @@
     fill_blank: '填空题',
     programming: '编程题',
     short_answer: '简答题',
-    unknown: '其他题型'
+    answer: '其他题型'
   };
 
   function createPanel() {
@@ -31,21 +25,14 @@
         <div><button data-action="collapse" title="收起">−</button><button data-action="close" title="关闭">×</button></div>
       </div>
       <div class="pintia-assistant-body">
-        <p class="pintia-assistant-status" data-status>等待粘贴 AI JSON 答案</p>
+        <p class="pintia-assistant-status" data-status>等待选择题目</p>
         <div class="pintia-assistant-types" data-types><span>包含题型</span><em>正在读取题库...</em></div>
-        <textarea data-answer placeholder='粘贴网页 AI 返回的 JSON，例如 {"answers":[...]}'></textarea>
+        <textarea data-answer placeholder="粘贴严格格式的答案 JSON，或使用 API 分析"></textarea>
         <div class="pintia-assistant-actions">
           <button data-action="prompt">复制 Prompt</button>
           <button data-action="api">API 辅助分析</button>
-          <button data-action="parse">解析答案</button>
+          <button data-action="apply">解析并回填</button>
         </div>
-        <div class="pintia-assistant-actions">
-          <button data-action="start">开始回填</button>
-          <button data-action="continue" disabled>继续</button>
-          <button data-action="pause" disabled>暂停</button>
-          <button data-action="stop" disabled>停止</button>
-        </div>
-        <button class="pintia-assistant-retry" data-action="retry" disabled>重试当前题</button>
         <p class="pintia-assistant-log" data-log></p>
       </div>`;
     document.body.appendChild(panel);
@@ -63,18 +50,11 @@
     panel.querySelector('[data-log]').textContent = message;
   }
 
-  function setRunningControls(panel, running) {
-    panel.querySelector('[data-action="start"]').disabled = running;
-    panel.querySelector('[data-action="continue"]').disabled = running || !state.paused || state.index >= state.answers.length;
-    panel.querySelector('[data-action="pause"]').disabled = !running;
-    panel.querySelector('[data-action="stop"]').disabled = !running;
-    panel.querySelector('[data-action="retry"]').disabled = running || state.index >= state.answers.length;
-  }
-
   async function loadQuestions(panel) {
     try {
       const result = await window.PintiaAssistantExtract();
       state.questions = result.questions;
+      state.problemSetId = result.problemSetId;
       const types = [...new Set(state.questions.map((question) => question.type))];
       panel.querySelector('[data-types]').innerHTML = `<span>包含题型</span>${types.map((type) => `<label><input type="checkbox" value="${type}" checked />${typeLabels[type] || type}</label>`).join('')}`;
     } catch (error) {
@@ -88,69 +68,20 @@
     return state.questions.filter((question) => selected.has(question.type));
   }
 
-  function parse(panel) {
-    const answers = parser.parse(panel.querySelector('[data-answer]').value);
-    if (!answers.length) throw new Error('没有解析出答案，请确认模型只返回了标准 JSON。');
-    state.answers = answers;
-    state.index = 0;
-    state.paused = false;
-    state.stopped = false;
-    setStatus(panel, `已解析 ${answers.length} 道答案`);
-    setLog(panel, '点击“开始回填”后才会写入页面。');
-    setRunningControls(panel, false);
-  }
-
-  async function fillOne(panel, index) {
-    const answer = state.answers[index];
-    if (!answer) return { ok: false, reason: '没有当前答案' };
-    setStatus(panel, `正在回填第 ${answer.questionNumber || '?'} 题（${index + 1}/${state.answers.length}）`);
-    const result = await autofill.fill(answer);
-    if (result.ok) {
-      state.index += 1;
-      setLog(panel, `第 ${answer.questionNumber || '?'} 题已写入并通过校验。`);
-    } else {
-      state.paused = true;
-      setLog(panel, result.reason || '回填失败，已暂停。');
-    }
-    return result;
-  }
-
-  async function run(panel) {
-    if (!state.answers.length) parse(panel);
-    state.running = true;
-    state.paused = false;
-    state.stopped = false;
-    setRunningControls(panel, true);
-    while (state.index < state.answers.length && !state.paused && !state.stopped) {
-      const result = await fillOne(panel, state.index);
-      if (!result.ok) break;
-      await new Promise((resolve) => setTimeout(resolve, 120));
-    }
-    state.running = false;
-    setRunningControls(panel, false);
-    if (state.stopped) setStatus(panel, '已停止');
-    else if (state.paused) setStatus(panel, '已暂停，请检查页面后继续或重试');
-    else if (state.index >= state.answers.length) setStatus(panel, '全部回填完成，请自行核对，不会自动提交');
-  }
-
   async function copyPrompt(panel) {
     const questions = selectedQuestions(panel);
     if (!questions.length) throw new Error('请至少选择一种题型。');
-    const prompt = promptApi.build(document.title, questions);
+    const prompt = promptApi.build(document.title, questions, state.problemSetId);
     await navigator.clipboard.writeText(prompt);
     setStatus(panel, 'Prompt 已复制');
-    setLog(panel, '已打开网页 AI 后粘贴 Prompt，拿到 JSON 后回到这里粘贴。');
+    setLog(panel, 'Prompt 已复制，可粘贴到网页 AI。答案解析与页面回填功能开发中。');
   }
 
   async function requestApiAnswer(panel) {
     const questions = selectedQuestions(panel);
     if (!questions.length) throw new Error('请至少选择一种题型。');
     setStatus(panel, '正在请求 API 辅助分析');
-    const input = [
-      `题库：${document.title}`,
-      '请回答以下题目并严格只输出 JSON：',
-      ...questions.map((question) => JSON.stringify({ number: question.number, type: question.type, data: question.apiData || question }))
-    ].join('\n');
+    const input = promptApi.build(document.title, questions, state.problemSetId);
     const response = await new Promise((resolve, reject) => {
       chrome.runtime.sendMessage({ type: 'ask-ai', input }, (result) => {
         if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
@@ -158,9 +89,34 @@
       });
     });
     if (response?.error) throw new Error(response.error);
+    if (typeof response?.text !== 'string' || !response.text.trim()) throw new Error('API 未返回答案文本。');
     panel.querySelector('[data-answer]').value = response.text;
     setStatus(panel, 'API 答案已放入文本框');
-    setLog(panel, '请点击“解析答案”，确认后再开始回填。');
+    setLog(panel, '请检查答案 JSON 后点击“解析并回填”。');
+  }
+
+  async function applyAnswers(panel) {
+    const button = panel.querySelector('[data-action="apply"]');
+    button.disabled = true;
+    try {
+      const answers = window.PintiaAnswerRunner.parse(
+        panel.querySelector('[data-answer]').value,
+        state.problemSetId
+      );
+      const selectedTypes = [...panel.querySelectorAll('[data-types] input:checked')]
+        .map((input) => input.value);
+      if (!selectedTypes.length) throw new Error('请至少选择一种题型。');
+      setStatus(panel, '正在回填并验证答案');
+      const report = await window.PintiaAnswerRunner.run(answers, selectedTypes);
+      const { total, success, failed, skipped } = report.summary;
+      setStatus(panel, report.success ? '答案回填并保存完成' : '回填完成，存在未完成题目');
+      const failures = report.results
+        .filter((result) => !result.success)
+        .map((result) => `第 ${result.questionNumber ?? '?'} 题：${result.reason}`);
+      setLog(panel, `共 ${total} 题，成功 ${success}，失败 ${failed}，跳过 ${skipped}${failures.length ? `。${failures.join('；')}` : ''}`);
+    } finally {
+      button.disabled = false;
+    }
   }
 
   function enableDragging(panel) {
@@ -196,21 +152,10 @@
       try {
         if (action === 'collapse') panel.classList.toggle('is-collapsed');
         if (action === 'close') panel.remove();
-        if (action === 'parse') parse(panel);
-        if (action === 'start') await run(panel);
-        if (action === 'pause') { state.paused = true; setStatus(panel, '正在暂停'); }
-        if (action === 'continue') await run(panel);
-        if (action === 'stop') { state.stopped = true; state.paused = true; }
-        if (action === 'retry') {
-          state.paused = false;
-          state.stopped = false;
-          await run(panel);
-        }
         if (action === 'prompt') await copyPrompt(panel);
         if (action === 'api') await requestApiAnswer(panel);
+        if (action === 'apply') await applyAnswers(panel);
       } catch (error) {
-        state.running = false;
-        setRunningControls(panel, false);
         setStatus(panel, '操作失败');
         setLog(panel, error.message || '助手操作失败');
       }
@@ -223,6 +168,6 @@
 
   window.PintiaAssistantExtract = async () => {
     const result = await window.PintiaExtractor.extractFromApi();
-    return { title: document.title, questions: result.questions };
+    return { title: document.title, problemSetId: result.problemSetId, questions: result.questions };
   };
 })();

@@ -52,7 +52,6 @@
 #pintia-assistant-panel textarea:focus { outline: 2px solid #ff8066; }
 #pintia-assistant-panel .pintia-assistant-actions { display: flex; gap: 7px; margin-top: 9px; }
 #pintia-assistant-panel .pintia-assistant-actions button { flex: 1; }
-#pintia-assistant-panel .pintia-assistant-retry { width: 100%; margin-top: 9px; }
 #pintia-assistant-panel .pintia-assistant-log { min-height: 18px; margin: 10px 0 0; color: #758087; font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel.is-collapsed { width: 130px; }
 #pintia-assistant-panel.is-collapsed .pintia-assistant-body { display: none; }

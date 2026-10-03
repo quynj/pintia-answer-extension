@@ -40,12 +40,6 @@
       sendResponse({ ok: true });
       return false;
     }
-    if (message.type === 'fill-answer') {
-      window.PintiaAutofill.fill(message.answer)
-        .then(sendResponse)
-        .catch((error) => sendResponse({ ok: false, status: 'failed', reason: error?.message || '回填失败' }));
-      return true;
-    }
     if (message.type !== 'inspect' && message.type !== 'export') return false;
     extract(message.type === 'inspect')
       .then((result) => message.type === 'inspect'

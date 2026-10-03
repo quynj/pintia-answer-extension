@@ -96,6 +96,10 @@
     return [...new Set(urls)];
   }
 
+  function problemSetIdFromUrl(url) {
+    return new URL(url).pathname.match(/\/problem-sets\/([^/]+)/)?.[1] || null;
+  }
+
   async function fetchResponse(url) {
     for (let attempt = 0; attempt < 2; attempt += 1) {
       try {
@@ -148,7 +152,8 @@
     const observedUrls = apiUrls();
     const summaryUrls = observedUrls.filter((url) => url.includes('/problem-summaries'));
     const examUrls = observedUrls.filter((url) => url.includes('/exam-problems'));
-    if (!summaryUrls.length && !examUrls.length) return { questions: [], summaries: {}, reason: 'no_target_api' };
+    const problemSetId = [...examUrls, ...summaryUrls].map(problemSetIdFromUrl).find(Boolean) || null;
+    if (!summaryUrls.length && !examUrls.length) return { problemSetId, questions: [], summaries: {}, reason: 'no_target_api' };
     let summaries = {};
     for (const url of summaryUrls) {
       try {
@@ -175,6 +180,7 @@
     }
     const uniqueQuestions = api.uniqueQuestions(questions);
     return {
+      problemSetId,
       questions: uniqueQuestions,
       summaries,
       reason: uniqueQuestions.length ? null : (lastFailureReason || 'no_questions')

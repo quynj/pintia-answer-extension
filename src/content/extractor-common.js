@@ -12,7 +12,7 @@
     if (type.includes('PROGRAM') || type.includes('CODE')) return 'programming';
     if (type.includes('SHORT') || type.includes('SUBJECTIVE')) return 'short_answer';
     if (options.length) return 'single_choice';
-    return 'unknown';
+    return 'answer';
   };
 
   api.normalizeApiQuestion = (item, index) => {
@@ -24,9 +24,11 @@
     const options = Array.isArray(rawOptions)
       ? rawOptions.map((option) => api.cleanText(typeof option === 'object' ? option.content || option.text || option.label : option)).filter(Boolean)
       : [];
+    const rawNumber = item.number ?? item.index ?? item.problemPoolIndex;
+    const number = rawNumber === undefined || rawNumber === null || rawNumber === '' ? undefined : Number(rawNumber);
     return {
       id: item.id || item.problem_id || item.question_id || undefined,
-      number: Number(item.number || item.index || item.problemPoolIndex || index + 1),
+      number: Number.isFinite(number) ? number : undefined,
       type: api.normalizeType(item.type || item.problem_type || item.problemType || item.question_type, options),
       prompt,
       content: api.cleanText(item.content || item.description || item.question || item.text || item.body || item.title),

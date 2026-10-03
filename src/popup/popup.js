@@ -23,6 +23,7 @@ const defaultConfig = {
   questionTypes: []
 };
 const legacyPrompt = '请根据题目信息直接给出最终答案，只输出 JSON，不要解释过程。';
+const legacyDefaultPrefix = '请根据题目信息直接给出最终答案，不要解释过程。\n输出格式必须严格遵守以下 JSON 规范：';
 let latestExport = null;
 
 function setStatus(kind, title, description) {
@@ -54,7 +55,8 @@ function sendTabMessage(message) {
 function loadConfig() {
   chrome.storage.local.get({ aiConfig: defaultConfig, lastDetection: null }).then(({ aiConfig, lastDetection }) => {
     const config = aiConfig || {};
-    const value = { ...defaultConfig, ...config, prompt: config.prompt === legacyPrompt ? defaultConfig.prompt : (config.prompt || defaultConfig.prompt) };
+    const isLegacyDefault = config.prompt === legacyPrompt || config.prompt?.startsWith(legacyDefaultPrefix);
+    const value = { ...defaultConfig, ...config, prompt: isLegacyDefault ? defaultConfig.prompt : (config.prompt || defaultConfig.prompt) };
     apiTypeInput.value = config.apiType || (config.endpoint?.includes('/responses') ? 'responses' : defaultConfig.apiType);
     endpointInput.value = value.endpoint;
     modelInput.value = value.model;

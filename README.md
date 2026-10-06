@@ -92,7 +92,16 @@ AI 配置页可选开启「AI 答案生成后自动回填并保存」。高级�
       "number": 1,
       "type": "multiple_choice",
       "prompt": "题目文本",
-      "options": ["选项 A", "选项 B"]
+      "content": "题目原始 Markdown 内容",
+      "options": ["选项 A", "选项 B"],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/example.jpg",
+          "markdownPath": "~/example.jpg",
+          "location": "content",
+          "index": 42
+        }
+      ]
     }
   ]
 }
@@ -104,5 +113,6 @@ AI 配置页可选开启「AI 答案生成后自动回填并保存」。高级�
 - 接口可能返回 JSON 或 Protobuf 二进制，扩展会自动选择对应解析方式。
 - 题型会归一为 `single_choice`、`multiple_choice`、`true_false`、`fill_blank`、`programming`、`short_answer` 等。
 - 每道题会同时保留归一化字段和接口返回的完整原始对象 `apiData`，发送给 AI 时使用完整接口数据，避免选项或题目配置丢失。
+- `content` 保留题目原始 Markdown；`images` 汇总题干和选项中的 Markdown 图片，提供完整访问 URL、原始 Markdown 路径、图片所在位置和 Markdown 字符偏移。`location` 为 `content` 或 `option`；选项图片还包含从 0 开始的 `optionIndex`。`~/...` 图片路径会映射至 `https://images.ptausercontent.com/...`，已有绝对 URL 保持原样。导出的 JSON 和 AI 输入都包含此字段；它提供图片链接和位置，不会下载图片或把图片内容发送给 AI。
 - `extraction` 固定为 `api`。
 - 如果 Pintia 更换接口名称，可在 `src/content/api-extractor.js` 的 `API_HINTS` 中补充规则。

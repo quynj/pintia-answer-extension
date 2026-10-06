@@ -3,6 +3,35 @@
 
   api.cleanText = (value) => String(value || '').replace(/\s+/g, ' ').trim();
 
+  api.markdownImages = (value, location, optionIndex) => {
+    const text = String(value || '');
+    const images = [];
+    const pattern = /!\[([^\]]*)\]\(\s*(<[^>]+>|[^)\s]+)(?:\s+(?:"[^"]*"|'[^']*'|\([^)]*\)))?\s*\)/g;
+    let match;
+    while ((match = pattern.exec(text))) {
+      const markdownPath = match[2].replace(/^<|>$/g, '');
+      let url = markdownPath;
+      if (markdownPath.startsWith('~/')) {
+        const path = markdownPath.slice(2).split('/').map(encodeURIComponent).join('/');
+        url = `https://images.ptausercontent.com/${path}`;
+      } else {
+        try {
+          url = new URL(markdownPath).href;
+        } catch (_) {
+          continue;
+        }
+      }
+      images.push({
+        url,
+        markdownPath,
+        location,
+        index: match.index,
+        ...(optionIndex === undefined ? {} : { optionIndex })
+      });
+    }
+    return images;
+  };
+
   api.normalizeType = (value, options) => {
     const type = String(value || '').toUpperCase();
     if (type.includes('MORE_THAN_ONE') || type.includes('MULTIPLE_CHOICE_MORE')) return 'multiple_choice';
@@ -21,9 +50,18 @@
     if (prompt.length < 2) return null;
     const choiceConfig = item.problemConfig?.multipleChoiceProblemConfig;
     const rawOptions = choiceConfig?.choices || item.options || item.choices || item.answers || item.items || [];
-    const options = Array.isArray(rawOptions)
-      ? rawOptions.map((option) => api.cleanText(typeof option === 'object' ? option.content || option.text || option.label : option)).filter(Boolean)
-      : [];
+    const content = String(item.content || item.description || item.question || item.text || item.body || item.title || '').trim();
+    const options = [];
+    const images = api.markdownImages(content, 'content');
+    if (Array.isArray(rawOptions)) {
+      rawOptions.forEach((option) => {
+        const optionText = typeof option === 'object' ? option.content || option.text || option.label : option;
+        const normalizedOption = api.cleanText(optionText);
+        if (!normalizedOption) return;
+        const optionIndex = options.push(normalizedOption) - 1;
+        images.push(...api.markdownImages(optionText, 'option', optionIndex));
+      });
+    }
     const rawNumber = item.number ?? item.index ?? item.problemPoolIndex;
     const number = rawNumber === undefined || rawNumber === null || rawNumber === '' ? undefined : Number(rawNumber);
     return {
@@ -31,8 +69,9 @@
       number: Number.isFinite(number) ? number : undefined,
       type: api.normalizeType(item.type || item.problem_type || item.problemType || item.question_type, options),
       prompt,
-      content: api.cleanText(item.content || item.description || item.question || item.text || item.body || item.title),
+      content,
       options,
+      images,
       score: item.score || item.point || undefined,
       apiData: item
     };

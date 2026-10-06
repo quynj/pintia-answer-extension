@@ -93,6 +93,7 @@
         type: question.type,
         prompt: question.prompt,
         options: question.options || [],
+        images: question.images || [],
         data: question.apiData || question
       }))
     };

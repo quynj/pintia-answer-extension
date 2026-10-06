@@ -45,6 +45,10 @@
 #pintia-assistant-panel .pintia-assistant-types { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 9px; color: #758087; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-types label { display: inline-flex; gap: 3px; align-items: center; color: #172026; }
 #pintia-assistant-panel .pintia-assistant-types em { font-style: normal; }
+#pintia-assistant-panel .pintia-assistant-save-options { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 0 0 9px; }
+#pintia-assistant-panel .pintia-assistant-save-options[hidden] { display: none; }
+#pintia-assistant-panel .pintia-assistant-save-options label { font-size: 11px; font-weight: 700; }
+#pintia-assistant-panel .pintia-assistant-save-options select { max-width: 100%; padding: 4px; border: 1px solid rgba(23, 32, 38, .25); color: #172026; background: rgba(255, 255, 255, .55); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-answer-label { display: block; margin: 0 0 4px; color: #172026; font-size: 11px; font-weight: 700; }
 #pintia-assistant-panel .pintia-assistant-answer-hint { margin: 0 0 7px; color: #758087; font: 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel textarea {
@@ -62,6 +66,12 @@
 #pintia-assistant-panel .pintia-assistant-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 9px; }
 #pintia-assistant-panel .pintia-assistant-actions button { flex: 1; }
 #pintia-assistant-panel .pintia-assistant-log { min-height: 18px; margin: 10px 0 0; color: #758087; font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+#pintia-assistant-panel .pintia-assistant-report { margin-top: 10px; border: 1px solid rgba(23, 32, 38, .2); background: rgba(255, 255, 255, .35); }
+#pintia-assistant-panel .pintia-assistant-report summary { padding: 6px 8px; cursor: pointer; font-weight: 700; }
+#pintia-assistant-panel .pintia-assistant-report ol { max-height: 190px; overflow: auto; margin: 0; padding: 0 8px 8px 28px; }
+#pintia-assistant-panel .pintia-assistant-report li { margin-top: 5px; overflow-wrap: anywhere; }
+#pintia-assistant-panel .pintia-assistant-report li > div { color: #758087; font: 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+#pintia-assistant-panel .pintia-assistant-report ul { margin: 3px 0 5px; padding-left: 18px; color: #758087; }
 #pintia-assistant-panel.is-collapsed { width: 130px; height: auto; min-width: 0; min-height: 0; resize: none; }
 #pintia-assistant-panel.is-collapsed .pintia-assistant-body { display: none; }
 #pintia-assistant-panel.is-collapsed .pintia-assistant-head button[data-action="collapse"] { font-size: 0; }

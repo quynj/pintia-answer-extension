@@ -124,9 +124,10 @@
     inject(item, root) {
       const input = radioFor(item.problemId, item.answer, root);
       if (!input) return { success: false, reason: 'target radio option not found' };
-      if (!input.checked) input.click();
+      const changed = !input.checked;
+      if (changed) input.click();
       return input.checked
-        ? { success: true }
+        ? { success: true, action: changed ? 'updated' : 'unchanged' }
         : { success: false, reason: 'radio option did not become checked' };
     }
   };
@@ -141,12 +142,22 @@
       const missingOption = item.answer.find((option) => !availableOptions.has(option));
       if (missingOption) return { success: false, reason: `checkbox option not found: ${missingOption}` };
 
+      const optionActions = [];
       inputs.forEach((input) => {
         const option = input.id.slice(`input-checkbox-option-${item.problemId}-`.length);
         const shouldBeChecked = desiredAnswers.has(option);
-        if (input.checked !== shouldBeChecked) input.click();
+        if (input.checked !== shouldBeChecked) {
+          input.click();
+          optionActions.push({ option, action: shouldBeChecked ? 'checked' : 'unchecked' });
+        } else {
+          optionActions.push({ option, action: shouldBeChecked ? 'already_checked' : 'already_unchecked' });
+        }
       });
-      return { success: true };
+      return {
+        success: true,
+        action: optionActions.some(({ action }) => action === 'checked' || action === 'unchecked') ? 'updated' : 'unchanged',
+        optionActions
+      };
     }
   };
 
@@ -183,13 +194,37 @@
 
   const FillBlankInjector = {
     inject(item, root) {
+      const blankActions = [];
+      const action = () => blankActions.some(({ action: blankAction }) => blankAction === 'updated')
+        ? 'updated'
+        : 'unchanged';
       for (let index = 0; index < item.answer.length; index += 1) {
         const input = blankInput(root, index);
-        if (!input) return { success: false, reason: `blank input not found: ${index}` };
-        setInputValue(input, item.answer[index]);
-        if (input.value !== item.answer[index]) return { success: false, reason: `blank value did not update: ${index}` };
+        if (!input) {
+          return {
+            success: false,
+            reason: `blank input not found: ${index}`,
+            action: action(),
+            blankActions
+          };
+        }
+        const changed = input.value !== item.answer[index];
+        if (changed) setInputValue(input, item.answer[index]);
+        blankActions.push({ index, action: changed ? 'updated' : 'unchanged' });
+        if (input.value !== item.answer[index]) {
+          return {
+            success: false,
+            reason: `blank value did not update: ${index}`,
+            action: action(),
+            blankActions
+          };
+        }
       }
-      return { success: true };
+      return {
+        success: true,
+        action: action(),
+        blankActions
+      };
     }
   };
 
@@ -250,6 +285,29 @@
     }
   };
 
+  function currentAnswer(item, root) {
+    if (item.type === 'single_choice' || item.type === 'true_false') {
+      const input = [...root.querySelectorAll('input[type="radio"]')]
+        .find((candidate) => candidate.name === item.problemId
+          && candidate.checked
+          && candidate.id.startsWith(`input-radio-option-${item.problemId}-`));
+      return input
+        ? input.id.slice(`input-radio-option-${item.problemId}-`.length)
+        : null;
+    }
+    if (item.type === 'multiple_choice') {
+      return [...root.querySelectorAll('input[type="checkbox"]')]
+        .filter((input) => input.name === item.problemId
+          && input.id.startsWith(`input-checkbox-option-${item.problemId}-`)
+          && input.checked)
+        .map((input) => input.id.slice(`input-checkbox-option-${item.problemId}-`.length));
+    }
+    if (item.type === 'fill_blank') {
+      return item.answer.map((_, index) => blankInput(root, index)?.value ?? null);
+    }
+    return null;
+  }
+
   const injectors = {
     single_choice: SingleChoiceInjector,
     multiple_choice: MultipleChoiceInjector,
@@ -258,10 +316,12 @@
   };
 
   const TaskRunner = {
-    async run(payload, allowedTypes = supportedTypes) {
-      const results = new Array(payload.answers.length);
+    async run(payload, allowedTypes = supportedTypes, options = {}) {
       const selectedTypes = new Set(allowedTypes);
-      payload.answers.forEach((item, index) => {
+      const answers = payload.answers.filter((item) => selectedTypes.has(item.type));
+      const results = new Array(answers.length);
+      let saved = false;
+      answers.forEach((item, index) => {
         if (!injectors[item.type]) {
           results[index] = {
             questionNumber: item.questionNumber,
@@ -271,22 +331,13 @@
             skipped: true,
             reason: 'unsupported question type'
           };
-        } else if (!selectedTypes.has(item.type)) {
-          results[index] = {
-            questionNumber: item.questionNumber,
-            problemId: item.problemId,
-            type: item.type,
-            success: false,
-            skipped: true,
-            reason: 'question type not selected'
-          };
         }
       });
 
       for (const type of supportedTypes) {
-        const batch = payload.answers
+        const batch = answers
           .map((item, index) => ({ item, index }))
-          .filter(({ item, index }) => item.type === type && selectedTypes.has(type) && !results[index]);
+          .filter(({ item, index }) => item.type === type && !results[index]);
         if (!batch.length) continue;
 
         const navigation = await QuestionTypeNavigator.navigate(type, batch.map(({ item }) => item));
@@ -312,15 +363,49 @@
               results[index] = { questionNumber: item.questionNumber, problemId: item.problemId, type, success: false, reason: question.reason };
               continue;
             }
+            const previousAnswer = currentAnswer(item, question.root);
+            const answerContext = {
+              previousAnswer,
+              targetAnswer: Array.isArray(item.answer) ? [...item.answer] : item.answer
+            };
             const injected = injectors[type].inject(item, question.root);
             if (!injected.success) {
-              results[index] = { questionNumber: item.questionNumber, problemId: item.problemId, type, success: false, reason: injected.reason };
+              results[index] = {
+                questionNumber: item.questionNumber,
+                problemId: item.problemId,
+                type,
+                success: false,
+                reason: injected.reason,
+                ...answerContext,
+                ...(injected.action ? { action: injected.action } : {}),
+                ...(injected.optionActions ? { optionActions: injected.optionActions } : {}),
+                ...(injected.blankActions ? { blankActions: injected.blankActions } : {})
+              };
               continue;
             }
             const verification = AnswerVerifier.verify(item, question.root);
             results[index] = verification.success
-              ? { questionNumber: item.questionNumber, problemId: item.problemId, type, success: true }
-              : { questionNumber: item.questionNumber, problemId: item.problemId, type, success: false, reason: verification.reason };
+              ? {
+                questionNumber: item.questionNumber,
+                problemId: item.problemId,
+                type,
+                success: true,
+                ...answerContext,
+                action: injected.action,
+                ...(injected.optionActions ? { optionActions: injected.optionActions } : {}),
+                ...(injected.blankActions ? { blankActions: injected.blankActions } : {})
+              }
+              : {
+                questionNumber: item.questionNumber,
+                problemId: item.problemId,
+                type,
+                success: false,
+                reason: verification.reason,
+                ...answerContext,
+                action: injected.action,
+                ...(injected.optionActions ? { optionActions: injected.optionActions } : {}),
+                ...(injected.blankActions ? { blankActions: injected.blankActions } : {})
+              };
             if (verification.success) batchHasVerifiedAnswer = true;
           } catch (error) {
             results[index] = {
@@ -333,8 +418,9 @@
           }
         }
 
-        if (batchHasVerifiedAnswer) {
+        if (batchHasVerifiedAnswer && options.save !== false) {
           const saveResult = await SaveManager.save();
+          if (saveResult.success) saved = true;
           if (!saveResult.success) {
             batch.forEach(({ index }) => {
               if (results[index]?.success) {
@@ -345,7 +431,7 @@
         }
       }
 
-      payload.answers.forEach((item, index) => {
+      answers.forEach((item, index) => {
         if (results[index]) return;
         results[index] = {
           questionNumber: item.questionNumber,
@@ -364,8 +450,10 @@
         skipped: results.filter((result) => result.skipped).length
       };
       return {
-        success: summary.failed === 0 && summary.skipped === 0,
+        success: summary.total > 0 && summary.failed === 0 && summary.skipped === 0,
         problemSetId: payload.problemSetId,
+        saveRequested: options.save !== false,
+        saved,
         summary,
         results
       };

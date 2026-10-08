@@ -45,6 +45,8 @@ docs/          产品行为、数据契约、设计与开发规约
 - 修改消息、`chrome.storage.local` 配置或数据迁移时，检索所有读写方；兼容旧值时集中处理，不在多个 UI 页面各自猜测默认值。
 - 题目导出、Prompt 输入和答案 JSON 的字段必须与 [答案 JSON 契约](./answer-json-contract.md) 一致。不得通过题号、题干或选项文本推断 `problemId`。
 - Prompt 的默认版本集中维护在 `src/shared/prompt-builder.js`；不要在 popup、content 和后台各维护一份默认提示词。
+- 答案 JSON 校验集中维护在 `src/shared/answer-contract.js`，供后台复核结果和页面回填共用；不要复制答案契约规则。
+- AI 单次请求超时与可选诊断日志配置通过 `PintiaAiConfig.defaults` 提供默认值。诊断日志不得包含 API Key、提示词、题目或答案内容。
 - 页面提取后的归一化字段和原始 `apiData` 各有用途。新增字段时说明其稳定含义，不要无故丢弃原始数据或让调用方依赖未归一化字段。
 
 ## 编码和错误处理

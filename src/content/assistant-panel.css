@@ -72,6 +72,9 @@
 #pintia-assistant-panel .pintia-assistant-report li { margin-top: 5px; overflow-wrap: anywhere; }
 #pintia-assistant-panel .pintia-assistant-report li > div { color: #758087; font: 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-report ul { margin: 3px 0 5px; padding-left: 18px; color: #758087; }
+#pintia-assistant-panel .pintia-assistant-diagnostics { margin-top: 8px; color: #758087; font: 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
+#pintia-assistant-panel .pintia-assistant-diagnostics summary { cursor: pointer; }
+#pintia-assistant-panel .pintia-assistant-diagnostics ol { max-height: 100px; overflow: auto; margin: 4px 0 0; padding-left: 20px; }
 #pintia-assistant-panel.is-collapsed { width: 130px; height: auto; min-width: 0; min-height: 0; resize: none; }
 #pintia-assistant-panel.is-collapsed .pintia-assistant-body { display: none; }
 #pintia-assistant-panel.is-collapsed .pintia-assistant-head button[data-action="collapse"] { font-size: 0; }

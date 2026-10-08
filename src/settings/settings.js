@@ -44,6 +44,8 @@ sendRuntimeMessage({ type: 'get-ai-config' }, (error, response) => {
   document.querySelector('#model-input').value = config.model;
   document.querySelector('#api-key-input').value = config.apiKey || '';
   document.querySelector('#prompt-input').value = config.prompt;
+  document.querySelector('#request-timeout-input').value = config.requestTimeoutSeconds;
+  document.querySelector('#diagnostic-logging-input').checked = config.diagnosticLoggingEnabled === true;
   document.querySelector('#auto-apply-input').checked = config.autoApplyAnswers === true;
   secondaryCheckInput.checked = config.secondaryCheckEnabled === true;
   document.querySelector('#secondary-prompt-input').value = config.secondaryPrompt;
@@ -68,6 +70,8 @@ form.addEventListener('submit', (event) => {
     model: document.querySelector('#model-input').value.trim(),
     apiKey: document.querySelector('#api-key-input').value.trim(),
     prompt: document.querySelector('#prompt-input').value.trim(),
+    requestTimeoutSeconds: Number(document.querySelector('#request-timeout-input').value),
+    diagnosticLoggingEnabled: document.querySelector('#diagnostic-logging-input').checked,
     autoApplyAnswers: document.querySelector('#auto-apply-input').checked,
     secondaryCheckEnabled: secondaryCheckInput.checked,
     secondaryPrompt: document.querySelector('#secondary-prompt-input').value.trim(),
@@ -81,6 +85,10 @@ form.addEventListener('submit', (event) => {
   };
   if (config.secondaryCheckEnabled && !config.secondaryPrompt) {
     showMessage('请填写答案复核提示词。');
+    return;
+  }
+  if (!Number.isInteger(config.requestTimeoutSeconds) || config.requestTimeoutSeconds < 10 || config.requestTimeoutSeconds > 300) {
+    showMessage('单次模型请求超时必须为 10 到 300 秒之间的整数。');
     return;
   }
   let endpoint;

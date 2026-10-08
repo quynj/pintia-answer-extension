@@ -1,6 +1,6 @@
-importScripts('../shared/prompt-builder.js', '../shared/ai-config.js');
+importScripts('../shared/prompt-builder.js', '../shared/answer-contract.js', '../shared/ai-config.js');
 
-const { defaults, isLegacyPrompt } = globalThis.PintiaAiConfig;
+const { defaults, isLegacyPrompt, isPreviousSecondaryPrompt } = globalThis.PintiaAiConfig;
 
 function sendTabMessage(tabId, message) {
   return new Promise((resolve, reject) => {
@@ -16,6 +16,7 @@ async function getAiConfig() {
   const config = { ...defaults, ...aiConfig };
   if (!aiConfig?.apiType && aiConfig?.endpoint?.includes('/responses')) config.apiType = 'responses';
   if (isLegacyPrompt(config.prompt)) config.prompt = defaults.prompt;
+  if (isPreviousSecondaryPrompt(config.secondaryPrompt)) config.secondaryPrompt = defaults.secondaryPrompt;
   return config;
 }
 
@@ -29,6 +30,10 @@ async function saveAiConfig(config) {
 
   const useSeparateVerifierConfig = config.useSeparateVerifierConfig === true;
   const secondaryCheckEnabled = config.secondaryCheckEnabled === true;
+  const requestTimeoutSeconds = Number(config.requestTimeoutSeconds);
+  if (!Number.isInteger(requestTimeoutSeconds) || requestTimeoutSeconds < 10 || requestTimeoutSeconds > 300) {
+    throw new Error('单次模型请求超时必须为 10 到 300 秒之间的整数。');
+  }
   if (secondaryCheckEnabled && !config.secondaryPrompt?.trim()) {
     throw new Error('请填写答案复核提示词。');
   }
@@ -67,6 +72,8 @@ async function saveAiConfig(config) {
     model: config.model.trim(),
     apiKey: config.apiKey.trim(),
     prompt: config.prompt?.trim() || defaults.prompt,
+    requestTimeoutSeconds,
+    diagnosticLoggingEnabled: config.diagnosticLoggingEnabled === true,
     autoApplyAnswers: config.autoApplyAnswers === true,
     secondaryCheckEnabled,
     secondaryPrompt: config.secondaryPrompt?.trim() || defaults.secondaryPrompt,
@@ -103,6 +110,24 @@ function responseText(data, apiType) {
 }
 
 async function requestModel(input, config, prompt) {
+  const timeoutSeconds = Number(config.requestTimeoutSeconds) || defaults.requestTimeoutSeconds;
+  const controller = new AbortController();
+  let timeoutId;
+  const timeout = new Promise((resolve, reject) => {
+    timeoutId = setTimeout(() => {
+      controller.abort();
+      const error = new Error(`模型请求超过 ${timeoutSeconds} 秒，已停止等待。`);
+      error.name = 'TimeoutError';
+      reject(error);
+    }, timeoutSeconds * 1000);
+  });
+  return Promise.race([
+    performModelRequest(input, config, prompt, controller.signal),
+    timeout
+  ]).finally(() => clearTimeout(timeoutId));
+}
+
+async function performModelRequest(input, config, prompt, signal) {
   if (!config.apiKey) throw new Error('请先在 AI 配置页填写 API Key。');
   const requestBody = config.apiType === 'chat-completions'
     ? {
@@ -116,7 +141,8 @@ async function requestModel(input, config, prompt) {
   const response = await fetch(config.endpoint, {
     method: 'POST',
     headers: { 'content-type': 'application/json', authorization: `Bearer ${config.apiKey}` },
-    body: JSON.stringify(requestBody)
+    body: JSON.stringify(requestBody),
+    signal
   });
   const data = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(data?.error?.message || `模型请求失败（${response.status}）`);
@@ -125,13 +151,42 @@ async function requestModel(input, config, prompt) {
   return text;
 }
 
-async function askAi(input) {
+function notifyAiProgress(tabId, requestId, event) {
+  if (!tabId || !requestId) return;
+  chrome.tabs.sendMessage(tabId, { type: 'ai-progress', requestId, ...event }, () => {
+    void chrome.runtime.lastError;
+  });
+}
+
+function errorCategory(error) {
+  if (error?.name === 'TimeoutError' || error?.name === 'AbortError') return 'timeout';
+  if (error?.name === 'AnswerValidationError') return 'invalid-output';
+  return 'request-failed';
+}
+
+async function askAi(input, questions, problemSetId, sender, requestId) {
   const config = await getAiConfig();
-  const firstAnswer = await requestModel(input, config, config.prompt);
+  const tabId = sender.tab?.id;
+  let stageStartedAt = Date.now();
+  notifyAiProgress(tabId, requestId, { phase: 'draft-started' });
+  let firstAnswer;
+  try {
+    firstAnswer = await requestModel(input, config, config.prompt);
+  } catch (error) {
+    notifyAiProgress(tabId, requestId, {
+      phase: 'draft-failed',
+      durationMs: Date.now() - stageStartedAt,
+      reason: errorCategory(error)
+    });
+    throw error;
+  }
+  notifyAiProgress(tabId, requestId, { phase: 'draft-completed', durationMs: Date.now() - stageStartedAt });
   if (!config.secondaryCheckEnabled) {
     return { text: firstAnswer, autoApplyAnswers: config.autoApplyAnswers === true };
   }
 
+  stageStartedAt = Date.now();
+  notifyAiProgress(tabId, requestId, { phase: 'review-started' });
   const verifierConfig = config.useSeparateVerifierConfig
     ? config.verifierConfig
     : config;
@@ -143,13 +198,26 @@ async function askAi(input) {
   ].join('\n\n');
   try {
     const verifierPrompt = `${config.secondaryPrompt}\n\n最终结果必须遵循以下主回答提示词中的输出契约：\n${config.prompt}`;
-    const finalAnswer = await requestModel(verifierInput, verifierConfig, verifierPrompt);
+    const reviewAnswer = await requestModel(verifierInput, verifierConfig, verifierPrompt);
+    let finalAnswer;
+    try {
+      finalAnswer = globalThis.PintiaAnswerContract.parse(reviewAnswer, problemSetId, questions);
+    } catch (error) {
+      error.name = 'AnswerValidationError';
+      throw error;
+    }
+    notifyAiProgress(tabId, requestId, { phase: 'review-completed', durationMs: Date.now() - stageStartedAt });
     return {
-      text: finalAnswer,
+      text: JSON.stringify(finalAnswer, null, 2),
       autoApplyAnswers: config.autoApplyAnswers === true,
       secondaryChecked: true
     };
   } catch (error) {
+    notifyAiProgress(tabId, requestId, {
+      phase: 'review-failed',
+      durationMs: Date.now() - stageStartedAt,
+      reason: errorCategory(error)
+    });
     return {
       text: firstAnswer,
       autoApplyAnswers: false,
@@ -180,7 +248,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       .then(() => ({ opened: true }));
   }
   else if (message.type === 'get-question-bank') operation = getQuestionBank(sender);
-  else if (message.type === 'ask-ai') operation = askAi(message.input);
+  else if (message.type === 'ask-ai') operation = askAi(message.input, message.questions, message.problemSetId, sender, message.requestId);
   else return false;
 
   operation.then(sendResponse).catch((error) => sendResponse({ error: error.message || '操作失败。' }));

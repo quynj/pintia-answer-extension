@@ -93,6 +93,9 @@
         type: question.type,
         prompt: question.prompt,
         options: question.options || [],
+        optionLabels: (question.options || []).length <= 26
+          ? (question.options || []).map((_, index) => String.fromCharCode(65 + index))
+          : [],
         images: question.images || [],
         data: question.apiData || question
       }))

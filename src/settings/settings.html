@@ -52,6 +52,17 @@
             <small id="advanced-summary-status">答案复核已关闭</small>
           </summary>
           <div class="advanced-settings-body">
+            <label>单次模型请求超时（秒）
+              <input id="request-timeout-input" type="number" min="10" max="300" step="1" required />
+              <small>初稿与复核各自使用此上限；默认 60 秒。开启复核时，两次请求可能分别等待至上限。</small>
+            </label>
+            <label class="advanced-option">
+              <input id="diagnostic-logging-input" type="checkbox" />
+              <span>
+                <strong>记录本次 AI 诊断日志</strong>
+                <small>在答案助手显示阶段、耗时和错误类别；仅保留在当前页面会话，不记录题目、答案或密钥。</small>
+              </span>
+            </label>
             <label class="advanced-option">
               <input id="secondary-check-input" type="checkbox" />
               <span>

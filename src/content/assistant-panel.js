@@ -4,7 +4,11 @@
     questions: [],
     problemSetId: null,
     aiConfig: null,
-    latestReport: null
+    latestReport: null,
+    activeAiRequestId: null,
+    aiPhase: null,
+    aiPhaseStartedAt: 0,
+    aiElapsedTimer: null
   };
 
   const typeLabels = {
@@ -50,6 +54,10 @@
           <button data-action="apply">校验并回填</button>
         </div>
         <p class="pintia-assistant-log" data-log></p>
+        <details class="pintia-assistant-diagnostics" data-diagnostics hidden>
+          <summary>本次 AI 诊断日志</summary>
+          <ol data-diagnostic-list></ol>
+        </details>
       </div>`;
     document.body.appendChild(panel);
     bindPanel(panel);
@@ -70,6 +78,49 @@
   function setLog(panel, message) {
     panel.querySelector('[data-log]').textContent = message;
   }
+
+  function diagnosticLog(panel, message) {
+    if (!state.aiConfig?.diagnosticLoggingEnabled) return;
+    const list = panel.querySelector('[data-diagnostic-list]');
+    const item = document.createElement('li');
+    item.textContent = `${new Date().toLocaleTimeString()} · ${message}`;
+    list.appendChild(item);
+    panel.querySelector('[data-diagnostics]').hidden = false;
+  }
+
+  function updateAiElapsed(panel) {
+    if (!state.aiPhase || !state.aiPhaseStartedAt) return;
+    const seconds = Math.floor((Date.now() - state.aiPhaseStartedAt) / 1000);
+    const phaseLabel = state.aiPhase === '复核' ? '初稿已返回，正在请求复核' : '正在请求初稿';
+    setStatus(panel, `${phaseLabel}（已等待 ${seconds} 秒）`);
+  }
+
+  chrome.runtime.onMessage.addListener((message) => {
+    if (message?.type !== 'ai-progress' || message.requestId !== state.activeAiRequestId) return;
+    const panel = document.querySelector('#pintia-assistant-panel');
+    if (!panel) return;
+    if (message.phase === 'draft-started' || message.phase === 'review-started') {
+      state.aiPhase = message.phase === 'draft-started' ? '初稿' : '复核';
+      state.aiPhaseStartedAt = Date.now();
+      if (!state.aiElapsedTimer) state.aiElapsedTimer = window.setInterval(() => updateAiElapsed(panel), 1000);
+      updateAiElapsed(panel);
+      diagnosticLog(panel, `${state.aiPhase}请求开始`);
+      return;
+    }
+
+    const stage = message.phase.startsWith('draft-') ? '初稿' : '复核';
+    const duration = `${((message.durationMs || 0) / 1000).toFixed(1)} 秒`;
+    if (message.phase.endsWith('-completed')) {
+      diagnosticLog(panel, `${stage}请求完成，耗时 ${duration}`);
+    } else if (message.phase.endsWith('-failed')) {
+      const reasons = {
+        timeout: '超时',
+        'invalid-output': '结果校验失败',
+        'request-failed': '请求失败'
+      };
+      diagnosticLog(panel, `${stage}${reasons[message.reason] || '未完成'}，耗时 ${duration}`);
+    }
+  });
 
   function updateSaveOptions(panel) {
     const selectedCount = panel.querySelectorAll('[data-types] input:checked').length;
@@ -155,6 +206,7 @@
     try {
       const { config } = await sendRuntimeMessage({ type: 'get-ai-config' });
       state.aiConfig = config;
+      panel.querySelector('[data-diagnostics]').hidden = config.diagnosticLoggingEnabled !== true;
     } catch (error) {
       setLog(panel, error.message || '无法读取 AI 配置');
     }
@@ -202,10 +254,40 @@
     const button = panel.querySelector('[data-action="api"]');
     button.disabled = true;
     try {
-      setStatus(panel, '正在生成答案');
+      const { config } = await sendRuntimeMessage({ type: 'get-ai-config' });
+      state.aiConfig = config;
+      const diagnosticDetails = panel.querySelector('[data-diagnostics]');
+      diagnosticDetails.hidden = config.diagnosticLoggingEnabled !== true;
+      const diagnosticList = panel.querySelector('[data-diagnostic-list]');
+      diagnosticList.replaceChildren();
+      const requestId = crypto.randomUUID();
+      state.activeAiRequestId = requestId;
+      state.aiPhase = '初稿';
+      state.aiPhaseStartedAt = Date.now();
+      state.aiElapsedTimer = window.setInterval(() => updateAiElapsed(panel), 1000);
+      updateAiElapsed(panel);
+      diagnosticLog(panel, 'AI 请求开始');
       const input = promptApi.buildInput(document.title, questions, state.problemSetId);
+      const questionMetadata = questions.map((question) => {
+        const rawId = question.id ?? question.apiData?.id ?? question.apiData?.problem_id ?? question.apiData?.question_id;
+        const options = question.options || [];
+        return {
+          problemId: rawId === undefined || rawId === null ? null : String(rawId),
+          questionNumber: question.number ?? null,
+          type: question.type,
+          optionLabels: options.length <= 26
+            ? options.map((_, index) => String.fromCharCode(65 + index))
+            : []
+        };
+      });
       const response = await new Promise((resolve, reject) => {
-        chrome.runtime.sendMessage({ type: 'ask-ai', input }, (result) => {
+        chrome.runtime.sendMessage({
+          type: 'ask-ai',
+          input,
+          questions: questionMetadata,
+          problemSetId: state.problemSetId,
+          requestId
+        }, (result) => {
           if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
           else resolve(result);
         });
@@ -231,6 +313,11 @@
         ? '复核后的最终答案已载入答案编辑区。请核对 JSON 内容，再点击“校验并回填”。'
         : '模型答案已载入答案编辑区。请核对 JSON 内容，再点击“校验并回填”。');
     } finally {
+      if (state.aiElapsedTimer) window.clearInterval(state.aiElapsedTimer);
+      state.aiElapsedTimer = null;
+      state.activeAiRequestId = null;
+      state.aiPhase = null;
+      state.aiPhaseStartedAt = 0;
       button.disabled = false;
     }
   }

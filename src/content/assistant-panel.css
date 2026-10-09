@@ -17,6 +17,7 @@
   box-shadow: 8px 8px 0 rgba(23, 32, 38, .9);
   font: 13px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
+#pintia-assistant-panel[hidden] { display: none !important; }
 #pintia-assistant-panel * { box-sizing: border-box; }
 #pintia-assistant-panel .pintia-assistant-head {
   display: flex;
@@ -45,10 +46,10 @@
 #pintia-assistant-panel .pintia-assistant-types { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 9px; color: #758087; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-types label { display: inline-flex; gap: 3px; align-items: center; color: #172026; }
 #pintia-assistant-panel .pintia-assistant-types em { font-style: normal; }
-#pintia-assistant-panel .pintia-assistant-save-options { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 0 0 9px; }
-#pintia-assistant-panel .pintia-assistant-save-options[hidden] { display: none; }
-#pintia-assistant-panel .pintia-assistant-save-options label { font-size: 11px; font-weight: 700; }
-#pintia-assistant-panel .pintia-assistant-save-options select { max-width: 100%; padding: 4px; border: 1px solid rgba(23, 32, 38, .25); color: #172026; background: rgba(255, 255, 255, .55); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
+#pintia-assistant-panel .pintia-assistant-options { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 12px; margin: 0 0 9px; }
+#pintia-assistant-panel .pintia-assistant-options label { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; }
+#pintia-assistant-panel .pintia-assistant-options input { margin: 0; accent-color: #ff8066; }
+#pintia-assistant-panel .pintia-assistant-options small { flex-basis: 100%; color: #758087; font: 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-answer-label { display: block; margin: 0 0 4px; color: #172026; font-size: 11px; font-weight: 700; }
 #pintia-assistant-panel .pintia-assistant-answer-hint { margin: 0 0 7px; color: #758087; font: 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel textarea {
@@ -75,11 +76,47 @@
 #pintia-assistant-panel .pintia-assistant-diagnostics { margin-top: 8px; color: #758087; font: 10px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-diagnostics summary { cursor: pointer; }
 #pintia-assistant-panel .pintia-assistant-diagnostics ol { max-height: 100px; overflow: auto; margin: 4px 0 0; padding-left: 20px; }
-#pintia-assistant-panel.is-collapsed { width: 130px; height: auto; min-width: 0; min-height: 0; resize: none; }
+#pintia-assistant-panel.is-collapsed {
+  width: 44px;
+  height: 44px;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  resize: none;
+  border: 0;
+  border-radius: 13px;
+  background: #ff8066;
+  box-shadow: 3px 4px 0 rgba(23, 32, 38, .9);
+}
 #pintia-assistant-panel.is-collapsed .pintia-assistant-body { display: none; }
-#pintia-assistant-panel.is-collapsed .pintia-assistant-head button[data-action="collapse"] { font-size: 0; }
-#pintia-assistant-panel.is-collapsed .pintia-assistant-head button[data-action="collapse"]::after { content: "+"; font-size: 13px; }
+#pintia-assistant-panel.is-collapsed .pintia-assistant-head {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border-radius: inherit;
+  background: transparent;
+}
+#pintia-assistant-panel.is-collapsed .pintia-assistant-head strong,
+#pintia-assistant-panel.is-collapsed .pintia-assistant-head button:not([data-action="collapse"]) { display: none; }
+#pintia-assistant-panel.is-collapsed .pintia-assistant-head > div { width: 100%; height: 100%; }
+#pintia-assistant-panel.is-collapsed .pintia-assistant-head button[data-action="collapse"] {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  color: #172026;
+  font-size: 0;
+  touch-action: none;
+}
+#pintia-assistant-panel.is-collapsed .pintia-assistant-head button[data-action="collapse"]::after {
+  content: "P";
+  font: 700 20px/1 Georgia, "Times New Roman", serif;
+}
+#pintia-assistant-panel.is-collapsed .pintia-assistant-head button[data-action="collapse"]:hover:not(:disabled) {
+  color: #172026;
+  background: rgba(255, 255, 255, .2);
+}
 @media (max-width: 600px) {
   #pintia-assistant-panel { top: 12px; right: 12px; width: min(380px, calc(100vw - 24px)); }
-  #pintia-assistant-panel.is-collapsed { right: 12px; left: auto; width: 130px; }
+  #pintia-assistant-panel.is-collapsed { right: 12px; left: auto; width: 44px; }
 }

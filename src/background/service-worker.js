@@ -22,6 +22,7 @@ async function getAiConfig() {
 
 async function saveAiConfig(config) {
   if (!config || typeof config !== 'object') throw new Error('AI 配置格式无效。');
+  const { aiConfig: existingConfig } = await chrome.storage.local.get('aiConfig');
   const endpoint = new URL(config.endpoint);
   if (!['http:', 'https:'].includes(endpoint.protocol)) throw new Error('API 地址必须使用 HTTP 或 HTTPS。');
   if (!config.model?.trim()) throw new Error('请填写模型名称。');
@@ -73,8 +74,8 @@ async function saveAiConfig(config) {
     apiKey: config.apiKey.trim(),
     prompt: config.prompt?.trim() || defaults.prompt,
     requestTimeoutSeconds,
-    diagnosticLoggingEnabled: config.diagnosticLoggingEnabled === true,
-    autoApplyAnswers: config.autoApplyAnswers === true,
+    diagnosticLoggingEnabled: existingConfig?.diagnosticLoggingEnabled === true,
+    autoApplyAnswers: existingConfig?.autoApplyAnswers === true,
     secondaryCheckEnabled,
     secondaryPrompt: config.secondaryPrompt?.trim() || defaults.secondaryPrompt,
     useSeparateVerifierConfig,
@@ -82,6 +83,25 @@ async function saveAiConfig(config) {
   };
   await chrome.storage.local.set({ aiConfig: savedConfig });
   return savedConfig;
+}
+
+async function saveAssistantOptions(options) {
+  if (typeof options.autoApplyAnswers !== 'boolean'
+    || typeof options.diagnosticLoggingEnabled !== 'boolean') {
+    throw new Error('助手选项格式无效。');
+  }
+  const { aiConfig } = await chrome.storage.local.get('aiConfig');
+  const updatedConfig = {
+    ...defaults,
+    ...aiConfig,
+    autoApplyAnswers: options.autoApplyAnswers,
+    diagnosticLoggingEnabled: options.diagnosticLoggingEnabled
+  };
+  await chrome.storage.local.set({ aiConfig: updatedConfig });
+  return {
+    autoApplyAnswers: updatedConfig.autoApplyAnswers,
+    diagnosticLoggingEnabled: updatedConfig.diagnosticLoggingEnabled
+  };
 }
 
 async function getQuestionBank(sender) {
@@ -182,7 +202,7 @@ async function askAi(input, questions, problemSetId, sender, requestId) {
   }
   notifyAiProgress(tabId, requestId, { phase: 'draft-completed', durationMs: Date.now() - stageStartedAt });
   if (!config.secondaryCheckEnabled) {
-    return { text: firstAnswer, autoApplyAnswers: config.autoApplyAnswers === true };
+    return { text: firstAnswer };
   }
 
   stageStartedAt = Date.now();
@@ -209,7 +229,6 @@ async function askAi(input, questions, problemSetId, sender, requestId) {
     notifyAiProgress(tabId, requestId, { phase: 'review-completed', durationMs: Date.now() - stageStartedAt });
     return {
       text: JSON.stringify(finalAnswer, null, 2),
-      autoApplyAnswers: config.autoApplyAnswers === true,
       secondaryChecked: true
     };
   } catch (error) {
@@ -220,7 +239,6 @@ async function askAi(input, questions, problemSetId, sender, requestId) {
     });
     return {
       text: firstAnswer,
-      autoApplyAnswers: false,
       secondaryError: `答案复核未完成，未执行自动回填或保存：${error.message || '模型请求失败。'}`
     };
   }
@@ -243,6 +261,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     });
   }
   else if (message.type === 'save-ai-config') operation = saveAiConfig(message.config).then((config) => ({ config }));
+  else if (message.type === 'save-assistant-options') operation = saveAssistantOptions(message);
   else if (message.type === 'open-ai-settings') {
     operation = chrome.tabs.create({ url: chrome.runtime.getURL('src/settings/settings.html') })
       .then(() => ({ opened: true }));

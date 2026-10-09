@@ -17,7 +17,9 @@
       useSeparateVerifierConfig: false
     }),
     isLegacyPrompt(prompt) {
-      return prompt === legacyPrompt || prompt?.startsWith(legacyPromptPrefix);
+      return prompt === legacyPrompt
+        || prompt?.startsWith(legacyPromptPrefix)
+        || prompt?.startsWith('请根据提供的题目数据，逐题分析并给出答案。\n\n## 输出要求\n你必须严格按照以下 JSON 格式输出：');
     },
     isPreviousSecondaryPrompt(prompt) {
       return prompt === previousSecondaryPrompt;

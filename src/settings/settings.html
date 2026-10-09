@@ -39,13 +39,6 @@
         <label>回答提示词
           <textarea id="prompt-input" rows="12" required></textarea>
         </label>
-        <label class="auto-apply-option">
-          <input id="auto-apply-input" type="checkbox" />
-          <span>
-            <strong>AI 答案生成后自动回填并保存</strong>
-            <small>启用答案复核时，仅在最终答案返回并通过格式校验后回填保存；复核失败时不会自动使用初稿。</small>
-          </span>
-        </label>
         <details class="advanced-settings">
           <summary>
             <strong>高级设置</strong>
@@ -55,13 +48,6 @@
             <label>单次模型请求超时（秒）
               <input id="request-timeout-input" type="number" min="10" max="300" step="1" required />
               <small>初稿与复核各自使用此上限；默认 60 秒。开启复核时，两次请求可能分别等待至上限。</small>
-            </label>
-            <label class="advanced-option">
-              <input id="diagnostic-logging-input" type="checkbox" />
-              <span>
-                <strong>记录本次 AI 诊断日志</strong>
-                <small>在答案助手显示阶段、耗时和错误类别；仅保留在当前页面会话，不记录题目、答案或密钥。</small>
-              </span>
             </label>
             <label class="advanced-option">
               <input id="secondary-check-input" type="checkbox" />

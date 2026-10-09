@@ -45,8 +45,6 @@ sendRuntimeMessage({ type: 'get-ai-config' }, (error, response) => {
   document.querySelector('#api-key-input').value = config.apiKey || '';
   document.querySelector('#prompt-input').value = config.prompt;
   document.querySelector('#request-timeout-input').value = config.requestTimeoutSeconds;
-  document.querySelector('#diagnostic-logging-input').checked = config.diagnosticLoggingEnabled === true;
-  document.querySelector('#auto-apply-input').checked = config.autoApplyAnswers === true;
   secondaryCheckInput.checked = config.secondaryCheckEnabled === true;
   document.querySelector('#secondary-prompt-input').value = config.secondaryPrompt;
   separateVerifierInput.checked = config.useSeparateVerifierConfig === true;
@@ -71,8 +69,6 @@ form.addEventListener('submit', (event) => {
     apiKey: document.querySelector('#api-key-input').value.trim(),
     prompt: document.querySelector('#prompt-input').value.trim(),
     requestTimeoutSeconds: Number(document.querySelector('#request-timeout-input').value),
-    diagnosticLoggingEnabled: document.querySelector('#diagnostic-logging-input').checked,
-    autoApplyAnswers: document.querySelector('#auto-apply-input').checked,
     secondaryCheckEnabled: secondaryCheckInput.checked,
     secondaryPrompt: document.querySelector('#secondary-prompt-input').value.trim(),
     useSeparateVerifierConfig: separateVerifierInput.checked,

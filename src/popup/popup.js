@@ -37,7 +37,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
 detectButton.addEventListener('click', () => {
   detectButton.disabled = true;
   errorBox.hidden = true;
-  setStatus('busy', '正在检测题库', '正在读取当前作业的题目数据');
+  setStatus('busy', '正在检测题集', '正在读取当前作业的题目数据');
 
   chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
     if (!tab?.id || !tab.url?.startsWith('https://pintia.cn/')) {
@@ -79,7 +79,7 @@ detectButton.addEventListener('click', () => {
           detectedAt: new Date().toISOString()
         }
       });
-      setStatus('ready', '题库检测完成', `共检测到 ${response.questionCount} 道题目`);
+      setStatus('ready', '题集检测完成', `共检测到 ${response.questionCount} 道题目`);
       openAssistantButton.disabled = false;
       detectButton.disabled = false;
     });
@@ -92,11 +92,14 @@ openAssistantButton.addEventListener('click', async () => {
   try {
     const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
     if (!tab?.id) throw new Error('无法获取当前浏览器标签页。');
-    await sendTabMessage(tab.id, { type: 'open-assistant' });
-    setStatus('ready', '答案助手已打开', '可配置 AI 服务、导出题库或生成答案。');
-    setTimeout(() => window.close(), 100);
+    const response = await sendTabMessage(tab.id, { type: 'toggle-assistant' });
+    if (response?.error) throw new Error(response.error);
+    if (typeof response?.visible !== 'boolean') throw new Error('页面尚未就绪，请刷新 Pintia 页面后重试。');
+    setStatus('ready', response.visible ? '答案助手已打开' : '答案助手已关闭',
+      response.visible ? '可配置 AI 服务、导出题库或生成答案。' : '点击下方按钮可重新打开助手面板。');
+    window.close();
   } catch (error) {
-    showError(error.message || '无法打开答案助手。请刷新 Pintia 页面后重试。');
+    showError(error.message || '无法切换答案助手。请刷新 Pintia 页面后重试。');
     openAssistantButton.disabled = false;
   }
 });

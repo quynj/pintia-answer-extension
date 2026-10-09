@@ -1,6 +1,7 @@
 importScripts('../shared/prompt-builder.js', '../shared/answer-contract.js', '../shared/ai-config.js');
 
 const { defaults, isLegacyPrompt, isPreviousSecondaryPrompt } = globalThis.PintiaAiConfig;
+const activeAiRequests = new Map();
 
 function sendTabMessage(tabId, message) {
   return new Promise((resolve, reject) => {
@@ -129,9 +130,12 @@ function responseText(data, apiType) {
     .map((item) => item.text).join('\n');
 }
 
-async function requestModel(input, config, prompt) {
+async function requestModel(input, config, prompt, signal) {
   const timeoutSeconds = Number(config.requestTimeoutSeconds) || defaults.requestTimeoutSeconds;
   const controller = new AbortController();
+  const abortRequest = () => controller.abort();
+  if (signal?.aborted) controller.abort();
+  else signal?.addEventListener('abort', abortRequest, { once: true });
   let timeoutId;
   const timeout = new Promise((resolve, reject) => {
     timeoutId = setTimeout(() => {
@@ -144,7 +148,10 @@ async function requestModel(input, config, prompt) {
   return Promise.race([
     performModelRequest(input, config, prompt, controller.signal),
     timeout
-  ]).finally(() => clearTimeout(timeoutId));
+  ]).finally(() => {
+    clearTimeout(timeoutId);
+    signal?.removeEventListener('abort', abortRequest);
+  });
 }
 
 async function performModelRequest(input, config, prompt, signal) {
@@ -164,7 +171,10 @@ async function performModelRequest(input, config, prompt, signal) {
     body: JSON.stringify(requestBody),
     signal
   });
-  const data = await response.json().catch(() => ({}));
+  const data = await response.json().catch((error) => {
+    if (signal.aborted) throw error;
+    return {};
+  });
   if (!response.ok) throw new Error(data?.error?.message || `模型请求失败（${response.status}）`);
   const text = responseText(data, config.apiType);
   if (!text) throw new Error('模型没有返回可读答案。');
@@ -179,19 +189,31 @@ function notifyAiProgress(tabId, requestId, event) {
 }
 
 function errorCategory(error) {
-  if (error?.name === 'TimeoutError' || error?.name === 'AbortError') return 'timeout';
+  if (error?.name === 'TimeoutError') return 'timeout';
+  if (error?.name === 'AbortError') return 'cancelled';
   if (error?.name === 'AnswerValidationError') return 'invalid-output';
   return 'request-failed';
 }
 
 async function askAi(input, questions, problemSetId, sender, requestId) {
+  const controller = new AbortController();
+  if (requestId) activeAiRequests.set(requestId, controller);
+  try {
+    return await runAiRequest(input, questions, problemSetId, sender, requestId, controller.signal);
+  } finally {
+    if (activeAiRequests.get(requestId) === controller) activeAiRequests.delete(requestId);
+  }
+}
+
+async function runAiRequest(input, questions, problemSetId, sender, requestId, signal) {
   const config = await getAiConfig();
+  if (signal.aborted) throw new DOMException('AI 请求已取消。', 'AbortError');
   const tabId = sender.tab?.id;
   let stageStartedAt = Date.now();
   notifyAiProgress(tabId, requestId, { phase: 'draft-started' });
   let firstAnswer;
   try {
-    firstAnswer = await requestModel(input, config, config.prompt);
+    firstAnswer = await requestModel(input, config, config.prompt, signal);
   } catch (error) {
     notifyAiProgress(tabId, requestId, {
       phase: 'draft-failed',
@@ -218,7 +240,7 @@ async function askAi(input, questions, problemSetId, sender, requestId) {
   ].join('\n\n');
   try {
     const verifierPrompt = `${config.secondaryPrompt}\n\n最终结果必须遵循以下主回答提示词中的输出契约：\n${config.prompt}`;
-    const reviewAnswer = await requestModel(verifierInput, verifierConfig, verifierPrompt);
+    const reviewAnswer = await requestModel(verifierInput, verifierConfig, verifierPrompt, signal);
     let finalAnswer;
     try {
       finalAnswer = globalThis.PintiaAnswerContract.parse(reviewAnswer, problemSetId, questions);
@@ -237,6 +259,7 @@ async function askAi(input, questions, problemSetId, sender, requestId) {
       durationMs: Date.now() - stageStartedAt,
       reason: errorCategory(error)
     });
+    if (error?.name === 'AbortError') throw error;
     return {
       text: firstAnswer,
       secondaryError: `答案复核未完成，未执行自动回填或保存：${error.message || '模型请求失败。'}`
@@ -268,6 +291,11 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
   else if (message.type === 'get-question-bank') operation = getQuestionBank(sender);
   else if (message.type === 'ask-ai') operation = askAi(message.input, message.questions, message.problemSetId, sender, message.requestId);
+  else if (message.type === 'cancel-ai') {
+    const controller = activeAiRequests.get(message.requestId);
+    controller?.abort();
+    operation = Promise.resolve({ cancelled: Boolean(controller) });
+  }
   else return false;
 
   operation.then(sendResponse).catch((error) => sendResponse({ error: error.message || '操作失败。' }));

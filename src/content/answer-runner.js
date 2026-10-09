@@ -254,10 +254,18 @@
     fill_blank: FillBlankInjector
   };
 
+  function requiresBatchSave(payload, allowedTypes) {
+    const selectedTypes = new Set(allowedTypes);
+    return supportedTypes.filter((type) => selectedTypes.has(type)
+      && payload.answers.some((item) => item.type === type)).length > 1;
+  }
+
   const TaskRunner = {
     async run(payload, allowedTypes = supportedTypes, options = {}) {
       const selectedTypes = new Set(allowedTypes);
       const answers = payload.answers.filter((item) => selectedTypes.has(item.type));
+      const forcedBatchSave = requiresBatchSave(payload, allowedTypes);
+      const saveRequested = options.save !== false || forcedBatchSave;
       const results = new Array(answers.length);
       let saved = false;
       answers.forEach((item, index) => {
@@ -357,7 +365,7 @@
           }
         }
 
-        if (batchHasVerifiedAnswer && options.save !== false) {
+        if (batchHasVerifiedAnswer && saveRequested) {
           const saveResult = await SaveManager.save();
           if (saveResult.success) saved = true;
           if (!saveResult.success) {
@@ -366,6 +374,21 @@
                 results[index] = { ...results[index], success: false, reason: saveResult.reason };
               }
             });
+            if (forcedBatchSave) {
+              const remainingTypes = new Set(supportedTypes.slice(supportedTypes.indexOf(type) + 1));
+              for (const { item, index } of answers
+                .map((item, index) => ({ item, index }))
+                .filter(({ item, index }) => remainingTypes.has(item.type) && !results[index])) {
+                results[index] = {
+                  questionNumber: item.questionNumber,
+                  problemId: item.problemId,
+                  type: item.type,
+                  success: false,
+                  reason: 'stopped because the previous question type batch could not be saved'
+                };
+              }
+              break;
+            }
           }
         }
       }
@@ -391,7 +414,7 @@
       return {
         success: summary.total > 0 && summary.failed === 0 && summary.skipped === 0,
         problemSetId: payload.problemSetId,
-        saveRequested: options.save !== false,
+        saveRequested,
         saved,
         summary,
         results
@@ -401,6 +424,7 @@
 
   window.PintiaAnswerRunner = {
     parse: AnswerParser.parse,
+    requiresBatchSave,
     run: TaskRunner.run
   };
 })();

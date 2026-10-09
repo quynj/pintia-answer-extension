@@ -6,9 +6,11 @@
     aiConfig: null,
     latestReport: null,
     activeAiRequestId: null,
+    aiMessageSentRequestId: null,
     aiPhase: null,
     aiPhaseStartedAt: 0,
     aiElapsedTimer: null,
+    aiTimerRequestId: null,
     configReady: Promise.resolve(),
     collapsed: true,
     panelStateReady: chrome.storage.local.get('assistantCollapsed').then(({ assistantCollapsed }) => {
@@ -43,7 +45,7 @@
         <div class="pintia-assistant-options">
           <label><input type="checkbox" data-auto-save />自动回填并保存</label>
           <label><input type="checkbox" data-diagnostic-logging />记录 AI 诊断日志</label>
-          <small>范围跟随上方勾选题型；全选时覆盖整套题中的可回填题型。编程题和简答题暂不支持页面回填。关闭后可手动回填，但不会保存。</small>
+          <small>范围跟随上方勾选题型；全选时覆盖整套题中的可回填题型。编程题和简答题暂不支持页面回填。关闭后单题型手动回填不会保存；多题型回填会在开始前提示，并逐类保存以避免切换题型时丢失答案。</small>
         </div>
         <details class="pintia-assistant-report" data-report hidden>
           <summary>回填明细</summary>
@@ -123,6 +125,7 @@
     } else if (message.phase.endsWith('-failed')) {
       const reasons = {
         timeout: '超时',
+        cancelled: '已取消',
         'invalid-output': '结果校验失败',
         'request-failed': '请求失败'
       };
@@ -247,23 +250,26 @@
     if (!questions.length) throw new Error('请至少选择一种题型。');
     const button = panel.querySelector('[data-action="api"]');
     const autoSaveToggle = panel.querySelector('[data-auto-save]');
+    const requestId = crypto.randomUUID();
     let autoApplyAnswers;
+    state.activeAiRequestId = requestId;
     button.disabled = true;
     autoSaveToggle.disabled = true;
     try {
       await state.configReady;
+      if (state.activeAiRequestId !== requestId) return;
       autoApplyAnswers = autoSaveToggle.checked;
       const { config } = await sendRuntimeMessage({ type: 'get-ai-config' });
+      if (state.activeAiRequestId !== requestId) return;
       state.aiConfig = config;
       const diagnosticLoggingEnabled = panel.querySelector('[data-diagnostic-logging]').checked;
       const diagnosticDetails = panel.querySelector('[data-diagnostics]');
       diagnosticDetails.hidden = !diagnosticLoggingEnabled;
       const diagnosticList = panel.querySelector('[data-diagnostic-list]');
       diagnosticList.replaceChildren();
-      const requestId = crypto.randomUUID();
-      state.activeAiRequestId = requestId;
       state.aiPhase = '初稿';
       state.aiPhaseStartedAt = Date.now();
+      state.aiTimerRequestId = requestId;
       state.aiElapsedTimer = window.setInterval(() => updateAiElapsed(panel), 1000);
       updateAiElapsed(panel);
       diagnosticLog(panel, 'AI 请求开始');
@@ -281,6 +287,7 @@
         };
       });
       const response = await new Promise((resolve, reject) => {
+        state.aiMessageSentRequestId = requestId;
         chrome.runtime.sendMessage({
           type: 'ask-ai',
           input,
@@ -292,6 +299,7 @@
           else resolve(result);
         });
       });
+      if (state.activeAiRequestId !== requestId) return;
       if (response?.error) throw new Error(response.error);
       if (typeof response?.text !== 'string' || !response.text.trim()) throw new Error('API 未返回答案文本。');
       panel.querySelector('[data-answer]').value = response.text;
@@ -313,11 +321,15 @@
         ? '复核后的最终答案已载入答案编辑区。请核对 JSON 内容，再点击“校验并回填”。'
         : '模型答案已载入答案编辑区。请核对 JSON 内容，再点击“校验并回填”。');
     } finally {
-      if (state.aiElapsedTimer) window.clearInterval(state.aiElapsedTimer);
-      state.aiElapsedTimer = null;
-      state.activeAiRequestId = null;
-      state.aiPhase = null;
-      state.aiPhaseStartedAt = 0;
+      if (state.aiTimerRequestId === requestId) {
+        if (state.aiElapsedTimer) window.clearInterval(state.aiElapsedTimer);
+        state.aiElapsedTimer = null;
+        state.aiTimerRequestId = null;
+        state.aiPhase = null;
+        state.aiPhaseStartedAt = 0;
+      }
+      if (state.activeAiRequestId === requestId) state.activeAiRequestId = null;
+      if (state.aiMessageSentRequestId === requestId) state.aiMessageSentRequestId = null;
       button.disabled = false;
       autoSaveToggle.disabled = false;
     }
@@ -353,6 +365,14 @@
       const answerCount = answers.answers.filter((answer) => selectedTypes.includes(answer.type)).length;
       if (!answerCount) throw new Error('答案 JSON 中没有已勾选题型的答案。');
       const save = options.save ?? panel.querySelector('[data-auto-save]').checked;
+      const forcedBatchSave = !save && window.PintiaAnswerRunner.requiresBatchSave(answers, selectedTypes);
+      if (forcedBatchSave && !window.confirm(
+        '答案包含多种可回填题型，Pintia 切换题型时可能阻止离开未保存的页面。为避免答案丢失，本次将逐类保存，即使“自动回填并保存”未勾选。是否继续？'
+      )) {
+        setStatus(panel, '已取消回填');
+        setLog(panel, '未开始回填；页面答案未修改或保存。');
+        return;
+      }
       setStatus(panel, '正在校验并回填答案');
       const report = await window.PintiaAnswerRunner.run(answers, selectedTypes, { save });
       const { total, success, failed, skipped } = report.summary;
@@ -367,7 +387,8 @@
           ? '没有成功执行保存'
           : '本次未触发保存（如有修改，仍留在页面）';
       const changeMessage = changedCount ? `实际修改 ${changedCount} 道题` : '本次没有题目内容发生变化';
-      const message = `答案项 ${total}；成功 ${success}；失败 ${failed}；跳过 ${skipped}；${changeMessage}；${saveMessage}。`;
+      const batchSaveMessage = forcedBatchSave ? '多题型安全保护要求逐类保存' : '';
+      const message = `答案项 ${total}；成功 ${success}；失败 ${failed}；跳过 ${skipped}；${changeMessage}；${saveMessage}${batchSaveMessage ? `；${batchSaveMessage}` : ''}。`;
       state.latestReport = { report, message };
       setLog(panel, message);
     } finally {
@@ -455,7 +476,22 @@
           button.setAttribute('aria-label', collapsed ? '展开答案助手' : '收起答案助手');
           await chrome.storage.local.set({ assistantCollapsed: collapsed });
         }
-        if (action === 'close') panel.remove();
+        if (action === 'close') {
+          const requestId = state.activeAiRequestId;
+          const answerExists = Boolean(panel.querySelector('[data-answer]').value.trim());
+          if (requestId || answerExists) {
+            const message = requestId
+              ? 'AI 任务正在准备或生成，关闭将取消本次任务；面板中的答案内容也不会保留。仍要关闭？'
+              : '面板中已有答案内容，关闭后重新打开时不会恢复。仍要关闭？';
+            if (!window.confirm(message)) return;
+          }
+          if (requestId && state.aiMessageSentRequestId === requestId) {
+            await sendRuntimeMessage({ type: 'cancel-ai', requestId });
+          }
+          if (state.activeAiRequestId === requestId) state.activeAiRequestId = null;
+          panel.remove();
+          return;
+        }
         if (action === 'settings') await openSettings(panel);
         if (action === 'prompt') await copyPrompt(panel);
         if (action === 'api') await requestApiAnswer(panel);

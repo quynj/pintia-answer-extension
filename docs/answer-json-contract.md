@@ -36,11 +36,11 @@
 | `single_choice` | 非空字符串 | `"B"` | 定位 `input-radio-option-{problemId}-{answer}` 并点击。 |
 | `multiple_choice` | 字符串数组，元素非空且不重复 | `["A", "C"]` | 将所有选项同步到该目标集合，含取消多余选项。 |
 | `true_false` | 布尔值 | `true` | `true` 映射为 `TRUE`，`false` 映射为 `FALSE`。 |
-| `fill_blank` | 字符串数组 | `["Java", "Spring Boot"]` | 数组下标对应 `data-blank-index`。 |
+| `fill_blank` | 字符串数组 | `["Java", "Spring Boot"]` | 数组下标对应 `data-blank-index`。如果题目提供 `fillBlankConfig.blanks`，数组长度必须与其空位数量一致，并按 `index` 顺序排列。 |
 | `programming` | 当前不限制答案形状 | `"..."` | 不回填，逐题标记为跳过。 |
 | `short_answer` | 当前不限制答案形状 | `"..."` | 不回填，逐题标记为跳过。 |
 
-多选和填空可传空数组；多选数组不允许重复选项。填空数组的每个元素必须是字符串。
+多选可传空数组，数组不允许重复选项。填空数组的每个元素必须是字符串；有空位配置时必须为每个空位提供一个答案。
 
 ## 完整示例
 
@@ -92,6 +92,8 @@ JSON 通过校验后，某题仍可能因导航、题目根节点、选项/空�
 - 使用标准 `type` 值，不要输出本地化题型名称。
 - 判断答案必须使用 JSON 布尔值，不要使用字符串 `"true"` 或 `"false"`。
 - 填空答案顺序必须与 PTA 空位索引顺序一致。
+- 填空题输入包含空位配置时，答案数组长度必须与配置中的 `blanks` 数量一致，不可遗漏空位。
+- 填空题可能在 `questionText` 的不同字段中分别提供题干、图片说明或作答要求；作答前应综合阅读这些字段及 `images`，不要只依据 `prompt` 或 `content`。
 
 ## AI 复核结果校验
 

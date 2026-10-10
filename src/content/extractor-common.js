@@ -46,13 +46,14 @@
 
   api.normalizeApiQuestion = (item, index) => {
     if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
-    const prompt = api.cleanText(item.title || item.description || item.question || item.content || item.text || item.body);
+    const textFields = ['title', 'description', 'question', 'content', 'text', 'body'];
+    const prompt = api.cleanText(textFields.map((field) => item[field]).find(Boolean));
     if (prompt.length < 2) return null;
     const choiceConfig = item.problemConfig?.multipleChoiceProblemConfig;
     const rawOptions = choiceConfig?.choices || item.options || item.choices || item.answers || item.items || [];
-    const content = String(item.content || item.description || item.question || item.text || item.body || item.title || '').trim();
+    const content = String(textFields.map((field) => item[field]).find(Boolean) || '').trim();
     const options = [];
-    const images = api.markdownImages(content, 'content');
+    const images = textFields.flatMap((field) => api.markdownImages(item[field], field));
     if (Array.isArray(rawOptions)) {
       rawOptions.forEach((option) => {
         const optionText = typeof option === 'object' ? option.content || option.text || option.label : option;

@@ -111,8 +111,8 @@ Pintia 学习辅助工具是面向 Chrome 和 Edge 的 Manifest V3 浏览器扩�
 - `problem-summaries` 返回哪些题型，扩展就按题型请求对应的 `exam-problems` 数据，并根据分页信息补齐后续页面。
 - 接口可能返回 JSON 或 Protobuf 二进制，扩展会自动选择对应解析方式。
 - 题型会归一为 `single_choice`、`multiple_choice`、`true_false`、`fill_blank`、`programming`、`short_answer` 等。
-- 每道题会同时保留归一化字段和接口返回的完整原始对象 `apiData` 供导出使用；发送给 AI 时仅包含题号、ID、题型、题干、选项及必要的图片引用，避免重复传输冗余接口字段。
-- `content` 保留题目原始 Markdown；`images` 汇总题干和选项中的 Markdown 图片，提供完整访问 URL、原始 Markdown 路径、图片所在位置和 Markdown 字符偏移。`location` 为 `content` 或 `option`；选项图片还包含从 0 开始的 `optionIndex`。`~/...` 图片路径会映射至 `https://images.ptausercontent.com/...`，已有绝对 URL 保持原样。导出保留完整图片元数据；AI 输入仅携带 URL、位置及必要的选项索引，不会下载图片或把图片内容发送给 AI。
+- 每道题会同时保留归一化字段和接口返回的完整原始对象 `apiData` 供导出使用；发送给 AI 时包含题号、ID、题型、题干、选项及必要的图片引用。填空题额外包含题目文本字段（标题、描述、题干、内容等）和 `fillInTheBlankProblemConfig`，避免只依赖可能不完整的单个字段；其他题型不传完整接口配置，避免冗余字段。
+- `content` 保留题目原始 Markdown；`images` 汇总题目文本字段及选项中的 Markdown 图片，提供完整访问 URL、原始 Markdown 路径、图片所在字段和 Markdown 字符偏移。`location` 为题目文本字段名（如 `content`、`description`）或 `option`；选项图片还包含从 0 开始的 `optionIndex`。`~/...` 图片路径会映射至 `https://images.ptausercontent.com/...`，已有绝对 URL 保持原样。导出保留完整图片元数据；AI 输入仅携带 URL、位置及必要的选项索引，不会下载图片或把图片内容发送给 AI。
 - `extraction` 固定为 `api`。
 - 如果 Pintia 更换接口名称，可在 `src/content/api-extractor.js` 的 `API_HINTS` 中补充规则。
 

@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Validate release version
+        run: |
+          manifest_version=$(jq -r '.version' manifest.json)
+          tag_version="${GITHUB_REF_NAME#v}"
+          if [ "$tag_version" != "$manifest_version" ]; then
+            echo "::error::Release tag $GITHUB_REF_NAME does not match manifest version $manifest_version"
+            exit 1
+          fi
+
+      - name: Package extension
+        run: zip -r "pintia-answer-extension-${GITHUB_REF_NAME}.zip" manifest.json src
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" "pintia-answer-extension-${GITHUB_REF_NAME}.zip" --title "$GITHUB_REF_NAME" --generate-notes

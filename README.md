@@ -20,6 +20,17 @@ Pintia 学习辅助工具是面向 Chrome 和 Edge 的 Manifest V3 浏览器扩�
 
 答案助手可通过标题栏移动，并可拖动右下角调整窗口大小。
 
+## 发布
+
+发布版本时，先将 [manifest.json](manifest.json) 中的 `version` 更新为新版本并提交，然后创建并推送对应的版本标签。例如：
+
+```bash
+git tag v1.0.3
+git push origin v1.0.3
+```
+
+推送 `v*` 标签会触发 GitHub Actions。工作流会检查标签版本是否与 `manifest.json` 一致，打包 `manifest.json` 和 `src/`，并创建带有自动生成发布说明的 GitHub Release。生成的 ZIP 可直接通过 Chrome 或 Edge 扩展管理页加载。
+
 ## 登录与页面提示
 
 扩展不会直接读取或要求用户复制 Cookie，而是在 Pintia 页面内使用 `fetch` 的 `credentials: include` 携带当前站点登录态。

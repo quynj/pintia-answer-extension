@@ -11,6 +11,7 @@
     aiPhaseStartedAt: 0,
     aiElapsedTimer: null,
     aiTimerRequestId: null,
+    programmingLanguage: '',
     configReady: Promise.resolve(),
     collapsed: true,
     panelStateReady: chrome.storage.local.get('assistantCollapsed').then(({ assistantCollapsed }) => {
@@ -28,6 +29,23 @@
     answer: '其他题型'
   };
 
+  const programmingLanguages = [
+    'C',
+    'C++',
+    'Java',
+    'Python 3',
+    'JavaScript (Node.js)',
+    'TypeScript (Node.js)',
+    'C#',
+    'Go',
+    'Rust',
+    'Kotlin',
+    'Swift',
+    'PHP',
+    'Ruby',
+    'R'
+  ];
+
   function createPanel(extractedQuestions) {
     const existingPanel = document.querySelector('#pintia-assistant-panel');
     if (existingPanel) return existingPanel;
@@ -42,23 +60,31 @@
       <div class="pintia-assistant-body" data-view="assistant">
         <p class="pintia-assistant-status" data-status>请选择要处理的题型</p>
         <div class="pintia-assistant-types" data-types><span>处理题型</span><em>正在读取题库…</em></div>
+        <div class="pintia-assistant-programming-language" data-programming-language hidden>
+          <label for="pintia-assistant-programming-language">编程语言</label>
+          <select id="pintia-assistant-programming-language" data-language>
+            <option value="">请选择本次实现语言</option>
+            ${programmingLanguages.map((language) => `<option value="${language}">${language}</option>`).join('')}
+          </select>
+          <small>AI 将按此语言生成代码。Pintia 编辑器不会自动切换，请手动选择相同语言后再输入。</small>
+        </div>
         <div class="pintia-assistant-options">
           <label><input type="checkbox" data-auto-save />自动回填并保存</label>
           <label><input type="checkbox" data-diagnostic-logging />记录 AI 诊断日志</label>
-          <small>范围跟随上方勾选题型；全选时覆盖整套题中的可回填题型。编程题和简答题暂不支持页面回填。关闭后单题型手动回填不会保存；多题型回填会在开始前提示，并逐类保存以避免切换题型时丢失答案。</small>
+          <small>范围跟随上方勾选题型；全选时覆盖整套题中的可回填题型。编程题会按题目 ID 定位代码编辑器，并从操作前记录的光标位置逐字输入；请先将光标放入对应编辑器，再点击助手面板。简答题暂不支持页面回填。关闭后单题型手动回填不会保存；多题型回填会在开始前提示，并逐类保存以避免切换题型时丢失答案。</small>
         </div>
         <details class="pintia-assistant-report" data-report hidden>
           <summary>回填明细</summary>
           <ol data-report-list></ol>
         </details>
         <label class="pintia-assistant-answer-label" for="pintia-assistant-answer">答案内容（JSON）</label>
-        <p class="pintia-assistant-answer-hint">AI 生成结果（含复核后的最终答案）会显示在此处。关闭自动回填时，请核对答案后手动执行回填。</p>
+        <p class="pintia-assistant-answer-hint">AI 生成结果（含复核后的最终答案）会显示在此处。编程题按题目 ID 定位代码编辑器，并从操作前记录的光标位置逐字输入；关闭自动回填时，请核对答案后手动执行回填。</p>
         <textarea id="pintia-assistant-answer" data-answer placeholder="粘贴答案 JSON，或通过 AI 生成答案"></textarea>
         <div class="pintia-assistant-actions">
           <button data-action="prompt">复制提示词</button>
           <button data-action="api">AI 生成答案</button>
           <button data-action="export">导出题库</button>
-          <button data-action="apply">校验并回填</button>
+          <button data-action="apply">校验并回填/输入</button>
         </div>
         <p class="pintia-assistant-log" data-log></p>
         <details class="pintia-assistant-diagnostics" data-diagnostics hidden>
@@ -149,12 +175,14 @@
   function updateReport(panel, report) {
     const container = panel.querySelector('[data-report]');
     const list = panel.querySelector('[data-report-list]');
-    const changedResults = report.results.filter(hasAnswerChanges);
+    const visibleResults = report.results.filter((result) => !result.success || hasAnswerChanges(result));
 
     list.replaceChildren();
-    changedResults.forEach((result) => {
+    visibleResults.forEach((result) => {
       const item = document.createElement('li');
-      const status = result.success ? '已修改并验证' : `修改未完成：${result.reason}`;
+      const status = result.success
+        ? '已修改并验证'
+        : `${result.skipped ? '已跳过' : '未完成'}：${result.reason}`;
       const title = document.createElement('span');
       title.textContent = `第 ${result.questionNumber ?? '?'} 题（${result.type}，ID ${result.problemId}）：${status}`;
       item.appendChild(title);
@@ -184,8 +212,8 @@
       }
       list.appendChild(item);
     });
-    container.hidden = changedResults.length === 0;
-    if (changedResults.length) container.open = true;
+    container.hidden = visibleResults.length === 0;
+    if (visibleResults.length) container.open = true;
   }
 
   function sendRuntimeMessage(message) {
@@ -224,6 +252,27 @@
       state.problemSetId = result.problemSetId;
       const types = [...new Set(state.questions.map((question) => question.type))];
       panel.querySelector('[data-types]').innerHTML = `<span>处理题型</span>${types.map((type) => `<label><input type="checkbox" value="${type}" checked />${typeLabels[type] || type}</label>`).join('')}`;
+      const languageSelector = panel.querySelector('[data-programming-language]');
+      const languageControl = panel.querySelector('[data-language]');
+      const hasProgrammingQuestions = state.questions.some((question) => question.type === 'programming');
+      languageSelector.hidden = !hasProgrammingQuestions;
+      if (hasProgrammingQuestions) {
+        try {
+          const { programmingLanguage } = await chrome.storage.local.get('programmingLanguage');
+          if (!languageControl.value && programmingLanguages.includes(programmingLanguage)) {
+            state.programmingLanguage = programmingLanguage;
+            languageControl.value = programmingLanguage;
+          }
+        } catch (error) {
+          setLog(panel, error.message || '无法读取已保存的编程语言。');
+        }
+      }
+      const incompleteProgrammingCount = state.questions
+        .filter((question) => question.type === 'programming' && !question.hasStatement)
+        .length;
+      if (incompleteProgrammingCount) {
+        setLog(panel, `${incompleteProgrammingCount} 道编程题未读取到完整题干；复制提示词和 AI 请求暂不可用。`);
+      }
     } catch (error) {
       panel.querySelector('[data-types]').innerHTML = '<span>处理题型</span><em>题库读取失败</em>';
       setLog(panel, error.message || '无法读取题库。');
@@ -235,11 +284,28 @@
     return state.questions.filter((question) => selected.has(question.type));
   }
 
+  function requireProgrammingStatements(questions) {
+    if (questions.some((question) => question.type === 'programming') && !state.programmingLanguage) {
+      throw new Error('请先选择编程语言，并手动将 Pintia 编辑器切换到相同语言。');
+    }
+    const missing = questions.filter((question) => question.type === 'programming' && !question.hasStatement);
+    if (missing.length) {
+      throw new Error(`有 ${missing.length} 道编程题未能读取完整题干；请确认题目详情接口可用后重新检测。`);
+    }
+  }
+
   async function copyPrompt(panel) {
     const questions = selectedQuestions(panel);
     if (!questions.length) throw new Error('请至少选择一种题型。');
+    requireProgrammingStatements(questions);
     if (!state.aiConfig) await loadConfig(panel);
-    const prompt = promptApi.build(document.title, questions, state.problemSetId, state.aiConfig?.prompt);
+    const prompt = promptApi.build(
+      document.title,
+      questions,
+      state.problemSetId,
+      state.aiConfig?.prompt,
+      state.programmingLanguage
+    );
     await navigator.clipboard.writeText(prompt);
     setStatus(panel, '提示词已复制');
     setLog(panel, '可将提示词粘贴至兼容的 AI 服务。');
@@ -248,6 +314,7 @@
   async function requestApiAnswer(panel) {
     const questions = selectedQuestions(panel);
     if (!questions.length) throw new Error('请至少选择一种题型。');
+    requireProgrammingStatements(questions);
     const button = panel.querySelector('[data-action="api"]');
     const autoSaveToggle = panel.querySelector('[data-auto-save]');
     const requestId = crypto.randomUUID();
@@ -273,7 +340,12 @@
       state.aiElapsedTimer = window.setInterval(() => updateAiElapsed(panel), 1000);
       updateAiElapsed(panel);
       diagnosticLog(panel, 'AI 请求开始');
-      const input = promptApi.buildInput(document.title, questions, state.problemSetId);
+      const input = promptApi.buildInput(
+        document.title,
+        questions,
+        state.problemSetId,
+        state.programmingLanguage
+      );
       const questionMetadata = questions.map((question) => {
         const rawId = question.id ?? question.apiData?.id ?? question.apiData?.problem_id ?? question.apiData?.question_id;
         const options = question.options || [];
@@ -373,12 +445,14 @@
         setLog(panel, '未开始回填；页面答案未修改或保存。');
         return;
       }
-      setStatus(panel, '正在校验并回填答案');
+      setStatus(panel, selectedTypes.includes('programming')
+        ? '正在校验答案并逐字输入编程代码'
+        : '正在校验并回填答案');
       const report = await window.PintiaAnswerRunner.run(answers, selectedTypes, { save });
       const { total, success, failed, skipped } = report.summary;
       setStatus(panel, report.success
         ? report.saved ? '答案已回填并保存' : '答案已回填，尚未保存'
-        : '回填流程已完成，部分题目未处理');
+        : '答案输入/回填流程已完成，部分题目未处理');
       updateReport(panel, report);
       const changedCount = report.results.filter(hasAnswerChanges).length;
       const saveMessage = report.saved
@@ -450,6 +524,18 @@
   function bindPanel(panel) {
     panel.addEventListener('change', async (event) => {
       const target = event.target;
+      if (target.matches('[data-language]')) {
+        state.programmingLanguage = target.value;
+        try {
+          await chrome.storage.local.set({ programmingLanguage: target.value });
+          if (target.value) {
+            setLog(panel, `已选择 ${target.value}；请手动将 Pintia 代码编辑器切换为相同语言。`);
+          }
+        } catch (error) {
+          setLog(panel, error.message || '无法保存编程语言选项。');
+        }
+        return;
+      }
       if (target.matches('[data-diagnostic-logging]')) {
         panel.querySelector('[data-diagnostics]').hidden = !target.checked;
       }

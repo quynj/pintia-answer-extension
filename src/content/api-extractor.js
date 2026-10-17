@@ -1,6 +1,6 @@
 (() => {
   const api = window.PintiaExtractor = window.PintiaExtractor || {};
-  const API_HINTS = ['exam-problems', 'problem-summaries'];
+  const API_HINTS = ['exam-problem-list', 'exam-problems', 'problem-summaries'];
   let lastFailureReason = null;
 
   function readVarint(bytes, offset) {
@@ -96,6 +96,18 @@
     return [...new Set(urls)];
   }
 
+  function isExamProblemListUrl(url) {
+    return new URL(url).pathname.endsWith('/exam-problem-list');
+  }
+
+  function isExamProblemCollectionUrl(url) {
+    return new URL(url).pathname.endsWith('/exam-problems');
+  }
+
+  function isExamProblemDetailUrl(url) {
+    return /\/exam-problems\/[^/]+$/.test(new URL(url).pathname);
+  }
+
   function problemSetIdFromUrl(url) {
     return new URL(url).pathname.match(/\/problem-sets\/([^/]+)/)?.[1] || null;
   }
@@ -147,13 +159,104 @@
     return questions;
   }
 
+  function listData(result) {
+    const source = result.data?.data || result.data;
+    return {
+      problems: Array.isArray(source?.problemSetProblems) ? source.problemSetProblems : [],
+      total: Number(source?.total || source?.totalCount || 0),
+      examLabelByProblemSetProblemId: source?.examLabelByProblemSetProblemId || {}
+    };
+  }
+
+  async function fetchExamProblemList(url) {
+    const first = await fetchResponse(url);
+    if (!first) return { problems: [], examLabelByProblemSetProblemId: {} };
+    const firstResult = await responseData(first);
+    const firstPage = listData(firstResult);
+    const problems = [...firstPage.problems];
+    const examLabelByProblemSetProblemId = { ...firstPage.examLabelByProblemSetProblemId };
+    const parsed = new URL(url);
+    const pageParameter = parsed.searchParams.has('page') ? 'page' : null;
+    const pageSizeParameter = parsed.searchParams.has('limit') ? 'limit' : 'page_size';
+    const pageSize = Number(parsed.searchParams.get(pageSizeParameter)) || firstPage.problems.length;
+    const firstPageNumber = Number(parsed.searchParams.get(pageParameter || 'page')) || 0;
+    const pageCount = pageSize > 0 ? Math.ceil(firstPage.total / pageSize) : 1;
+    for (let offset = 1; offset < pageCount; offset += 1) {
+      parsed.searchParams.set(pageParameter || 'page', String(firstPageNumber + offset));
+      const response = await fetchResponse(parsed.toString());
+      if (!response) break;
+      const result = await responseData(response);
+      const page = listData(result);
+      if (!page.problems.length) break;
+      problems.push(...page.problems);
+      Object.assign(examLabelByProblemSetProblemId, page.examLabelByProblemSetProblemId);
+    }
+    return { problems, examLabelByProblemSetProblemId };
+  }
+
+  function programmingDetailUrl(listUrl, problemId) {
+    const parsed = new URL(listUrl);
+    parsed.pathname = parsed.pathname.replace(/\/exam-problem-list$/, `/exam-problems/${encodeURIComponent(problemId)}`);
+    parsed.searchParams.delete('page');
+    parsed.searchParams.delete('limit');
+    parsed.searchParams.delete('page_size');
+    parsed.searchParams.set('problem_type', 'PROGRAMMING');
+    return parsed.toString();
+  }
+
+  function normalizeProgrammingDetail(data, listedProblem, examLabel) {
+    const problem = data?.problemSetProblem || data?.data?.problemSetProblem || data;
+    if (!problem || typeof problem !== 'object') return null;
+    const normalized = api.normalizeApiQuestion({
+      ...problem,
+      id: problem.id || listedProblem?.id,
+      number: listedProblem?.problemPoolIndex ?? listedProblem?.indexInProblemPool ?? problem.problemPoolIndex,
+      score: problem.score ?? listedProblem?.score
+    }, listedProblem?.problemPoolIndex ?? 0);
+    if (!normalized) return null;
+    return {
+      ...normalized,
+      apiData: {
+        ...normalized.apiData,
+        examLabel: examLabel || undefined
+      }
+    };
+  }
+
+  async function fetchProgrammingQuestions(listUrl, list) {
+    const labelById = list.examLabelByProblemSetProblemId || {};
+    const questions = [];
+    for (const listedProblem of list.problems) {
+      if (!listedProblem?.id) continue;
+      let question = null;
+      try {
+        const response = await fetchResponse(programmingDetailUrl(listUrl, listedProblem.id));
+        if (response) question = normalizeProgrammingDetail(await responseData(response), listedProblem, labelById[listedProblem.id]);
+      } catch (error) {
+        console.warn(`编程题详情读取失败（${listedProblem.id}）：`, error);
+      }
+      if (!question) {
+        question = api.normalizeApiQuestion({
+          ...listedProblem,
+          number: listedProblem.problemPoolIndex ?? listedProblem.indexInProblemPool
+        }, listedProblem.problemPoolIndex ?? 0);
+      }
+      if (question) questions.push(question);
+    }
+    return questions;
+  }
+
   api.extractFromApi = async () => {
     lastFailureReason = null;
     const observedUrls = apiUrls();
     const summaryUrls = observedUrls.filter((url) => url.includes('/problem-summaries'));
-    const examUrls = observedUrls.filter((url) => url.includes('/exam-problems'));
-    const problemSetId = [...examUrls, ...summaryUrls].map(problemSetIdFromUrl).find(Boolean) || null;
-    if (!summaryUrls.length && !examUrls.length) return { problemSetId, questions: [], summaries: {}, reason: 'no_target_api' };
+    const examUrls = observedUrls.filter(isExamProblemCollectionUrl);
+    const examProblemListUrls = observedUrls.filter(isExamProblemListUrl);
+    const examDetailUrls = observedUrls.filter(isExamProblemDetailUrl);
+    const problemSetId = [...examProblemListUrls, ...examUrls, ...examDetailUrls, ...summaryUrls].map(problemSetIdFromUrl).find(Boolean) || null;
+    if (!summaryUrls.length && !examUrls.length && !examProblemListUrls.length && !examDetailUrls.length) {
+      return { problemSetId, questions: [], summaries: {}, reason: 'no_target_api' };
+    }
     let summaries = {};
     for (const url of summaryUrls) {
       try {
@@ -167,6 +270,7 @@
     const examUrl = examUrls.find((url) => new URL(url).searchParams.has('problem_type')) || examUrls[0];
     const urls = new Map();
     Object.keys(summaries).forEach((problemType) => {
+      if (!examUrl) return;
       const parsed = new URL(examUrl);
       parsed.searchParams.delete('problemType');
       parsed.searchParams.delete('type');
@@ -178,7 +282,27 @@
       const expectedTotal = summaries[type]?.total || 0;
       try { questions.push(...await fetchExamUrl(url, Number(expectedTotal))); } catch (_) { /* Try remaining variants. */ }
     }
-    const uniqueQuestions = api.uniqueQuestions(questions);
+    const programmingQuestions = [];
+    for (const url of examProblemListUrls) {
+      try {
+        const list = await fetchExamProblemList(url);
+        programmingQuestions.push(...await fetchProgrammingQuestions(url, list));
+      } catch (error) {
+        console.warn('编程题列表读取失败：', error);
+      }
+    }
+    for (const url of examDetailUrls) {
+      try {
+        const response = await fetchResponse(url);
+        if (response) {
+          const question = normalizeProgrammingDetail(await responseData(response), null, null);
+          if (question) programmingQuestions.push(question);
+        }
+      } catch (error) {
+        console.warn('当前编程题详情读取失败：', error);
+      }
+    }
+    const uniqueQuestions = api.uniqueQuestions([...programmingQuestions, ...questions]);
     return {
       problemSetId,
       questions: uniqueQuestions,

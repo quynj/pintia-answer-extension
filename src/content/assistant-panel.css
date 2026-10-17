@@ -46,6 +46,12 @@
 #pintia-assistant-panel .pintia-assistant-types { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 9px; color: #758087; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-types label { display: inline-flex; gap: 3px; align-items: center; color: #172026; }
 #pintia-assistant-panel .pintia-assistant-types em { font-style: normal; }
+#pintia-assistant-panel .pintia-assistant-programming-language { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 5px 8px; align-items: center; margin: 0 0 9px; }
+#pintia-assistant-panel .pintia-assistant-programming-language[hidden] { display: none; }
+#pintia-assistant-panel .pintia-assistant-programming-language label { font-size: 11px; font-weight: 700; }
+#pintia-assistant-panel .pintia-assistant-programming-language select { min-width: 0; padding: 5px 7px; border: 1px solid rgba(23, 32, 38, .3); color: #172026; background: rgba(255, 255, 255, .65); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
+#pintia-assistant-panel .pintia-assistant-programming-language select:focus { outline: 2px solid #ff8066; }
+#pintia-assistant-panel .pintia-assistant-programming-language small { grid-column: 1 / -1; color: #9c493b; font: 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-options { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 12px; margin: 0 0 9px; }
 #pintia-assistant-panel .pintia-assistant-options label { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 700; }
 #pintia-assistant-panel .pintia-assistant-options input { margin: 0; accent-color: #ff8066; }

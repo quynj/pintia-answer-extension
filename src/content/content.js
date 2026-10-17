@@ -112,7 +112,9 @@
       const parsed = new URL(url);
       return parsed.origin === location.origin
         && parsed.pathname.startsWith('/api/')
-        && (parsed.pathname.includes('/exam-problems') || parsed.pathname.includes('/problem-summaries'));
+        && (parsed.pathname.includes('/exam-problem-list')
+          || parsed.pathname.includes('/exam-problems')
+          || parsed.pathname.includes('/problem-summaries'));
     } catch (_) {
       return false;
     }

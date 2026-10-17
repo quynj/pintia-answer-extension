@@ -96,5 +96,17 @@ docs/          产品行为、数据契约、设计与开发规约
 
 - 用户可见功能、安装/权限/数据处理方式变化时更新 `README.md` 或 `docs/product.md`。
 - JSON 字段、消息结构、配置格式变化时更新相应契约和迁移说明。
+- 题库导出字段或数据处理方式变化时更新[题库导出格式](./question-export-format.md)。
 - 页面定位、注入、验证、保存流程变化时更新 `docs/answer-fill-design.md`。
 - 保持文档中的目录树、文件名、默认行为和代码实现一致；删除或移动文件时一并清理过期引用。
+
+## 发布
+
+发布版本前，将 `manifest.json` 中的 `version` 更新至目标版本并提交，再创建并推送相同版本号的标签，例如：
+
+```bash
+git tag v1.0.3
+git push origin v1.0.3
+```
+
+推送 `v*` 标签会触发 GitHub Actions。工作流检查标签版本与 `manifest.json` 是否一致，打包 `manifest.json` 和 `src/`，并创建包含自动生成发布说明的 GitHub Release。生成的 ZIP 可通过 Chrome 或 Edge 扩展管理页加载。

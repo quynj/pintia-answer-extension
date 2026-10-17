@@ -47,11 +47,16 @@
   api.normalizeApiQuestion = (item, index) => {
     if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
     const textFields = ['title', 'description', 'question', 'content', 'text', 'body'];
-    const prompt = api.cleanText(textFields.map((field) => item[field]).find(Boolean));
+    const type = api.normalizeType(item.type || item.problem_type || item.problemType || item.question_type, []);
+    const statement = type === 'programming'
+      ? ['content', 'description', 'question', 'text', 'body'].map((field) => item[field]).find(Boolean)
+      : textFields.map((field) => item[field]).find(Boolean);
+    const promptSource = statement || item.title;
+    const prompt = type === 'programming' ? String(promptSource || '').trim() : api.cleanText(promptSource);
     if (prompt.length < 2) return null;
     const choiceConfig = item.problemConfig?.multipleChoiceProblemConfig;
     const rawOptions = choiceConfig?.choices || item.options || item.choices || item.answers || item.items || [];
-    const content = String(textFields.map((field) => item[field]).find(Boolean) || '').trim();
+    const content = String(statement || item.title || '').trim();
     const options = [];
     const images = textFields.flatMap((field) => api.markdownImages(item[field], field));
     if (Array.isArray(rawOptions)) {
@@ -71,6 +76,8 @@
       type: api.normalizeType(item.type || item.problem_type || item.problemType || item.question_type, options),
       prompt,
       content,
+      ...(type === 'programming' ? { hasStatement: Boolean(statement) } : {}),
+      ...(item.title ? { title: String(item.title) } : {}),
       options,
       images,
       score: item.score || item.point || undefined,

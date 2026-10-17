@@ -50,6 +50,9 @@
         || item.answer.some((value) => typeof value !== 'string'))) {
         throw new Error(`题目 ${item.questionNumber ?? index + 1} 的填空答案必须是字符串数组。`);
       }
+      if (item.type === 'programming' && (typeof item.answer !== 'string' || !item.answer.trim())) {
+        throw new Error(`题目 ${item.questionNumber ?? index + 1} 的编程答案必须是非空字符串。`);
+      }
     });
 
     if (expectedQuestions) {

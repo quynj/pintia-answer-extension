@@ -2,6 +2,68 @@ importScripts('../shared/prompt-builder.js', '../shared/answer-contract.js', '..
 
 const { defaults, isLegacyPrompt, isPreviousSecondaryPrompt } = globalThis.PintiaAiConfig;
 const activeAiRequests = new Map();
+const UPDATE_CHECK_URL = 'https://api.github.com/repos/quynj/pintia-answer-extension/releases/latest';
+const UPDATE_CHECK_INTERVAL = 6 * 60 * 60 * 1000;
+
+function versionParts(version) {
+  const match = /^v?(\d+(?:\.\d+){0,3})$/i.exec(version);
+  if (!match) throw new Error(`GitHub Release 版本号无效：${version}`);
+  return match[1].split('.').map(Number);
+}
+
+function compareVersions(left, right) {
+  const leftParts = versionParts(left);
+  const rightParts = versionParts(right);
+  for (let index = 0; index < Math.max(leftParts.length, rightParts.length); index += 1) {
+    const difference = (leftParts[index] || 0) - (rightParts[index] || 0);
+    if (difference) return Math.sign(difference);
+  }
+  return 0;
+}
+
+async function checkForUpdates(force = false) {
+  const { extensionUpdateCheck } = await chrome.storage.local.get('extensionUpdateCheck');
+  const cachedAt = Date.parse(extensionUpdateCheck?.checkedAt);
+  if (!force && Number.isFinite(cachedAt) && Date.now() - cachedAt >= 0
+    && Date.now() - cachedAt < UPDATE_CHECK_INTERVAL
+    && typeof extensionUpdateCheck.latestVersion === 'string'
+    && typeof extensionUpdateCheck.updateAvailable === 'boolean'
+    && typeof extensionUpdateCheck.releaseUrl === 'string') {
+    return { ...extensionUpdateCheck, currentVersion: chrome.runtime.getManifest().version };
+  }
+
+  const response = await fetch(UPDATE_CHECK_URL, {
+    headers: { Accept: 'application/vnd.github+json' },
+    cache: 'no-store'
+  });
+  if (!response.ok) {
+    const reason = response.status === 403
+      ? 'GitHub 暂时限制了版本检查请求，请稍后重试。'
+      : `GitHub 版本检查失败（HTTP ${response.status}）。`;
+    throw new Error(reason);
+  }
+
+  let release;
+  try {
+    release = await response.json();
+  } catch {
+    throw new Error('无法读取 GitHub Release 信息。');
+  }
+
+  const tagName = release?.tag_name;
+  if (typeof tagName !== 'string') throw new Error('GitHub Release 未提供版本标签。');
+  const latestVersion = versionParts(tagName).join('.');
+  const currentVersion = chrome.runtime.getManifest().version;
+  const update = {
+    latestVersion,
+    currentVersion,
+    updateAvailable: compareVersions(latestVersion, currentVersion) > 0,
+    releaseUrl: `https://github.com/quynj/pintia-answer-extension/releases/tag/${encodeURIComponent(tagName)}`,
+    checkedAt: new Date().toISOString()
+  };
+  await chrome.storage.local.set({ extensionUpdateCheck: update });
+  return update;
+}
 
 function sendTabMessage(tabId, message) {
   return new Promise((resolve, reject) => {
@@ -269,7 +331,10 @@ async function runAiRequest(input, questions, problemSetId, sender, requestId, s
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   let operation;
-  if (message.type === 'get-ai-config') {
+  if (message.type === 'check-for-updates') {
+    operation = checkForUpdates(message.force === true).then((update) => ({ update }));
+  }
+  else if (message.type === 'get-ai-config') {
     operation = getAiConfig().then((config) => {
       if (!sender.url?.startsWith(chrome.runtime.getURL(''))) {
         config = {

@@ -30,6 +30,15 @@
       </button>
       <button class="assistant-button" id="open-assistant-button" type="button">打开/关闭答案助手 <span>↔</span></button>
 
+      <section class="update-panel" aria-live="polite">
+        <div class="update-heading">
+          <p class="update-label" id="update-label">正在检查更新</p>
+          <button class="update-check-button" id="update-check-button" type="button" disabled>检查更新</button>
+        </div>
+        <p class="update-detail" id="update-detail">正在连接 GitHub 获取最新版本信息。</p>
+        <a class="update-link" id="update-link" target="_blank" rel="noopener noreferrer" hidden>查看 GitHub Release ↗</a>
+      </section>
+
       <p class="error" id="error" hidden></p>
     </main>
     <script src="popup.js"></script>

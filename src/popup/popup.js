@@ -4,6 +4,10 @@ const dot = document.querySelector('#status-dot');
 const label = document.querySelector('#status-label');
 const detail = document.querySelector('#status-detail');
 const errorBox = document.querySelector('#error');
+const updateLabel = document.querySelector('#update-label');
+const updateDetail = document.querySelector('#update-detail');
+const updateButton = document.querySelector('#update-check-button');
+const updateLink = document.querySelector('#update-link');
 
 function setStatus(kind, title, description) {
   dot.className = `status-dot ${kind}`;
@@ -25,6 +29,33 @@ function sendTabMessage(tabId, message) {
   });
 }
 
+function checkForUpdates(force = false) {
+  updateButton.disabled = true;
+  updateLabel.textContent = '正在检查更新';
+  updateDetail.textContent = '正在连接 GitHub 获取最新版本信息。';
+  updateLink.hidden = true;
+
+  chrome.runtime.sendMessage({ type: 'check-for-updates', force }, (response) => {
+    updateButton.disabled = false;
+    if (chrome.runtime.lastError || response?.error || !response?.update) {
+      updateLabel.textContent = '无法检查更新';
+      updateDetail.textContent = chrome.runtime.lastError?.message || response?.error || 'GitHub 未返回版本信息。';
+      return;
+    }
+
+    const { currentVersion, latestVersion, updateAvailable, releaseUrl } = response.update;
+    if (updateAvailable) {
+      updateLabel.textContent = `发现新版本 v${latestVersion}`;
+      updateDetail.textContent = `当前版本 v${currentVersion}。下载新版后，请在扩展管理页加载或重新加载解压后的目录。`;
+      updateLink.href = releaseUrl;
+      updateLink.hidden = false;
+    } else {
+      updateLabel.textContent = '已是最新版本';
+      updateDetail.textContent = `当前版本 v${currentVersion} · GitHub 最新版本 v${latestVersion}`;
+    }
+  });
+}
+
 chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
   const isPintia = tab?.url?.startsWith('https://pintia.cn/');
   openAssistantButton.disabled = !isPintia;
@@ -33,6 +64,9 @@ chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
     setStatus('ready', '题库已检测', `最近一次检测到 ${lastDetection.questionCount} 道题目`);
   });
 });
+
+updateButton.addEventListener('click', () => checkForUpdates(true));
+checkForUpdates();
 
 detectButton.addEventListener('click', () => {
   detectButton.disabled = true;

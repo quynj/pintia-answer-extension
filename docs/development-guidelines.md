@@ -69,6 +69,7 @@ docs/          产品行为、数据契约、设计与开发规约
 ## 权限、密钥和用户数据
 
 - 扩展权限遵循最小化原则。新增 `permissions`、`host_permissions` 或主机访问范围前，确认功能确实需要，并同步说明用途。
+- 版本检查仅访问 `https://api.github.com/repos/quynj/pintia-answer-extension/releases/latest`，不得向 GitHub 请求或发送用户题目、答案及 AI 配置。
 - API Key 和 AI 配置只能通过扩展存储管理，不得写入源码、日志、错误提示、导出题库或提交记录。向非扩展页面返回配置时，不暴露 API Key。
 - 只有用户主动发起 AI 分析时才向配置的模型服务发送题目数据；新增外部请求、数据字段或数据去向时，明确告知用户并更新文档。
 - 不读取或要求用户复制 Cookie，不绕过登录、站点权限或隐藏答案。访问 Pintia 登录态时遵循当前页面上下文与现有 `credentials` 处理方式。
@@ -109,4 +110,4 @@ git tag v1.0.3
 git push origin v1.0.3
 ```
 
-推送 `v*` 标签会触发 GitHub Actions。工作流检查标签版本与 `manifest.json` 是否一致，打包 `manifest.json` 和 `src/`，并创建包含自动生成发布说明的 GitHub Release。生成的 ZIP 可通过 Chrome 或 Edge 扩展管理页加载。
+推送 `v*` 标签会触发 GitHub Actions。工作流检查标签版本与 `manifest.json` 是否一致，打包 `manifest.json` 和 `src/`，并创建包含自动生成发布说明的 GitHub Release。弹窗通过 GitHub 最新 Release API 提示版本更新；检查结果缓存 6 小时，可手动重试。生成的 ZIP 供用户下载、解压并通过 Chrome 或 Edge 扩展管理页加载；版本检查不会自动替换本地目录或安装更新。

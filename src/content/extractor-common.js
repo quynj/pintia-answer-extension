@@ -54,7 +54,8 @@
     const promptSource = statement || item.title;
     const prompt = type === 'programming' ? String(promptSource || '').trim() : api.cleanText(promptSource);
     if (prompt.length < 2) return null;
-    const choiceConfig = item.problemConfig?.multipleChoiceProblemConfig;
+    const choiceConfig = item.problemConfig?.multipleChoiceProblemConfig
+      || item.problemConfig?.multipleChoiceMoreThanOneAnswerProblemConfig;
     const rawOptions = choiceConfig?.choices || item.options || item.choices || item.answers || item.items || [];
     const content = String(statement || item.title || '').trim();
     const options = [];

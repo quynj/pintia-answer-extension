@@ -294,10 +294,22 @@
     }
   }
 
+  function requireChoiceOptions(questions) {
+    const missing = questions.filter((question) =>
+      (question.type === 'single_choice' || question.type === 'multiple_choice')
+      && !question.options?.length
+    );
+    if (missing.length) {
+      const numbers = missing.map((question) => question.number ?? question.id ?? '未知题号').join('、');
+      throw new Error(`选择题 ${numbers} 未读取到选项，无法生成可靠答案；请重新检测题库。`);
+    }
+  }
+
   async function copyPrompt(panel) {
     const questions = selectedQuestions(panel);
     if (!questions.length) throw new Error('请至少选择一种题型。');
     requireProgrammingStatements(questions);
+    requireChoiceOptions(questions);
     if (!state.aiConfig) await loadConfig(panel);
     const prompt = promptApi.build(
       document.title,
@@ -315,6 +327,7 @@
     const questions = selectedQuestions(panel);
     if (!questions.length) throw new Error('请至少选择一种题型。');
     requireProgrammingStatements(questions);
+    requireChoiceOptions(questions);
     const button = panel.querySelector('[data-action="api"]');
     const autoSaveToggle = panel.querySelector('[data-auto-save]');
     const requestId = crypto.randomUUID();

@@ -35,6 +35,7 @@
 
 - 扩展读取 Pintia 页面已经请求过的 `/api/problem-sets/{problemSetId}/problem-summaries` 和 `/api/problem-sets/{problemSetId}/exam-problems` 接口。接口可能返回 JSON 或 Protobuf；扩展会按题型和分页提取题目。
 - `extraction` 固定为 `api`。题型会归一为 `single_choice`、`multiple_choice`、`true_false`、`fill_blank`、`programming`、`short_answer` 等标准值。
+- 单选和多选选项分别可能来自 `problemConfig.multipleChoiceProblemConfig.choices` 和 `problemConfig.multipleChoiceMoreThanOneAnswerProblemConfig.choices`；两种配置都会归一到 `options`。复制提示词或请求 AI 时，如果选择题没有提取到选项，会提示缺失题号并停止，避免发送不完整题目。
 - 每道题会保留归一化字段及接口返回的完整原始对象 `apiData`。`content` 保留原始 Markdown；具体字段随题型和 Pintia 返回数据而异。
 - `images` 汇总题目文本和选项中的 Markdown 图片。每项包含可访问的 `url`、原始 `markdownPath`、所在字段 `location` 和 Markdown 字符偏移 `index`；选项图片还包含从 0 开始的 `optionIndex`。`~/...` 路径会映射至 `https://images.ptausercontent.com/...`，绝对 URL 保持原样。
 - 导出保留完整图片元数据。发送给 AI 的题目输入仅携带图片 URL、位置及必要的选项索引，不会下载图片或发送图片文件内容。

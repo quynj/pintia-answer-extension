@@ -117,10 +117,12 @@
 #pintia-assistant-panel .pintia-assistant-console-line.is-error { color: #ff958a; }
 #pintia-assistant-panel.is-collapsed {
   display: block;
-  width: 44px;
-  height: 44px;
-  min-width: 0;
-  min-height: 0;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
   overflow: hidden;
   resize: none;
   border: 0;
@@ -163,5 +165,5 @@
 }
 @media (max-width: 600px) {
   #pintia-assistant-panel { top: 12px; right: 12px; width: min(380px, calc(100vw - 24px)); }
-  #pintia-assistant-panel.is-collapsed { right: 12px; left: auto; width: 44px; }
+  #pintia-assistant-panel.is-collapsed { right: 12px; left: auto; }
 }

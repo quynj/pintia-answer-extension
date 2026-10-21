@@ -1,7 +1,8 @@
 (() => {
   const api = window.PintiaExtractor = window.PintiaExtractor || {};
-  const API_HINTS = ['exam-problem-list', 'exam-problems', 'problem-summaries'];
+  const API_HINTS = ['exam-problem-list', 'exam-problems', 'problem-summaries', 'exams'];
   let lastFailureReason = null;
+  const problemSetMetadataCache = new Map();
 
   function readVarint(bytes, offset) {
     let value = 0;
@@ -117,6 +118,40 @@
 
   function problemSetIdFromUrl(url) {
     return new URL(url).pathname.match(/\/problem-sets\/([^/]+)/)?.[1] || null;
+  }
+
+  function currentProblemSetPage() {
+    const match = location.pathname.match(/^\/problem-sets\/([^/]+)\/exam\/(?:overview|problems\/type\/[^/]+)\/?$/);
+    return match ? { id: match[1], path: location.pathname } : null;
+  }
+
+  function currentProblemSetId() {
+    return currentProblemSetPage()?.id || null;
+  }
+
+  api.currentProblemSetPage = currentProblemSetPage;
+
+  async function problemSetMetadata(problemSetId) {
+    if (problemSetMetadataCache.has(problemSetId)) return problemSetMetadataCache.get(problemSetId);
+    const metadataPromise = (async () => {
+      const url = new URL(`/api/problem-sets/${encodeURIComponent(problemSetId)}/exams`, location.origin);
+      const response = requiredResponse(await fetchResponse(url.href), '题集考试信息');
+      const result = await responseData(response);
+      const data = result.data?.data || result.data || {};
+      return {
+        name: data.problemSet?.name || null,
+        examId: data.exam?.id ? String(data.exam.id) : null
+      };
+    })();
+    problemSetMetadataCache.set(problemSetId, metadataPromise);
+    try {
+      const metadata = await metadataPromise;
+      problemSetMetadataCache.set(problemSetId, metadata);
+      return metadata;
+    } catch (error) {
+      problemSetMetadataCache.delete(problemSetId);
+      throw error;
+    }
   }
 
   async function fetchResponse(url, requestDelayMs = 0) {
@@ -369,32 +404,44 @@
     return url.href;
   }
 
+  let reviewProblemSetsCache = null;
+  let reviewProblemSetsPromise = null;
   api.listProblemSets = async (requestDelayMs = 0) => {
-    const setsById = new Map();
-    const examIds = {};
-    let page = 0;
-    let total = Infinity;
-    while (setsById.size < total) {
-      const url = new URL('/api/problem-sets', location.origin);
-      url.searchParams.set('filter', '{}');
-      url.searchParams.set('page', String(page));
-      url.searchParams.set('limit', '30');
-      url.searchParams.set('order_by', 'END_AT');
-      url.searchParams.set('asc', 'false');
-      const response = requiredResponse(await fetchResponse(url.href, requestDelayMs), '题目集列表');
-      const result = await responseData(response);
-      const data = result.data?.data || result.data || {};
-      const sets = Array.isArray(data.problemSets) ? data.problemSets : [];
-      if (!sets.length) break;
-      sets.forEach((set) => setsById.set(String(set.id), set));
-      Object.assign(examIds, data.examIdByProblemSetId || {});
-      total = Number(data.total || setsById.size);
-      page += 1;
+    if (reviewProblemSetsCache) return reviewProblemSetsCache;
+    if (reviewProblemSetsPromise) return reviewProblemSetsPromise;
+    reviewProblemSetsPromise = (async () => {
+      const setsById = new Map();
+      const examIds = {};
+      let page = 0;
+      let total = Infinity;
+      while (setsById.size < total) {
+        const url = new URL('/api/problem-sets', location.origin);
+        url.searchParams.set('filter', '{}');
+        url.searchParams.set('page', String(page));
+        url.searchParams.set('limit', '30');
+        url.searchParams.set('order_by', 'END_AT');
+        url.searchParams.set('asc', 'false');
+        const response = requiredResponse(await fetchResponse(url.href, requestDelayMs), '题目集列表');
+        const result = await responseData(response);
+        const data = result.data?.data || result.data || {};
+        const sets = Array.isArray(data.problemSets) ? data.problemSets : [];
+        if (!sets.length) break;
+        sets.forEach((set) => setsById.set(String(set.id), set));
+        Object.assign(examIds, data.examIdByProblemSetId || {});
+        total = Number(data.total || setsById.size);
+        page += 1;
+      }
+      return [...setsById.values()].map((set) => ({
+        ...set,
+        examId: examIds[set.id] ? String(examIds[set.id]) : null
+      }));
+    })();
+    try {
+      reviewProblemSetsCache = await reviewProblemSetsPromise;
+      return reviewProblemSetsCache;
+    } finally {
+      reviewProblemSetsPromise = null;
     }
-    return [...setsById.values()].map((set) => ({
-      ...set,
-      examId: examIds[set.id] ? String(examIds[set.id]) : null
-    }));
   };
 
   api.extractProblemSetForReview = async (problemSet, requestDelayMs = 0) => {
@@ -457,14 +504,32 @@
 
   api.extractFromApi = async () => {
     lastFailureReason = null;
-    const observedUrls = apiUrls();
+    const currentPage = currentProblemSetPage();
+    if (!currentPage) {
+      return { problemSetId: null, problemSetName: null, examId: null, questions: [], summaries: {}, reason: 'not_problem_set_exam_page' };
+    }
+    const observedUrls = apiUrls().filter((url) => problemSetIdFromUrl(url) === currentPage.id);
     const summaryUrls = observedUrls.filter((url) => url.includes('/problem-summaries'));
     const examUrls = observedUrls.filter(isExamProblemCollectionUrl);
     const examProblemListUrls = observedUrls.filter(isExamProblemListUrl);
     const examDetailUrls = observedUrls.filter(isExamProblemDetailUrl);
-    const problemSetId = [...examProblemListUrls, ...examUrls, ...examDetailUrls, ...summaryUrls].map(problemSetIdFromUrl).find(Boolean) || null;
+    const problemSetId = currentPage.id
+      || [...examProblemListUrls, ...examUrls, ...examDetailUrls, ...summaryUrls].map(problemSetIdFromUrl).find(Boolean)
+      || null;
+    let metadata = { name: null, examId: null };
+    if (problemSetId) {
+      try {
+        metadata = await problemSetMetadata(problemSetId);
+      } catch (error) {
+        console.warn('当前题集信息读取失败：', error);
+      }
+    }
+    const examId = metadata.examId || observedUrls
+      .filter((url) => problemSetIdFromUrl(url) === problemSetId)
+      .map((url) => new URL(url).searchParams.get('exam_id'))
+      .find(Boolean) || null;
     if (!summaryUrls.length && !examUrls.length && !examProblemListUrls.length && !examDetailUrls.length) {
-      return { problemSetId, questions: [], summaries: {}, reason: 'no_target_api' };
+      return { problemSetId, problemSetName: metadata.name, examId, questions: [], summaries: {}, reason: 'no_target_api' };
     }
     let summaries = {};
     for (const url of summaryUrls) {
@@ -517,6 +582,8 @@
     const uniqueQuestions = api.uniqueQuestions(questions);
     return {
       problemSetId,
+      problemSetName: metadata.name,
+      examId,
       questions: uniqueQuestions,
       summaries,
       reason: uniqueQuestions.length ? null : (lastFailureReason || 'no_questions')

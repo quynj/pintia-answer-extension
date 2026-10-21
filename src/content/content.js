@@ -1,7 +1,9 @@
 (() => {
   const api = window.PintiaExtractor;
   let cachedResult = null;
+  let cachedSource = null;
   let extractionPromise = null;
+  let extractionPromiseSource = null;
 
   function title() {
     const heading = document.querySelector('h1, h2, [class*="title"], [class*="Title"]');
@@ -9,30 +11,44 @@
   }
 
   async function extract(forceRefresh = false) {
-    if (!forceRefresh && cachedResult) return cachedResult;
-    if (!forceRefresh && extractionPromise) return extractionPromise;
+    const source = location.href;
+    if (!forceRefresh && cachedResult && cachedSource === source) return cachedResult;
+    if (!forceRefresh && extractionPromise && extractionPromiseSource === source) return extractionPromise;
 
-    extractionPromise = (async () => {
-    const apiResult = await api.extractFromApi();
+    const pendingExtraction = (async () => {
+      const apiResult = await api.extractFromApi();
       const result = {
-        title: title(),
-        source: location.href,
+        title: apiResult.problemSetName || title(),
+        source,
         extraction: 'api',
+        problemSetId: apiResult.problemSetId,
+        problemSetName: apiResult.problemSetName,
+        examId: apiResult.examId,
         summaries: apiResult.summaries,
         reason: apiResult.reason,
         exportedAt: new Date().toISOString(),
         questions: apiResult.questions
       };
-      cachedResult = result;
+      if (result.questions.length && location.href === source) {
+        cachedResult = result;
+        cachedSource = source;
+      }
       return result;
     })();
+    extractionPromise = pendingExtraction;
+    extractionPromiseSource = source;
 
     try {
-      return await extractionPromise;
+      return await pendingExtraction;
     } finally {
-      extractionPromise = null;
+      if (extractionPromise === pendingExtraction) {
+        extractionPromise = null;
+        extractionPromiseSource = null;
+      }
     }
   }
+
+  window.PintiaAssistantExtract = () => extract();
 
   chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
     if (message.type === 'toggle-assistant') {
@@ -82,6 +98,14 @@
   let pendingQuestionSetId = null;
 
   function scheduleAutomaticDetection(requestedSetId = null) {
+    if (!api.currentProblemSetPage()) {
+      window.clearTimeout(autoDetectionTimer);
+      pendingQuestionSetId = null;
+      window.PintiaAssistant.clearCurrentProblemSet();
+      window.PintiaAssistant.open()
+        .catch((error) => console.error('打开助手面板失败：', error));
+      return;
+    }
     if (requestedSetId && autoDetectedQuestionSets.has(requestedSetId)) return;
     if (autoDetectionInProgress) {
       pendingQuestionSetId = requestedSetId || pendingQuestionSetId;
@@ -93,14 +117,10 @@
       const detectedLocation = location.href;
       autoDetectionInProgress = true;
       try {
-        const result = await api.extractFromApi();
+        const result = await extract();
         if (location.href !== detectedLocation) return;
         if (!result.questions.length) {
-          await window.PintiaAssistant.open({
-            title: document.title,
-            problemSetId: null,
-            questions: []
-          });
+          await window.PintiaAssistant.open(result);
           return;
         }
         if (requestedSetId) autoDetectedQuestionSets.add(requestedSetId);
@@ -134,10 +154,15 @@
         && parsed.pathname.startsWith('/api/')
         && (parsed.pathname.includes('/exam-problem-list')
           || parsed.pathname.includes('/exam-problems')
-          || parsed.pathname.includes('/problem-summaries'));
+          || parsed.pathname.includes('/problem-summaries')
+          || /^\/api\/problem-sets\/[^/]+\/exams$/.test(parsed.pathname));
     } catch (_) {
       return false;
     }
+  }
+
+  function handlePageLocationChange() {
+    scheduleAutomaticDetection();
   }
 
   function questionSetIdFromRequest(url) {
@@ -156,6 +181,16 @@
       }
     });
     observer.observe({ type: 'resource', buffered: true });
+  }
+  window.addEventListener('popstate', handlePageLocationChange);
+  window.addEventListener('hashchange', handlePageLocationChange);
+  for (const method of ['pushState', 'replaceState']) {
+    const original = history[method].bind(history);
+    history[method] = (...args) => {
+      const result = original(...args);
+      handlePageLocationChange();
+      return result;
+    };
   }
   scheduleAutomaticDetection();
 })();

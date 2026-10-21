@@ -241,11 +241,59 @@
     setLog(panel, '请在新标签页中完成并保存模型服务配置。');
   }
 
+  function syncCurrentProblemSetSelection(panel, problemSet) {
+    const problemSetId = problemSet?.id;
+    if (!problemSetId) return;
+    const list = panel.querySelector('[data-review-sets]');
+    if (!list) return;
+    const setId = String(problemSetId);
+    const existingSet = state.reviewProblemSets?.find((set) => String(set.id) === setId);
+    const currentSet = {
+      ...existingSet,
+      id: setId,
+      name: problemSet.name || existingSet?.name || `当前题目集（${setId}）`,
+      examId: problemSet.examId || existingSet?.examId || null,
+      isCurrentOnly: !existingSet || existingSet.isCurrentOnly === true
+    };
+    state.reviewProblemSets = [
+      ...(state.reviewProblemSets || []).filter((set) => String(set.id) !== setId),
+      currentSet
+    ];
+    let checkbox = [...list.querySelectorAll('[data-review-set]')]
+      .find((input) => String(input.value) === setId);
+    if (!checkbox) {
+      const label = document.createElement('label');
+      label.dataset.currentProblemSet = '';
+      checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.value = setId;
+      checkbox.dataset.reviewSet = '';
+      const text = document.createElement('span');
+      label.append(checkbox, text);
+      list.prepend(label);
+    }
+    checkbox.disabled = !currentSet.examId;
+    checkbox.checked = !checkbox.disabled;
+    checkbox.parentElement.querySelector('span').textContent =
+      `${currentSet.name || '当前题目集'}${currentSet.examId ? '' : '（缺少考试 ID）'}`;
+    panel.querySelector('[data-action="export-review-sets"]').disabled =
+      !state.reviewProblemSets.some((set) => set.examId);
+    panel.querySelector('[data-review-count]').textContent = `已识别当前题目集`;
+    updateReviewDelayVisibility(panel);
+  }
+
   async function loadQuestions(panel, extractedQuestions) {
     try {
       const result = extractedQuestions || await window.PintiaAssistantExtract();
       state.questions = result.questions;
       state.problemSetId = result.problemSetId;
+      if (result.problemSetId) {
+        syncCurrentProblemSetSelection(panel, {
+          id: result.problemSetId,
+          name: result.title,
+          examId: result.examId
+        });
+      }
       const hasCurrentQuestionSet = state.questions.length > 0;
       setStatus(panel, hasCurrentQuestionSet ? '作业题目已就绪' : '当前页未检测到作业题目');
       panel.querySelector('[data-page-context]').textContent = hasCurrentQuestionSet
@@ -423,7 +471,7 @@
   async function exportQuestionBank(panel) {
     setStatus(panel, '正在导出题库');
     const { result } = await sendRuntimeMessage({ type: 'get-question-bank' });
-    const filename = (result.title || document.title || 'pintia-question-bank')
+    const filename = (result.problemSetName || result.title || document.title || 'pintia-question-bank')
       .replace(/[\\/:*?"<>|]/g, '_')
       .slice(0, 80) || 'pintia-question-bank';
     const url = URL.createObjectURL(new Blob([JSON.stringify(result, null, 2)], { type: 'application/json' }));
@@ -575,6 +623,72 @@
   function updateReviewDelayVisibility(panel) {
     panel.querySelector('[data-review-delay-option]').hidden =
       panel.querySelectorAll('[data-review-set]:checked').length <= 1;
+  }
+
+  async function loadReviewProblemSets(panel, currentSetId = null, automatic = false) {
+    const button = panel.querySelector('[data-action="load-review-sets"]');
+    if (button.disabled) return;
+    const delay = reviewRequestDelay(panel);
+    button.disabled = true;
+    button.setAttribute('aria-busy', 'true');
+    if (!automatic) {
+      setStatus(panel, '正在加载题目集');
+      setLog(panel, '开始加载题目集列表。');
+    }
+    panel.querySelector('[data-review-count]').textContent = '正在获取数量…';
+    button.querySelector('[data-loader-label]').textContent = '正在加载…';
+    try {
+      await chrome.storage.local.set({ reviewExportRequestDelayMs: delay });
+      const { problemSets } = await sendRuntimeMessage({
+        type: 'list-review-problem-sets',
+        requestDelayMs: delay
+      });
+      const uniqueProblemSets = [...new Map(
+        problemSets.map((problemSet) => [String(problemSet.id), problemSet])
+      ).values()];
+      const currentSet = state.reviewProblemSets?.find(
+        (problemSet) => String(problemSet.id) === String(state.problemSetId)
+      );
+      if (currentSet && !uniqueProblemSets.some((problemSet) => String(problemSet.id) === String(currentSet.id))) {
+        uniqueProblemSets.push(currentSet);
+      }
+      const selectedIds = new Set(
+        [...panel.querySelectorAll('[data-review-set]:checked')].map((input) => input.value)
+      );
+      const selectedCurrentSetId = state.problemSetId || currentSetId;
+      if (selectedCurrentSetId) selectedIds.add(String(selectedCurrentSetId));
+      state.reviewProblemSets = uniqueProblemSets;
+      const list = panel.querySelector('[data-review-sets]');
+      list.replaceChildren();
+      uniqueProblemSets.forEach((problemSet) => {
+        const label = document.createElement('label');
+        if (problemSet.isCurrentOnly) label.dataset.currentProblemSet = '';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.value = problemSet.id;
+        checkbox.dataset.reviewSet = '';
+        checkbox.disabled = !problemSet.examId;
+        checkbox.checked = selectedIds.has(String(problemSet.id)) && !checkbox.disabled;
+        const text = document.createElement('span');
+        text.textContent = `${problemSet.name || '未命名作业'}${problemSet.examId ? '' : '（缺少考试 ID）'}`;
+        label.append(checkbox, text);
+        list.appendChild(label);
+      });
+      updateReviewDelayVisibility(panel);
+      panel.querySelector('[data-action="export-review-sets"]').disabled = !uniqueProblemSets.some((set) => set.examId);
+      panel.querySelector('[data-review-count]').textContent = `已加载 ${uniqueProblemSets.length} 套题目集`;
+      if (!automatic) {
+        setStatus(panel, '题目集列表已加载');
+        setLog(panel, `找到 ${uniqueProblemSets.length} 套题目集；没有考试 ID 的题目集无法导出。`);
+      }
+    } catch (error) {
+      panel.querySelector('[data-review-count]').textContent = '加载失败，请重试';
+      throw error;
+    } finally {
+      button.disabled = false;
+      button.removeAttribute('aria-busy');
+      button.querySelector('[data-loader-label]').textContent = '加载题目集';
+    }
   }
 
   async function applyAnswers(panel, options = {}) {
@@ -773,51 +887,7 @@
         if (action === 'prompt') await copyPrompt(panel);
         if (action === 'api') await requestApiAnswer(panel);
         if (action === 'export') await exportQuestionBank(panel);
-        if (action === 'load-review-sets') {
-          const button = panel.querySelector('[data-action="load-review-sets"]');
-          if (button.disabled) return;
-          const delay = reviewRequestDelay(panel);
-          button.disabled = true;
-          button.setAttribute('aria-busy', 'true');
-          setStatus(panel, '正在加载题目集');
-          setLog(panel, '开始加载题目集列表。');
-          panel.querySelector('[data-review-count]').textContent = '正在获取数量…';
-          button.querySelector('[data-loader-label]').textContent = '正在加载…';
-          try {
-            await chrome.storage.local.set({ reviewExportRequestDelayMs: delay });
-            const { problemSets } = await sendRuntimeMessage({
-              type: 'list-review-problem-sets',
-              requestDelayMs: delay
-            });
-            const uniqueProblemSets = [...new Map(
-              problemSets.map((problemSet) => [String(problemSet.id), problemSet])
-            ).values()];
-            state.reviewProblemSets = uniqueProblemSets;
-            const list = panel.querySelector('[data-review-sets]');
-            list.replaceChildren();
-            uniqueProblemSets.forEach((problemSet) => {
-              const label = document.createElement('label');
-              const checkbox = document.createElement('input');
-              checkbox.type = 'checkbox';
-              checkbox.value = problemSet.id;
-              checkbox.dataset.reviewSet = '';
-              checkbox.disabled = !problemSet.examId;
-              const text = document.createElement('span');
-              text.textContent = `${problemSet.name || '未命名作业'}${problemSet.examId ? '' : '（缺少考试 ID）'}`;
-              label.append(checkbox, text);
-              list.appendChild(label);
-            });
-            updateReviewDelayVisibility(panel);
-            panel.querySelector('[data-action="export-review-sets"]').disabled = !uniqueProblemSets.some((set) => set.examId);
-            panel.querySelector('[data-review-count]').textContent = `已加载 ${uniqueProblemSets.length} 套题目集`;
-            setStatus(panel, '题目集列表已加载');
-            setLog(panel, `找到 ${uniqueProblemSets.length} 套题目集；没有考试 ID 的题目集无法导出。`);
-          } finally {
-            button.disabled = false;
-            button.removeAttribute('aria-busy');
-            button.querySelector('[data-loader-label]').textContent = '加载题目集';
-          }
-        }
+        if (action === 'load-review-sets') await loadReviewProblemSets(panel);
         if (action === 'export-review-sets') await exportSelectedReviewSets(panel);
         if (action === 'apply') await applyAnswers(panel);
       } catch (error) {
@@ -841,6 +911,19 @@
 
   window.PintiaAssistant = {
     open,
+    clearCurrentProblemSet() {
+      const panel = document.querySelector('#pintia-assistant-panel');
+      if (!panel) return;
+      panel.querySelectorAll('[data-current-problem-set]').forEach((label) => label.remove());
+      state.reviewProblemSets = state.reviewProblemSets?.filter((set) => !set.isCurrentOnly) || [];
+      state.problemSetId = null;
+      panel.querySelector('[data-review-count]').textContent = state.reviewProblemSets?.length
+        ? `已加载 ${state.reviewProblemSets.length} 套题目集`
+        : '尚未加载题目集';
+      updateReviewDelayVisibility(panel);
+      panel.querySelector('[data-action="export-review-sets"]').disabled =
+        !state.reviewProblemSets?.some((set) => set.examId);
+    },
     async refreshQuestions(extractedQuestions) {
       const panel = document.querySelector('#pintia-assistant-panel');
       if (panel) await loadQuestions(panel, extractedQuestions);
@@ -862,6 +945,12 @@
 
   window.PintiaAssistantExtract = async () => {
     const result = await window.PintiaExtractor.extractFromApi();
-    return { title: document.title, problemSetId: result.problemSetId, questions: result.questions };
+    return {
+      title: result.problemSetName || document.title,
+      problemSetId: result.problemSetId,
+      problemSetName: result.problemSetName,
+      examId: result.examId,
+      questions: result.questions
+    };
   };
 })();

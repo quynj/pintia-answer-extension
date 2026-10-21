@@ -2,9 +2,10 @@
   const api = globalThis.PintiaPrompt = globalThis.PintiaPrompt || {};
 
   const outputRules = `逐题解答输入题目，只返回合法 JSON，不要 Markdown 或其他文字。
-格式：{"problemSetId":null,"answers":[{"questionNumber":1,"problemId":"题目ID","type":"single_choice","answer":"B"}]}
-规则：problemSetId、questionNumber、problemId、type 必须照输入原样返回；无题集 ID 或题号时填 null。不得编造、遗漏、增加、重排题目或修改 ID。
-answer 类型：single_choice 为一个选项字母字符串；multiple_choice 为选项字母数组；true_false 为 JSON 布尔值；fill_blank 为按空位顺序排列的字符串数组，数组长度必须等于 fillBlankConfig.blanks 的数量；short_answer 为字符串；programming 为包含完整源代码的非空字符串，不要用 Markdown 代码围栏，并严格使用该题 programmingLanguage 字段指定的语言；answer 按题目要求作答。选择题选项按 options 顺序对应 A、B、C……。填空题应综合阅读 questionText 中所有字段；字段内容可能互补，也可能只有部分字段包含完整题干、图片说明或作答要求，不可只依据 prompt 或 content。images 中是从这些字段提取并转换后的图片 URL；fillBlankConfig.blanks 按 index 顺序对应答案数组。`;
+格式：{"problemSetId":null,"answers":[{"questionNumber":1,"problemId":"题目ID","type":"MULTIPLE_CHOICE","answer":"B"}]}
+规则：problemSetId、questionNumber、problemId、type 必须照输入题目原样返回，包括大小写和下划线；无题集 ID 或题号时填 null。不得将 type 改写为自定义题型名称，不得编造、遗漏、增加、重排题目或修改 ID。
+题型与 answer 格式：MULTIPLE_CHOICE（单选题）为一个选项字母字符串；MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER（多选题）为选项字母数组；TRUE_OR_FALSE（判断题）为 JSON 布尔值；FILL_IN_THE_BLANK（填空题）为按空位顺序排列的字符串数组，数组长度必须等于 fillBlankConfig.blanks 的数量；SUBJECTIVE（主观题）为字符串；PROGRAMMING（编程题）和 SQL_PROGRAMMING（SQL 编程题）均为包含完整代码的非空字符串，不要用 Markdown 代码围栏，并严格使用该题 programmingLanguage 字段指定的语言。选项按 options 顺序对应 A、B、C……。其他 Pintia 题型原样返回输入的 type，并按题目要求作答。
+填空题使用 content 中按序编号的【填空1】、【填空2】等标记作为空位位置和顺序依据；answer 数组必须按这些编号顺序作答，并与 fillBlankConfig.blanks 数量一致。fillBlankConfig.blanks 已按原始 index 顺序排列，每项的 number 与 content 标记对应，不要再按 questionText 中缺失空位的字段重新推断位置。questionText 中的原始字段仅作为补充上下文，可能缺少空位或包含模板说明；images 中是从这些字段提取并转换后的图片 URL。`;
 
   api.systemPrompt = outputRules;
 
@@ -22,13 +23,32 @@ answer 类型：single_choice 为一个选项字母字符串；multiple_choice �
             if (typeof value === 'string' && value.trim()) fields[name] = value;
             return fields;
           }, {});
+        const isProgramming = question.type === 'PROGRAMMING' || question.type === 'SQL_PROGRAMMING';
+        const isFillInTheBlank = question.type === 'FILL_IN_THE_BLANK';
+        const orderedFillBlankConfig = fillBlankConfig ? {
+          ...fillBlankConfig,
+          blanks: [...(fillBlankConfig.blanks || [])]
+            .sort((left, right) => Number(left.index) - Number(right.index))
+            .map(({ index, ...blank }, blankIndex) => ({
+              ...blank,
+              number: blankIndex + 1
+            }))
+        } : undefined;
+        const fillBlankContent = isFillInTheBlank
+          ? globalThis.PintiaExtractor.fillBlankMarkdownContent(
+            question,
+            (blankIndex) => `【填空${blankIndex + 1}】`
+          )
+          : null;
         return {
           questionNumber: question.number ?? null,
           problemId: question.id ?? question.apiData?.id ?? question.apiData?.problem_id ?? question.apiData?.question_id ?? null,
           type: question.type,
           ...(question.title ? { title: question.title } : {}),
-          prompt: question.type === 'programming' ? question.title || question.prompt : question.prompt,
-          ...(question.type === 'programming' ? {
+          prompt: isFillInTheBlank
+            ? fillBlankContent
+            : isProgramming ? question.title || question.prompt : question.prompt,
+          ...(isProgramming ? {
             content: question.content || question.apiData?.content || question.apiData?.description || question.prompt,
             ...(programmingLanguage ? {
               programmingLanguage,
@@ -47,10 +67,10 @@ answer 类型：single_choice 为一个选项字母字符串；multiple_choice �
             } : {}),
             ...(question.apiData?.compiler ? { compiler: question.apiData.compiler } : {})
           } : {}),
-          ...(question.type === 'fill_blank' ? {
-            content: question.content || question.apiData?.content || question.prompt,
+          ...(isFillInTheBlank ? {
+            content: fillBlankContent,
             questionText,
-            ...(fillBlankConfig ? { fillBlankConfig } : {})
+            ...(orderedFillBlankConfig ? { fillBlankConfig: orderedFillBlankConfig } : {})
           } : {}),
           options: question.options || [],
           optionLabels: (question.options || []).length <= 26

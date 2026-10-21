@@ -13,7 +13,7 @@
 | 职责 | 当前实现位置 | 责任 |
 | --- | --- | --- |
 | 答案解析与校验 | `AnswerParser`、`AnswerValidator`，位于 `src/content/answer-runner.js` | 解析 JSON；校验题集 ID、数组、题目 ID、题号、题型和答案形状。 |
-| 类型导航 | `QuestionTypeNavigator`，位于 `src/content/answer-runner.js` | 依据标准题型点击 PTA 左侧精确 ID 的 `<a>`，等待当前题型题目可见。 |
+| 类型导航 | `QuestionTypeNavigator`，位于 `src/content/answer-runner.js` | 依据 Pintia 原始题型点击左侧精确 ID 的 `<a>`，等待当前题型题目可见。 |
 | 题目定位 | `QuestionResolver`，位于 `src/content/answer-runner.js` | 使用 `document.getElementById(problemId)` 定位题目根容器。 |
 | 答案注入 | `*Injector`，位于 `src/content/answer-runner.js` | 各题型调用对应 PTA 输入控件并触发页面状态更新；编程题按 `problemId` 在题目容器内定位代码编辑器，并逐字输入到操作前记录的光标位置。 |
 | 回填验证 | `AnswerVerifier`，位于 `src/content/answer-runner.js` | 对照目标答案检查控件实际状态。 |
@@ -27,29 +27,29 @@
 
 题型导航使用 `<a id>` 精确定位，不使用文本搜索。当前 ID 映射如下：
 
-| 标准题型 | PTA 左侧导航 ID |
+| Pintia `type` | PTA 左侧导航 ID |
 | --- | --- |
-| `single_choice` | `MULTIPLE_CHOICE` |
-| `multiple_choice` | `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER` |
-| `true_false` | `TRUE_OR_FALSE` |
-| `fill_blank` | `FILL_IN_THE_BLANK` |
+| `MULTIPLE_CHOICE` | `MULTIPLE_CHOICE` |
+| `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER` | `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER` |
+| `TRUE_OR_FALSE` | `TRUE_OR_FALSE` |
+| `FILL_IN_THE_BLANK` | `FILL_IN_THE_BLANK` |
 
-其中 PTA 单选导航 ID 虽然叫 `MULTIPLE_CHOICE`，映射以实际页面 DOM 为准，而不是根据 ID 名称推导题型。
+题型字段与 PTA 导航 ID 保持一致。`MULTIPLE_CHOICE` 在此表示单选题；多选题使用 `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER`。
 
 执行某题型批次前，导航器先检查该批答案中的任一 `problemId` 是否已对应可见题目。若没有，则点击对应导航锚点，并最多等待 5 秒，每 100 毫秒检查一次题目是否出现。若导航控件不存在、点击失败或题目未加载，批次内题目会返回失败原因，不尝试模糊定位。
 
-编程题不执行导航，避免切换题型或题目时丢失当前代码编辑器的焦点。执行前记录助手面板外最近聚焦的文本输入框、文本域或可编辑区域及光标位置；执行时根据当前题目的 `problemId` 在题目容器中查找代码编辑器，不依赖助手面板打开后编辑器仍保持焦点。对于 CodeMirror 编辑器，恢复已记录的光标位置后通过文本插入命令逐字符输入，使编辑器自身处理输入和状态更新。编程答案必须是非空字符串。多个编程题答案中，仅能够定位到目标编辑器且具有有效光标位置的答案会输入，其余会报告失败或跳过。
+`PROGRAMMING` 和 `SQL_PROGRAMMING` 不执行导航，避免切换题型或题目时丢失当前代码编辑器的焦点。执行前记录助手面板外最近聚焦的文本输入框、文本域或可编辑区域及光标位置；执行时根据当前题目的 `problemId` 在题目容器中查找代码编辑器，不依赖助手面板打开后编辑器仍保持焦点。对于 CodeMirror 编辑器，恢复已记录的光标位置后通过文本插入命令逐字符输入，使编辑器自身处理输入和状态更新。编程答案必须是非空字符串。多个编程题答案中，仅能够定位到目标编辑器且具有有效光标位置的答案会输入，其余会报告失败或跳过。
 
-检测到编程题时，助手面板显示并持久化保存语言选择；复制提示词和请求 AI 前必须选择语言，所选语言会附加到每道编程题的 `programmingLanguage` 和 `languageInstruction` 字段。扩展不会自动操作 PTA 编辑器的语言选择器，用户必须手动将编辑器语言切换为相同语言。
+检测到 `PROGRAMMING` 或 `SQL_PROGRAMMING` 时，助手面板显示并持久化保存语言选择；复制提示词和请求 AI 前必须选择语言，所选语言会附加到每道编程题的 `programmingLanguage` 和 `languageInstruction` 字段。扩展不会自动操作 PTA 编辑器的语言选择器，用户必须手动将编辑器语言切换为相同语言。
 
-编程题提取兼容题集的 `/exam-problem-list` 列表接口和 `/exam-problems/{problemId}` 详情接口：列表提供题目 ID/序号，扩展逐题请求详情并以 `content`/`description` 等正文作为题干。复制提示词和 AI 请求仅使用已取得完整题干的编程题；详情不可用时明确阻止发送不完整编程题。传给模型的编程配置只包含时间/内存/代码长度限制、样例测试数据、输入输出说明及编译器，不包含隐藏测试点、答案或题解。
+`PROGRAMMING`、`SQL_PROGRAMMING` 和 `SUBJECTIVE` 提取兼容题集的 `/exam-problem-list` 列表接口和 `/exam-problems/{problemId}` 详情接口：列表提供题目 ID/序号，扩展逐题请求详情并以 `content`/`description` 等正文作为题干。复制提示词和 AI 请求仅使用已取得题干的题目；编程题详情不可用时明确阻止发送不完整编程题。传给模型的编程配置只包含时间/内存/代码长度限制、样例测试数据、输入输出说明及编译器，不包含隐藏测试点、答案或题解。
 
 ## 执行流程
 
 1. 助手解析答案文本，并将当前勾选的题型传给任务执行器。
 2. 校验整个 JSON。格式或字段不合法时，在启动回填前返回错误。
-3. 忽略未勾选类型，不加入执行报告；将所选的 `short_answer` 和未知类型记为不支持并跳过。
-4. 优先处理选中的编程题，然后按 `single_choice -> multiple_choice -> true_false -> fill_blank` 顺序处理其他受支持的类型。
+3. 忽略未勾选类型，不加入执行报告；将所选的 `SUBJECTIVE` 和未实现类型记为不支持并跳过。
+4. 优先处理选中的 `PROGRAMMING`、`SQL_PROGRAMMING`，然后按 `MULTIPLE_CHOICE -> MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER -> TRUE_OR_FALSE -> FILL_IN_THE_BLANK` 顺序处理其他受支持类型。
 5. 编程题使用已记录的网页光标直接逐字输入；其他题型切换到对应 PTA 分类，等待当前题型问题根容器可见。
 6. 对每题按 `problemId` 定位，注入并立即验证；异常记录为该题失败，不使任务整体崩溃。
 7. 若该批至少一题验证成功且保存选项开启，调用一次 `SaveManager.save()`。当答案实际涉及多个可回填题型且保存选项关闭时，面板须在执行前征求确认；确认后每批均保存，以免切换题型时丢失修改。仅涉及一种题型时，用户可选择保存或仅修改页面控件而不保存。多题型强制保存失败时停止后续题型导航，并将未执行的题目标记为失败。
@@ -126,20 +126,20 @@ sequenceDiagram
     {
       "questionNumber": 1,
       "problemId": "2103815555000360960",
-      "type": "single_choice",
+      "type": "MULTIPLE_CHOICE",
       "success": true
     },
     {
       "questionNumber": 2,
       "problemId": "2103815555000360961",
-      "type": "fill_blank",
+      "type": "FILL_IN_THE_BLANK",
       "success": false,
       "reason": "question container not found"
     },
     {
       "questionNumber": 3,
       "problemId": "2103815555000360962",
-      "type": "programming",
+      "type": "PROGRAMMING",
       "success": false,
       "skipped": true,
       "reason": "unsupported question type"

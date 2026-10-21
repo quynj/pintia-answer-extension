@@ -45,6 +45,18 @@
       sendResponse({ visible: window.PintiaAssistant.isVisible() });
       return false;
     }
+    if (message.type === 'list-review-problem-sets') {
+      api.listProblemSets(message.requestDelayMs)
+        .then((problemSets) => sendResponse({ problemSets }))
+        .catch((error) => sendResponse({ error: error?.message || '题目集列表读取失败。' }));
+      return true;
+    }
+    if (message.type === 'export-review-problem-set') {
+      api.extractProblemSetForReview(message.problemSet, message.requestDelayMs)
+        .then((result) => sendResponse({ result }))
+        .catch((error) => sendResponse({ error: error?.message || '题目集导出失败。' }));
+      return true;
+    }
     if (message.type !== 'inspect' && message.type !== 'export') return false;
     extract(message.type === 'inspect')
       .then(async (result) => {
@@ -82,7 +94,15 @@
       autoDetectionInProgress = true;
       try {
         const result = await api.extractFromApi();
-        if (!result.questions.length || location.href !== detectedLocation) return;
+        if (location.href !== detectedLocation) return;
+        if (!result.questions.length) {
+          await window.PintiaAssistant.open({
+            title: document.title,
+            problemSetId: null,
+            questions: []
+          });
+          return;
+        }
         if (requestedSetId) autoDetectedQuestionSets.add(requestedSetId);
         if (result.problemSetId) autoDetectedQuestionSets.add(result.problemSetId);
         await chrome.storage.local.set({

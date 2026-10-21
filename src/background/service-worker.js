@@ -1,6 +1,6 @@
 importScripts('../shared/prompt-builder.js', '../shared/answer-contract.js', '../shared/ai-config.js');
 
-const { defaults, isLegacyPrompt, isPreviousSecondaryPrompt } = globalThis.PintiaAiConfig;
+const { defaults, isLegacyPrompt, isPreviousTypePrompt, isPreviousSecondaryPrompt } = globalThis.PintiaAiConfig;
 const activeAiRequests = new Map();
 const UPDATE_CHECK_URL = 'https://api.github.com/repos/quynj/pintia-answer-extension/releases/latest';
 const UPDATE_CHECK_INTERVAL = 6 * 60 * 60 * 1000;
@@ -79,6 +79,7 @@ async function getAiConfig() {
   const config = { ...defaults, ...aiConfig };
   if (!aiConfig?.apiType && aiConfig?.endpoint?.includes('/responses')) config.apiType = 'responses';
   if (isLegacyPrompt(config.prompt)) config.prompt = defaults.prompt;
+  if (isPreviousTypePrompt(config.prompt)) config.prompt = defaults.prompt;
   if (isPreviousSecondaryPrompt(config.secondaryPrompt)) config.secondaryPrompt = defaults.secondaryPrompt;
   return config;
 }
@@ -176,6 +177,98 @@ async function getQuestionBank(sender) {
   if (result?.error) throw new Error(result.error);
   if (!result?.questions?.length) throw new Error('当前页面没有可导出的题目。');
   return { result };
+}
+
+async function reviewExportRequest(sender, message) {
+  const tabId = sender.tab?.id;
+  if (!tabId || !sender.tab.url?.startsWith('https://pintia.cn/')) {
+    throw new Error('请在已登录的 Pintia 页面中导出复习题集。');
+  }
+  const delay = Number(message.requestDelayMs);
+  if (!Number.isInteger(delay) || delay < 0 || delay > 10000) {
+    throw new Error('请求间隔必须是 0 到 10000 毫秒之间的整数。');
+  }
+  const response = await sendTabMessage(tabId, {
+    type: message.type,
+    problemSet: message.problemSet,
+    requestDelayMs: delay
+  });
+  if (response?.error) throw new Error(response.error);
+  if (message.type === 'list-review-problem-sets' && !Array.isArray(response?.problemSets)) {
+    throw new Error('题目集列表接口返回格式无效。');
+  }
+  if (message.type === 'export-review-problem-set' && !response?.result?.questions?.length) {
+    throw new Error('该题目集没有读取到题目，未生成文件。');
+  }
+  return response;
+}
+
+function downloadReviewMarkdown(sender, message) {
+  if (!sender.tab?.url?.startsWith('https://pintia.cn/')) {
+    throw new Error('只能从 Pintia 页面导出 Markdown。');
+  }
+  if (typeof message.markdown !== 'string' || !message.markdown.trim()) {
+    throw new Error('Markdown 内容为空，无法下载。');
+  }
+  const filename = String(message.filename || 'pintia-review.md')
+    .replace(/[\\/:*?"<>|]/g, '_')
+    .slice(0, 100) || 'pintia-review.md';
+  const bytes = new TextEncoder().encode(message.markdown);
+  let binary = '';
+  for (let offset = 0; offset < bytes.length; offset += 0x8000) {
+    binary += String.fromCharCode(...bytes.subarray(offset, offset + 0x8000));
+  }
+  const url = `data:text/markdown;charset=utf-8;base64,${btoa(binary)}`;
+  return new Promise((resolve, reject) => {
+    chrome.downloads.download({
+      url,
+      filename,
+      conflictAction: 'uniquify',
+      saveAs: false
+    }, (downloadId) => {
+      if (chrome.runtime.lastError) {
+        reject(new Error(chrome.runtime.lastError.message));
+        return;
+      }
+      if (!Number.isInteger(downloadId)) {
+        reject(new Error('浏览器未创建 Markdown 下载任务。'));
+        return;
+      }
+      waitForDownload(downloadId)
+        .then(() => resolve({ downloadId, filename }))
+        .catch(reject);
+    });
+  });
+}
+
+function waitForDownload(downloadId) {
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const finish = (error) => {
+      if (settled) return;
+      settled = true;
+      chrome.downloads.onChanged.removeListener(onChanged);
+      clearTimeout(timeoutId);
+      if (error) reject(error);
+      else resolve();
+    };
+    const onChanged = (delta) => {
+      if (delta.id !== downloadId) return;
+      if (delta.state?.current === 'complete') finish();
+      else if (delta.state?.current === 'interrupted') {
+        finish(new Error(delta.error?.current || '浏览器中断了文件下载。'));
+      }
+    };
+    const timeoutId = setTimeout(() => finish(new Error('等待 Markdown 文件下载完成超时。')), 60000);
+    chrome.downloads.onChanged.addListener(onChanged);
+    chrome.downloads.search({ id: downloadId }, (items) => {
+      if (chrome.runtime.lastError) finish(new Error(chrome.runtime.lastError.message));
+      else if (items[0]?.state === 'complete') finish();
+      else if (items[0]?.state === 'interrupted') {
+        finish(new Error(items[0].error || '浏览器中断了文件下载。'));
+      }
+    });
+  });
 }
 
 function responseText(data, apiType) {
@@ -355,6 +448,10 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       .then(() => ({ opened: true }));
   }
   else if (message.type === 'get-question-bank') operation = getQuestionBank(sender);
+  else if (message.type === 'download-review-markdown') operation = downloadReviewMarkdown(sender, message);
+  else if (message.type === 'list-review-problem-sets' || message.type === 'export-review-problem-set') {
+    operation = reviewExportRequest(sender, message);
+  }
   else if (message.type === 'ask-ai') operation = askAi(message.input, message.questions, message.problemSetId, sender, message.requestId);
   else if (message.type === 'cancel-ai') {
     const controller = activeAiRequests.get(message.requestId);

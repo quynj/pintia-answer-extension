@@ -3,7 +3,7 @@
   "name": "Pintia 学习辅助工具",
   "version": "1.0.5",
   "description": "Pintia 学习辅助工具，包含题目识别、题目导出、AI辅助学习、答案回填等功能。",
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["activeTab", "storage", "downloads"],
   "host_permissions": ["https://pintia.cn/*", "https://api.github.com/*"],
   "optional_host_permissions": ["https://*/*", "http://*/*"],
   "background": {

@@ -1,10 +1,11 @@
 (() => {
-  const supportedTypes = ['programming', 'single_choice', 'multiple_choice', 'true_false', 'fill_blank'];
+  const supportedTypes = ['PROGRAMMING', 'SQL_PROGRAMMING', 'MULTIPLE_CHOICE', 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER', 'TRUE_OR_FALSE', 'FILL_IN_THE_BLANK'];
   const saveDelayMs = 500;
   const typingDelayMs = 8;
   let focusedEditor = null;
   let focusedEditorSelection = null;
   const observedDocuments = new WeakSet();
+  const isProgrammingType = (type) => type === 'PROGRAMMING' || type === 'SQL_PROGRAMMING';
 
   function editableElement(element) {
     if (element?.nodeType !== Node.ELEMENT_NODE
@@ -111,7 +112,7 @@
 
   function resolveQuestion(item, allowSingleEditorFallback = false) {
     const question = QuestionResolver.resolve(item.problemId);
-    if (item.type !== 'programming') return question;
+    if (!isProgrammingType(item.type)) return question;
     if (question.success && (question.root.matches('[data-e2e="code-editor-input"]')
       || question.root.querySelector('[data-e2e="code-editor-input"]'))) {
       return question;
@@ -125,10 +126,10 @@
   }
 
   const typeNavigationIds = {
-    single_choice: 'MULTIPLE_CHOICE',
-    multiple_choice: 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER',
-    true_false: 'TRUE_OR_FALSE',
-    fill_blank: 'FILL_IN_THE_BLANK'
+    MULTIPLE_CHOICE: 'MULTIPLE_CHOICE',
+    MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER: 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER',
+    TRUE_OR_FALSE: 'TRUE_OR_FALSE',
+    FILL_IN_THE_BLANK: 'FILL_IN_THE_BLANK'
   };
 
   const QuestionTypeNavigator = {
@@ -390,7 +391,7 @@
   };
 
   function checkedRadio(item, root) {
-    const input = radioFor(item.problemId, item.type === 'true_false'
+    const input = radioFor(item.problemId, item.type === 'TRUE_OR_FALSE'
       ? (item.answer ? 'TRUE' : 'FALSE')
       : item.answer, root);
     return Boolean(input?.checked);
@@ -398,18 +399,18 @@
 
   const AnswerVerifier = {
     verify(item, root, injected) {
-      if (item.type === 'programming') {
+      if (isProgrammingType(item.type)) {
         const typedCharacters = [...item.answer].length;
         return injected?.success && injected.typedCharacters === typedCharacters
           ? { success: true }
           : { success: false, reason: 'programming answer typing verification failed' };
       }
-      if (item.type === 'single_choice' || item.type === 'true_false') {
+      if (item.type === 'MULTIPLE_CHOICE' || item.type === 'TRUE_OR_FALSE') {
         return checkedRadio(item, root)
           ? { success: true }
           : { success: false, reason: 'answer verification failed' };
       }
-      if (item.type === 'multiple_choice') {
+      if (item.type === 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER') {
         const actual = new Set([...root.querySelectorAll('input[type="checkbox"]')]
           .filter((input) => input.name === item.problemId
             && input.id.startsWith(`input-checkbox-option-${item.problemId}-`)
@@ -421,7 +422,7 @@
           ? { success: true }
           : { success: false, reason: 'answer verification failed' };
       }
-      if (item.type === 'fill_blank') {
+      if (item.type === 'FILL_IN_THE_BLANK') {
         const matches = item.answer.every((value, index) => blankInput(root, index)?.value === value);
         return matches
           ? { success: true }
@@ -453,7 +454,7 @@
   };
 
   function currentAnswer(item, root) {
-    if (item.type === 'single_choice' || item.type === 'true_false') {
+    if (item.type === 'MULTIPLE_CHOICE' || item.type === 'TRUE_OR_FALSE') {
       const input = [...root.querySelectorAll('input[type="radio"]')]
         .find((candidate) => candidate.name === item.problemId
           && candidate.checked
@@ -462,25 +463,26 @@
         ? input.id.slice(`input-radio-option-${item.problemId}-`.length)
         : null;
     }
-    if (item.type === 'multiple_choice') {
+    if (item.type === 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER') {
       return [...root.querySelectorAll('input[type="checkbox"]')]
         .filter((input) => input.name === item.problemId
           && input.id.startsWith(`input-checkbox-option-${item.problemId}-`)
           && input.checked)
         .map((input) => input.id.slice(`input-checkbox-option-${item.problemId}-`.length));
     }
-    if (item.type === 'fill_blank') {
+    if (item.type === 'FILL_IN_THE_BLANK') {
       return item.answer.map((_, index) => blankInput(root, index)?.value ?? null);
     }
     return null;
   }
 
   const injectors = {
-    programming: ProgrammingInjector,
-    single_choice: SingleChoiceInjector,
-    multiple_choice: MultipleChoiceInjector,
-    true_false: TrueFalseInjector,
-    fill_blank: FillBlankInjector
+    PROGRAMMING: ProgrammingInjector,
+    SQL_PROGRAMMING: ProgrammingInjector,
+    MULTIPLE_CHOICE: SingleChoiceInjector,
+    MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER: MultipleChoiceInjector,
+    TRUE_OR_FALSE: TrueFalseInjector,
+    FILL_IN_THE_BLANK: FillBlankInjector
   };
 
   function requiresBatchSave(payload, allowedTypes) {
@@ -497,11 +499,11 @@
       const saveRequested = options.save !== false || forcedBatchSave;
       const results = new Array(answers.length);
       let saved = false;
-      const programmingAnswers = answers.filter((item) => item.type === 'programming');
+      const programmingAnswers = answers.filter((item) => isProgrammingType(item.type));
       const currentPageProblemId = problemIdFromLocation(programmingAnswers);
       if (currentPageProblemId) {
         answers.forEach((item, index) => {
-          if (item.type === 'programming' && item.problemId !== currentPageProblemId) {
+          if (isProgrammingType(item.type) && item.problemId !== currentPageProblemId) {
             results[index] = {
               questionNumber: item.questionNumber,
               problemId: item.problemId,
@@ -533,7 +535,7 @@
           .filter(({ item, index }) => item.type === type && !results[index]);
         if (!batch.length) continue;
 
-        const navigation = type === 'programming'
+        const navigation = isProgrammingType(type)
           ? { success: true }
           : await QuestionTypeNavigator.navigate(type, batch.map(({ item }) => item));
         if (!navigation.success) {
@@ -553,7 +555,7 @@
 
         for (const { item, index } of batch) {
           try {
-            const question = resolveQuestion(item, type === 'programming' && batch.length === 1);
+            const question = resolveQuestion(item, isProgrammingType(type) && batch.length === 1);
             if (!question.success) {
               results[index] = {
                 questionNumber: item.questionNumber,
@@ -565,7 +567,7 @@
               continue;
             }
             const answerContext = {
-              ...(type === 'programming' ? {} : { previousAnswer: currentAnswer(item, question.root) }),
+              ...(isProgrammingType(type) ? {} : { previousAnswer: currentAnswer(item, question.root) }),
               targetAnswer: Array.isArray(item.answer) ? [...item.answer] : item.answer
             };
             const injected = await injectors[type].inject(item, question.root);

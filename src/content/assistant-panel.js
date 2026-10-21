@@ -4,7 +4,6 @@
     questions: [],
     problemSetId: null,
     aiConfig: null,
-    latestReport: null,
     activeAiRequestId: null,
     aiMessageSentRequestId: null,
     aiPhase: null,
@@ -12,6 +11,8 @@
     aiElapsedTimer: null,
     aiTimerRequestId: null,
     programmingLanguage: '',
+    loggingEnabled: false,
+    logs: [],
     configReady: Promise.resolve(),
     collapsed: true,
     panelStateReady: chrome.storage.local.get('assistantCollapsed').then(({ assistantCollapsed }) => {
@@ -20,14 +21,18 @@
   };
 
   const typeLabels = {
-    single_choice: '单选题',
-    multiple_choice: '多选题',
-    true_false: '判断题',
-    fill_blank: '填空题',
-    programming: '编程题',
-    short_answer: '简答题',
-    answer: '其他题型'
+    MULTIPLE_CHOICE: '单选题',
+    MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER: '多选题',
+    TRUE_OR_FALSE: '判断题',
+    FILL_IN_THE_BLANK: '填空题',
+    PROGRAMMING: '编程题',
+    SQL_PROGRAMMING: 'SQL编程题',
+    SUBJECTIVE: '主观题'
   };
+
+  function isProgrammingQuestion(question) {
+    return question.type === 'PROGRAMMING' || question.type === 'SQL_PROGRAMMING';
+  }
 
   const programmingLanguages = [
     'C',
@@ -43,7 +48,8 @@
     'Swift',
     'PHP',
     'Ruby',
-    'R'
+    'R',
+    'SQL'
   ];
 
   function createPanel(extractedQuestions) {
@@ -59,6 +65,7 @@
       </div>
       <div class="pintia-assistant-body" data-view="assistant">
         <p class="pintia-assistant-status" data-status>请选择要处理的题型</p>
+      <p class="pintia-assistant-context" data-page-context></p>
         <div class="pintia-assistant-types" data-types><span>处理题型</span><em>正在读取题库…</em></div>
         <div class="pintia-assistant-programming-language" data-programming-language hidden>
           <label for="pintia-assistant-programming-language">编程语言</label>
@@ -70,13 +77,9 @@
         </div>
         <div class="pintia-assistant-options">
           <label><input type="checkbox" data-auto-save />自动回填并保存</label>
-          <label><input type="checkbox" data-diagnostic-logging />记录 AI 诊断日志</label>
-          <small>范围跟随上方勾选题型；全选时覆盖整套题中的可回填题型。编程题会按题目 ID 定位代码编辑器，并从操作前记录的光标位置逐字输入；请先将光标放入对应编辑器，再点击助手面板。简答题暂不支持页面回填。关闭后单题型手动回填不会保存；多题型回填会在开始前提示，并逐类保存以避免切换题型时丢失答案。</small>
+          <label><input type="checkbox" data-diagnostic-logging />开启日志</label>
+          <small>范围跟随上方勾选题型；全选时覆盖整套题中的可回填题型。编程题和 SQL 编程题会按题目 ID 定位代码编辑器，并从操作前记录的光标位置逐字输入；请先将光标放入对应编辑器，再点击助手面板。主观题暂不支持页面回填。关闭后单题型手动回填不会保存；多题型回填会在开始前提示，并逐类保存以避免切换题型时丢失答案。</small>
         </div>
-        <details class="pintia-assistant-report" data-report hidden>
-          <summary>回填明细</summary>
-          <ol data-report-list></ol>
-        </details>
         <label class="pintia-assistant-answer-label" for="pintia-assistant-answer">答案内容（JSON）</label>
         <p class="pintia-assistant-answer-hint">AI 生成结果（含复核后的最终答案）会显示在此处。编程题按题目 ID 定位代码编辑器，并从操作前记录的光标位置逐字输入；关闭自动回填时，请核对答案后手动执行回填。</p>
         <textarea id="pintia-assistant-answer" data-answer placeholder="粘贴答案 JSON，或通过 AI 生成答案"></textarea>
@@ -86,11 +89,28 @@
           <button data-action="export">导出题库</button>
           <button data-action="apply">校验并回填/输入</button>
         </div>
-        <p class="pintia-assistant-log" data-log></p>
-        <details class="pintia-assistant-diagnostics" data-diagnostics hidden>
-          <summary>本次 AI 诊断日志</summary>
-          <ol data-diagnostic-list></ol>
+        <details class="pintia-review-export" data-review-export>
+          <summary>导出选项</summary>
+          <label data-review-delay-option hidden>请求间隔（毫秒）
+            <input type="number" min="0" max="10000" step="100" value="300" data-review-delay />
+          </label>
+          <div class="pintia-review-loader">
+            <div class="pintia-review-loader-copy">
+              <strong>作业题目集</strong>
+              <small data-review-count aria-live="polite">尚未加载题目集</small>
+            </div>
+            <button data-action="load-review-sets"><span aria-hidden="true">↻</span><span data-loader-label>加载题目集</span></button>
+          </div>
+          <div data-review-sets aria-live="polite"></div>
+          <label class="pintia-review-answers"><input type="checkbox" data-review-include-answers checked />包含作答内容</label>
+          <button class="pintia-review-export-button" data-action="export-review-sets" disabled>导出 Markdown</button>
+          <small>普通题型作答仅来自平台返回的最近提交，不含标准答案；主观题、编程题及 SQL 编程题的作答内容暂不支持导出。只请求作业实际包含的题型；无法确认评测结果时标记为未评测，图片使用在线地址。</small>
         </details>
+        <p class="pintia-assistant-log-message" data-log-message></p>
+        <section class="pintia-assistant-console" data-log-panel hidden>
+          <header><strong>运行日志</strong><span data-log-count>0</span></header>
+          <div data-log-console role="log" aria-live="polite" aria-relevant="additions"></div>
+        </section>
       </div>`;
     const collapseButton = panel.querySelector('[data-action="collapse"]');
     collapseButton.title = state.collapsed ? '展开' : '收起';
@@ -98,10 +118,7 @@
     document.body.appendChild(panel);
     bindPanel(panel);
     enableDragging(panel);
-    if (state.latestReport) {
-      updateReport(panel, state.latestReport.report);
-      setLog(panel, state.latestReport.message);
-    }
+    renderLogs(panel);
     loadQuestions(panel, extractedQuestions);
     state.configReady = loadConfig(panel);
     return panel;
@@ -111,17 +128,46 @@
     panel.querySelector('[data-status]').textContent = message;
   }
 
-  function setLog(panel, message) {
-    panel.querySelector('[data-log]').textContent = message;
+  function setLog(panel, message, level = 'info') {
+    panel.querySelector('[data-log-message]').textContent = message;
+    appendLog(panel, message, level);
   }
 
-  function diagnosticLog(panel, message) {
-    if (!panel.querySelector('[data-diagnostic-logging]').checked) return;
-    const list = panel.querySelector('[data-diagnostic-list]');
-    const item = document.createElement('li');
-    item.textContent = `${new Date().toLocaleTimeString()} · ${message}`;
-    list.appendChild(item);
-    panel.querySelector('[data-diagnostics]').hidden = false;
+  function renderLogs(panel) {
+    const logPanel = panel.querySelector('[data-log-panel]');
+    const consoleElement = panel.querySelector('[data-log-console]');
+    logPanel.hidden = !state.loggingEnabled;
+    consoleElement.replaceChildren();
+    state.logs.forEach((entry) => {
+      const line = document.createElement('div');
+      line.className = `pintia-assistant-console-line is-${entry.level}`;
+      line.textContent = `${entry.time} [${entry.level.toUpperCase()}] ${entry.message}`;
+      consoleElement.appendChild(line);
+    });
+    panel.querySelector('[data-log-count]').textContent = String(state.logs.length);
+    consoleElement.scrollTop = consoleElement.scrollHeight;
+  }
+
+  function appendLog(panel, message, level = 'info') {
+    if (!state.loggingEnabled) return;
+    const entry = {
+      time: new Date().toLocaleTimeString(),
+      level,
+      message: String(message)
+    };
+    state.logs.push(entry);
+    if (state.logs.length > 200) state.logs.shift();
+    const activePanel = panel?.isConnected ? panel : document.querySelector('#pintia-assistant-panel');
+    if (!activePanel) return;
+    const consoleElement = activePanel.querySelector('[data-log-console]');
+    const line = document.createElement('div');
+    line.className = `pintia-assistant-console-line is-${level}`;
+    line.textContent = `${entry.time} [${level.toUpperCase()}] ${entry.message}`;
+    consoleElement.appendChild(line);
+    if (consoleElement.childElementCount > 200) consoleElement.firstElementChild.remove();
+    activePanel.querySelector('[data-log-count]').textContent = String(state.logs.length);
+    activePanel.querySelector('[data-log-panel]').hidden = false;
+    consoleElement.scrollTop = consoleElement.scrollHeight;
   }
 
   function updateAiElapsed(panel) {
@@ -140,14 +186,14 @@
       state.aiPhaseStartedAt = Date.now();
       if (!state.aiElapsedTimer) state.aiElapsedTimer = window.setInterval(() => updateAiElapsed(panel), 1000);
       updateAiElapsed(panel);
-      diagnosticLog(panel, `${state.aiPhase}请求开始`);
+      appendLog(panel, `${state.aiPhase}请求开始`, 'info');
       return;
     }
 
     const stage = message.phase.startsWith('draft-') ? '初稿' : '复核';
     const duration = `${((message.durationMs || 0) / 1000).toFixed(1)} 秒`;
     if (message.phase.endsWith('-completed')) {
-      diagnosticLog(panel, `${stage}请求完成，耗时 ${duration}`);
+      appendLog(panel, `${stage}请求完成，耗时 ${duration}`, 'success');
     } else if (message.phase.endsWith('-failed')) {
       const reasons = {
         timeout: '超时',
@@ -155,65 +201,14 @@
         'invalid-output': '结果校验失败',
         'request-failed': '请求失败'
       };
-      diagnosticLog(panel, `${stage}${reasons[message.reason] || '未完成'}，耗时 ${duration}`);
+      appendLog(panel, `${stage}${reasons[message.reason] || '未完成'}，耗时 ${duration}`, 'error');
     }
   });
-
-  function formatAnswer(answer) {
-    if (answer === null || answer === undefined) return '未作答';
-    if (Array.isArray(answer)) return answer.length ? answer.join('、') : '未选择';
-    if (typeof answer === 'boolean') return answer ? '是' : '否';
-    return String(answer);
-  }
 
   function hasAnswerChanges(result) {
     return result.action === 'updated'
       || result.optionActions?.some(({ action }) => action === 'checked' || action === 'unchecked')
       || result.blankActions?.some(({ action }) => action === 'updated');
-  }
-
-  function updateReport(panel, report) {
-    const container = panel.querySelector('[data-report]');
-    const list = panel.querySelector('[data-report-list]');
-    const visibleResults = report.results.filter((result) => !result.success || hasAnswerChanges(result));
-
-    list.replaceChildren();
-    visibleResults.forEach((result) => {
-      const item = document.createElement('li');
-      const status = result.success
-        ? '已修改并验证'
-        : `${result.skipped ? '已跳过' : '未完成'}：${result.reason}`;
-      const title = document.createElement('span');
-      title.textContent = `第 ${result.questionNumber ?? '?'} 题（${result.type}，ID ${result.problemId}）：${status}`;
-      item.appendChild(title);
-
-      if (Object.hasOwn(result, 'previousAnswer')) {
-        const comparison = document.createElement('div');
-        const targetAnswer = result.type === 'true_false' && typeof result.targetAnswer === 'boolean'
-          ? String(result.targetAnswer)
-          : formatAnswer(result.targetAnswer);
-        comparison.textContent = `原答案：${formatAnswer(result.previousAnswer)}；本次目标：${targetAnswer}`;
-        item.appendChild(comparison);
-      }
-
-      const changes = result.optionActions || result.blankActions;
-      if (changes?.length) {
-        const details = document.createElement('ul');
-        changes.filter((change) => change.action === 'checked'
-          || change.action === 'unchecked'
-          || change.action === 'updated').forEach((change) => {
-          const detail = document.createElement('li');
-          const label = result.optionActions ? `选项 ${change.option}` : `填空 ${change.index + 1}`;
-          const actionLabels = { checked: '已勾选', unchecked: '已取消', updated: '已修改' };
-          detail.textContent = `${label}：${actionLabels[change.action]}`;
-          details.appendChild(detail);
-        });
-        item.appendChild(details);
-      }
-      list.appendChild(item);
-    });
-    container.hidden = visibleResults.length === 0;
-    if (visibleResults.length) container.open = true;
   }
 
   function sendRuntimeMessage(message) {
@@ -232,9 +227,10 @@
       state.aiConfig = config;
       panel.querySelector('[data-auto-save]').checked = config.autoApplyAnswers === true;
       panel.querySelector('[data-diagnostic-logging]').checked = config.diagnosticLoggingEnabled === true;
-      panel.querySelector('[data-diagnostics]').hidden = !config.diagnosticLoggingEnabled;
+      state.loggingEnabled = config.diagnosticLoggingEnabled === true;
+      renderLogs(panel);
     } catch (error) {
-      setLog(panel, error.message || '无法读取 AI 配置');
+      setLog(panel, error.message || '无法读取 AI 配置', 'error');
     }
   }
 
@@ -250,11 +246,20 @@
       const result = extractedQuestions || await window.PintiaAssistantExtract();
       state.questions = result.questions;
       state.problemSetId = result.problemSetId;
+      const hasCurrentQuestionSet = state.questions.length > 0;
+      setStatus(panel, hasCurrentQuestionSet ? '作业题目已就绪' : '当前页未检测到作业题目');
+      panel.querySelector('[data-page-context]').textContent = hasCurrentQuestionSet
+        ? '当前为作业题目页：可使用 AI、回填及当前题库导出。作业 Markdown 导出也可在任意已登录的 Pintia 页面使用。'
+        : '当前非作业题目页：可加载作业列表并导出 Markdown；AI 答题、回填和当前题库导出需进入具体作业题目页。';
+      for (const action of ['prompt', 'api', 'export', 'apply']) {
+        const button = panel.querySelector(`[data-action="${action}"]`);
+        if (button) button.disabled = !hasCurrentQuestionSet;
+      }
       const types = [...new Set(state.questions.map((question) => question.type))];
       panel.querySelector('[data-types]').innerHTML = `<span>处理题型</span>${types.map((type) => `<label><input type="checkbox" value="${type}" checked />${typeLabels[type] || type}</label>`).join('')}`;
       const languageSelector = panel.querySelector('[data-programming-language]');
       const languageControl = panel.querySelector('[data-language]');
-      const hasProgrammingQuestions = state.questions.some((question) => question.type === 'programming');
+      const hasProgrammingQuestions = state.questions.some(isProgrammingQuestion);
       languageSelector.hidden = !hasProgrammingQuestions;
       if (hasProgrammingQuestions) {
         try {
@@ -264,18 +269,18 @@
             languageControl.value = programmingLanguage;
           }
         } catch (error) {
-          setLog(panel, error.message || '无法读取已保存的编程语言。');
+          setLog(panel, error.message || '无法读取已保存的编程语言。', 'error');
         }
       }
       const incompleteProgrammingCount = state.questions
-        .filter((question) => question.type === 'programming' && !question.hasStatement)
+        .filter((question) => isProgrammingQuestion(question) && !question.hasStatement)
         .length;
       if (incompleteProgrammingCount) {
         setLog(panel, `${incompleteProgrammingCount} 道编程题未读取到完整题干；复制提示词和 AI 请求暂不可用。`);
       }
     } catch (error) {
       panel.querySelector('[data-types]').innerHTML = '<span>处理题型</span><em>题库读取失败</em>';
-      setLog(panel, error.message || '无法读取题库。');
+      setLog(panel, error.message || '无法读取题库。', 'error');
     }
   }
 
@@ -285,10 +290,10 @@
   }
 
   function requireProgrammingStatements(questions) {
-    if (questions.some((question) => question.type === 'programming') && !state.programmingLanguage) {
+    if (questions.some(isProgrammingQuestion) && !state.programmingLanguage) {
       throw new Error('请先选择编程语言，并手动将 Pintia 编辑器切换到相同语言。');
     }
-    const missing = questions.filter((question) => question.type === 'programming' && !question.hasStatement);
+    const missing = questions.filter((question) => isProgrammingQuestion(question) && !question.hasStatement);
     if (missing.length) {
       throw new Error(`有 ${missing.length} 道编程题未能读取完整题干；请确认题目详情接口可用后重新检测。`);
     }
@@ -296,7 +301,7 @@
 
   function requireChoiceOptions(questions) {
     const missing = questions.filter((question) =>
-      (question.type === 'single_choice' || question.type === 'multiple_choice')
+      (question.type === 'MULTIPLE_CHOICE' || question.type === 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER')
       && !question.options?.length
     );
     if (missing.length) {
@@ -342,17 +347,12 @@
       const { config } = await sendRuntimeMessage({ type: 'get-ai-config' });
       if (state.activeAiRequestId !== requestId) return;
       state.aiConfig = config;
-      const diagnosticLoggingEnabled = panel.querySelector('[data-diagnostic-logging]').checked;
-      const diagnosticDetails = panel.querySelector('[data-diagnostics]');
-      diagnosticDetails.hidden = !diagnosticLoggingEnabled;
-      const diagnosticList = panel.querySelector('[data-diagnostic-list]');
-      diagnosticList.replaceChildren();
       state.aiPhase = '初稿';
       state.aiPhaseStartedAt = Date.now();
       state.aiTimerRequestId = requestId;
       state.aiElapsedTimer = window.setInterval(() => updateAiElapsed(panel), 1000);
       updateAiElapsed(panel);
-      diagnosticLog(panel, 'AI 请求开始');
+      appendLog(panel, `AI 请求开始（${questions.length} 道题）`);
       const input = promptApi.buildInput(
         document.title,
         questions,
@@ -436,6 +436,147 @@
     setLog(panel, `正在导出包含 ${result.questions.length} 道题目的 JSON 文件。`);
   }
 
+  function reviewRequestDelay(panel) {
+    const input = panel.querySelector('[data-review-delay]');
+    const delay = Number(input.value);
+    if (!Number.isInteger(delay) || delay < 0 || delay > 10000) {
+      throw new Error('请求间隔必须是 0 到 10000 毫秒之间的整数。');
+    }
+    return delay;
+  }
+
+  function expandedImageMarkdown(value) {
+    return String(value || '').replace(/(!\[[^\]]*\]\()\s*(<[^>]+>|[^)\s]+)\s*(\))/g, (match, prefix, source, suffix) => {
+      const imagePath = source.replace(/^<|>$/g, '');
+      if (!/^\/?~\//.test(imagePath)) return match;
+      const path = imagePath.replace(/^\/?~\//, '').split('/').map(encodeURIComponent).join('/');
+      return `${prefix}<https://images.ptausercontent.com/${path}>${suffix}`;
+    });
+  }
+
+  function questionMarkdown(question) {
+    const questionContent = question.type === 'FILL_IN_THE_BLANK'
+      ? window.PintiaExtractor.fillBlankMarkdownContent(question)
+      : question.content || question.prompt;
+    const content = expandedImageMarkdown(questionContent);
+    const imageUrls = [...new Set((question.images || [])
+      .filter((image) => image.location !== 'option' && image.url && !content.includes(image.url))
+      .map((image) => image.url))];
+    return [content, ...imageUrls.map((url) => `![题目图片](<${url}>)`)]
+      .filter(Boolean)
+      .join('\n\n');
+  }
+
+  function answerText(answer) {
+    if (answer === undefined || answer === null || answer === '') return '（未提供作答内容）';
+    if (Array.isArray(answer)) return answer.map((item) => String(item)).join('、');
+    if (typeof answer === 'object') return JSON.stringify(answer);
+    return String(answer);
+  }
+
+  function codeFence(value) {
+    const longest = Math.max(0, ...(String(value).match(/`+/g) || []).map((part) => part.length));
+    const fence = '`'.repeat(Math.max(3, longest + 1));
+    return `${fence}\n${value}\n${fence}`;
+  }
+
+  function reviewMarkdown(result, includeAnswers = true) {
+    const questionsByType = new Map();
+    result.questions.forEach((question) => {
+      const type = question.type;
+      if (!questionsByType.has(type)) questionsByType.set(type, []);
+      questionsByType.get(type).push(question);
+    });
+    const lines = [
+      `# ${result.title}`,
+      '',
+      `- 导出时间：${new Date().toLocaleString()}`,
+      `- 来源：${result.source}`,
+      `- 题目数：${result.questions.length}`,
+      '',
+      `> 说明：只展示平台返回的评测状态${includeAnswers ? '和作答' : ''}；未评测或无法识别的状态不会推断为正确或错误。`,
+      ''
+    ];
+    for (const [type, questions] of questionsByType) {
+      lines.push(`## ${typeLabels[type] || type}`, '');
+      questions.forEach((question, index) => {
+        const submission = question.submission;
+        const evaluation = submission?.evaluation;
+        const mark = evaluation === 'wrong' ? '❌ 错题' : evaluation === 'correct' ? '✅ 正确' : '⚪ 未评测/未知';
+        lines.push(`### ${question.number ?? index + 1}. ${mark}`, '');
+        lines.push(questionMarkdown(question), '');
+        if (question.options?.length) {
+          lines.push(...question.options.map((option, optionIndex) => `${String.fromCharCode(65 + optionIndex)}. ${expandedImageMarkdown(option)}`), '');
+        }
+        if (includeAnswers) {
+          lines.push(`**我的作答：** ${isProgrammingQuestion(question)
+            ? `\n\n${codeFence(answerText(submission?.answer))}`
+            : answerText(submission?.answer)}`);
+        }
+        if (evaluation === 'wrong') lines.push('', '**复习标记：** 错题（平台未提供可用标准答案）');
+        else if (!submission) lines.push('', '**作答记录：** 未找到匹配的提交记录');
+        lines.push('');
+      });
+    }
+    return lines.join('\n');
+  }
+
+  function reviewFilename(result) {
+    const filename = (result.title || 'pintia-review')
+      .replace(/[\\/:*?"<>|]/g, '_')
+      .slice(0, 80) || 'pintia-review';
+    return `${filename}.md`;
+  }
+
+  function downloadReviewMarkdown(result, includeAnswers) {
+    return sendRuntimeMessage({
+      type: 'download-review-markdown',
+      filename: reviewFilename(result),
+      markdown: reviewMarkdown(result, includeAnswers)
+    });
+  }
+
+  async function exportSelectedReviewSets(panel) {
+    const selectedIds = new Set([...panel.querySelectorAll('[data-review-set]:checked')].map((input) => input.value));
+    const problemSets = state.reviewProblemSets?.filter((set) => selectedIds.has(String(set.id))) || [];
+    if (!problemSets.length) throw new Error('请至少选择一套可导出的作业。');
+    const delay = problemSets.length > 1 ? reviewRequestDelay(panel) : 300;
+    const includeAnswers = panel.querySelector('[data-review-include-answers]').checked;
+    if (problemSets.length > 1) {
+      await chrome.storage.local.set({ reviewExportRequestDelayMs: delay });
+    }
+    const button = panel.querySelector('[data-action="export-review-sets"]');
+    button.disabled = true;
+    let exportedCount = 0;
+    try {
+      setLog(panel, `开始导出 ${problemSets.length} 套题目集，请求间隔 ${delay} 毫秒。`);
+      for (const problemSet of problemSets) {
+        setStatus(panel, `正在导出：${problemSet.name}`);
+        appendLog(panel, `读取题目集：${problemSet.name || '未命名题目集'}`);
+        const { result } = await sendRuntimeMessage({
+          type: 'export-review-problem-set',
+          problemSet,
+          requestDelayMs: delay
+        });
+        const download = await downloadReviewMarkdown(result, includeAnswers);
+        exportedCount += 1;
+        setLog(panel, `下载完成：${download.filename}（${exportedCount}/${problemSets.length}）。`);
+      }
+      setStatus(panel, '复习 Markdown 导出完成');
+      setLog(panel, `Markdown 导出完成，共 ${exportedCount} 个文件。`);
+    } catch (error) {
+      setStatus(panel, '复习导出未全部完成');
+      setLog(panel, `已导出 ${exportedCount} 个文件后失败：${error.message}`, 'error');
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  function updateReviewDelayVisibility(panel) {
+    panel.querySelector('[data-review-delay-option]').hidden =
+      panel.querySelectorAll('[data-review-set]:checked').length <= 1;
+  }
+
   async function applyAnswers(panel, options = {}) {
     const button = panel.querySelector('[data-action="apply"]');
     button.disabled = true;
@@ -458,15 +599,22 @@
         setLog(panel, '未开始回填；页面答案未修改或保存。');
         return;
       }
-      setStatus(panel, selectedTypes.includes('programming')
+      setStatus(panel, selectedTypes.includes('PROGRAMMING') || selectedTypes.includes('SQL_PROGRAMMING')
         ? '正在校验答案并逐字输入编程代码'
         : '正在校验并回填答案');
+      setLog(panel, `开始回填 ${answerCount} 道题，题型：${selectedTypes.join('、')}。`);
       const report = await window.PintiaAnswerRunner.run(answers, selectedTypes, { save });
       const { total, success, failed, skipped } = report.summary;
       setStatus(panel, report.success
         ? report.saved ? '答案已回填并保存' : '答案已回填，尚未保存'
         : '答案输入/回填流程已完成，部分题目未处理');
-      updateReport(panel, report);
+      report.results.forEach((result) => {
+        const question = `第 ${result.questionNumber ?? '?'} 题（${typeLabels[result.type] || result.type}）`;
+        const message = result.success
+          ? `${question}：${hasAnswerChanges(result) ? '已修改并验证' : '答案已验证，无需修改'}`
+          : `${question}：${result.skipped ? '已跳过' : '失败'}${result.reason ? `，${result.reason}` : ''}`;
+        appendLog(panel, message, result.success ? 'success' : result.skipped ? 'warn' : 'error');
+      });
       const changedCount = report.results.filter(hasAnswerChanges).length;
       const saveMessage = report.saved
         ? '已执行保存'
@@ -476,7 +624,6 @@
       const changeMessage = changedCount ? `实际修改 ${changedCount} 道题` : '本次没有题目内容发生变化';
       const batchSaveMessage = forcedBatchSave ? '多题型安全保护要求逐类保存' : '';
       const message = `答案项 ${total}；成功 ${success}；失败 ${failed}；跳过 ${skipped}；${changeMessage}；${saveMessage}${batchSaveMessage ? `；${batchSaveMessage}` : ''}。`;
-      state.latestReport = { report, message };
       setLog(panel, message);
     } finally {
       button.disabled = false;
@@ -491,8 +638,33 @@
     let offsetY = 0;
     let startX = 0;
     let startY = 0;
+    let pointerId = null;
     let ignoreNextCollapseClick = false;
+    const moveDragging = (event) => {
+      if (!dragging || event.pointerId !== pointerId) return;
+      if (Math.hypot(event.clientX - startX, event.clientY - startY) > 4) moved = true;
+      const rect = panel.getBoundingClientRect();
+      const maxLeft = Math.max(0, window.innerWidth - rect.width);
+      const maxTop = Math.max(0, window.innerHeight - Math.min(rect.height, head.offsetHeight));
+      panel.style.left = `${Math.min(maxLeft, Math.max(0, event.clientX - offsetX))}px`;
+      panel.style.top = `${Math.min(maxTop, Math.max(0, event.clientY - offsetY))}px`;
+      panel.style.right = 'auto';
+    };
+    const stopDragging = (event) => {
+      if (!dragging || event.pointerId !== pointerId) return;
+      if (moved) {
+        ignoreNextCollapseClick = true;
+        window.setTimeout(() => { ignoreNextCollapseClick = false; }, 0);
+      }
+      dragging = false;
+      pointerId = null;
+      panel.classList.remove('is-dragging');
+      window.removeEventListener('pointermove', moveDragging);
+      window.removeEventListener('pointerup', stopDragging);
+      window.removeEventListener('pointercancel', stopDragging);
+    };
     head.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0 || dragging) return;
       const collapseButton = event.target.closest('[data-action="collapse"]');
       const collapsedBadge = panel.classList.contains('is-collapsed') && collapseButton;
       if (event.target.closest('button') && !collapsedBadge) return;
@@ -503,29 +675,13 @@
       startY = event.clientY;
       offsetX = event.clientX - rect.left;
       offsetY = event.clientY - rect.top;
+      pointerId = event.pointerId;
       panel.classList.add('is-dragging');
-      (collapsedBadge ? collapseButton : head).setPointerCapture(event.pointerId);
+      window.addEventListener('pointermove', moveDragging);
+      window.addEventListener('pointerup', stopDragging);
+      window.addEventListener('pointercancel', stopDragging);
+      if (!collapsedBadge) event.preventDefault();
     });
-    head.addEventListener('pointermove', (event) => {
-      if (!dragging) return;
-      if (Math.hypot(event.clientX - startX, event.clientY - startY) > 4) moved = true;
-      const rect = panel.getBoundingClientRect();
-      const maxLeft = Math.max(0, window.innerWidth - rect.width);
-      const maxTop = Math.max(0, window.innerHeight - Math.min(rect.height, head.offsetHeight));
-      panel.style.left = `${Math.min(maxLeft, Math.max(0, event.clientX - offsetX))}px`;
-      panel.style.top = `${Math.min(maxTop, Math.max(0, event.clientY - offsetY))}px`;
-      panel.style.right = 'auto';
-    });
-    const stopDragging = () => {
-      if (moved) {
-        ignoreNextCollapseClick = true;
-        window.setTimeout(() => { ignoreNextCollapseClick = false; }, 0);
-      }
-      dragging = false;
-      panel.classList.remove('is-dragging');
-    };
-    head.addEventListener('pointerup', stopDragging);
-    head.addEventListener('pointercancel', stopDragging);
     panel.addEventListener('click', (event) => {
       if (!ignoreNextCollapseClick || !event.target.closest('[data-action="collapse"]')) return;
       event.preventDefault();
@@ -535,8 +691,17 @@
   }
 
   function bindPanel(panel) {
+    chrome.storage.local.get('reviewExportRequestDelayMs').then(({ reviewExportRequestDelayMs }) => {
+      if (Number.isInteger(reviewExportRequestDelayMs) && reviewExportRequestDelayMs >= 0 && reviewExportRequestDelayMs <= 10000) {
+        panel.querySelector('[data-review-delay]').value = String(reviewExportRequestDelayMs);
+      }
+    }).catch((error) => setLog(panel, error.message || '无法读取复习导出设置。', 'error'));
     panel.addEventListener('change', async (event) => {
       const target = event.target;
+      if (target.matches('[data-review-set]')) {
+        updateReviewDelayVisibility(panel);
+        return;
+      }
       if (target.matches('[data-language]')) {
         state.programmingLanguage = target.value;
         try {
@@ -545,12 +710,20 @@
             setLog(panel, `已选择 ${target.value}；请手动将 Pintia 代码编辑器切换为相同语言。`);
           }
         } catch (error) {
-          setLog(panel, error.message || '无法保存编程语言选项。');
+          setLog(panel, error.message || '无法保存编程语言选项。', 'error');
         }
         return;
       }
       if (target.matches('[data-diagnostic-logging]')) {
-        panel.querySelector('[data-diagnostics]').hidden = !target.checked;
+        if (target.checked) {
+          state.loggingEnabled = true;
+          renderLogs(panel);
+          appendLog(panel, '日志已开启。');
+        } else {
+          appendLog(panel, '日志已关闭。');
+          state.loggingEnabled = false;
+          renderLogs(panel);
+        }
       }
       if (!target.matches('[data-auto-save], [data-diagnostic-logging]')) return;
       try {
@@ -560,7 +733,12 @@
           diagnosticLoggingEnabled: panel.querySelector('[data-diagnostic-logging]').checked
         });
       } catch (error) {
-        setLog(panel, error.message || '无法保存助手选项。');
+        if (target.matches('[data-diagnostic-logging]')) {
+          state.loggingEnabled = !target.checked;
+          target.checked = state.loggingEnabled;
+          renderLogs(panel);
+        }
+        setLog(panel, error.message || '无法保存助手选项。', 'error');
       }
     });
     panel.addEventListener('click', async (event) => {
@@ -595,10 +773,59 @@
         if (action === 'prompt') await copyPrompt(panel);
         if (action === 'api') await requestApiAnswer(panel);
         if (action === 'export') await exportQuestionBank(panel);
+        if (action === 'load-review-sets') {
+          const button = panel.querySelector('[data-action="load-review-sets"]');
+          if (button.disabled) return;
+          const delay = reviewRequestDelay(panel);
+          button.disabled = true;
+          button.setAttribute('aria-busy', 'true');
+          setStatus(panel, '正在加载题目集');
+          setLog(panel, '开始加载题目集列表。');
+          panel.querySelector('[data-review-count]').textContent = '正在获取数量…';
+          button.querySelector('[data-loader-label]').textContent = '正在加载…';
+          try {
+            await chrome.storage.local.set({ reviewExportRequestDelayMs: delay });
+            const { problemSets } = await sendRuntimeMessage({
+              type: 'list-review-problem-sets',
+              requestDelayMs: delay
+            });
+            const uniqueProblemSets = [...new Map(
+              problemSets.map((problemSet) => [String(problemSet.id), problemSet])
+            ).values()];
+            state.reviewProblemSets = uniqueProblemSets;
+            const list = panel.querySelector('[data-review-sets]');
+            list.replaceChildren();
+            uniqueProblemSets.forEach((problemSet) => {
+              const label = document.createElement('label');
+              const checkbox = document.createElement('input');
+              checkbox.type = 'checkbox';
+              checkbox.value = problemSet.id;
+              checkbox.dataset.reviewSet = '';
+              checkbox.disabled = !problemSet.examId;
+              const text = document.createElement('span');
+              text.textContent = `${problemSet.name || '未命名作业'}${problemSet.examId ? '' : '（缺少考试 ID）'}`;
+              label.append(checkbox, text);
+              list.appendChild(label);
+            });
+            updateReviewDelayVisibility(panel);
+            panel.querySelector('[data-action="export-review-sets"]').disabled = !uniqueProblemSets.some((set) => set.examId);
+            panel.querySelector('[data-review-count]').textContent = `已加载 ${uniqueProblemSets.length} 套题目集`;
+            setStatus(panel, '题目集列表已加载');
+            setLog(panel, `找到 ${uniqueProblemSets.length} 套题目集；没有考试 ID 的题目集无法导出。`);
+          } finally {
+            button.disabled = false;
+            button.removeAttribute('aria-busy');
+            button.querySelector('[data-loader-label]').textContent = '加载题目集';
+          }
+        }
+        if (action === 'export-review-sets') await exportSelectedReviewSets(panel);
         if (action === 'apply') await applyAnswers(panel);
       } catch (error) {
+        if (action === 'load-review-sets') {
+          panel.querySelector('[data-review-count]').textContent = '加载失败，请重试';
+        }
         setStatus(panel, '操作未完成');
-        setLog(panel, error.message || '执行过程中发生错误。');
+        setLog(panel, error.message || '执行过程中发生错误。', 'error');
       }
     });
   }

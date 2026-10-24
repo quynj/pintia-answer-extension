@@ -46,9 +46,16 @@
       if (item.type === 'TRUE_OR_FALSE' && typeof item.answer !== 'boolean') {
         throw new Error(`题目 ${item.questionNumber ?? index + 1} 的判断答案必须是布尔值。`);
       }
-      if (item.type === 'FILL_IN_THE_BLANK' && (!Array.isArray(item.answer)
-        || item.answer.some((value) => typeof value !== 'string'))) {
+      if ((item.type === 'FILL_IN_THE_BLANK' || item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING')
+        && (!Array.isArray(item.answer) || item.answer.some((value) => typeof value !== 'string'))) {
         throw new Error(`题目 ${item.questionNumber ?? index + 1} 的填空答案必须是字符串数组。`);
+      }
+      if (item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING') {
+        const expectedQuestion = expectedQuestions?.find((question) => question.problemId === item.problemId);
+        if (Number.isInteger(expectedQuestion?.fillBlankCount)
+          && item.answer.length !== expectedQuestion.fillBlankCount) {
+          throw new Error(`题目 ${item.questionNumber ?? index + 1} 的程序填空答案必须包含 ${expectedQuestion.fillBlankCount} 个字符串。`);
+        }
       }
       if ((item.type === 'PROGRAMMING' || item.type === 'SQL_PROGRAMMING')
         && (typeof item.answer !== 'string' || !item.answer.trim())) {

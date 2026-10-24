@@ -25,6 +25,7 @@
     MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER: '多选题',
     TRUE_OR_FALSE: '判断题',
     FILL_IN_THE_BLANK: '填空题',
+    FILL_IN_THE_BLANK_FOR_PROGRAMMING: '程序填空题',
     PROGRAMMING: '编程题',
     SQL_PROGRAMMING: 'SQL编程题',
     SUBJECTIVE: '主观题'
@@ -410,10 +411,18 @@
       const questionMetadata = questions.map((question) => {
         const rawId = question.id ?? question.apiData?.id ?? question.apiData?.problem_id ?? question.apiData?.question_id;
         const options = question.options || [];
+        const fillBlankConfig = question.apiData?.problemConfig?.fillInTheBlankProblemConfig
+          || question.apiData?.problemConfig?.fillInTheBlankForProgrammingProblemConfig
+          || question.problemConfig?.fillInTheBlankProblemConfig
+          || question.problemConfig?.fillInTheBlankForProgrammingProblemConfig;
         return {
           problemId: rawId === undefined || rawId === null ? null : String(rawId),
           questionNumber: question.number ?? null,
           type: question.type,
+          ...(question.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
+            && Array.isArray(fillBlankConfig?.blanks)
+            ? { fillBlankCount: fillBlankConfig.blanks.length }
+            : {}),
           optionLabels: options.length <= 26
             ? options.map((_, index) => String.fromCharCode(65 + index))
             : []
@@ -504,6 +513,7 @@
 
   function questionMarkdown(question) {
     const questionContent = question.type === 'FILL_IN_THE_BLANK'
+      || question.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
       ? window.PintiaExtractor.fillBlankMarkdownContent(question)
       : question.content || question.prompt;
     const content = expandedImageMarkdown(questionContent);

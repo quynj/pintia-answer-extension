@@ -303,7 +303,8 @@
   }
 
   function isListBackedProblemType(type) {
-    return type === 'PROGRAMMING' || type === 'SQL_PROGRAMMING' || type === 'SUBJECTIVE';
+    return type === 'PROGRAMMING' || type === 'SQL_PROGRAMMING'
+      || type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING' || type === 'SUBJECTIVE';
   }
 
   function typedUrl(url, type) {
@@ -324,15 +325,30 @@
     return typedUrl(parsed.href, type);
   }
 
+  function problemSetListUrl(problemSetId, examId, type) {
+    if (!problemSetId || !examId) return null;
+    const url = new URL(`/api/problem-sets/${encodeURIComponent(problemSetId)}/exam-problem-list`, location.origin);
+    url.searchParams.set('exam_id', examId);
+    url.searchParams.set('problem_type', type);
+    return url.href;
+  }
+
+  function withExamId(url, examId) {
+    if (!url || !examId) return url;
+    const parsed = new URL(url, location.origin);
+    parsed.searchParams.set('exam_id', examId);
+    return parsed.href;
+  }
+
   async function fetchQuestionsForType(type, options = {}) {
     const requestDelayMs = options.requestDelayMs || 0;
     if (isListBackedProblemType(type)) {
-      const listUrl = problemListUrl(options.collectionUrl, options.listUrl, type);
+      const listUrl = withExamId(problemListUrl(options.collectionUrl, options.listUrl, type), options.examId);
       if (!listUrl) return [];
       const list = await fetchExamProblemList(listUrl, requestDelayMs);
       return fetchListedQuestions(listUrl, list, requestDelayMs);
     }
-    const collectionUrl = typedUrl(options.collectionUrl, type);
+    const collectionUrl = withExamId(typedUrl(options.collectionUrl, type), options.examId);
     if (!collectionUrl) return [];
     return fetchExamUrl(collectionUrl, options.expectedTotal || 0, requestDelayMs);
   }
@@ -509,12 +525,12 @@
       return { problemSetId: null, problemSetName: null, examId: null, questions: [], summaries: {}, reason: 'not_problem_set_exam_page' };
     }
     const observedUrls = apiUrls().filter((url) => problemSetIdFromUrl(url) === currentPage.id);
-    const summaryUrls = observedUrls.filter((url) => url.includes('/problem-summaries'));
+    const observedSummaryUrls = observedUrls.filter((url) => url.includes('/problem-summaries'));
     const examUrls = observedUrls.filter(isExamProblemCollectionUrl);
     const examProblemListUrls = observedUrls.filter(isExamProblemListUrl);
     const examDetailUrls = observedUrls.filter(isExamProblemDetailUrl);
     const problemSetId = currentPage.id
-      || [...examProblemListUrls, ...examUrls, ...examDetailUrls, ...summaryUrls].map(problemSetIdFromUrl).find(Boolean)
+      || [...examProblemListUrls, ...examUrls, ...examDetailUrls, ...observedSummaryUrls].map(problemSetIdFromUrl).find(Boolean)
       || null;
     let metadata = { name: null, examId: null };
     if (problemSetId) {
@@ -528,16 +544,28 @@
       .filter((url) => problemSetIdFromUrl(url) === problemSetId)
       .map((url) => new URL(url).searchParams.get('exam_id'))
       .find(Boolean) || null;
-    if (!summaryUrls.length && !examUrls.length && !examProblemListUrls.length && !examDetailUrls.length) {
-      return { problemSetId, problemSetName: metadata.name, examId, questions: [], summaries: {}, reason: 'no_target_api' };
+    if (currentPage.path.endsWith('/overview')) {
+      return {
+        problemSetId,
+        problemSetName: metadata.name,
+        examId,
+        questions: [],
+        summaries: {},
+        reason: 'overview_metadata_only'
+      };
     }
     let summaries = {};
+    const summaryUrls = observedSummaryUrls.length
+      ? observedSummaryUrls
+      : problemSetId
+        ? [new URL(`/api/problem-sets/${encodeURIComponent(problemSetId)}/problem-summaries`, location.origin).href]
+        : [];
     for (const url of summaryUrls) {
       try {
         const response = await fetchResponse(url);
         if (!response) continue;
         const result = await responseData(response);
-        summaries = result.data?.summaries || summaries;
+        summaries = result.data?.summaries || result.data?.data?.summaries || summaries;
         if (Object.keys(summaries).length) break;
       } catch (_) { /* The exam request can still be used. */ }
     }
@@ -550,13 +578,22 @@
         .map((url) => new URL(url).searchParams.get('problem_type'))
         .filter(Boolean);
     const questions = [];
-    const listUrl = examProblemListUrls.find((url) => new URL(url).searchParams.has('problem_type')) || examProblemListUrls[0];
+    const observedListUrl = examProblemListUrls.find((url) => new URL(url).searchParams.has('problem_type')) || examProblemListUrls[0];
+    const fallbackExamUrl = examId
+      ? new URL(`/api/exams/${encodeURIComponent(examId)}/problem-sets/${encodeURIComponent(problemSetId)}/exam-problems`, location.origin).href
+      : null;
     for (const type of types) {
-      const collectionUrl = examUrls.find((url) => new URL(url).searchParams.get('problem_type') === type) || examUrl;
+      const collectionUrl = examUrls.find((url) => new URL(url).searchParams.get('problem_type') === type)
+        || examUrl
+        || fallbackExamUrl;
+      const listUrl = observedListUrl || (isListBackedProblemType(type)
+        ? problemSetListUrl(problemSetId, examId, type)
+        : null);
       try {
         questions.push(...await fetchQuestionsForType(type, {
           collectionUrl,
           listUrl,
+          examId,
           expectedTotal: Number(summaries[type]?.total || 0)
         }));
       } catch (error) {

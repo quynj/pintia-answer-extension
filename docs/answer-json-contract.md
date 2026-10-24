@@ -37,13 +37,14 @@
 | `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER` | 字符串数组，元素非空且不重复 | `["A", "C"]` | Pintia 多选题；将所有选项同步到该目标集合，含取消多余选项。 |
 | `TRUE_OR_FALSE` | 布尔值 | `true` | `true` 映射为 `TRUE`，`false` 映射为 `FALSE`。 |
 | `FILL_IN_THE_BLANK` | 字符串数组 | `["Java", "Spring Boot"]` | 数组下标对应 `data-blank-index`。如果题目提供 `fillInTheBlankProblemConfig.blanks`，数组长度必须与其空位数量一致，并按 `index` 顺序排列。 |
+| `FILL_IN_THE_BLANK_FOR_PROGRAMMING` | 字符串数组 | `["ellipse", "center", "0 auto"]` | 按 `fillInTheBlankForProgrammingProblemConfig.blanks` 的 `index` 顺序逐空作答；程序填空题暂不支持页面回填。 |
 | `PROGRAMMING` | 非空字符串 | `"print('hello')"` | 按题目 ID 在题目容器中定位代码编辑器，并逐字输入到操作前记录的光标位置；若页面无题目容器，单题答案回退到页面唯一可见的代码编辑器，多题答案则只处理 URL 中与题目 ID 匹配的当前页题目。 |
 | `SQL_PROGRAMMING` | 非空字符串 | `"SELECT id FROM students;"` | 与 `PROGRAMMING` 使用相同的题目定位和逐字输入流程。 |
 | `SUBJECTIVE` | 字符串 | `"..."` | 不回填，逐题标记为跳过。 |
 
 多选可传空数组，数组不允许重复选项。填空数组的每个元素必须是字符串；有空位配置时必须为每个空位提供一个答案。
 
-`type` 直接使用 Pintia 的题型值，不做自建类型转换：单选为 `MULTIPLE_CHOICE`，多选为 `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER`，判断为 `TRUE_OR_FALSE`，填空为 `FILL_IN_THE_BLANK`，编程题为 `PROGRAMMING`，SQL 编程题为 `SQL_PROGRAMMING`，主观题为 `SUBJECTIVE`。编程题与 SQL 编程题共用代码生成和页面输入流程；主观题可生成答案，但当前不支持页面回填。其他题型保留接口返回的原始 `type`，未实现回填时会标记为跳过。
+`type` 直接使用 Pintia 的题型值，不做自建类型转换：单选为 `MULTIPLE_CHOICE`，多选为 `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER`，判断为 `TRUE_OR_FALSE`，普通填空为 `FILL_IN_THE_BLANK`，程序填空为 `FILL_IN_THE_BLANK_FOR_PROGRAMMING`，编程题为 `PROGRAMMING`，SQL 编程题为 `SQL_PROGRAMMING`，主观题为 `SUBJECTIVE`。程序填空题和普通填空题均按空位顺序返回字符串数组；程序填空题当前不支持页面回填。编程题与 SQL 编程题共用代码生成和页面输入流程；主观题可生成答案，但当前不支持页面回填。其他题型保留接口返回的原始 `type`，未实现回填时会标记为跳过。
 
 ## 完整示例
 
@@ -114,6 +115,7 @@ JSON 通过校验后，某题仍可能因导航、题目根节点、选项/空�
 - 判断答案必须使用 JSON 布尔值，不要使用字符串 `"true"` 或 `"false"`。
 - 填空答案顺序必须与 PTA 空位索引顺序一致。
 - 填空题输入包含空位配置时，答案数组长度必须与配置中的 `blanks` 数量一致，不可遗漏空位。
+- 程序填空题的 `answer` 必须为字符串数组，长度与 `fillInTheBlankForProgrammingProblemConfig.blanks` 一致，并按 `index` 顺序填写。
 - 填空题的 `content` 会按 `fillBlankConfig.blanks[].index` 重建，并使用 `【填空1】`、`【填空2】` 等标记明确空位位置；答案数组按这些标记的编号顺序填写。`fillBlankConfig.blanks` 已按原索引顺序排列，每项的 `number` 与 `content` 标记一致，原始字符 `index` 不再传入 AI，避免与插入标记后的内容位置混淆。
 - 填空题的 `questionText` 保留原始字段供补充阅读，但字段可能缺少空位、互相重复，或包含题目模板说明；确定空位位置和顺序时以带编号标记的 `content` 为准，并结合 `questionText` 及 `images` 阅读题意和要求。
 

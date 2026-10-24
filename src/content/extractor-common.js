@@ -16,7 +16,9 @@
 
   api.fillBlankMarkdownContent = (question, blankLabel = () => ' ________ ') => {
     const config = question.apiData?.problemConfig?.fillInTheBlankProblemConfig
+      || question.apiData?.problemConfig?.fillInTheBlankForProgrammingProblemConfig
       || question.problemConfig?.fillInTheBlankProblemConfig
+      || question.problemConfig?.fillInTheBlankForProgrammingProblemConfig
       || question.fillBlankConfig;
     const blanks = Array.isArray(config?.blanks) ? config.blanks : [];
     if (!blanks.length) return question.content || question.prompt || '';
@@ -109,7 +111,10 @@
     const type = api.normalizeType(item.type || item.problem_type || item.problemType || item.question_type, []);
     const isProgramming = type === 'PROGRAMMING' || type === 'SQL_PROGRAMMING';
     const isListBackedProblem = isProgramming || type === 'SUBJECTIVE';
-    const isFillInTheBlank = type === 'FILL_IN_THE_BLANK';
+    const isFillInTheBlank = type === 'FILL_IN_THE_BLANK'
+      || type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING';
+    const fillBlankConfig = item.problemConfig?.fillInTheBlankProblemConfig
+      || item.problemConfig?.fillInTheBlankForProgrammingProblemConfig;
     const statement = isListBackedProblem
       ? ['description', 'question', 'text', 'body', 'content', 'title'].map((field) => item[field]).find(Boolean)
       : textFields.map((field) => item[field]).find(Boolean);
@@ -127,7 +132,7 @@
         || textValues.find(({ field }) => field === 'content')
         || textValues[0];
       content = (contentSource?.value || '').trim().replace(/<input\b[^>]*>/gi, '________');
-      const blankCount = item.problemConfig?.fillInTheBlankProblemConfig?.blanks?.length || 0;
+      const blankCount = fillBlankConfig?.blanks?.length || 0;
       const blankTokens = content.match(/@@\s*\[\s*\]\s*\(\s*\d+\s*\)/g) || [];
       const inputTokens = content.match(/<input\b[^>]*>/gi) || [];
       const visibleBlankCount = blankTokens.length || inputTokens.length || (content.match(/_+/g) || []).length;

@@ -1,5 +1,5 @@
 (() => {
-  const supportedTypes = ['PROGRAMMING', 'SQL_PROGRAMMING', 'MULTIPLE_CHOICE', 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER', 'TRUE_OR_FALSE', 'FILL_IN_THE_BLANK'];
+  const supportedTypes = ['PROGRAMMING', 'SQL_PROGRAMMING', 'MULTIPLE_CHOICE', 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER', 'TRUE_OR_FALSE', 'FILL_IN_THE_BLANK', 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'];
   const saveDelayMs = 500;
   const typingDelayMs = 8;
   let focusedEditor = null;
@@ -129,7 +129,8 @@
     MULTIPLE_CHOICE: 'MULTIPLE_CHOICE',
     MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER: 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER',
     TRUE_OR_FALSE: 'TRUE_OR_FALSE',
-    FILL_IN_THE_BLANK: 'FILL_IN_THE_BLANK'
+    FILL_IN_THE_BLANK: 'FILL_IN_THE_BLANK',
+    FILL_IN_THE_BLANK_FOR_PROGRAMMING: 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
   };
 
   const QuestionTypeNavigator = {
@@ -224,6 +225,10 @@
     const blank = matches[0];
     if (blank.matches('input, textarea')) return blank;
     return blank.querySelector('input, textarea');
+  }
+
+  function programmingBlankInputs(root) {
+    return [...root.querySelectorAll('.cm-content input:not([type]), .cm-content input[type="text"], .cm-content textarea')];
   }
 
   function setInputValue(input, value) {
@@ -356,12 +361,22 @@
 
   const FillBlankInjector = {
     inject(item, root) {
+      const inputs = item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
+        ? programmingBlankInputs(root)
+        : item.answer.map((_, index) => blankInput(root, index));
+      if (item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
+        && (!inputs.length || inputs.length !== item.answer.length)) {
+        return {
+          success: false,
+          reason: `programming blank input count mismatch: expected ${item.answer.length}, found ${inputs.length}`
+        };
+      }
       const blankActions = [];
       const action = () => blankActions.some(({ action: blankAction }) => blankAction === 'updated')
         ? 'updated'
         : 'unchanged';
       for (let index = 0; index < item.answer.length; index += 1) {
-        const input = blankInput(root, index);
+        const input = inputs[index];
         if (!input) {
           return {
             success: false,
@@ -422,8 +437,12 @@
           ? { success: true }
           : { success: false, reason: 'answer verification failed' };
       }
-      if (item.type === 'FILL_IN_THE_BLANK') {
-        const matches = item.answer.every((value, index) => blankInput(root, index)?.value === value);
+      if (item.type === 'FILL_IN_THE_BLANK' || item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING') {
+        const inputs = item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
+          ? programmingBlankInputs(root)
+          : item.answer.map((_, index) => blankInput(root, index));
+        const matches = inputs.length === item.answer.length
+          && item.answer.every((value, index) => inputs[index]?.value === value);
         return matches
           ? { success: true }
           : { success: false, reason: 'answer verification failed' };
@@ -473,6 +492,9 @@
     if (item.type === 'FILL_IN_THE_BLANK') {
       return item.answer.map((_, index) => blankInput(root, index)?.value ?? null);
     }
+    if (item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING') {
+      return programmingBlankInputs(root).map((input) => input.value);
+    }
     return null;
   }
 
@@ -482,7 +504,8 @@
     MULTIPLE_CHOICE: SingleChoiceInjector,
     MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER: MultipleChoiceInjector,
     TRUE_OR_FALSE: TrueFalseInjector,
-    FILL_IN_THE_BLANK: FillBlankInjector
+    FILL_IN_THE_BLANK: FillBlankInjector,
+    FILL_IN_THE_BLANK_FOR_PROGRAMMING: FillBlankInjector
   };
 
   function requiresBatchSave(payload, allowedTypes) {

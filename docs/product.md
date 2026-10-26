@@ -41,6 +41,7 @@ Pintia 学习辅助工具是面向 Chrome 和 Edge 的 Manifest V3 浏览器扩�
 | `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER` | 多选题 | `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER` | 支持 |
 | `TRUE_OR_FALSE` | 判断题 | `TRUE_OR_FALSE` | 支持 |
 | `FILL_IN_THE_BLANK` | 填空题 | `FILL_IN_THE_BLANK` | 支持 |
+| `FILL_IN_THE_BLANK_FOR_PROGRAMMING` | 程序填空题 | `FILL_IN_THE_BLANK_FOR_PROGRAMMING` | 按代码块中填空框的 DOM 顺序回填并逐空验证 |
 | `PROGRAMMING` | 编程题 | `PROGRAMMING` | 逐字输入非空源代码 |
 | `SQL_PROGRAMMING` | SQL编程题 | `SQL_PROGRAMMING` | 按编程题方式逐字输入非空代码 |
 | `SUBJECTIVE` | 主观题 | `SUBJECTIVE` | 不回填，标记为跳过 |
@@ -66,7 +67,7 @@ Pintia 学习辅助工具是面向 Chrome 和 Edge 的 Manifest V3 浏览器扩�
 
 - 回填以 `problemId` 精确定位 PTA 题目根容器，不按题干、题号或选项文案进行模糊匹配。
 - PTA 页面布局、导航 ID 或控件 ID 变化时，导航或注入可能失败；执行报告会给出失败原因。
-- 当前不实现 OCR、主观题自动回填，也不根据答案文本推断题目位置；编程题与 SQL 编程题按题目 ID 定位编辑器，使用操作前记录的光标逐字输入。
+- 当前不实现 OCR、主观题页面回填，也不根据答案文本推断题目位置。程序填空题按题目 ID 定位题目容器，在代码块中依 DOM 顺序定位填空输入框；控件数量与答案项数不一致时会明确失败，不尝试猜测定位。编程题与 SQL 编程题按题目 ID 定位编辑器，使用操作前记录的光标逐字输入。
 - 浏览器扩展权限、Pintia 登录状态、网络状态和 PTA 页面自身的保存逻辑都会影响运行结果。
 - 版本检查只向 `api.github.com` 请求此仓库的最新 Release 元数据，不会上传题目、答案或 AI 配置；网络不可用时可在弹窗中重试。
 

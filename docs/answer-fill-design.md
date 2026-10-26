@@ -6,7 +6,7 @@
 
 `JSON -> 校验 -> 按题型导航 -> problemId 定位 -> 注入 -> 验证 -> 保存 -> 执行报告`
 
-当前回填单选、多选、判断、填空，并支持按 `problemId` 在题目容器中定位代码编辑器，将编程答案逐字输入到操作前记录的光标位置。若页面没有题目容器，单题答案可回退到页面唯一可见代码编辑器；答案包含多道编程题时，按当前 URL 中与题目 ID 完全匹配的项只回填当前页题目，其他题目标记为跳过。题目位置不使用题号、题干或选项文案猜测。执行按题型串行，单题失败不阻止同批其他题或后续题型。
+当前回填单选、多选、判断、普通填空和程序填空，并支持按 `problemId` 在题目容器中定位代码编辑器，将编程答案逐字输入到操作前记录的光标位置。若页面没有题目容器，单题答案可回退到页面唯一可见代码编辑器；答案包含多道编程题时，按当前 URL 中与题目 ID 完全匹配的项只回填当前页题目，其他题目标记为跳过。程序填空在题目容器的 `.cm-content` 中按 DOM 顺序定位输入框，答案项必须与页面输入框数量一致，并逐空写入、验证。题目位置不使用题号、题干或选项文案猜测。执行按题型串行，单题失败不阻止同批其他题或后续题型。
 
 ## 代码职责
 
@@ -33,6 +33,7 @@
 | `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER` | `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER` |
 | `TRUE_OR_FALSE` | `TRUE_OR_FALSE` |
 | `FILL_IN_THE_BLANK` | `FILL_IN_THE_BLANK` |
+| `FILL_IN_THE_BLANK_FOR_PROGRAMMING` | `FILL_IN_THE_BLANK_FOR_PROGRAMMING` |
 
 题型字段与 PTA 导航 ID 保持一致。`MULTIPLE_CHOICE` 在此表示单选题；多选题使用 `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER`。
 
@@ -48,8 +49,8 @@
 
 1. 助手解析答案文本，并将当前勾选的题型传给任务执行器。
 2. 校验整个 JSON。格式或字段不合法时，在启动回填前返回错误。
-3. 忽略未勾选类型，不加入执行报告；将所选的 `SUBJECTIVE` 和未实现类型记为不支持并跳过。
-4. 优先处理选中的 `PROGRAMMING`、`SQL_PROGRAMMING`，然后按 `MULTIPLE_CHOICE -> MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER -> TRUE_OR_FALSE -> FILL_IN_THE_BLANK` 顺序处理其他受支持类型。
+3. 忽略未勾选类型，不加入执行报告；将所选的 `SUBJECTIVE` 和其他未实现类型记为不支持并跳过。
+4. 优先处理选中的 `PROGRAMMING`、`SQL_PROGRAMMING`，然后按 `MULTIPLE_CHOICE -> MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER -> TRUE_OR_FALSE -> FILL_IN_THE_BLANK -> FILL_IN_THE_BLANK_FOR_PROGRAMMING` 顺序处理其他受支持类型。
 5. 编程题使用已记录的网页光标直接逐字输入；其他题型切换到对应 PTA 分类，等待当前题型问题根容器可见。
 6. 对每题按 `problemId` 定位，注入并立即验证；异常记录为该题失败，不使任务整体崩溃。
 7. 若该批至少一题验证成功且保存选项开启，调用一次 `SaveManager.save()`。当答案实际涉及多个可回填题型且保存选项关闭时，面板须在执行前征求确认；确认后每批均保存，以免切换题型时丢失修改。仅涉及一种题型时，用户可选择保存或仅修改页面控件而不保存。多题型强制保存失败时停止后续题型导航，并将未执行的题目标记为失败。

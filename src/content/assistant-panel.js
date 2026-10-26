@@ -79,11 +79,11 @@
         <div class="pintia-assistant-options">
           <label><input type="checkbox" data-auto-save />自动回填并保存</label>
           <label><input type="checkbox" data-diagnostic-logging />开启日志</label>
-          <small>范围跟随上方勾选题型；全选时覆盖整套题中的可回填题型。编程题和 SQL 编程题会按题目 ID 定位代码编辑器，并从操作前记录的光标位置逐字输入；请先将光标放入对应编辑器，再点击助手面板。主观题暂不支持页面回填。关闭后单题型手动回填不会保存；多题型回填会在开始前提示，并逐类保存以避免切换题型时丢失答案。</small>
+          <small>范围跟随上方勾选题型，支持单选、多选、判断、填空（含程序填空）、编程（SQL编程和普通编程）题型，主观题暂不支持答案回填页面。注意，编程题需进入具体题目代码编辑器页面。</small>
         </div>
         <label class="pintia-assistant-answer-label" for="pintia-assistant-answer">答案内容（JSON）</label>
-        <p class="pintia-assistant-answer-hint">AI 生成结果（含复核后的最终答案）会显示在此处。编程题按题目 ID 定位代码编辑器，并从操作前记录的光标位置逐字输入；关闭自动回填时，请核对答案后手动执行回填。</p>
-        <textarea id="pintia-assistant-answer" data-answer placeholder="粘贴答案 JSON，或通过 AI 生成答案"></textarea>
+        <p class="pintia-assistant-answer-hint">配置自定义模型后，AI 生成结果会显示在此处，或你也可以粘贴符合回填答案的json格式数据。</p>
+        <textarea id="pintia-assistant-answer" data-answer placeholder="等待答案JSON投喂..."></textarea>
         <div class="pintia-assistant-actions">
           <button data-action="prompt">复制提示词</button>
           <button data-action="api">AI 生成答案</button>

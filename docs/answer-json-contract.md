@@ -37,14 +37,14 @@
 | `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER` | 字符串数组，元素非空且不重复 | `["A", "C"]` | Pintia 多选题；将所有选项同步到该目标集合，含取消多余选项。 |
 | `TRUE_OR_FALSE` | 布尔值 | `true` | `true` 映射为 `TRUE`，`false` 映射为 `FALSE`。 |
 | `FILL_IN_THE_BLANK` | 字符串数组 | `["Java", "Spring Boot"]` | 数组下标对应 `data-blank-index`。如果题目提供 `fillInTheBlankProblemConfig.blanks`，数组长度必须与其空位数量一致，并按 `index` 顺序排列。 |
-| `FILL_IN_THE_BLANK_FOR_PROGRAMMING` | 字符串数组 | `["ellipse", "center", "0 auto"]` | 按 `fillInTheBlankForProgrammingProblemConfig.blanks` 的 `index` 顺序逐空作答；程序填空题暂不支持页面回填。 |
+| `FILL_IN_THE_BLANK_FOR_PROGRAMMING` | 字符串数组 | `["ellipse", "center", "0 auto"]` | 按 `fillInTheBlankForProgrammingProblemConfig.blanks` 的 `index` 顺序逐空作答；回填时按代码块中填空框的 DOM 顺序写入并逐空验证。 |
 | `PROGRAMMING` | 非空字符串 | `"print('hello')"` | 按题目 ID 在题目容器中定位代码编辑器，并逐字输入到操作前记录的光标位置；若页面无题目容器，单题答案回退到页面唯一可见的代码编辑器，多题答案则只处理 URL 中与题目 ID 匹配的当前页题目。 |
 | `SQL_PROGRAMMING` | 非空字符串 | `"SELECT id FROM students;"` | 与 `PROGRAMMING` 使用相同的题目定位和逐字输入流程。 |
 | `SUBJECTIVE` | 字符串 | `"..."` | 不回填，逐题标记为跳过。 |
 
 多选可传空数组，数组不允许重复选项。填空数组的每个元素必须是字符串；有空位配置时必须为每个空位提供一个答案。
 
-`type` 直接使用 Pintia 的题型值，不做自建类型转换：单选为 `MULTIPLE_CHOICE`，多选为 `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER`，判断为 `TRUE_OR_FALSE`，普通填空为 `FILL_IN_THE_BLANK`，程序填空为 `FILL_IN_THE_BLANK_FOR_PROGRAMMING`，编程题为 `PROGRAMMING`，SQL 编程题为 `SQL_PROGRAMMING`，主观题为 `SUBJECTIVE`。程序填空题和普通填空题均按空位顺序返回字符串数组；程序填空题当前不支持页面回填。编程题与 SQL 编程题共用代码生成和页面输入流程；主观题可生成答案，但当前不支持页面回填。其他题型保留接口返回的原始 `type`，未实现回填时会标记为跳过。
+`type` 直接使用 Pintia 的题型值，不做自建类型转换：单选为 `MULTIPLE_CHOICE`，多选为 `MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER`，判断为 `TRUE_OR_FALSE`，普通填空为 `FILL_IN_THE_BLANK`，程序填空为 `FILL_IN_THE_BLANK_FOR_PROGRAMMING`，编程题为 `PROGRAMMING`，SQL 编程题为 `SQL_PROGRAMMING`，主观题为 `SUBJECTIVE`。程序填空题和普通填空题均按空位顺序返回字符串数组；程序填空回填按代码块中的填空框 DOM 顺序写入，并验证所有输入框。编程题与 SQL 编程题共用代码生成和页面输入流程；主观题可生成答案，但当前不支持页面回填。其他题型保留接口返回的原始 `type`，未实现回填时会标记为跳过。
 
 ## 完整示例
 

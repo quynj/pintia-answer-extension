@@ -13,6 +13,7 @@
     programmingLanguage: '',
     loggingEnabled: false,
     logs: [],
+    dismissedPageUrl: null,
     configReady: Promise.resolve(),
     collapsed: true,
     panelStateReady: chrome.storage.local.get('assistantCollapsed').then(({ assistantCollapsed }) => {
@@ -92,9 +93,14 @@
         </div>
         <details class="pintia-review-export" data-review-export>
           <summary>导出选项</summary>
-          <label data-review-delay-option hidden>请求间隔（毫秒）
+          <label data-review-delay-option hidden>题集间隔（毫秒）
             <input type="number" min="0" max="10000" step="100" value="300" data-review-delay />
           </label>
+          <small data-review-delay-hint hidden>仅控制一套 Markdown 导出完成到下一套开始前的等待。</small>
+          <label>题目详情间隔（毫秒）
+            <input type="number" min="0" max="10000" step="100" value="1000" data-problem-detail-delay />
+          </label>
+          <small>仅作用于列表题型（编程、SQL 编程、程序填空、主观题）的逐题详情请求；JSON 导出复用缓存，仅重新提取时请求。</small>
           <div class="pintia-review-loader">
             <div class="pintia-review-loader-copy">
               <strong>作业题目集</strong>
@@ -120,7 +126,7 @@
     bindPanel(panel);
     enableDragging(panel);
     renderLogs(panel);
-    loadQuestions(panel, extractedQuestions);
+    if (extractedQuestions) loadQuestions(panel, extractedQuestions);
     state.configReady = loadConfig(panel);
     return panel;
   }
@@ -333,6 +339,39 @@
     }
   }
 
+  function showExtractionProgress(progress = {}) {
+    const panel = document.querySelector('#pintia-assistant-panel');
+    if (!panel) return;
+    const types = panel.querySelector('[data-types]');
+    const showTypeMessage = (message) => {
+      const label = document.createElement('span');
+      label.textContent = '处理题型';
+      const detail = document.createElement('em');
+      detail.textContent = message;
+      types.replaceChildren(label, detail);
+    };
+    if (progress.phase === 'starting') {
+      setStatus(panel, '正在读取题目');
+      showTypeMessage('正在读取题型和题目列表…');
+    } else if (progress.phase === 'type') {
+      const label = typeLabels[progress.type] || progress.type;
+      setStatus(panel, `正在读取${label}（${progress.typeIndex}/${progress.typeCount}）`);
+      showTypeMessage(`${label}：正在获取题目列表…`);
+    } else if (progress.phase === 'details') {
+      const label = typeLabels[progress.type] || progress.type;
+      setStatus(panel, `正在读取${label}详情（${progress.detailCompleted}/${progress.detailTotal}）`);
+      showTypeMessage(`${label}详情 ${progress.detailCompleted}/${progress.detailTotal}`);
+    } else if (progress.phase === 'type-complete') {
+      const label = typeLabels[progress.type] || progress.type;
+      setStatus(panel, `已读取${label}（${progress.typeIndex}/${progress.typeCount}）`);
+      showTypeMessage(`${label}已完成，准备读取下一题型…`);
+    } else if (progress.phase === 'error') {
+      setStatus(panel, '题目读取失败');
+      showTypeMessage('读取失败');
+      setLog(panel, progress.message || '题目读取失败。', 'error');
+    }
+  }
+
   function selectedQuestions(panel) {
     const selected = new Set([...panel.querySelectorAll('[data-types] input:checked')].map((input) => input.value));
     return state.questions.filter((question) => selected.has(question.type));
@@ -493,11 +532,20 @@
     setLog(panel, `正在导出包含 ${result.questions.length} 道题目的 JSON 文件。`);
   }
 
-  function reviewRequestDelay(panel) {
+  function reviewProblemSetInterval(panel) {
     const input = panel.querySelector('[data-review-delay]');
     const delay = Number(input.value);
     if (!Number.isInteger(delay) || delay < 0 || delay > 10000) {
-      throw new Error('请求间隔必须是 0 到 10000 毫秒之间的整数。');
+      throw new Error('题集间隔必须是 0 到 10000 毫秒之间的整数。');
+    }
+    return delay;
+  }
+
+  function problemDetailRequestDelay(panel) {
+    const input = panel.querySelector('[data-problem-detail-delay]');
+    const delay = Number(input.value);
+    if (!Number.isInteger(delay) || delay < 0 || delay > 10000) {
+      throw new Error('题目详情间隔必须是 0 到 10000 毫秒之间的整数。');
     }
     return delay;
   }
@@ -571,7 +619,7 @@
             ? `\n\n${codeFence(answerText(submission?.answer))}`
             : answerText(submission?.answer)}`);
         }
-        if (evaluation === 'wrong') lines.push('', '**复习标记：** 错题（平台未提供可用标准答案）');
+        if (evaluation === 'wrong') lines.push('', '**错题标记：** 平台未提供可用标准答案');
         else if (!submission) lines.push('', '**作答记录：** 未找到匹配的提交记录');
         lines.push('');
       });
@@ -598,47 +646,51 @@
     const selectedIds = new Set([...panel.querySelectorAll('[data-review-set]:checked')].map((input) => input.value));
     const problemSets = state.reviewProblemSets?.filter((set) => selectedIds.has(String(set.id))) || [];
     if (!problemSets.length) throw new Error('请至少选择一套可导出的作业。');
-    const delay = problemSets.length > 1 ? reviewRequestDelay(panel) : 300;
+    const setIntervalMs = problemSets.length > 1 ? reviewProblemSetInterval(panel) : 0;
+    const detailRequestDelayMs = problemDetailRequestDelay(panel);
     const includeAnswers = panel.querySelector('[data-review-include-answers]').checked;
-    if (problemSets.length > 1) {
-      await chrome.storage.local.set({ reviewExportRequestDelayMs: delay });
-    }
+    const requestSettings = { problemDetailRequestDelayMs: detailRequestDelayMs };
+    if (problemSets.length > 1) requestSettings.reviewExportRequestDelayMs = setIntervalMs;
+    await chrome.storage.local.set(requestSettings);
     const button = panel.querySelector('[data-action="export-review-sets"]');
     button.disabled = true;
     let exportedCount = 0;
     try {
-      setLog(panel, `开始导出 ${problemSets.length} 套题目集，请求间隔 ${delay} 毫秒。`);
-      for (const problemSet of problemSets) {
+      setLog(panel, `开始导出 ${problemSets.length} 套题目集；题集间隔 ${setIntervalMs} 毫秒，题目详情间隔 ${detailRequestDelayMs} 毫秒。`);
+      for (const [index, problemSet] of problemSets.entries()) {
+        if (index > 0 && setIntervalMs > 0) {
+          await new Promise((resolve) => window.setTimeout(resolve, setIntervalMs));
+        }
         setStatus(panel, `正在导出：${problemSet.name}`);
         appendLog(panel, `读取题目集：${problemSet.name || '未命名题目集'}`);
         const { result } = await sendRuntimeMessage({
           type: 'export-review-problem-set',
           problemSet,
-          requestDelayMs: delay
+          detailRequestDelayMs
         });
         const download = await downloadReviewMarkdown(result, includeAnswers);
         exportedCount += 1;
         setLog(panel, `下载完成：${download.filename}（${exportedCount}/${problemSets.length}）。`);
       }
-      setStatus(panel, '复习 Markdown 导出完成');
+      setStatus(panel, 'Markdown 导出完成');
       setLog(panel, `Markdown 导出完成，共 ${exportedCount} 个文件。`);
     } catch (error) {
-      setStatus(panel, '复习导出未全部完成');
-      setLog(panel, `已导出 ${exportedCount} 个文件后失败：${error.message}`, 'error');
+      setStatus(panel, 'Markdown 导出未全部完成');
+      setLog(panel, `已导出 ${exportedCount} 个 Markdown 文件后失败：${error.message}`, 'error');
     } finally {
       button.disabled = false;
     }
   }
 
   function updateReviewDelayVisibility(panel) {
-    panel.querySelector('[data-review-delay-option]').hidden =
-      panel.querySelectorAll('[data-review-set]:checked').length <= 1;
+    const visible = panel.querySelectorAll('[data-review-set]:checked').length > 1;
+    panel.querySelector('[data-review-delay-option]').hidden = !visible;
+    panel.querySelector('[data-review-delay-hint]').hidden = !visible;
   }
 
   async function loadReviewProblemSets(panel, currentSetId = null, automatic = false) {
     const button = panel.querySelector('[data-action="load-review-sets"]');
     if (button.disabled) return;
-    const delay = reviewRequestDelay(panel);
     button.disabled = true;
     button.setAttribute('aria-busy', 'true');
     if (!automatic) {
@@ -648,10 +700,8 @@
     panel.querySelector('[data-review-count]').textContent = '正在获取数量…';
     button.querySelector('[data-loader-label]').textContent = '正在加载…';
     try {
-      await chrome.storage.local.set({ reviewExportRequestDelayMs: delay });
       const { problemSets } = await sendRuntimeMessage({
-        type: 'list-review-problem-sets',
-        requestDelayMs: delay
+        type: 'list-review-problem-sets'
       });
       const uniqueProblemSets = [...new Map(
         problemSets.map((problemSet) => [String(problemSet.id), problemSet])
@@ -815,13 +865,30 @@
   }
 
   function bindPanel(panel) {
-    chrome.storage.local.get('reviewExportRequestDelayMs').then(({ reviewExportRequestDelayMs }) => {
-      if (Number.isInteger(reviewExportRequestDelayMs) && reviewExportRequestDelayMs >= 0 && reviewExportRequestDelayMs <= 10000) {
-        panel.querySelector('[data-review-delay]').value = String(reviewExportRequestDelayMs);
-      }
-    }).catch((error) => setLog(panel, error.message || '无法读取复习导出设置。', 'error'));
+    chrome.storage.local.get(['reviewExportRequestDelayMs', 'problemDetailRequestDelayMs'])
+      .then(({ reviewExportRequestDelayMs, problemDetailRequestDelayMs }) => {
+        if (Number.isInteger(reviewExportRequestDelayMs) && reviewExportRequestDelayMs >= 0 && reviewExportRequestDelayMs <= 10000) {
+          panel.querySelector('[data-review-delay]').value = String(reviewExportRequestDelayMs);
+        }
+        if (Number.isInteger(problemDetailRequestDelayMs) && problemDetailRequestDelayMs >= 0 && problemDetailRequestDelayMs <= 10000) {
+          panel.querySelector('[data-problem-detail-delay]').value = String(problemDetailRequestDelayMs);
+        }
+      }).catch((error) => setLog(panel, error.message || '无法读取导出设置。', 'error'));
     panel.addEventListener('change', async (event) => {
       const target = event.target;
+      if (target.matches('[data-review-delay], [data-problem-detail-delay]')) {
+        try {
+          const detailDelay = target.matches('[data-problem-detail-delay]');
+          const delay = detailDelay ? problemDetailRequestDelay(panel) : reviewProblemSetInterval(panel);
+          await chrome.storage.local.set({
+            [detailDelay ? 'problemDetailRequestDelayMs' : 'reviewExportRequestDelayMs']: delay
+          });
+          setLog(panel, `${detailDelay ? '题目详情间隔' : '题集间隔'}已保存：${delay} 毫秒。`);
+        } catch (error) {
+          setLog(panel, error.message || '无法保存请求间隔设置。', 'error');
+        }
+        return;
+      }
       if (target.matches('[data-review-set]')) {
         updateReviewDelayVisibility(panel);
         return;
@@ -890,6 +957,17 @@
             await sendRuntimeMessage({ type: 'cancel-ai', requestId });
           }
           if (state.activeAiRequestId === requestId) state.activeAiRequestId = null;
+          if (state.aiMessageSentRequestId === requestId) state.aiMessageSentRequestId = null;
+          if (state.aiElapsedTimer) window.clearInterval(state.aiElapsedTimer);
+          state.aiElapsedTimer = null;
+          state.aiTimerRequestId = null;
+          state.aiPhase = null;
+          state.aiPhaseStartedAt = 0;
+          state.questions = [];
+          state.problemSetId = null;
+          state.reviewProblemSets = [];
+          state.logs = [];
+          state.dismissedPageUrl = location.href;
           panel.remove();
           return;
         }
@@ -910,7 +988,9 @@
     });
   }
 
-  async function open(extractedQuestions) {
+  async function open(extractedQuestions, automatic = false) {
+    if (automatic && state.dismissedPageUrl === location.href) return null;
+    if (!automatic) state.dismissedPageUrl = null;
     await state.panelStateReady;
     const existingPanel = document.querySelector('#pintia-assistant-panel');
     const panel = existingPanel || createPanel(extractedQuestions);
@@ -921,6 +1001,14 @@
 
   window.PintiaAssistant = {
     open,
+    showExtractionProgress,
+    canAutoOpen() {
+      return state.dismissedPageUrl !== location.href;
+    },
+    hide() {
+      const panel = document.querySelector('#pintia-assistant-panel');
+      if (panel) panel.hidden = true;
+    },
     clearCurrentProblemSet() {
       const panel = document.querySelector('#pintia-assistant-panel');
       if (!panel) return;
@@ -937,15 +1025,6 @@
     async refreshQuestions(extractedQuestions) {
       const panel = document.querySelector('#pintia-assistant-panel');
       if (panel) await loadQuestions(panel, extractedQuestions);
-    },
-    async toggle() {
-      const panel = document.querySelector('#pintia-assistant-panel');
-      if (!panel) {
-        await open();
-        return true;
-      }
-      panel.hidden = !panel.hidden;
-      return !panel.hidden;
     },
     isVisible() {
       const panel = document.querySelector('#pintia-assistant-panel');

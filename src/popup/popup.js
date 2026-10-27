@@ -129,8 +129,12 @@ openAssistantButton.addEventListener('click', async () => {
     const response = await sendTabMessage(tab.id, { type: 'toggle-assistant' });
     if (response?.error) throw new Error(response.error);
     if (typeof response?.visible !== 'boolean') throw new Error('页面尚未就绪，请刷新 Pintia 页面后重试。');
-    setStatus('ready', response.visible ? '答案助手已打开' : '答案助手已关闭',
-      response.visible ? '可配置 AI 服务、导出题库或生成答案。' : '点击下方按钮可重新打开助手面板。');
+    setStatus('ready', response.mode === 'automatic'
+      ? '已启用全局自动显示'
+      : '已关闭全局自动显示',
+    response.mode === 'automatic'
+      ? '助手会在 Pintia 页面自动显示。'
+      : '当前页助手已隐藏；再次点击可重新启用并显示。');
     window.close();
   } catch (error) {
     showError(error.message || '无法切换答案助手。请刷新 Pintia 页面后重试。');

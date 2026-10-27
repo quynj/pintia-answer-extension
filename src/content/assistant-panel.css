@@ -85,6 +85,7 @@
 #pintia-assistant-panel .pintia-review-export summary { cursor: pointer; font-weight: 700; }
 #pintia-assistant-panel .pintia-review-export > label { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 8px 0; font-size: 11px; }
 #pintia-assistant-panel .pintia-review-export > label[hidden] { display: none; }
+#pintia-assistant-panel .pintia-review-export small[hidden] { display: none; }
 #pintia-assistant-panel .pintia-review-export input[type="number"] { width: 90px; padding: 4px; border: 1px solid rgba(23, 32, 38, .3); background: rgba(255, 255, 255, .65); }
 #pintia-assistant-panel .pintia-review-loader { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 9px 0; padding: 9px; border: 1px solid rgba(23, 32, 38, .16); background: rgba(255, 255, 255, .52); }
 #pintia-assistant-panel .pintia-review-loader-copy { display: grid; gap: 2px; }

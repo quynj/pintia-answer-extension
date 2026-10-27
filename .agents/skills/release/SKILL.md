@@ -32,10 +32,7 @@ user-invocable: true
    - 更新日志使用对应的 `vX.Y.Z` 标题；
    - 不包含无关文件、机密或凭据；
    - `git diff --check` 通过。
-7. 为发布变更创建 Conventional Commit，通常使用 `chore(release): vX.Y.Z`。在提交信息末尾附上以下共同作者声明：
-
-   `Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>`
-
+7. 为发布变更创建 Conventional Commit，通常使用 `chore(release): vX.Y.Z`。
 8. 将发布提交推送到当前分支配置的上游分支；如果未配置上游，则推送到 `origin <当前分支>`。绝不强制推送。如果推送被拒绝或分支已分叉，应暂停，不得改写历史。
 9. 在发布提交上创建附注标签 `vX.Y.Z`，并且只将该标签推送到 `origin`。如果该标签已在本地或远程存在，应暂停；不得移动或覆盖标签。
 10. 使用 `gh` 检查由标签触发的 Actions 运行，并在可能时等待结果。验证 GitHub Release 已创建，且包含 `pintia-answer-extension-vX.Y.Z.zip`。如果无法观察工作流运行状态，应报告标签已推送但发布仍待完成，不得提前宣称发布成功。

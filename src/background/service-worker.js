@@ -182,17 +182,20 @@ async function getQuestionBank(sender) {
 async function reviewExportRequest(sender, message) {
   const tabId = sender.tab?.id;
   if (!tabId || !sender.tab.url?.startsWith('https://pintia.cn/')) {
-    throw new Error('请在已登录的 Pintia 页面中导出复习题集。');
+    throw new Error('请在已登录的 Pintia 页面中导出 Markdown。');
   }
-  const delay = Number(message.requestDelayMs);
-  if (!Number.isInteger(delay) || delay < 0 || delay > 10000) {
-    throw new Error('请求间隔必须是 0 到 10000 毫秒之间的整数。');
-  }
-  const response = await sendTabMessage(tabId, {
+  const request = {
     type: message.type,
-    problemSet: message.problemSet,
-    requestDelayMs: delay
-  });
+    problemSet: message.problemSet
+  };
+  if (message.type === 'export-review-problem-set') {
+    const detailRequestDelayMs = Number(message.detailRequestDelayMs);
+    if (!Number.isInteger(detailRequestDelayMs) || detailRequestDelayMs < 0 || detailRequestDelayMs > 10000) {
+      throw new Error('题目详情间隔必须是 0 到 10000 毫秒之间的整数。');
+    }
+    request.detailRequestDelayMs = detailRequestDelayMs;
+  }
+  const response = await sendTabMessage(tabId, request);
   if (response?.error) throw new Error(response.error);
   if (message.type === 'list-review-problem-sets' && !Array.isArray(response?.problemSets)) {
     throw new Error('题目集列表接口返回格式无效。');

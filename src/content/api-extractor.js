@@ -155,8 +155,8 @@
   }
 
   async function fetchResponse(url, requestDelayMs = 0) {
-    if (requestDelayMs > 0) await new Promise((resolve) => window.setTimeout(resolve, requestDelayMs));
     for (let attempt = 0; attempt < 2; attempt += 1) {
+      if (requestDelayMs > 0) await new Promise((resolve) => window.setTimeout(resolve, requestDelayMs));
       try {
         const response = await fetch(url, { credentials: 'include', cache: 'no-store', headers: { accept: 'application/json, */*' } });
         if (response.ok) return response;
@@ -276,16 +276,20 @@
     };
   }
 
-  async function fetchListedQuestions(listUrl, list, requestDelayMs = 0) {
+  async function fetchListedQuestions(listUrl, list, detailRequestDelayMs = 0, onProgress = null, typeProgress = {}) {
     const labelById = list.examLabelByProblemSetProblemId || {};
     const problemType = new URL(listUrl).searchParams.get('problem_type');
     const questions = [];
-    for (const listedProblem of list.problems) {
+    const listedProblems = list.problems.filter((problem) => problem?.id);
+    for (const [index, listedProblem] of listedProblems.entries()) {
       if (!listedProblem?.id) continue;
       let question = null;
       try {
         const listedType = listedProblem.type || listedProblem.problem_type || problemType || 'NO_PROBLEM_TYPE';
-        const response = await fetchResponse(problemDetailUrl(listUrl, listedProblem.id, listedType), requestDelayMs);
+        const response = await fetchResponse(
+          problemDetailUrl(listUrl, listedProblem.id, listedType),
+          detailRequestDelayMs
+        );
         if (response) question = normalizeProblemDetail(await responseData(response), listedProblem, labelById[listedProblem.id], listedType);
       } catch (error) {
         console.warn(`题目详情读取失败（${listedProblem.id}）：`, error);
@@ -298,6 +302,12 @@
         }, listedProblem.problemPoolIndex ?? 0);
       }
       if (question) questions.push(question);
+      onProgress?.({
+        ...typeProgress,
+        phase: 'details',
+        detailCompleted: index + 1,
+        detailTotal: listedProblems.length
+      });
     }
     return questions;
   }
@@ -346,7 +356,13 @@
       const listUrl = withExamId(problemListUrl(options.collectionUrl, options.listUrl, type), options.examId);
       if (!listUrl) return [];
       const list = await fetchExamProblemList(listUrl, requestDelayMs);
-      return fetchListedQuestions(listUrl, list, requestDelayMs);
+      return fetchListedQuestions(
+        listUrl,
+        list,
+        options.detailRequestDelayMs || 0,
+        options.onProgress,
+        options.typeProgress
+      );
     }
     const collectionUrl = withExamId(typedUrl(options.collectionUrl, type), options.examId);
     if (!collectionUrl) return [];
@@ -422,7 +438,7 @@
 
   let reviewProblemSetsCache = null;
   let reviewProblemSetsPromise = null;
-  api.listProblemSets = async (requestDelayMs = 0) => {
+  api.listProblemSets = async () => {
     if (reviewProblemSetsCache) return reviewProblemSetsCache;
     if (reviewProblemSetsPromise) return reviewProblemSetsPromise;
     reviewProblemSetsPromise = (async () => {
@@ -437,7 +453,7 @@
         url.searchParams.set('limit', '30');
         url.searchParams.set('order_by', 'END_AT');
         url.searchParams.set('asc', 'false');
-        const response = requiredResponse(await fetchResponse(url.href, requestDelayMs), '题目集列表');
+        const response = requiredResponse(await fetchResponse(url.href), '题目集列表');
         const result = await responseData(response);
         const data = result.data?.data || result.data || {};
         const sets = Array.isArray(data.problemSets) ? data.problemSets : [];
@@ -460,13 +476,13 @@
     }
   };
 
-  api.extractProblemSetForReview = async (problemSet, requestDelayMs = 0) => {
+  api.extractProblemSetForReview = async (problemSet, detailRequestDelayMs = 1000) => {
     const problemSetId = String(problemSet?.id || '');
     const examId = String(problemSet?.examId || '');
     if (!problemSetId || !examId) throw new Error('作业缺少考试 ID，无法读取题目及作答。');
 
     const summaryUrl = new URL(`/api/problem-sets/${encodeURIComponent(problemSetId)}/problem-summaries`, location.origin);
-    const summaryResponse = requiredResponse(await fetchResponse(summaryUrl.href, requestDelayMs), '题型摘要');
+    const summaryResponse = requiredResponse(await fetchResponse(summaryUrl.href), '题型摘要');
     const summaryData = await responseData(summaryResponse);
     const summaries = summaryData.data?.summaries || summaryData.data?.data?.summaries || {};
     const types = Object.entries(summaries)
@@ -490,7 +506,7 @@
         collectionUrl: collectionUrl.href,
         listUrl: listUrl?.href || null,
         expectedTotal: Number(summaries[type]?.total || 0),
-        requestDelayMs
+        detailRequestDelayMs
       });
       if (!typeQuestions.length) {
         throw new Error(`${type}题目读取失败：接口未返回可导出的题目。`);
@@ -498,7 +514,7 @@
       questions.push(...typeQuestions);
 
       const response = requiredResponse(
-        await fetchResponse(reviewSubmissionUrl(examId, problemSetId, type), requestDelayMs),
+        await fetchResponse(reviewSubmissionUrl(examId, problemSetId, type)),
         `${type}作答记录`
       );
       const result = await responseData(response);
@@ -518,8 +534,12 @@
     };
   };
 
-  api.extractFromApi = async () => {
+  api.extractFromApi = async (options = {}) => {
     lastFailureReason = null;
+    const detailRequestDelayMs = options.detailRequestDelayMs ?? 1000;
+    if (!Number.isInteger(detailRequestDelayMs) || detailRequestDelayMs < 0 || detailRequestDelayMs > 10000) {
+      throw new Error('题目详情间隔必须是 0 到 10000 毫秒之间的整数。');
+    }
     const currentPage = currentProblemSetPage();
     if (!currentPage) {
       return { problemSetId: null, problemSetName: null, examId: null, questions: [], summaries: {}, reason: 'not_problem_set_exam_page' };
@@ -582,7 +602,9 @@
     const fallbackExamUrl = examId
       ? new URL(`/api/exams/${encodeURIComponent(examId)}/problem-sets/${encodeURIComponent(problemSetId)}/exam-problems`, location.origin).href
       : null;
-    for (const type of types) {
+    for (const [typeIndex, type] of types.entries()) {
+      const typeProgress = { type, typeIndex: typeIndex + 1, typeCount: types.length };
+      options.onProgress?.({ ...typeProgress, phase: 'type' });
       const collectionUrl = examUrls.find((url) => new URL(url).searchParams.get('problem_type') === type)
         || examUrl
         || fallbackExamUrl;
@@ -594,15 +616,19 @@
           collectionUrl,
           listUrl,
           examId,
-          expectedTotal: Number(summaries[type]?.total || 0)
+          expectedTotal: Number(summaries[type]?.total || 0),
+          detailRequestDelayMs,
+          onProgress: options.onProgress,
+          typeProgress
         }));
+        options.onProgress?.({ ...typeProgress, phase: 'type-complete' });
       } catch (error) {
         console.warn(`${type}题目读取失败：`, error);
       }
     }
     for (const url of examDetailUrls) {
       try {
-        const response = await fetchResponse(url);
+        const response = await fetchResponse(url, detailRequestDelayMs);
         if (response) {
           const question = normalizeProblemDetail(
             await responseData(response),

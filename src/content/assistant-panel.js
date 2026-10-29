@@ -67,8 +67,7 @@
       </div>
       <div class="pintia-assistant-body" data-view="assistant">
         <p class="pintia-assistant-status" data-status>请选择要处理的题型</p>
-      <p class="pintia-assistant-context" data-page-context></p>
-        <div class="pintia-assistant-types" data-types><span>处理题型</span><em>正在读取题库…</em></div>
+        <div class="pintia-assistant-types" data-types><span>处理题型</span><em>进入题目页面自动识别题型…</em></div>
         <div class="pintia-assistant-programming-language" data-programming-language hidden>
           <label for="pintia-assistant-programming-language">编程语言</label>
           <select id="pintia-assistant-programming-language" data-language>
@@ -303,9 +302,6 @@
       }
       const hasCurrentQuestionSet = state.questions.length > 0;
       setStatus(panel, hasCurrentQuestionSet ? '作业题目已就绪' : '当前页未检测到作业题目');
-      panel.querySelector('[data-page-context]').textContent = hasCurrentQuestionSet
-        ? '当前为作业题目页：可使用 AI、回填及当前题库导出。作业 Markdown 导出也可在任意已登录的 Pintia 页面使用。'
-        : '当前非作业题目页：可加载作业列表并导出 Markdown；AI 答题、回填和当前题库导出需进入具体作业题目页。';
       for (const action of ['prompt', 'api', 'export', 'apply']) {
         const button = panel.querySelector(`[data-action="${action}"]`);
         if (button) button.disabled = !hasCurrentQuestionSet;

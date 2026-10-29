@@ -107,7 +107,7 @@
 
   api.normalizeApiQuestion = (item, index) => {
     if (!item || typeof item !== 'object' || Array.isArray(item)) return null;
-    const textFields = ['title', 'description', 'question', 'content', 'text', 'body'];
+    const textFields = ['content', 'description', 'question', 'text', 'body', 'title'];
     const type = api.normalizeType(item.type || item.problem_type || item.problemType || item.question_type, []);
     const isProgramming = type === 'PROGRAMMING' || type === 'SQL_PROGRAMMING';
     const isListBackedProblem = isProgramming || type === 'SUBJECTIVE';

@@ -51,7 +51,6 @@
 #pintia-assistant-panel .pintia-assistant-head button[data-action="collapse"] { min-width: 32px; min-height: 32px; }
 #pintia-assistant-panel .pintia-assistant-body { padding: 13px; }
 #pintia-assistant-panel .pintia-assistant-status { margin: 0 0 9px; font-weight: 700; }
-#pintia-assistant-panel .pintia-assistant-context { margin: 0 0 10px; padding: 7px 8px; border-left: 3px solid #ff8066; color: #47545b; background: rgba(255, 255, 255, .48); font-size: 11px; }
 #pintia-assistant-panel .pintia-assistant-types { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 0 0 9px; color: #758087; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
 #pintia-assistant-panel .pintia-assistant-types label { display: inline-flex; gap: 3px; align-items: center; color: #172026; }
 #pintia-assistant-panel .pintia-assistant-types em { font-style: normal; }

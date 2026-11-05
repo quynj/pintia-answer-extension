@@ -1,37 +1,76 @@
-(() => {
+import { answerContract } from '../../shared/answer-contract';
+import type {
+  AnswerRunReport,
+  JsonValue,
+  PintiaAnswerItem,
+  PintiaAnswerPayload,
+  PintiaAnswerRunnerApi
+} from '../../shared/types';
+
+type TextControl = HTMLInputElement | HTMLTextAreaElement;
+type EditorElement = TextControl | (HTMLElement & { isContentEditable: true });
+type EditorSelection =
+  | { start: number; end: number; direction: 'forward' | 'backward' | 'none' }
+  | { range: Range };
+type InjectionResult = {
+  success: boolean;
+  reason?: string;
+  skipped?: boolean;
+  action?: string;
+  typedCharacters?: number;
+  optionActions?: Array<{ option: string; action: string }>;
+  blankActions?: Array<{ index: number; action: string }>;
+};
+type AnswerInjector = {
+  inject(item: PintiaAnswerItem, root: Element): InjectionResult | Promise<InjectionResult>;
+};
+type QuestionResolution =
+  | { success: true; root: Element }
+  | { success: false; reason: string };
+type InternalAnswerRunResult = Record<string, unknown> & { success: boolean; skipped?: boolean };
+
   const supportedTypes = ['PROGRAMMING', 'SQL_PROGRAMMING', 'MULTIPLE_CHOICE', 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER', 'TRUE_OR_FALSE', 'FILL_IN_THE_BLANK', 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'];
   const saveDelayMs = 500;
   const typingDelayMs = 8;
-  let focusedEditor = null;
-  let focusedEditorSelection = null;
-  const observedDocuments = new WeakSet();
-  const isProgrammingType = (type) => type === 'PROGRAMMING' || type === 'SQL_PROGRAMMING';
+  let focusedEditor: EditorElement | null = null;
+  let focusedEditorSelection: EditorSelection | null = null;
+  const observedDocuments = new WeakSet<Document>();
+  const isProgrammingType = (type: string): boolean => type === 'PROGRAMMING' || type === 'SQL_PROGRAMMING';
 
-  function editableElement(element) {
+  function isEditorElement(element: Element | null): element is EditorElement {
+    return element instanceof HTMLInputElement
+      || element instanceof HTMLTextAreaElement
+      || (element instanceof HTMLElement && element.isContentEditable);
+  }
+
+  function editableElement(element: Element | null): EditorElement | null {
     if (element?.nodeType !== Node.ELEMENT_NODE
       || element.closest('#pintia-assistant-panel')
       || element.closest('[contenteditable="false"]')) return null;
-    if (element.isContentEditable) return element;
-    if (element.matches('textarea, input[type="text"], input:not([type])')) return element;
+    if (element instanceof HTMLElement && element.isContentEditable) {
+      return element as HTMLElement & { isContentEditable: true };
+    }
+    if (element instanceof HTMLInputElement && element.matches('input[type="text"], input:not([type])')) return element;
+    if (element instanceof HTMLTextAreaElement) return element;
     return null;
   }
 
-  function selectionEditor(ownerDocument) {
+  function selectionEditor(ownerDocument: Document): EditorElement | null {
     const selection = ownerDocument.getSelection();
     const anchor = selection?.anchorNode;
-    const anchorElement = anchor?.nodeType === Node.ELEMENT_NODE ? anchor : anchor?.parentElement;
+    const anchorElement = anchor instanceof Element ? anchor : anchor?.parentElement ?? null;
     return editableElement(anchorElement?.closest('[contenteditable="true"], [contenteditable="plaintext-only"]')
       || anchorElement);
   }
 
-  function observeDocument(ownerDocument) {
+  function observeDocument(ownerDocument: Document): void {
     if (observedDocuments.has(ownerDocument)) return;
     observedDocuments.add(ownerDocument);
     ownerDocument.addEventListener('focusin', () => rememberFocusedEditor(ownerDocument), true);
     ownerDocument.addEventListener('selectionchange', () => rememberFocusedEditor(ownerDocument), true);
     for (const eventName of ['click', 'keyup', 'pointerup', 'select', 'input']) {
-      ownerDocument.addEventListener(eventName, (event) => {
-        if (editableElement(event.target)) rememberFocusedEditor(ownerDocument);
+      ownerDocument.addEventListener(eventName, (event: Event) => {
+        if (event.target instanceof Element && editableElement(event.target)) rememberFocusedEditor(ownerDocument);
       }, true);
     }
     ownerDocument.defaultView?.addEventListener(
@@ -41,13 +80,15 @@
     );
   }
 
-  function deepestActiveElement(ownerDocument = document) {
+  function deepestActiveElement(ownerDocument: Document = document): Element | null {
     let activeElement = ownerDocument.activeElement;
-    while (activeElement?.tagName === 'IFRAME') {
+    while (activeElement instanceof HTMLIFrameElement) {
       try {
-        ownerDocument = activeElement.contentDocument;
-        if (ownerDocument) observeDocument(ownerDocument);
-        activeElement = ownerDocument?.activeElement;
+        const frameDocument = activeElement.contentDocument;
+        if (!frameDocument) return null;
+        ownerDocument = frameDocument;
+        observeDocument(ownerDocument);
+        activeElement = ownerDocument.activeElement;
       } catch (_) {
         return null;
       }
@@ -55,11 +96,12 @@
     return activeElement;
   }
 
-  function selectionFor(element) {
-    if (typeof element.selectionStart === 'number') {
+  function selectionFor(element: EditorElement): EditorSelection | null {
+    if ((element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)
+      && typeof element.selectionStart === 'number') {
       return {
         start: element.selectionStart,
-        end: element.selectionEnd,
+        end: element.selectionEnd ?? element.selectionStart,
         direction: element.selectionDirection || 'none'
       };
     }
@@ -70,7 +112,7 @@
     return null;
   }
 
-  function rememberFocusedEditor(ownerDocument = document) {
+  function rememberFocusedEditor(ownerDocument: Document = document): void {
     const activeElement = deepestActiveElement(ownerDocument);
     const editor = editableElement(activeElement) || selectionEditor(ownerDocument);
     if (!editor) return;
@@ -82,13 +124,13 @@
   rememberFocusedEditor();
 
   const AnswerParser = {
-    parse(text, expectedProblemSetId) {
-      return window.PintiaAnswerContract.parse(text, expectedProblemSetId);
+    parse(text: string, expectedProblemSetId?: string | null): PintiaAnswerPayload {
+      return answerContract.parse(text, expectedProblemSetId);
     }
   };
 
   const QuestionResolver = {
-    resolve(problemId) {
+    resolve(problemId: string): QuestionResolution {
       const root = document.getElementById(problemId);
       return root
         ? { success: true, root }
@@ -96,7 +138,7 @@
     }
   };
 
-  function problemIdFromLocation(items) {
+  function problemIdFromLocation(items: PintiaAnswerItem[]): string | null {
     const pathSegments = location.pathname.split('/').filter(Boolean).map((segment) => {
       try {
         return decodeURIComponent(segment);
@@ -110,7 +152,7 @@
     return matches.length === 1 ? matches[0].problemId : null;
   }
 
-  function resolveQuestion(item, allowSingleEditorFallback = false) {
+  function resolveQuestion(item: PintiaAnswerItem, allowSingleEditorFallback = false): QuestionResolution {
     const question = QuestionResolver.resolve(item.problemId);
     if (!isProgrammingType(item.type)) return question;
     if (question.success && (question.root.matches('[data-e2e="code-editor-input"]')
@@ -125,7 +167,7 @@
       : { success: false, reason: 'question container not found and no unique visible code editor is available' };
   }
 
-  const typeNavigationIds = {
+  const typeNavigationIds: Record<string, string> = {
     MULTIPLE_CHOICE: 'MULTIPLE_CHOICE',
     MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER: 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER',
     TRUE_OR_FALSE: 'TRUE_OR_FALSE',
@@ -134,7 +176,7 @@
   };
 
   const QuestionTypeNavigator = {
-    async navigate(type, items) {
+    async navigate(type: string, items: PintiaAnswerItem[]): Promise<{ success: boolean; reason?: string }> {
       const hasQuestion = () => items.some((item) => {
         const question = document.getElementById(item.problemId);
         return question && question.getClientRects().length > 0;
@@ -150,7 +192,10 @@
       try {
         control.click();
       } catch (error) {
-        return { success: false, reason: `question type navigation failed: ${error.message || navigationId}` };
+        return {
+          success: false,
+          reason: `question type navigation failed: ${error instanceof Error ? error.message : navigationId}`
+        };
       }
 
       const deadline = Date.now() + 5000;
@@ -163,14 +208,36 @@
     }
   };
 
-  function radioFor(problemId, option, root) {
+  function radioFor(problemId: string, option: string, root: Element): HTMLInputElement | null {
     const input = document.getElementById(`input-radio-option-${problemId}-${option}`);
-    return input?.type === 'radio' && input.name === problemId && root.contains(input) ? input : null;
+    return input instanceof HTMLInputElement
+      && input.type === 'radio'
+      && input.name === problemId
+      && root.contains(input)
+      ? input
+      : null;
   }
 
-  const SingleChoiceInjector = {
+  function stringAnswer(item: PintiaAnswerItem): string {
+    if (typeof item.answer !== 'string') throw new Error('answer must be a string');
+    return item.answer;
+  }
+
+  function stringArrayAnswer(item: PintiaAnswerItem): string[] {
+    if (!Array.isArray(item.answer) || !item.answer.every((value) => typeof value === 'string')) {
+      throw new Error('answer must be an array of strings');
+    }
+    return item.answer;
+  }
+
+  function booleanAnswer(item: PintiaAnswerItem): boolean {
+    if (typeof item.answer !== 'boolean') throw new Error('answer must be a boolean');
+    return item.answer;
+  }
+
+  const SingleChoiceInjector: AnswerInjector = {
     inject(item, root) {
-      const input = radioFor(item.problemId, item.answer, root);
+      const input = radioFor(item.problemId, stringAnswer(item), root);
       if (!input) return { success: false, reason: 'target radio option not found' };
       const changed = !input.checked;
       if (changed) input.click();
@@ -180,17 +247,19 @@
     }
   };
 
-  const MultipleChoiceInjector = {
+  const MultipleChoiceInjector: AnswerInjector = {
     inject(item, root) {
       const inputs = [...root.querySelectorAll('input[type="checkbox"]')]
+        .filter((input): input is HTMLInputElement => input instanceof HTMLInputElement)
         .filter((input) => input.name === item.problemId
           && input.id.startsWith(`input-checkbox-option-${item.problemId}-`));
-      const desiredAnswers = new Set(item.answer);
+      const answers = stringArrayAnswer(item);
+      const desiredAnswers = new Set(answers);
       const availableOptions = new Set(inputs.map((input) => input.id.slice(`input-checkbox-option-${item.problemId}-`.length)));
-      const missingOption = item.answer.find((option) => !availableOptions.has(option));
+      const missingOption = answers.find((option) => !availableOptions.has(option));
       if (missingOption) return { success: false, reason: `checkbox option not found: ${missingOption}` };
 
-      const optionActions = [];
+      const optionActions: Array<{ option: string; action: string }> = [];
       inputs.forEach((input) => {
         const option = input.id.slice(`input-checkbox-option-${item.problemId}-`.length);
         const shouldBeChecked = desiredAnswers.has(option);
@@ -209,29 +278,31 @@
     }
   };
 
-  const TrueFalseInjector = {
+  const TrueFalseInjector: AnswerInjector = {
     inject(item, root) {
       return SingleChoiceInjector.inject({
         ...item,
-        answer: item.answer ? 'TRUE' : 'FALSE'
+        answer: booleanAnswer(item) ? 'TRUE' : 'FALSE'
       }, root);
     }
   };
 
-  function blankInput(root, index) {
+  function blankInput(root: Element, index: number): TextControl | null {
     const matches = [...root.querySelectorAll('[data-blank-index]')]
       .filter((element) => element.getAttribute('data-blank-index') === String(index));
     if (matches.length !== 1) return null;
     const blank = matches[0];
-    if (blank.matches('input, textarea')) return blank;
-    return blank.querySelector('input, textarea');
+    if (blank instanceof HTMLInputElement || blank instanceof HTMLTextAreaElement) return blank;
+    return blank.querySelector<HTMLInputElement | HTMLTextAreaElement>('input, textarea');
   }
 
-  function programmingBlankInputs(root) {
-    return [...root.querySelectorAll('.cm-content input:not([type]), .cm-content input[type="text"], .cm-content textarea')];
+  function programmingBlankInputs(root: Element): TextControl[] {
+    return [...root.querySelectorAll('.cm-content input:not([type]), .cm-content input[type="text"], .cm-content textarea')]
+      .filter((element): element is TextControl =>
+        element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement);
   }
 
-  function setInputValue(input, value) {
+  function setInputValue(input: TextControl, value: string): void {
     let prototype = input;
     let setter;
     while (prototype && !setter) {
@@ -244,7 +315,7 @@
     input.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
-  function dispatchInput(element, character) {
+  function dispatchInput(element: EditorElement, character: string): void {
     try {
       element.dispatchEvent(new InputEvent('input', {
         bubbles: true,
@@ -256,7 +327,7 @@
     }
   }
 
-  function setNativeValue(element, value) {
+  function setNativeValue(element: TextControl, value: string): void {
     let prototype = element;
     let setter;
     while (prototype && !setter) {
@@ -267,32 +338,37 @@
     else element.value = value;
   }
 
-  function belongsToQuestion(element, root) {
-    let current = element;
+  function belongsToQuestion(element: Element, root: Element): boolean {
+    let current: Element | null = element;
     while (current) {
       if (root.contains(current)) return true;
-      current = current.ownerDocument?.defaultView?.frameElement || null;
+      const frameElement: Element | null = current.ownerDocument.defaultView?.frameElement ?? null;
+      current = frameElement instanceof Element ? frameElement : null;
     }
     return false;
   }
 
-  function programmingEditorFor(root) {
+  function programmingEditorFor(root: Element): EditorElement | null {
     const editorContainer = root.matches('[data-e2e="code-editor-input"]')
       ? root
       : root.querySelector('[data-e2e="code-editor-input"]');
     const editor = editorContainer?.querySelector(
       '.cm-content[contenteditable="true"], textarea, input[type="text"]'
     );
-    if (editor) return editor;
+    if (editor && isEditorElement(editor)) return editor;
     return focusedEditor?.isConnected && belongsToQuestion(focusedEditor, root)
       ? focusedEditor
       : null;
   }
 
-  function insertIntoTextControl(element, character) {
+  function insertIntoTextControl(element: TextControl, character: string): void {
     const selection = focusedEditor === element ? focusedEditorSelection : selectionFor(element);
-    const start = selection?.start ?? element.selectionStart ?? element.value.length;
-    const end = selection?.end ?? element.selectionEnd ?? start;
+    const start = selection && 'start' in selection
+      ? selection.start
+      : element.selectionStart ?? element.value.length;
+    const end = selection && 'end' in selection
+      ? selection.end
+      : element.selectionEnd ?? start;
     setNativeValue(element, `${element.value.slice(0, start)}${character}${element.value.slice(end)}`);
     const caret = start + character.length;
     element.setSelectionRange(caret, caret);
@@ -300,11 +376,14 @@
     dispatchInput(element, character);
   }
 
-  function insertIntoContentEditable(element, character) {
+  function insertIntoContentEditable(element: HTMLElement & { isContentEditable: true }, character: string): void {
     const selection = element.ownerDocument.getSelection();
-    const rememberedRange = focusedEditor === element
-      ? focusedEditorSelection?.range
-      : selectionFor(element)?.range;
+    const rememberedSelection = focusedEditor === element
+      ? focusedEditorSelection
+      : selectionFor(element);
+    const rememberedRange = rememberedSelection && 'range' in rememberedSelection
+      ? rememberedSelection.range
+      : null;
     const range = rememberedRange?.cloneRange();
     if (!selection || !range || !element.contains(range.startContainer)
       || !element.contains(range.endContainer)) {
@@ -323,10 +402,12 @@
     }
   }
 
-  const ProgrammingInjector = {
+  const ProgrammingInjector: AnswerInjector = {
     async inject(item, root) {
       const editor = programmingEditorFor(root);
-      if (!editor || !editor.isConnected || editor.disabled || editor.readOnly) {
+      if (!editor || !editor.isConnected
+        || ((editor instanceof HTMLInputElement || editor instanceof HTMLTextAreaElement)
+          && (editor.disabled || editor.readOnly))) {
         return { success: false, reason: 'programming editor not found in the target question' };
       }
       if (!belongsToQuestion(editor, root)) {
@@ -335,10 +416,13 @@
 
       let typedCharacters = 0;
       try {
-        for (const character of item.answer) {
+        for (const character of stringAnswer(item)) {
           if (!editor.isConnected) throw new Error('programming editor was removed while typing');
-          if (typeof editor.value === 'string') insertIntoTextControl(editor, character);
-          else insertIntoContentEditable(editor, character);
+          if (editor instanceof HTMLInputElement || editor instanceof HTMLTextAreaElement) {
+            insertIntoTextControl(editor, character);
+          } else {
+            insertIntoContentEditable(editor, character);
+          }
           typedCharacters += 1;
           await new Promise((resolve) => window.setTimeout(resolve, typingDelayMs));
         }
@@ -346,7 +430,7 @@
       } catch (error) {
         return {
           success: false,
-          reason: error.message || 'programming answer typing failed',
+          reason: error instanceof Error ? error.message : 'programming answer typing failed',
           action: typedCharacters ? 'updated' : 'unchanged',
           typedCharacters
         };
@@ -359,23 +443,24 @@
     }
   };
 
-  const FillBlankInjector = {
+  const FillBlankInjector: AnswerInjector = {
     inject(item, root) {
+      const answers = stringArrayAnswer(item);
       const inputs = item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
         ? programmingBlankInputs(root)
-        : item.answer.map((_, index) => blankInput(root, index));
+        : answers.map((_answer, index) => blankInput(root, index));
       if (item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
-        && (!inputs.length || inputs.length !== item.answer.length)) {
+        && (!inputs.length || inputs.length !== answers.length)) {
         return {
           success: false,
-          reason: `programming blank input count mismatch: expected ${item.answer.length}, found ${inputs.length}`
+          reason: `programming blank input count mismatch: expected ${answers.length}, found ${inputs.length}`
         };
       }
-      const blankActions = [];
+      const blankActions: Array<{ index: number; action: string }> = [];
       const action = () => blankActions.some(({ action: blankAction }) => blankAction === 'updated')
         ? 'updated'
         : 'unchanged';
-      for (let index = 0; index < item.answer.length; index += 1) {
+      for (let index = 0; index < answers.length; index += 1) {
         const input = inputs[index];
         if (!input) {
           return {
@@ -385,10 +470,10 @@
             blankActions
           };
         }
-        const changed = input.value !== item.answer[index];
-        if (changed) setInputValue(input, item.answer[index]);
+        const changed = input.value !== answers[index];
+        if (changed) setInputValue(input, answers[index]);
         blankActions.push({ index, action: changed ? 'updated' : 'unchanged' });
-        if (input.value !== item.answer[index]) {
+        if (input.value !== answers[index]) {
           return {
             success: false,
             reason: `blank value did not update: ${index}`,
@@ -405,17 +490,17 @@
     }
   };
 
-  function checkedRadio(item, root) {
+  function checkedRadio(item: PintiaAnswerItem, root: Element): boolean {
     const input = radioFor(item.problemId, item.type === 'TRUE_OR_FALSE'
-      ? (item.answer ? 'TRUE' : 'FALSE')
-      : item.answer, root);
+      ? (booleanAnswer(item) ? 'TRUE' : 'FALSE')
+      : stringAnswer(item), root);
     return Boolean(input?.checked);
   }
 
   const AnswerVerifier = {
-    verify(item, root, injected) {
+    verify(item: PintiaAnswerItem, root: Element, injected?: InjectionResult): { success: boolean; reason?: string } {
       if (isProgrammingType(item.type)) {
-        const typedCharacters = [...item.answer].length;
+        const typedCharacters = [...stringAnswer(item)].length;
         return injected?.success && injected.typedCharacters === typedCharacters
           ? { success: true }
           : { success: false, reason: 'programming answer typing verification failed' };
@@ -426,23 +511,26 @@
           : { success: false, reason: 'answer verification failed' };
       }
       if (item.type === 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER') {
-        const actual = new Set([...root.querySelectorAll('input[type="checkbox"]')]
+        const answers = stringArrayAnswer(item);
+        const actual = new Set<string>([...root.querySelectorAll('input[type="checkbox"]')]
+          .filter((input): input is HTMLInputElement => input instanceof HTMLInputElement)
           .filter((input) => input.name === item.problemId
             && input.id.startsWith(`input-checkbox-option-${item.problemId}-`)
             && input.checked)
           .map((input) => input.id.slice(`input-checkbox-option-${item.problemId}-`.length)));
-        const desired = new Set(item.answer);
+        const desired = new Set(answers);
         const matches = actual.size === desired.size && [...desired].every((option) => actual.has(option));
         return matches
           ? { success: true }
           : { success: false, reason: 'answer verification failed' };
       }
       if (item.type === 'FILL_IN_THE_BLANK' || item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING') {
+        const answers = stringArrayAnswer(item);
         const inputs = item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
           ? programmingBlankInputs(root)
-          : item.answer.map((_, index) => blankInput(root, index));
-        const matches = inputs.length === item.answer.length
-          && item.answer.every((value, index) => inputs[index]?.value === value);
+          : answers.map((_answer, index) => blankInput(root, index));
+        const matches = inputs.length === answers.length
+          && answers.every((value, index) => inputs[index]?.value === value);
         return matches
           ? { success: true }
           : { success: false, reason: 'answer verification failed' };
@@ -453,7 +541,7 @@
 
   const SaveManager = {
     async save() {
-      const button = document.querySelector('button[data-e2e="problem-set-bottom-submit-btn"]');
+      const button = document.querySelector<HTMLButtonElement>('button[data-e2e="problem-set-bottom-submit-btn"]');
       if (!button) return { success: false, reason: 'save button not found' };
       try {
         const previousAlerts = new Set([...document.querySelectorAll('[role="alert"]')]
@@ -467,14 +555,14 @@
           ? { success: false, reason: `save failed: ${errorAlert}` }
           : { success: true };
       } catch (error) {
-        return { success: false, reason: `save failed: ${error.message || 'button click failed'}` };
+        return { success: false, reason: `save failed: ${error instanceof Error ? error.message : 'button click failed'}` };
       }
     }
   };
 
-  function currentAnswer(item, root) {
+  function currentAnswer(item: PintiaAnswerItem, root: Element): JsonValue | null {
     if (item.type === 'MULTIPLE_CHOICE' || item.type === 'TRUE_OR_FALSE') {
-      const input = [...root.querySelectorAll('input[type="radio"]')]
+      const input = [...root.querySelectorAll<HTMLInputElement>('input[type="radio"]')]
         .find((candidate) => candidate.name === item.problemId
           && candidate.checked
           && candidate.id.startsWith(`input-radio-option-${item.problemId}-`));
@@ -483,14 +571,14 @@
         : null;
     }
     if (item.type === 'MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER') {
-      return [...root.querySelectorAll('input[type="checkbox"]')]
+      return [...root.querySelectorAll<HTMLInputElement>('input[type="checkbox"]')]
         .filter((input) => input.name === item.problemId
           && input.id.startsWith(`input-checkbox-option-${item.problemId}-`)
           && input.checked)
         .map((input) => input.id.slice(`input-checkbox-option-${item.problemId}-`.length));
     }
     if (item.type === 'FILL_IN_THE_BLANK') {
-      return item.answer.map((_, index) => blankInput(root, index)?.value ?? null);
+      return stringArrayAnswer(item).map((_answer, index) => blankInput(root, index)?.value ?? null);
     }
     if (item.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING') {
       return programmingBlankInputs(root).map((input) => input.value);
@@ -498,7 +586,7 @@
     return null;
   }
 
-  const injectors = {
+  const injectors: Record<string, AnswerInjector> = {
     PROGRAMMING: ProgrammingInjector,
     SQL_PROGRAMMING: ProgrammingInjector,
     MULTIPLE_CHOICE: SingleChoiceInjector,
@@ -508,19 +596,23 @@
     FILL_IN_THE_BLANK_FOR_PROGRAMMING: FillBlankInjector
   };
 
-  function requiresBatchSave(payload, allowedTypes) {
+  function requiresBatchSave(payload: PintiaAnswerPayload, allowedTypes: string[]): boolean {
     const selectedTypes = new Set(allowedTypes);
     return supportedTypes.filter((type) => selectedTypes.has(type)
       && payload.answers.some((item) => item.type === type)).length > 1;
   }
 
   const TaskRunner = {
-    async run(payload, allowedTypes = supportedTypes, options = {}) {
+    async run(
+      payload: PintiaAnswerPayload,
+      allowedTypes: string[] = supportedTypes,
+      options: { save?: boolean } = {}
+    ):     Promise<AnswerRunReport> {
       const selectedTypes = new Set(allowedTypes);
       const answers = payload.answers.filter((item) => selectedTypes.has(item.type));
       const forcedBatchSave = requiresBatchSave(payload, allowedTypes);
       const saveRequested = options.save !== false || forcedBatchSave;
-      const results = new Array(answers.length);
+      const results: Array<InternalAnswerRunResult | undefined> = new Array(answers.length);
       let saved = false;
       const programmingAnswers = answers.filter((item) => isProgrammingType(item.type));
       const currentPageProblemId = problemIdFromLocation(programmingAnswers);
@@ -568,7 +660,7 @@
               problemId: item.problemId,
               type,
               success: false,
-              reason: navigation.reason
+              reason: navigation.reason || 'question type navigation failed'
             };
           });
           continue;
@@ -641,7 +733,7 @@
               problemId: item.problemId,
               type,
               success: false,
-              reason: error.message || 'answer injection failed'
+              reason: error instanceof Error ? error.message : 'answer injection failed'
             };
           }
         }
@@ -686,11 +778,14 @@
         };
       });
 
+      const completedResults = results.filter(
+        (result): result is InternalAnswerRunResult => result !== undefined
+      );
       const summary = {
-        total: results.length,
-        success: results.filter((result) => result.success).length,
-        failed: results.filter((result) => !result.success && !result.skipped).length,
-        skipped: results.filter((result) => result.skipped).length
+        total: completedResults.length,
+        success: completedResults.filter((result) => result.success).length,
+        failed: completedResults.filter((result) => !result.success && !result.skipped).length,
+        skipped: completedResults.filter((result) => result.skipped).length
       };
       return {
         success: summary.total > 0 && summary.failed === 0 && summary.skipped === 0,
@@ -698,14 +793,13 @@
         saveRequested,
         saved,
         summary,
-        results
+        results: completedResults
       };
     }
   };
 
-  window.PintiaAnswerRunner = {
+export const answerRunner: PintiaAnswerRunnerApi = {
     parse: AnswerParser.parse,
     requiresBatchSave,
     run: TaskRunner.run
-  };
-})();
+};

@@ -15,6 +15,12 @@ jobs:
       - name: Check out source
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
       - name: Validate release version
         run: |
           manifest_version=$(jq -r '.version' manifest.json)
@@ -24,8 +30,17 @@ jobs:
             exit 1
           fi
 
+      - name: Build extension
+        run: |
+          npm ci
+          npm test
+          npm run typecheck
+          npm run build
+
       - name: Package extension
-        run: zip -r "pintia-answer-extension-${GITHUB_REF_NAME}.zip" manifest.json src
+        run: |
+          cd dist
+          zip -r "../pintia-answer-extension-${GITHUB_REF_NAME}.zip" .
 
       - name: Create GitHub release
         env:

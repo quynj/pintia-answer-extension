@@ -1,9 +1,15 @@
-(() => {
-  const api = window.PintiaExtractor;
-  let cachedResult = null;
-  let cachedSource = null;
-  let extractionPromise = null;
-  let extractionPromiseSource = null;
+import { pintiaExtractor as api } from './extraction/api-extractor';
+import { assistantPanel } from './assistant/assistant-panel';
+import type { PintiaQuestionBankResult } from '../shared/types';
+
+  let cachedResult: PintiaQuestionBankResult | null = null;
+  let cachedSource: string | null = null;
+  let extractionPromise: Promise<PintiaQuestionBankResult> | null = null;
+  let extractionPromiseSource: string | null = null;
+
+  function errorMessage(error: unknown, fallback = '发生未知错误。'): string {
+    return error instanceof Error ? error.message : fallback;
+  }
 
   async function problemDetailRequestDelay() {
     const { problemDetailRequestDelayMs } = await chrome.storage.local.get('problemDetailRequestDelayMs');
@@ -18,7 +24,10 @@
     return api.cleanText(heading?.textContent) || api.cleanText(document.title).replace(/[-|].*$/, '') || 'pintia-question-bank';
   }
 
-  async function extract(forceRefresh = false, onProgress = null) {
+  async function extract(
+    forceRefresh = false,
+    onProgress?: (progress: Record<string, unknown>) => void
+  ): Promise<PintiaQuestionBankResult> {
     const source = location.href;
     if (!forceRefresh && cachedResult && cachedSource === source) return cachedResult;
     if (!forceRefresh && extractionPromise && extractionPromiseSource === source) return extractionPromise;
@@ -59,11 +68,9 @@
     }
   }
 
-  function reportExtractionProgress(progress) {
-    window.PintiaAssistant.showExtractionProgress(progress);
+  function reportExtractionProgress(progress: Record<string, unknown>): void {
+    assistantPanel.showExtractionProgress(progress);
   }
-
-  window.PintiaAssistantExtract = () => extract(false, reportExtractionProgress);
 
   async function assistantAutoOpenEnabled() {
     const { assistantAutoOpenEnabled: enabled } = await chrome.storage.local.get('assistantAutoOpenEnabled');
@@ -71,15 +78,15 @@
   }
 
   async function showAssistantManually() {
-    await window.PintiaAssistant.open();
+    await assistantPanel.open();
     if (!api.currentProblemSetPage()) return;
-    window.PintiaAssistant.showExtractionProgress({ phase: 'starting' });
+    assistantPanel.showExtractionProgress({ phase: 'starting' });
     extract(false, reportExtractionProgress)
       .then((result) => {
-        if (window.PintiaAssistant.isVisible()) return window.PintiaAssistant.open(result);
+        if (assistantPanel.isVisible()) return assistantPanel.open(result);
       })
-      .catch((error) => {
-        window.PintiaAssistant.showExtractionProgress({ phase: 'error', message: error?.message });
+      .catch((error: unknown) => {
+        assistantPanel.showExtractionProgress({ phase: 'error', message: errorMessage(error) });
       });
   }
 
@@ -88,7 +95,7 @@
       const toggleAssistant = async () => {
         if (await assistantAutoOpenEnabled()) {
           await chrome.storage.local.set({ assistantAutoOpenEnabled: false });
-          window.PintiaAssistant.hide();
+          assistantPanel.hide();
           return { visible: false, mode: 'hidden' };
         }
         await chrome.storage.local.set({ assistantAutoOpenEnabled: true });
@@ -97,37 +104,37 @@
       };
       toggleAssistant()
         .then((result) => sendResponse({ ok: true, ...result }))
-        .catch((error) => sendResponse({ error: error?.message || '无法切换答案助手。' }));
+        .catch((error) => sendResponse({ error: errorMessage(error, '无法切换答案助手。') }));
       return true;
     }
     if (message.type === 'assistant-state') {
-      sendResponse({ visible: window.PintiaAssistant.isVisible() });
+      sendResponse({ visible: assistantPanel.isVisible() });
       return false;
     }
     if (message.type === 'list-review-problem-sets') {
       api.listProblemSets()
         .then((problemSets) => sendResponse({ problemSets }))
-        .catch((error) => sendResponse({ error: error?.message || '题目集列表读取失败。' }));
+        .catch((error) => sendResponse({ error: errorMessage(error, '题目集列表读取失败。') }));
       return true;
     }
     if (message.type === 'export-review-problem-set') {
       api.extractProblemSetForReview(message.problemSet, message.detailRequestDelayMs)
         .then((result) => sendResponse({ result }))
-        .catch((error) => sendResponse({ error: error?.message || '题目集导出失败。' }));
+        .catch((error) => sendResponse({ error: errorMessage(error, '题目集导出失败。') }));
       return true;
     }
     if (message.type !== 'inspect' && message.type !== 'export') return false;
     const extraction = (async () => {
-      if (message.type === 'inspect') await window.PintiaAssistant.open();
-      if (window.PintiaAssistant.isVisible()) {
-        window.PintiaAssistant.showExtractionProgress({ phase: 'starting' });
+      if (message.type === 'inspect') await assistantPanel.open();
+      if (assistantPanel.isVisible()) {
+        assistantPanel.showExtractionProgress({ phase: 'starting' });
       }
       return extract(message.type === 'inspect', reportExtractionProgress);
     })();
     extraction
       .then(async (result) => {
         if (message.type === 'inspect') {
-          await window.PintiaAssistant.refreshQuestions(result);
+          await assistantPanel.refreshQuestions(result);
           return {
             questionCount: result.questions.length,
             questionTypes: [...new Set(result.questions.map((question) => question.type))],
@@ -138,22 +145,22 @@
         return result;
       })
       .then(sendResponse)
-      .catch((error) => sendResponse({ error: error?.message || '题库接口读取失败' }));
+      .catch((error) => sendResponse({ error: errorMessage(error, '题库接口读取失败') }));
     return true;
   });
 
-  let autoDetectionTimer;
+  let autoDetectionTimer: ReturnType<typeof setTimeout> | undefined;
   const autoDetectedQuestionSets = new Set();
   let autoDetectionInProgress = false;
-  let pendingQuestionSetId = null;
+  let pendingQuestionSetId: string | null = null;
 
-  function scheduleAutomaticDetection(requestedSetId = null) {
+  function scheduleAutomaticDetection(requestedSetId: string | null = null) {
     if (!api.currentProblemSetPage()) {
       window.clearTimeout(autoDetectionTimer);
       pendingQuestionSetId = null;
-      window.PintiaAssistant.clearCurrentProblemSet();
+      assistantPanel.clearCurrentProblemSet();
       assistantAutoOpenEnabled().then((enabled) => {
-        if (enabled && window.PintiaAssistant.canAutoOpen()) window.PintiaAssistant.open(undefined, true)
+        if (enabled && assistantPanel.canAutoOpen()) assistantPanel.open(undefined, true)
           .catch((error) => console.error('打开助手面板失败：', error));
       }).catch((error) => console.error('读取助手自动显示设置失败：', error));
       return;
@@ -170,15 +177,15 @@
       autoDetectionInProgress = true;
       try {
         if (await assistantAutoOpenEnabled()) {
-          await window.PintiaAssistant.open(undefined, true);
-          window.PintiaAssistant.showExtractionProgress({ phase: 'starting' });
+          await assistantPanel.open(undefined, true);
+          assistantPanel.showExtractionProgress({ phase: 'starting' });
         }
-        const result = await extract(false, (progress) => {
-          window.PintiaAssistant.showExtractionProgress(progress);
+        const result = await extract(false, (progress: Record<string, unknown>) => {
+          assistantPanel.showExtractionProgress(progress);
         });
         if (location.href !== detectedLocation) return;
         if (!result.questions.length) {
-          if (await assistantAutoOpenEnabled()) await window.PintiaAssistant.open(result, true);
+          if (await assistantAutoOpenEnabled()) await assistantPanel.open(result, true);
           return;
         }
         if (requestedSetId) autoDetectedQuestionSets.add(requestedSetId);
@@ -191,10 +198,10 @@
             detectedAt: new Date().toISOString()
           }
         });
-        if (await assistantAutoOpenEnabled()) await window.PintiaAssistant.open(result, true);
+        if (await assistantAutoOpenEnabled()) await assistantPanel.open(result, true);
       } catch (error) {
         if (await assistantAutoOpenEnabled()) {
-          window.PintiaAssistant.showExtractionProgress({ phase: 'error', message: error?.message });
+          assistantPanel.showExtractionProgress({ phase: 'error', message: errorMessage(error) });
         }
         console.error('自动检测题集失败：', error);
       } finally {
@@ -208,7 +215,7 @@
     }, 350);
   }
 
-  function isQuestionApiRequest(url) {
+  function isQuestionApiRequest(url: string): boolean {
     try {
       const parsed = new URL(url);
       return parsed.origin === location.origin
@@ -226,7 +233,7 @@
     scheduleAutomaticDetection();
   }
 
-  function questionSetIdFromRequest(url) {
+  function questionSetIdFromRequest(url: string): string | null {
     try {
       return new URL(url).pathname.match(/\/problem-sets\/([^/]+)/)?.[1] || null;
     } catch (_) {
@@ -248,16 +255,15 @@
   chrome.storage.onChanged.addListener((changes, areaName) => {
     if (areaName === 'local'
       && changes.assistantAutoOpenEnabled?.newValue === false) {
-      window.PintiaAssistant.hide();
+      assistantPanel.hide();
     }
   });
-  for (const method of ['pushState', 'replaceState']) {
+  for (const method of ['pushState', 'replaceState'] as const) {
     const original = history[method].bind(history);
-    history[method] = (...args) => {
+    history[method] = ((...args: [data: unknown, unused: string, url?: string | URL | null]) => {
       const result = original(...args);
       handlePageLocationChange();
       return result;
-    };
+    }) as typeof history[typeof method];
   }
   scheduleAutomaticDetection();
-})();

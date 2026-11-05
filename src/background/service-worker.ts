@@ -1,17 +1,48 @@
-importScripts('../shared/prompt-builder.js', '../shared/answer-contract.js', '../shared/ai-config.js');
+import { answerContract } from '../shared/answer-contract';
+import { aiConfig } from '../shared/ai-config';
+import type {
+  AiApiType,
+  AiConfig,
+  PintiaProblemSet,
+  PintiaQuestion,
+  PintiaQuestionBankResult,
+  VerifierConfig
+} from '../shared/types';
 
-const { defaults, isLegacyPrompt, isPreviousTypePrompt, isPreviousSecondaryPrompt } = globalThis.PintiaAiConfig;
+const { defaults, isLegacyPrompt, isPreviousTypePrompt, isPreviousSecondaryPrompt } = aiConfig;
 const activeAiRequests = new Map();
 const UPDATE_CHECK_URL = 'https://api.github.com/repos/quynj/pintia-answer-extension/releases/latest';
 const UPDATE_CHECK_INTERVAL = 6 * 60 * 60 * 1000;
 
-function versionParts(version) {
+interface TabMessageResponse {
+  error?: string;
+  questions?: PintiaQuestion[];
+  problemSets?: PintiaProblemSet[];
+  result?: PintiaQuestionBankResult;
+  [key: string]: unknown;
+}
+
+interface ReviewExportMessage {
+  type: 'list-review-problem-sets' | 'export-review-problem-set';
+  problemSet: PintiaProblemSet;
+  detailRequestDelayMs?: unknown;
+}
+
+interface ModelVerifierConfig extends VerifierConfig {
+  requestTimeoutSeconds?: number;
+}
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
+}
+
+function versionParts(version: string): number[] {
   const match = /^v?(\d+(?:\.\d+){0,3})$/i.exec(version);
   if (!match) throw new Error(`GitHub Release 版本号无效：${version}`);
   return match[1].split('.').map(Number);
 }
 
-function compareVersions(left, right) {
+function compareVersions(left: string, right: string): number {
   const leftParts = versionParts(left);
   const rightParts = versionParts(right);
   for (let index = 0; index < Math.max(leftParts.length, rightParts.length); index += 1) {
@@ -65,11 +96,12 @@ async function checkForUpdates(force = false) {
   return update;
 }
 
-function sendTabMessage(tabId, message) {
+function sendTabMessage(tabId: number, message: Record<string, unknown>): Promise<TabMessageResponse> {
   return new Promise((resolve, reject) => {
-    chrome.tabs.sendMessage(tabId, message, (response) => {
+    chrome.tabs.sendMessage(tabId, message, (response: unknown) => {
       if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
-      else resolve(response);
+      else if (isRecord(response)) resolve(response);
+      else reject(new Error('页面返回了无效响应。'));
     });
   });
 }
@@ -84,7 +116,7 @@ async function getAiConfig() {
   return config;
 }
 
-async function saveAiConfig(config) {
+async function saveAiConfig(config: AiConfig) {
   if (!config || typeof config !== 'object') throw new Error('AI 配置格式无效。');
   const { aiConfig: existingConfig } = await chrome.storage.local.get('aiConfig');
   const endpoint = new URL(config.endpoint);
@@ -138,8 +170,7 @@ async function saveAiConfig(config) {
     apiKey: config.apiKey.trim(),
     prompt: config.prompt?.trim() || defaults.prompt,
     requestTimeoutSeconds,
-    diagnosticLoggingEnabled: existingConfig?.diagnosticLoggingEnabled === true,
-    autoApplyAnswers: existingConfig?.autoApplyAnswers === true,
+    autoApplyAnswers: existingConfig?.autoApplyAnswers !== false,
     secondaryCheckEnabled,
     secondaryPrompt: config.secondaryPrompt?.trim() || defaults.secondaryPrompt,
     useSeparateVerifierConfig,
@@ -149,28 +180,24 @@ async function saveAiConfig(config) {
   return savedConfig;
 }
 
-async function saveAssistantOptions(options) {
-  if (typeof options.autoApplyAnswers !== 'boolean'
-    || typeof options.diagnosticLoggingEnabled !== 'boolean') {
+async function saveAssistantOptions(options: Pick<AiConfig, 'autoApplyAnswers'>) {
+  if (typeof options.autoApplyAnswers !== 'boolean') {
     throw new Error('助手选项格式无效。');
   }
   const { aiConfig } = await chrome.storage.local.get('aiConfig');
   const updatedConfig = {
     ...defaults,
     ...aiConfig,
-    autoApplyAnswers: options.autoApplyAnswers,
-    diagnosticLoggingEnabled: options.diagnosticLoggingEnabled
+    autoApplyAnswers: options.autoApplyAnswers
   };
   await chrome.storage.local.set({ aiConfig: updatedConfig });
-  return {
-    autoApplyAnswers: updatedConfig.autoApplyAnswers,
-    diagnosticLoggingEnabled: updatedConfig.diagnosticLoggingEnabled
-  };
+  return { autoApplyAnswers: updatedConfig.autoApplyAnswers };
 }
 
-async function getQuestionBank(sender) {
-  const tabId = sender.tab?.id;
-  if (!tabId || !sender.tab.url?.startsWith('https://pintia.cn/')) {
+async function getQuestionBank(sender: chrome.runtime.MessageSender) {
+  const tab = sender.tab;
+  const tabId = tab?.id;
+  if (!tabId || !tab?.url?.startsWith('https://pintia.cn/')) {
     throw new Error('请在 Pintia 题目页面中导出题库。');
   }
   const result = await sendTabMessage(tabId, { type: 'export' });
@@ -179,12 +206,13 @@ async function getQuestionBank(sender) {
   return { result };
 }
 
-async function reviewExportRequest(sender, message) {
-  const tabId = sender.tab?.id;
-  if (!tabId || !sender.tab.url?.startsWith('https://pintia.cn/')) {
+async function reviewExportRequest(sender: chrome.runtime.MessageSender, message: ReviewExportMessage) {
+  const tab = sender.tab;
+  const tabId = tab?.id;
+  if (!tabId || !tab?.url?.startsWith('https://pintia.cn/')) {
     throw new Error('请在已登录的 Pintia 页面中导出 Markdown。');
   }
-  const request = {
+  const request: Record<string, unknown> = {
     type: message.type,
     problemSet: message.problemSet
   };
@@ -206,7 +234,10 @@ async function reviewExportRequest(sender, message) {
   return response;
 }
 
-function downloadReviewMarkdown(sender, message) {
+function downloadReviewMarkdown(
+  sender: chrome.runtime.MessageSender,
+  message: { markdown: unknown; filename?: unknown }
+) {
   if (!sender.tab?.url?.startsWith('https://pintia.cn/')) {
     throw new Error('只能从 Pintia 页面导出 Markdown。');
   }
@@ -222,13 +253,13 @@ function downloadReviewMarkdown(sender, message) {
     binary += String.fromCharCode(...bytes.subarray(offset, offset + 0x8000));
   }
   const url = `data:text/markdown;charset=utf-8;base64,${btoa(binary)}`;
-  return new Promise((resolve, reject) => {
+  return new Promise<{ downloadId: number; filename: string }>((resolve, reject) => {
     chrome.downloads.download({
       url,
       filename,
       conflictAction: 'uniquify',
       saveAs: false
-    }, (downloadId) => {
+    }, (downloadId: number) => {
       if (chrome.runtime.lastError) {
         reject(new Error(chrome.runtime.lastError.message));
         return;
@@ -244,10 +275,10 @@ function downloadReviewMarkdown(sender, message) {
   });
 }
 
-function waitForDownload(downloadId) {
-  return new Promise((resolve, reject) => {
+function waitForDownload(downloadId: number) {
+  return new Promise<void>((resolve, reject) => {
     let settled = false;
-    const finish = (error) => {
+    const finish = (error?: Error) => {
       if (settled) return;
       settled = true;
       chrome.downloads.onChanged.removeListener(onChanged);
@@ -255,7 +286,7 @@ function waitForDownload(downloadId) {
       if (error) reject(error);
       else resolve();
     };
-    const onChanged = (delta) => {
+    const onChanged = (delta: chrome.downloads.DownloadDelta) => {
       if (delta.id !== downloadId) return;
       if (delta.state?.current === 'complete') finish();
       else if (delta.state?.current === 'interrupted') {
@@ -274,28 +305,43 @@ function waitForDownload(downloadId) {
   });
 }
 
-function responseText(data, apiType) {
+function responseText(data: unknown, apiType: AiApiType): string {
+  if (!isRecord(data)) return '';
   if (apiType === 'chat-completions') {
-    const content = data?.choices?.[0]?.message?.content;
+    const choices = data.choices;
+    const firstChoice = Array.isArray(choices) ? choices[0] : undefined;
+    const message = isRecord(firstChoice) ? firstChoice.message : undefined;
+    const content = isRecord(message) ? message.content : undefined;
     if (typeof content === 'string') return content;
     return Array.isArray(content)
-      ? content.filter((item) => typeof item?.text === 'string').map((item) => item.text).join('\n')
+      ? content
+        .filter((item): item is Record<string, unknown> => isRecord(item) && typeof item.text === 'string')
+        .map((item) => item.text as string)
+        .join('\n')
       : '';
   }
-  if (typeof data?.output_text === 'string') return data.output_text;
-  return (data?.output || []).flatMap((item) => item.content || [])
-    .filter((item) => item.type === 'output_text' && item.text)
-    .map((item) => item.text).join('\n');
+  if (typeof data.output_text === 'string') return data.output_text;
+  const output = Array.isArray(data.output) ? data.output : [];
+  return output.flatMap((item) => isRecord(item) && Array.isArray(item.content) ? item.content : [])
+    .filter((item): item is Record<string, unknown> =>
+      isRecord(item) && item.type === 'output_text' && typeof item.text === 'string')
+    .map((item) => item.text as string)
+    .join('\n');
 }
 
-async function requestModel(input, config, prompt, signal) {
+async function requestModel(
+  input: string,
+  config: AiConfig | ModelVerifierConfig,
+  prompt: string,
+  signal: AbortSignal
+): Promise<string> {
   const timeoutSeconds = Number(config.requestTimeoutSeconds) || defaults.requestTimeoutSeconds;
   const controller = new AbortController();
   const abortRequest = () => controller.abort();
   if (signal?.aborted) controller.abort();
   else signal?.addEventListener('abort', abortRequest, { once: true });
-  let timeoutId;
-  const timeout = new Promise((resolve, reject) => {
+  let timeoutId: ReturnType<typeof setTimeout>;
+  const timeout = new Promise<never>((_resolve, reject) => {
     timeoutId = setTimeout(() => {
       controller.abort();
       const error = new Error(`模型请求超过 ${timeoutSeconds} 秒，已停止等待。`);
@@ -312,7 +358,12 @@ async function requestModel(input, config, prompt, signal) {
   });
 }
 
-async function performModelRequest(input, config, prompt, signal) {
+async function performModelRequest(
+  input: string,
+  config: AiConfig | ModelVerifierConfig,
+  prompt: string,
+  signal: AbortSignal
+): Promise<string> {
   if (!config.apiKey) throw new Error('请先在 AI 配置页填写 API Key。');
   const requestBody = config.apiType === 'chat-completions'
     ? {
@@ -329,31 +380,41 @@ async function performModelRequest(input, config, prompt, signal) {
     body: JSON.stringify(requestBody),
     signal
   });
-  const data = await response.json().catch((error) => {
+  const data: unknown = await response.json().catch((error: unknown) => {
     if (signal.aborted) throw error;
     return {};
   });
-  if (!response.ok) throw new Error(data?.error?.message || `模型请求失败（${response.status}）`);
+  const errorData = isRecord(data) && isRecord(data.error) ? data.error : null;
+  if (!response.ok) {
+    throw new Error(typeof errorData?.message === 'string' ? errorData.message : `模型请求失败（${response.status}）`);
+  }
   const text = responseText(data, config.apiType);
   if (!text) throw new Error('模型没有返回可读答案。');
   return text;
 }
 
-function notifyAiProgress(tabId, requestId, event) {
+function notifyAiProgress(tabId: number | undefined, requestId: string | undefined, event: Record<string, unknown>): void {
   if (!tabId || !requestId) return;
   chrome.tabs.sendMessage(tabId, { type: 'ai-progress', requestId, ...event }, () => {
     void chrome.runtime.lastError;
   });
 }
 
-function errorCategory(error) {
-  if (error?.name === 'TimeoutError') return 'timeout';
-  if (error?.name === 'AbortError') return 'cancelled';
-  if (error?.name === 'AnswerValidationError') return 'invalid-output';
+function errorCategory(error: unknown): string {
+  const name = isRecord(error) ? error.name : undefined;
+  if (name === 'TimeoutError') return 'timeout';
+  if (name === 'AbortError') return 'cancelled';
+  if (name === 'AnswerValidationError') return 'invalid-output';
   return 'request-failed';
 }
 
-async function askAi(input, questions, problemSetId, sender, requestId) {
+async function askAi(
+  input: string,
+  questions: PintiaQuestion[],
+  problemSetId: string | null,
+  sender: chrome.runtime.MessageSender,
+  requestId: string | undefined
+) {
   const controller = new AbortController();
   if (requestId) activeAiRequests.set(requestId, controller);
   try {
@@ -363,7 +424,14 @@ async function askAi(input, questions, problemSetId, sender, requestId) {
   }
 }
 
-async function runAiRequest(input, questions, problemSetId, sender, requestId, signal) {
+async function runAiRequest(
+  input: string,
+  questions: PintiaQuestion[],
+  problemSetId: string | null,
+  sender: chrome.runtime.MessageSender,
+  requestId: string | undefined,
+  signal: AbortSignal
+) {
   const config = await getAiConfig();
   if (signal.aborted) throw new DOMException('AI 请求已取消。', 'AbortError');
   const tabId = sender.tab?.id;
@@ -401,10 +469,11 @@ async function runAiRequest(input, questions, problemSetId, sender, requestId, s
     const reviewAnswer = await requestModel(verifierInput, verifierConfig, verifierPrompt, signal);
     let finalAnswer;
     try {
-      finalAnswer = globalThis.PintiaAnswerContract.parse(reviewAnswer, problemSetId, questions);
+      finalAnswer = answerContract.parse(reviewAnswer, problemSetId, questions);
     } catch (error) {
-      error.name = 'AnswerValidationError';
-      throw error;
+      const validationError = error instanceof Error ? error : new Error(String(error));
+      validationError.name = 'AnswerValidationError';
+      throw validationError;
     }
     notifyAiProgress(tabId, requestId, { phase: 'review-completed', durationMs: Date.now() - stageStartedAt });
     return {
@@ -417,10 +486,10 @@ async function runAiRequest(input, questions, problemSetId, sender, requestId, s
       durationMs: Date.now() - stageStartedAt,
       reason: errorCategory(error)
     });
-    if (error?.name === 'AbortError') throw error;
+    if (isRecord(error) && error.name === 'AbortError') throw error;
     return {
       text: firstAnswer,
-      secondaryError: `答案复核未完成，未执行自动回填或保存：${error.message || '模型请求失败。'}`
+      secondaryError: `答案复核未完成，未执行自动回填或保存：${error instanceof Error ? error.message : '模型请求失败。'}`
     };
   }
 }
@@ -432,6 +501,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
   else if (message.type === 'get-ai-config') {
     operation = getAiConfig().then((config) => {
+      const apiKeyConfigured = Boolean(config.apiKey.trim());
       if (!sender.url?.startsWith(chrome.runtime.getURL(''))) {
         config = {
           ...config,
@@ -441,7 +511,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             : undefined
         };
       }
-      return { config };
+      return { config, apiKeyConfigured };
     });
   }
   else if (message.type === 'save-ai-config') operation = saveAiConfig(message.config).then((config) => ({ config }));

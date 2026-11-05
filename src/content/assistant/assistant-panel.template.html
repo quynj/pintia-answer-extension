@@ -1,0 +1,88 @@
+<div class="pintia-assistant-head">
+  <strong>Pintia 学习助手</strong>
+  <div><button data-action="settings" title="AI 配置">AI 配置</button><button data-action="collapse" title="收起" aria-label="收起答案助手">−</button><button data-action="close" title="关闭">×</button></div>
+</div>
+<div class="pintia-assistant-tabs" role="tablist" aria-label="助手功能">
+  <button id="pintia-tab-answer" type="button" role="tab" aria-selected="true" aria-controls="pintia-panel-answer" tabindex="0" data-tab="answer"><span>01</span>答题</button>
+  <button id="pintia-tab-export" type="button" role="tab" aria-selected="false" aria-controls="pintia-panel-export" tabindex="-1" data-tab="export"><span>02</span>导出</button>
+  <button id="pintia-tab-logs" type="button" role="tab" aria-selected="false" aria-controls="pintia-panel-logs" tabindex="-1" data-tab="logs"><span>03</span>日志 <small data-log-tab-count>0</small></button>
+</div>
+<div class="pintia-assistant-body" data-view="assistant">
+  <section id="pintia-panel-answer" class="pintia-assistant-tab-panel" role="tabpanel" aria-labelledby="pintia-tab-answer" tabindex="0" data-tab-panel="answer">
+    <div class="pintia-assistant-context">
+      <p class="pintia-assistant-status" data-status>等待题目识别…</p>
+    </div>
+    <div class="pintia-assistant-options">
+      <details class="pintia-assistant-help">
+        <summary>支持范围与注意事项</summary>
+        <small>范围跟随下方「回填题型」选择，支持单选、多选、判断、填空（含程序填空）及编程题；主观题暂不支持回填。编程题需进入具体题目页面，并手动将编辑器切换到所选语言。</small>
+      </details>
+    </div>
+    <section class="pintia-assistant-scopes" aria-label="题目范围">
+      <section class="pintia-assistant-scope">
+        <header><strong>生成题型</strong><small>用于复制提示词与 AI 输入</small></header>
+        <div class="pintia-assistant-type-options" data-generate-types><em>等待题目识别…</em></div>
+      </section>
+      <section class="pintia-assistant-scope">
+        <header><strong>回填题型</strong><small>只控制答案写入哪些题型</small></header>
+        <div class="pintia-assistant-type-options" data-fill-types><em>等待题目识别…</em></div>
+      </section>
+    </section>
+    <div class="pintia-assistant-programming-language" data-programming-language hidden>
+      <label for="pintia-assistant-programming-language">编程语言</label>
+      <select id="pintia-assistant-programming-language" data-language>
+        <option value="">请选择本次实现语言</option>
+        <!-- programming-language-options -->
+        </select>
+        <small>只影响「生成题型」中的代码答案。复制提示词或请求 AI 时将加入该语言要求；Pintia 编辑器需手动切换为相同语言。</small>
+    </div>
+    <div class="pintia-assistant-ai-actions">
+      <button type="button" data-action="generate" disabled>AI 生成答案</button>
+      <label class="pintia-assistant-auto-save-option" data-auto-save-option hidden>
+        <input type="checkbox" data-auto-save />自动回填并保存
+      </label>
+    </div>
+    <div class="pintia-assistant-answer-heading">
+        <label class="pintia-assistant-answer-label" for="pintia-assistant-answer">答案内容 <span>JSON</span></label>
+        <small>可检查、编辑，或粘贴已有答案</small>
+    </div>
+    <p class="pintia-assistant-answer-hint">AI 生成结果会载入这里；也可直接粘贴 JSON，再按「回填题型」选择范围。</p>
+    <textarea id="pintia-assistant-answer" data-answer placeholder="等待答案JSON投喂..."></textarea>
+    <div class="pintia-assistant-actions">
+      <button type="button" data-action="prompt">复制提示词</button>
+      <button type="button" data-action="apply">校验并回填/输入</button>
+    </div>
+  </section>
+  <section id="pintia-panel-export" class="pintia-assistant-tab-panel" role="tabpanel" aria-labelledby="pintia-tab-export" tabindex="0" data-tab-panel="export" hidden>
+    <button class="pintia-question-bank-export-button" data-action="export">导出当前题库 JSON</button>
+    <details class="pintia-review-export" data-review-export open>
+      <summary>作业回顾导出</summary>
+      <label data-review-delay-option hidden>题集间隔（毫秒）
+        <input type="number" min="0" max="10000" step="100" value="300" data-review-delay />
+      </label>
+      <small data-review-delay-hint hidden>仅控制一套 Markdown 导出完成到下一套开始前的等待。</small>
+      <label>题目详情间隔（毫秒）
+        <input type="number" min="0" max="10000" step="100" value="1000" data-problem-detail-delay />
+      </label>
+      <small>仅作用于列表题型（编程、SQL 编程、程序填空、主观题）的逐题详情请求；JSON 导出复用缓存，仅重新提取时请求。</small>
+      <div class="pintia-review-loader">
+        <div class="pintia-review-loader-copy">
+          <strong>作业题目集</strong>
+          <small data-review-count aria-live="polite">尚未加载题目集</small>
+        </div>
+        <button data-action="load-review-sets"><span aria-hidden="true">↻</span><span data-loader-label>加载题目集</span></button>
+      </div>
+      <div data-review-sets aria-live="polite"></div>
+      <label class="pintia-review-answers"><input type="checkbox" data-review-include-answers checked />包含作答内容</label>
+      <button class="pintia-review-export-button" data-action="export-review-sets" disabled>导出 Markdown</button>
+      <small>普通题型作答仅来自平台返回的最近提交，不含标准答案；主观题、编程题及 SQL 编程题的作答内容暂不支持导出。只请求作业实际包含的题型；无法确认评测结果时标记为未评测，图片使用在线地址。</small>
+    </details>
+  </section>
+  <section id="pintia-panel-logs" class="pintia-assistant-tab-panel" role="tabpanel" aria-labelledby="pintia-tab-logs" tabindex="0" data-tab-panel="logs" hidden>
+    <p class="pintia-assistant-log-hint">日志最多保留 200 条，仅在本次面板打开期间保存；关闭面板后清空。</p>
+    <section class="pintia-assistant-console" data-log-panel>
+      <header><strong>运行日志</strong><span data-log-count>0</span></header>
+      <div data-log-console role="log" aria-live="polite" aria-relevant="additions"></div>
+    </section>
+  </section>
+</div>

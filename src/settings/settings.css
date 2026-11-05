@@ -37,6 +37,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--ink); box-shadow
 .advanced-settings summary strong { font-size: 13px; }
 .advanced-settings summary small { color: var(--muted); font: 10px 'DM Mono', monospace; }
 .advanced-settings-body { display: grid; gap: 17px; padding: 0 14px 14px; }
+.advanced-settings-body > [hidden] { display: none; }
 .advanced-option { display: flex; gap: 11px; align-items: flex-start; padding: 13px; border: 1px solid var(--line); background: rgba(255, 255, 255, .45); }
 .advanced-option input { width: 17px; height: 17px; margin: 2px 0 0; accent-color: var(--ink); }
 .advanced-option span { display: grid; gap: 5px; }

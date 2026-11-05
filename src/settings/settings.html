@@ -49,10 +49,10 @@
                 <small>初稿生成后，模型将重新解题并审阅初稿，复核结果作为最终答案。每次生成会额外产生一次模型请求。</small>
               </span>
             </label>
-            <label>答案复核提示词
+            <label id="secondary-prompt-option" hidden>答案复核提示词
               <textarea id="secondary-prompt-input" rows="6"></textarea>
             </label>
-            <label class="advanced-option">
+            <label id="separate-verifier-option" class="advanced-option" hidden>
               <input id="separate-verifier-input" type="checkbox" />
               <span>
                 <strong>单独配置复核模型</strong>

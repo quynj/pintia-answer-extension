@@ -1,10 +1,36 @@
-(() => {
-  const api = window.PintiaExtractor = window.PintiaExtractor || {};
+import { extractorApi as commonApi } from './extractor-common';
+import { submissionResults } from './review-submissions';
+import type { PintiaExtractOptions, PintiaExtractorApi, PintiaProblemSet, PintiaQuestion } from '../../shared/types';
+type ApiObject = Record<string, unknown>;
+type ResponseData = { data: unknown; binary: Uint8Array | null };
+type ProblemList = {
+  problems: ApiObject[];
+  total?: number;
+  examLabelByProblemSetProblemId: Record<string, string>;
+};
+type FetchQuestionOptions = {
+  collectionUrl?: string | null;
+  listUrl?: string | null;
+  examId?: string | null;
+  expectedTotal?: number;
+  detailRequestDelayMs?: number;
+  requestDelayMs?: number;
+  onProgress?: ((progress: Record<string, unknown>) => void) | null;
+  typeProgress?: Record<string, unknown>;
+};
   const API_HINTS = ['exam-problem-list', 'exam-problems', 'problem-summaries', 'exams'];
-  let lastFailureReason = null;
-  const problemSetMetadataCache = new Map();
+  let lastFailureReason: string | null = null;
+  const problemSetMetadataCache = new Map<string, { name: string | null; examId: string | null } | Promise<{ name: string | null; examId: string | null }>>();
 
-  function readVarint(bytes, offset) {
+  function isRecord(value: unknown): value is ApiObject {
+    return typeof value === 'object' && value !== null && !Array.isArray(value);
+  }
+
+  function asRecord(value: unknown): ApiObject {
+    return isRecord(value) ? value : {};
+  }
+
+  function readVarint(bytes: Uint8Array, offset: number): { value: number; offset: number } | null {
     let value = 0;
     let shift = 0;
     while (offset < bytes.length && shift < 64) {
@@ -16,7 +42,7 @@
     return null;
   }
 
-  function protobufStrings(bytes) {
+  function protobufStrings(bytes: Uint8Array): string[] {
     const strings = [];
     let offset = 0;
     while (offset < bytes.length) {
@@ -45,7 +71,7 @@
     return strings;
   }
 
-  function extractProtobufQuestions(bytes) {
+  function extractProtobufQuestions(bytes: Uint8Array): PintiaQuestion[] {
     const strings = protobufStrings(bytes);
     const types = new Set([
       'MULTIPLE_CHOICE',
@@ -64,9 +90,9 @@
       'CHOICE_BLANK',
       'NO_PROBLEM_TYPE'
     ]);
-    const records = [];
-    let current = [];
-    strings.forEach((value) => {
+    const records: string[][] = [];
+    let current: string[] = [];
+    strings.forEach((value: string) => {
       if (types.has(value) && current.length) {
         records.push(current);
         current = [];
@@ -74,19 +100,19 @@
       current.push(value);
     });
     if (current.length) records.push(current);
-    return api.uniqueQuestions(records.map((record, index) => {
+    return commonApi.uniqueQuestions(records.map((record, index) => {
       const type = record.find((value) => types.has(value));
       if (!type) return null;
       const candidates = record.filter((value) => !types.has(value) && value.length >= 2);
       const content = candidates.sort((left, right) => right.length - left.length)[0] || '';
-      const optionLines = content.match(/(?:^|\n)\s*[A-Z][.、)]\s*[^\n]+/g) || [];
+      const optionLines: string[] = content.match(/(?:^|\n)\s*[A-Z][.、)]\s*[^\n]+/g) || [];
       const options = optionLines.map((line) => line.replace(/^\s*[A-Z][.、)]\s*/, '').trim());
       const prompt = content.replace(/\n\s*[A-Z][.、)]\s*[^\n]+/g, '').trim() || candidates[0];
-      return api.normalizeApiQuestion({ type, title: prompt, problemConfig: { multipleChoiceProblemConfig: { choices: options } } }, index);
+      return commonApi.normalizeApiQuestion({ type, title: prompt, problemConfig: { multipleChoiceProblemConfig: { choices: options } } }, index);
     }).filter(Boolean));
   }
 
-  async function responseData(response) {
+  async function responseData(response: Response): Promise<ResponseData> {
     const contentType = response.headers.get('content-type') || '';
     if (contentType.includes('json')) return { data: await response.json(), binary: null };
     const binary = new Uint8Array(await response.arrayBuffer());
@@ -94,7 +120,7 @@
     catch (_) { return { data: null, binary }; }
   }
 
-  function apiUrls() {
+  function apiUrls(): string[] {
     const urls = performance.getEntriesByType('resource').map((entry) => entry.name).filter((url) => {
       try {
         const parsed = new URL(url);
@@ -104,19 +130,19 @@
     return [...new Set(urls)];
   }
 
-  function isExamProblemListUrl(url) {
+  function isExamProblemListUrl(url: string): boolean {
     return new URL(url).pathname.endsWith('/exam-problem-list');
   }
 
-  function isExamProblemCollectionUrl(url) {
+  function isExamProblemCollectionUrl(url: string): boolean {
     return new URL(url).pathname.endsWith('/exam-problems');
   }
 
-  function isExamProblemDetailUrl(url) {
+  function isExamProblemDetailUrl(url: string): boolean {
     return /\/exam-problems\/[^/]+$/.test(new URL(url).pathname);
   }
 
-  function problemSetIdFromUrl(url) {
+  function problemSetIdFromUrl(url: string): string | null {
     return new URL(url).pathname.match(/\/problem-sets\/([^/]+)/)?.[1] || null;
   }
 
@@ -129,20 +155,23 @@
     return currentProblemSetPage()?.id || null;
   }
 
-  api.currentProblemSetPage = currentProblemSetPage;
-
-  async function problemSetMetadata(problemSetId) {
-    if (problemSetMetadataCache.has(problemSetId)) return problemSetMetadataCache.get(problemSetId);
+  async function problemSetMetadata(problemSetId: string): Promise<{ name: string | null; examId: string | null }> {
+    const cachedMetadata = problemSetMetadataCache.get(problemSetId);
+    if (cachedMetadata) return cachedMetadata;
     const metadataPromise = (async () => {
       const url = new URL(`/api/problem-sets/${encodeURIComponent(problemSetId)}/exams`, location.origin);
       const response = requiredResponse(await fetchResponse(url.href), '题集考试信息');
       const result = await responseData(response);
-      const data = result.data?.data || result.data || {};
+      const root = asRecord(result.data);
+      const data = asRecord(root.data || root);
+      const problemSet = asRecord(data.problemSet);
+      const exam = asRecord(data.exam);
       return {
-        name: data.problemSet?.name || null,
-        examId: data.exam?.id ? String(data.exam.id) : null
+        name: typeof problemSet.name === 'string' ? problemSet.name : null,
+        examId: exam.id ? String(exam.id) : null
       };
     })();
+
     problemSetMetadataCache.set(problemSetId, metadataPromise);
     try {
       const metadata = await metadataPromise;
@@ -154,7 +183,7 @@
     }
   }
 
-  async function fetchResponse(url, requestDelayMs = 0) {
+  async function fetchResponse(url: string, requestDelayMs = 0): Promise<Response | null> {
     for (let attempt = 0; attempt < 2; attempt += 1) {
       if (requestDelayMs > 0) await new Promise((resolve) => window.setTimeout(resolve, requestDelayMs));
       try {
@@ -168,24 +197,26 @@
     return null;
   }
 
-  function questionPayload(result) {
-    return result.binary ? extractProtobufQuestions(result.binary) : api.problemSetProblems(result.data);
+  function questionPayload(result: ResponseData): PintiaQuestion[] {
+    return result.binary ? extractProtobufQuestions(result.binary) : commonApi.problemSetProblems(result.data);
   }
 
-  function paginationInfo(data, count) {
-    const source = data?.data || data || {};
-    const total = Number(source.total || source.totalCount || source.pagination?.total || 0);
-    const pageSize = Number(source.pageSize || source.page_size || source.limit || source.pagination?.pageSize || count);
+  function paginationInfo(data: unknown, count: number): { total: number; pageSize: number } {
+    const root = asRecord(data);
+    const source = asRecord(root.data || root);
+    const pagination = asRecord(source.pagination);
+    const total = Number(source.total || source.totalCount || pagination.total || 0);
+    const pageSize = Number(source.pageSize || source.page_size || source.limit || pagination.pageSize || count);
     return { total, pageSize };
   }
 
-  async function fetchExamUrl(url, expectedTotal = 0, requestDelayMs = 0) {
+  async function fetchExamUrl(url: string, expectedTotal = 0, requestDelayMs = 0): Promise<PintiaQuestion[]> {
     const first = await fetchResponse(url, requestDelayMs);
     if (!first) return [];
     const firstResult = await responseData(first);
     const requestedType = new URL(url).searchParams.get('problem_type');
-    const applyRequestedType = (question) => question.type === 'NO_PROBLEM_TYPE' && requestedType
-      ? { ...question, type: api.normalizeType(requestedType, question.options) }
+    const applyRequestedType = (question: PintiaQuestion) => question.type === 'NO_PROBLEM_TYPE' && requestedType
+      ? { ...question, type: commonApi.normalizeType(requestedType, question.options) }
       : question;
     const firstQuestions = questionPayload(firstResult).map(applyRequestedType);
     const questions = [...firstQuestions];
@@ -206,16 +237,23 @@
     return questions;
   }
 
-  function listData(result) {
-    const source = result.data?.data || result.data;
+  function listData(result: ResponseData): ProblemList {
+    const root = asRecord(result.data);
+    const source = asRecord(root.data || root);
+    const examLabels = Object.fromEntries(
+      Object.entries(asRecord(source.examLabelByProblemSetProblemId))
+        .filter((entry): entry is [string, string] => typeof entry[1] === 'string')
+    );
     return {
-      problems: Array.isArray(source?.problemSetProblems) ? source.problemSetProblems : [],
-      total: Number(source?.total || source?.totalCount || 0),
-      examLabelByProblemSetProblemId: source?.examLabelByProblemSetProblemId || {}
+      problems: Array.isArray(source.problemSetProblems)
+        ? source.problemSetProblems.filter(isRecord)
+        : [],
+      total: Number(source.total || source.totalCount || 0),
+      examLabelByProblemSetProblemId: examLabels
     };
   }
 
-  async function fetchExamProblemList(url, requestDelayMs = 0) {
+  async function fetchExamProblemList(url: string, requestDelayMs = 0): Promise<ProblemList> {
     const first = await fetchResponse(url, requestDelayMs);
     if (!first) return { problems: [], examLabelByProblemSetProblemId: {} };
     const firstResult = await responseData(first);
@@ -227,7 +265,7 @@
     const pageSizeParameter = parsed.searchParams.has('limit') ? 'limit' : 'page_size';
     const pageSize = Number(parsed.searchParams.get(pageSizeParameter)) || firstPage.problems.length;
     const firstPageNumber = Number(parsed.searchParams.get(pageParameter || 'page')) || 0;
-    const pageCount = pageSize > 0 ? Math.ceil(firstPage.total / pageSize) : 1;
+    const pageCount = pageSize > 0 ? Math.ceil((firstPage.total ?? 0) / pageSize) : 1;
     for (let offset = 1; offset < pageCount; offset += 1) {
       parsed.searchParams.set(pageParameter || 'page', String(firstPageNumber + offset));
       const response = await fetchResponse(parsed.toString(), requestDelayMs);
@@ -241,7 +279,7 @@
     return { problems, examLabelByProblemSetProblemId };
   }
 
-  function problemDetailUrl(listUrl, problemId, problemType) {
+  function problemDetailUrl(listUrl: string, problemId: string, problemType: string): string {
     const parsed = new URL(listUrl);
     parsed.pathname = parsed.pathname.replace(/\/exam-problem-list$/, `/exam-problems/${encodeURIComponent(problemId)}`);
     parsed.searchParams.delete('page');
@@ -256,16 +294,24 @@
     return parsed.toString();
   }
 
-  function normalizeProblemDetail(data, listedProblem, examLabel, problemType) {
-    const problem = data?.problemSetProblem || data?.data?.problemSetProblem || data;
-    if (!problem || typeof problem !== 'object') return null;
-    const normalized = api.normalizeApiQuestion({
+  function normalizeProblemDetail(
+    data: unknown,
+    listedProblem: ApiObject | null,
+    examLabel: string | null,
+    problemType: string
+  ): PintiaQuestion | null {
+    const root = asRecord(data);
+    const nestedData = asRecord(root.data);
+    const problemValue = root.problemSetProblem || nestedData.problemSetProblem || root;
+    if (!isRecord(problemValue)) return null;
+    const problem = problemValue;
+    const normalized = commonApi.normalizeApiQuestion({
       ...problem,
       type: problem.type || problem.problem_type || problem.problemType || problem.question_type || problemType,
       id: problem.id || listedProblem?.id,
       number: listedProblem?.problemPoolIndex ?? listedProblem?.indexInProblemPool ?? problem.problemPoolIndex,
       score: problem.score ?? listedProblem?.score
-    }, listedProblem?.problemPoolIndex ?? 0);
+    }, Number(listedProblem?.problemPoolIndex) || 0);
     if (!normalized) return null;
     return {
       ...normalized,
@@ -276,30 +322,37 @@
     };
   }
 
-  async function fetchListedQuestions(listUrl, list, detailRequestDelayMs = 0, onProgress = null, typeProgress = {}) {
+  async function fetchListedQuestions(
+    listUrl: string,
+    list: ProblemList,
+    detailRequestDelayMs = 0,
+    onProgress: ((progress: Record<string, unknown>) => void) | null = null,
+    typeProgress: Record<string, unknown> = {}
+  ): Promise<PintiaQuestion[]> {
     const labelById = list.examLabelByProblemSetProblemId || {};
     const problemType = new URL(listUrl).searchParams.get('problem_type');
     const questions = [];
-    const listedProblems = list.problems.filter((problem) => problem?.id);
+    const listedProblems = list.problems.filter((problem) => problem.id !== undefined && problem.id !== null);
     for (const [index, listedProblem] of listedProblems.entries()) {
-      if (!listedProblem?.id) continue;
+      if (listedProblem.id === undefined || listedProblem.id === null) continue;
+      const listedProblemId = String(listedProblem.id);
       let question = null;
       try {
-        const listedType = listedProblem.type || listedProblem.problem_type || problemType || 'NO_PROBLEM_TYPE';
+        const listedType = String(listedProblem.type || listedProblem.problem_type || problemType || 'NO_PROBLEM_TYPE');
         const response = await fetchResponse(
-          problemDetailUrl(listUrl, listedProblem.id, listedType),
+          problemDetailUrl(listUrl, listedProblemId, listedType),
           detailRequestDelayMs
         );
-        if (response) question = normalizeProblemDetail(await responseData(response), listedProblem, labelById[listedProblem.id], listedType);
+        if (response) question = normalizeProblemDetail(await responseData(response), listedProblem, labelById[listedProblemId], listedType);
       } catch (error) {
-        console.warn(`题目详情读取失败（${listedProblem.id}）：`, error);
+        console.warn(`题目详情读取失败（${listedProblemId}）：`, error);
       }
       if (!question) {
-        question = api.normalizeApiQuestion({
+        question = commonApi.normalizeApiQuestion({
           ...listedProblem,
           type: listedProblem.type || listedProblem.problem_type || problemType || 'NO_PROBLEM_TYPE',
           number: listedProblem.problemPoolIndex ?? listedProblem.indexInProblemPool
-        }, listedProblem.problemPoolIndex ?? 0);
+        }, Number(listedProblem.problemPoolIndex) || 0);
       }
       if (question) questions.push(question);
       onProgress?.({
@@ -312,12 +365,12 @@
     return questions;
   }
 
-  function isListBackedProblemType(type) {
+  function isListBackedProblemType(type: string): boolean {
     return type === 'PROGRAMMING' || type === 'SQL_PROGRAMMING'
       || type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING' || type === 'SUBJECTIVE';
   }
 
-  function typedUrl(url, type) {
+  function typedUrl(url: string | null | undefined, type: string): string | null {
     if (!url) return null;
     const parsed = new URL(url, location.origin);
     parsed.searchParams.delete('problemType');
@@ -326,7 +379,11 @@
     return parsed.href;
   }
 
-  function problemListUrl(collectionUrl, observedListUrl, type) {
+  function problemListUrl(
+    collectionUrl: string | null | undefined,
+    observedListUrl: string | null | undefined,
+    type: string
+  ): string | null {
     if (observedListUrl) return typedUrl(observedListUrl, type);
     if (!collectionUrl) return null;
     const parsed = new URL(collectionUrl, location.origin);
@@ -335,7 +392,11 @@
     return typedUrl(parsed.href, type);
   }
 
-  function problemSetListUrl(problemSetId, examId, type) {
+  function problemSetListUrl(
+    problemSetId: string | null | undefined,
+    examId: string | null | undefined,
+    type: string
+  ): string | null {
     if (!problemSetId || !examId) return null;
     const url = new URL(`/api/problem-sets/${encodeURIComponent(problemSetId)}/exam-problem-list`, location.origin);
     url.searchParams.set('exam_id', examId);
@@ -343,14 +404,14 @@
     return url.href;
   }
 
-  function withExamId(url, examId) {
+  function withExamId(url: string | null, examId: string | null | undefined): string | null {
     if (!url || !examId) return url;
     const parsed = new URL(url, location.origin);
     parsed.searchParams.set('exam_id', examId);
     return parsed.href;
   }
 
-  async function fetchQuestionsForType(type, options = {}) {
+  async function fetchQuestionsForType(type: string, options: FetchQuestionOptions = {}): Promise<PintiaQuestion[]> {
     const requestDelayMs = options.requestDelayMs || 0;
     if (isListBackedProblemType(type)) {
       const listUrl = withExamId(problemListUrl(options.collectionUrl, options.listUrl, type), options.examId);
@@ -369,81 +430,25 @@
     return fetchExamUrl(collectionUrl, options.expectedTotal || 0, requestDelayMs);
   }
 
-  function requiredResponse(response, label) {
+  function requiredResponse(response: Response | null, label: string): Response {
     if (!response) throw new Error(`${label}读取失败，请确认已登录且有权访问该作业。`);
     return response;
   }
 
-  function extractSubmissionAnswer(detail) {
-    if (!detail || typeof detail !== 'object') return undefined;
-    const preferredKeys = ['answer', 'answers', 'code', 'sourceCode', 'submittedCode', 'content'];
-    for (const key of preferredKeys) {
-      if (detail[key] !== undefined && detail[key] !== null && detail[key] !== '') return detail[key];
-    }
-    for (const value of Object.values(detail)) {
-      if (value && typeof value === 'object') {
-        const answer = extractSubmissionAnswer(value);
-        if (answer !== undefined) return answer;
-      }
-    }
-    return undefined;
-  }
-
-  function evaluationOf(value) {
-    const text = String(value || '').trim().toUpperCase();
-    if (/答案正确|^(CORRECT|ACCEPTED|ANSWER_CORRECT|RIGHT|SUCCESS)$/.test(text)) return 'correct';
-    if (/答案错误|^(WRONG|WRONG_ANSWER|INCORRECT|ANSWER_WRONG|REJECTED)$/.test(text)) return 'wrong';
-    return null;
-  }
-
-  function submissionResults(data) {
-    const submission = data?.submission || data?.data?.submission || data?.data || data || {};
-    const byProblemId = new Map();
-    for (const detail of submission.submissionDetails || []) {
-      const problemId = String(detail.problemSetProblemId || detail.problemId || '');
-      if (!problemId || problemId === '0') continue;
-      const detailBody = Object.entries(detail).find(([key, value]) =>
-        key.endsWith('SubmissionDetail') && value && typeof value === 'object')?.[1] || detail;
-      byProblemId.set(problemId, {
-        answer: extractSubmissionAnswer(detailBody),
-        evaluation: null
-      });
-    }
-
-    const inspectJudgments = (value, inheritedProblemId = '') => {
-      if (!value || typeof value !== 'object') return;
-      if (Array.isArray(value)) {
-        value.forEach((entry) => inspectJudgments(entry, inheritedProblemId));
-        return;
-      }
-      const problemId = String(value.problemSetProblemId || value.problemId || inheritedProblemId);
-      const statuses = Object.entries(value)
-        .filter(([key]) => /status|result|judge|message|content/i.test(key))
-        .map(([, entry]) => typeof entry === 'object' ? '' : String(entry || ''));
-      const evaluation = statuses.map(evaluationOf).find(Boolean);
-      if (problemId && byProblemId.has(problemId) && evaluation) {
-        byProblemId.get(problemId).evaluation = evaluation;
-      }
-      Object.values(value).forEach((entry) => inspectJudgments(entry, problemId));
-    };
-    inspectJudgments(submission.judgeResponseContents);
-    return byProblemId;
-  }
-
-  function reviewSubmissionUrl(examId, problemSetId, type) {
+  function reviewSubmissionUrl(examId: string, problemSetId: string, type: string): string {
     const url = new URL(`/api/exams/${encodeURIComponent(examId)}/problem-sets/${encodeURIComponent(problemSetId)}/last-submissions`, location.origin);
     url.searchParams.set('problem_type', type);
     return url.href;
   }
 
-  let reviewProblemSetsCache = null;
-  let reviewProblemSetsPromise = null;
-  api.listProblemSets = async () => {
+  let reviewProblemSetsCache: PintiaProblemSet[] | null = null;
+  let reviewProblemSetsPromise: Promise<PintiaProblemSet[]> | null = null;
+  async function listProblemSets() {
     if (reviewProblemSetsCache) return reviewProblemSetsCache;
     if (reviewProblemSetsPromise) return reviewProblemSetsPromise;
     reviewProblemSetsPromise = (async () => {
       const setsById = new Map();
-      const examIds = {};
+      const examIds: Record<string, string | number> = {};
       let page = 0;
       let total = Infinity;
       while (setsById.size < total) {
@@ -455,11 +460,19 @@
         url.searchParams.set('asc', 'false');
         const response = requiredResponse(await fetchResponse(url.href), '题目集列表');
         const result = await responseData(response);
-        const data = result.data?.data || result.data || {};
-        const sets = Array.isArray(data.problemSets) ? data.problemSets : [];
+        const root = asRecord(result.data);
+        const data = asRecord(root.data || root);
+        const sets = Array.isArray(data.problemSets)
+          ? data.problemSets.filter((set): set is PintiaProblemSet =>
+            isRecord(set)
+            && (typeof set.id === 'string' || typeof set.id === 'number')
+            && typeof set.name === 'string')
+          : [];
         if (!sets.length) break;
         sets.forEach((set) => setsById.set(String(set.id), set));
-        Object.assign(examIds, data.examIdByProblemSetId || {});
+        Object.entries(asRecord(data.examIdByProblemSetId)).forEach(([id, examId]) => {
+          if (typeof examId === 'string' || typeof examId === 'number') examIds[id] = examId;
+        });
         total = Number(data.total || setsById.size);
         page += 1;
       }
@@ -474,9 +487,9 @@
     } finally {
       reviewProblemSetsPromise = null;
     }
-  };
+  }
 
-  api.extractProblemSetForReview = async (problemSet, detailRequestDelayMs = 1000) => {
+  async function extractProblemSetForReview(problemSet: PintiaProblemSet, detailRequestDelayMs = 1000) {
     const problemSetId = String(problemSet?.id || '');
     const examId = String(problemSet?.examId || '');
     if (!problemSetId || !examId) throw new Error('作业缺少考试 ID，无法读取题目及作答。');
@@ -484,9 +497,11 @@
     const summaryUrl = new URL(`/api/problem-sets/${encodeURIComponent(problemSetId)}/problem-summaries`, location.origin);
     const summaryResponse = requiredResponse(await fetchResponse(summaryUrl.href), '题型摘要');
     const summaryData = await responseData(summaryResponse);
-    const summaries = summaryData.data?.summaries || summaryData.data?.data?.summaries || {};
+    const summaryRoot = asRecord(summaryData.data);
+    const summaryDataObject = asRecord(summaryRoot.data || summaryRoot);
+    const summaries = asRecord(summaryRoot.summaries || summaryDataObject.summaries);
     const types = Object.entries(summaries)
-      .filter(([, summary]) => Number(summary?.total || 0) > 0)
+      .filter(([, summary]) => Number(asRecord(summary).total || 0) > 0)
       .map(([type]) => type);
     if (!types.length) throw new Error(`“${problemSet.name}”没有可导出的题型。`);
 
@@ -505,7 +520,7 @@
       const typeQuestions = await fetchQuestionsForType(type, {
         collectionUrl: collectionUrl.href,
         listUrl: listUrl?.href || null,
-        expectedTotal: Number(summaries[type]?.total || 0),
+        expectedTotal: Number(asRecord(summaries[type]).total || 0),
         detailRequestDelayMs
       });
       if (!typeQuestions.length) {
@@ -523,7 +538,7 @@
       }
     }
 
-    const uniqueQuestions = api.uniqueQuestions(questions);
+    const uniqueQuestions = commonApi.uniqueQuestions(questions);
     return {
       title: problemSet.name || 'Pintia 作业',
       source: `${location.origin}/problem-sets/${encodeURIComponent(problemSetId)}`,
@@ -532,9 +547,9 @@
         submission: submissions.get(String(question.id || '')) || null
       }))
     };
-  };
+  }
 
-  api.extractFromApi = async (options = {}) => {
+  async function extractFromApi(options: PintiaExtractOptions = {}) {
     lastFailureReason = null;
     const detailRequestDelayMs = options.detailRequestDelayMs ?? 1000;
     if (!Number.isInteger(detailRequestDelayMs) || detailRequestDelayMs < 0 || detailRequestDelayMs > 10000) {
@@ -552,7 +567,7 @@
     const problemSetId = currentPage.id
       || [...examProblemListUrls, ...examUrls, ...examDetailUrls, ...observedSummaryUrls].map(problemSetIdFromUrl).find(Boolean)
       || null;
-    let metadata = { name: null, examId: null };
+    let metadata: { name: string | null; examId: string | null } = { name: null, examId: null };
     if (problemSetId) {
       try {
         metadata = await problemSetMetadata(problemSetId);
@@ -574,7 +589,7 @@
         reason: 'overview_metadata_only'
       };
     }
-    let summaries = {};
+    let summaries: Record<string, unknown> = {};
     const summaryUrls = observedSummaryUrls.length
       ? observedSummaryUrls
       : problemSetId
@@ -585,21 +600,23 @@
         const response = await fetchResponse(url);
         if (!response) continue;
         const result = await responseData(response);
-        summaries = result.data?.summaries || result.data?.data?.summaries || summaries;
+        const resultRoot = asRecord(result.data);
+        const resultData = asRecord(resultRoot.data || resultRoot);
+        summaries = asRecord(resultRoot.summaries || resultData.summaries);
         if (Object.keys(summaries).length) break;
       } catch (_) { /* The exam request can still be used. */ }
     }
     const examUrl = examUrls.find((url) => new URL(url).searchParams.has('problem_type')) || examUrls[0];
     const types = Object.keys(summaries).length
       ? Object.entries(summaries)
-        .filter(([, summary]) => Number(summary?.total || 0) > 0)
+        .filter(([, summary]) => Number(asRecord(summary).total || 0) > 0)
         .map(([type]) => type)
       : [...examUrls, ...examProblemListUrls]
         .map((url) => new URL(url).searchParams.get('problem_type'))
-        .filter(Boolean);
+        .filter((type): type is string => type !== null);
     const questions = [];
     const observedListUrl = examProblemListUrls.find((url) => new URL(url).searchParams.has('problem_type')) || examProblemListUrls[0];
-    const fallbackExamUrl = examId
+    const fallbackExamUrl = examId && problemSetId
       ? new URL(`/api/exams/${encodeURIComponent(examId)}/problem-sets/${encodeURIComponent(problemSetId)}/exam-problems`, location.origin).href
       : null;
     for (const [typeIndex, type] of types.entries()) {
@@ -616,7 +633,7 @@
           collectionUrl,
           listUrl,
           examId,
-          expectedTotal: Number(summaries[type]?.total || 0),
+          expectedTotal: Number(asRecord(summaries[type]).total || 0),
           detailRequestDelayMs,
           onProgress: options.onProgress,
           typeProgress
@@ -642,7 +659,7 @@
         console.warn('当前题目详情读取失败：', error);
       }
     }
-    const uniqueQuestions = api.uniqueQuestions(questions);
+    const uniqueQuestions = commonApi.uniqueQuestions(questions);
     return {
       problemSetId,
       problemSetName: metadata.name,
@@ -651,5 +668,12 @@
       summaries,
       reason: uniqueQuestions.length ? null : (lastFailureReason || 'no_questions')
     };
-  };
-})();
+  }
+
+export const pintiaExtractor: PintiaExtractorApi = {
+  ...commonApi,
+  currentProblemSetPage,
+  listProblemSets,
+  extractProblemSetForReview,
+  extractFromApi
+};

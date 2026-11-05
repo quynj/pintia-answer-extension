@@ -16,16 +16,8 @@
   "content_scripts": [
     {
       "matches": ["https://pintia.cn/*"],
-      "js": [
-        "src/shared/prompt-builder.js",
-        "src/shared/answer-contract.js",
-        "src/content/extractor-common.js",
-        "src/content/api-extractor.js",
-        "src/content/answer-runner.js",
-        "src/content/assistant-panel.js",
-        "src/content/content.js"
-      ],
-      "css": ["src/content/assistant-panel.css"],
+      "js": ["src/content/content.js"],
+      "css": ["src/content/assistant/assistant-panel.css"],
       "run_at": "document_idle"
     }
   ]

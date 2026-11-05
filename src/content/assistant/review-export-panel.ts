@@ -1,4 +1,5 @@
 import { reviewMarkdown } from '../extraction/review-markdown';
+import { reviewAnswerPayload } from '../extraction/review-submissions';
 import type { PintiaProblemSet, PintiaQuestionBankResult } from '../../shared/types';
 
 interface ReviewExportState {
@@ -63,10 +64,31 @@ export function createReviewExportPanel({
     });
   }
 
-  async function exportSelectedReviewSets(panel: HTMLElement): Promise<void> {
+  function downloadJson(filename: string, value: unknown): void {
+    const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2)], { type: 'application/json' }));
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename;
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+  }
+
+  function selectedProblemSets(panel: HTMLElement): PintiaProblemSet[] {
     const selectedIds = new Set([...panel.querySelectorAll<HTMLInputElement>('[data-review-set]:checked')].map((input) => input.value));
-    const problemSets = state.reviewProblemSets.filter((set) => selectedIds.has(String(set.id)));
-    if (!problemSets.length) throw new Error('请至少选择一套可导出的作业。');
+    const problemSets = state.reviewProblemSets.filter((set) => selectedIds.has(String(set.id)) && set.examId);
+    if (!problemSets.length) throw new Error('请至少选择一套具有考试 ID 的题目集。');
+    return problemSets;
+  }
+
+  function problemSetFilename(problemSet: PintiaProblemSet, suffix: string): string {
+    const safeName = (problemSet.name || 'pintia')
+      .replace(/[\\/:*?"<>|]/g, '_')
+      .slice(0, 80) || 'pintia';
+    return `${safeName}-${suffix}.json`;
+  }
+
+  async function exportSelectedReviewSets(panel: HTMLElement): Promise<void> {
+    const problemSets = selectedProblemSets(panel);
     const setIntervalMs = problemSets.length > 1 ? reviewProblemSetInterval(panel) : 0;
     const detailRequestDelayMs = problemDetailRequestDelay(panel);
     const includeAnswers = requiredElement<HTMLInputElement>(panel, '[data-review-include-answers]').checked;
@@ -104,10 +126,130 @@ export function createReviewExportPanel({
     }
   }
 
+  async function exportSelectedReviewAnswers(panel: HTMLElement): Promise<void> {
+    const problemSets = selectedProblemSets(panel);
+    const setIntervalMs = problemSets.length > 1 ? reviewProblemSetInterval(panel) : 0;
+    const detailRequestDelayMs = problemDetailRequestDelay(panel);
+    await chrome.storage.local.set({
+      problemDetailRequestDelayMs: detailRequestDelayMs,
+      ...(problemSets.length > 1 ? { reviewExportRequestDelayMs: setIntervalMs } : {})
+    });
+    const button = requiredElement<HTMLButtonElement>(panel, '[data-action="export-review-answers"]');
+    button.disabled = true;
+    let exportedCount = 0;
+    try {
+      for (const [index, problemSet] of problemSets.entries()) {
+        if (index > 0 && setIntervalMs > 0) {
+          await new Promise((resolve) => window.setTimeout(resolve, setIntervalMs));
+        }
+        setStatus(panel, `正在导出答案：${problemSet.name}`);
+        const response = await sendRuntimeMessage({
+          type: 'export-review-problem-set',
+          problemSet,
+          detailRequestDelayMs
+        });
+        if (!isQuestionBankResult(response.result) || typeof response.result.problemSetId !== 'string') {
+          throw new Error('后台返回了无效的题目集答案数据。');
+        }
+        const payload = reviewAnswerPayload(response.result.problemSetId, response.result.questions);
+        if (!payload.answers.length) {
+          throw new Error(`“${problemSet.name}”没有可导出的最近作答记录。`);
+        }
+        const filename = problemSetFilename(problemSet, '我的答案');
+        downloadJson(filename, { problemSetId: payload.problemSetId, answers: payload.answers });
+        exportedCount += 1;
+        appendLog(
+          panel,
+          `${problemSet.name}：已导出 ${payload.answers.length} 道答案，略过 ${payload.skippedCount} 道无作答或格式不兼容的题目。`,
+          payload.skippedCount ? 'warn' : 'success'
+        );
+      }
+      setStatus(panel, '答案 JSON 导出完成');
+      setLog(panel, `答案 JSON 导出完成，共 ${exportedCount} 个文件。`);
+    } catch (error) {
+      setStatus(panel, '答案 JSON 导出未全部完成');
+      setLog(panel, `已导出 ${exportedCount} 个答案 JSON 文件后失败：${errorMessage(error)}`, 'error');
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+  async function exportSelectedQuestionBanks(panel: HTMLElement): Promise<void> {
+    const problemSets = selectedProblemSets(panel);
+    const setIntervalMs = problemSets.length > 1 ? reviewProblemSetInterval(panel) : 0;
+    const detailRequestDelayMs = problemDetailRequestDelay(panel);
+    await chrome.storage.local.set({
+      problemDetailRequestDelayMs: detailRequestDelayMs,
+      ...(problemSets.length > 1 ? { reviewExportRequestDelayMs: setIntervalMs } : {})
+    });
+    const button = requiredElement<HTMLButtonElement>(panel, '[data-action="export-review-question-bank"]');
+    button.disabled = true;
+    let exportedCount = 0;
+    try {
+      for (const [index, problemSet] of problemSets.entries()) {
+        if (index > 0 && setIntervalMs > 0) {
+          await new Promise((resolve) => window.setTimeout(resolve, setIntervalMs));
+        }
+        setStatus(panel, `正在导出题库：${problemSet.name}`);
+        const response = await sendRuntimeMessage({
+          type: 'export-review-problem-set',
+          problemSet,
+          detailRequestDelayMs,
+          includeSubmissions: false
+        });
+        if (!isQuestionBankResult(response.result) || typeof response.result.problemSetId !== 'string') {
+          throw new Error('后台返回了无效的题目集题库数据。');
+        }
+        const result = response.result;
+        const questionBank: PintiaQuestionBankResult = {
+          title: result.title || problemSet.name,
+          problemSetName: problemSet.name,
+          problemSetId: result.problemSetId,
+          examId: problemSet.examId || null,
+          source: result.source,
+          extraction: 'api',
+          exportedAt: new Date().toISOString(),
+          summaries: result.summaries || {},
+          questions: result.questions.map((question) => {
+            const cleanQuestion = { ...question };
+            delete cleanQuestion.submission;
+            return cleanQuestion;
+          })
+        };
+        const filename = problemSetFilename(problemSet, '题库');
+        downloadJson(filename, questionBank);
+        exportedCount += 1;
+        appendLog(panel, `题库导出完成：${filename}（${exportedCount}/${problemSets.length}）。`, 'success');
+      }
+      setStatus(panel, '题库 JSON 导出完成');
+      setLog(panel, `题库 JSON 导出完成，共 ${exportedCount} 个文件。`);
+    } catch (error) {
+      setStatus(panel, '题库 JSON 导出未全部完成');
+      setLog(panel, `已导出 ${exportedCount} 个题库 JSON 文件后失败：${errorMessage(error)}`, 'error');
+    } finally {
+      button.disabled = false;
+    }
+  }
+
   function updateReviewDelayVisibility(panel: HTMLElement): void {
-    const visible = panel.querySelectorAll('[data-review-set]:checked').length > 1;
+    const selectedIds = new Set([...panel.querySelectorAll<HTMLInputElement>('[data-review-set]:checked')].map((input) => input.value));
+    const selectedSets = state.reviewProblemSets.filter((set) => selectedIds.has(String(set.id)) && set.examId);
+    const visible = selectedSets.length > 1;
     requiredElement(panel, '[data-review-delay-option]').hidden = !visible;
     requiredElement(panel, '[data-review-delay-hint]').hidden = !visible;
+    requiredElement<HTMLButtonElement>(panel, '[data-action="export-review-sets"]').disabled = !selectedSets.length;
+    requiredElement<HTMLButtonElement>(panel, '[data-action="export-review-answers"]').disabled = !selectedSets.length;
+    requiredElement<HTMLButtonElement>(panel, '[data-action="export-review-question-bank"]').disabled = !selectedSets.length;
+    const selectedContainer = requiredElement<HTMLElement>(panel, '[data-selected-review-container]');
+    const selectedList = requiredElement<HTMLUListElement>(panel, '[data-selected-review-sets]');
+    requiredElement(panel, '[data-selected-review-count]').textContent = String(selectedSets.length);
+    selectedList.replaceChildren(...selectedSets.map((problemSet) => {
+      const item = document.createElement('li');
+      const isCurrent = String(problemSet.id) === String(state.problemSetId);
+      item.textContent = `${problemSet.name || '未命名题目集'}${isCurrent ? '（当前）' : ''}`;
+      return item;
+    }));
+    selectedContainer.hidden = !selectedSets.length;
   }
 
   async function loadReviewProblemSets(
@@ -149,7 +291,8 @@ export function createReviewExportPanel({
       list.replaceChildren();
       uniqueProblemSets.forEach((problemSet) => {
         const label = document.createElement('label');
-        if (problemSet.isCurrentOnly) label.dataset.currentProblemSet = '';
+        const isCurrent = String(problemSet.id) === String(state.problemSetId);
+        if (isCurrent || problemSet.isCurrentOnly) label.dataset.currentProblemSet = '';
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.value = String(problemSet.id);
@@ -157,13 +300,11 @@ export function createReviewExportPanel({
         checkbox.disabled = !problemSet.examId;
         checkbox.checked = selectedIds.has(String(problemSet.id)) && !checkbox.disabled;
         const text = document.createElement('span');
-        text.textContent = `${problemSet.name || '未命名作业'}${problemSet.examId ? '' : '（缺少考试 ID）'}`;
+        text.textContent = `${problemSet.name || '未命名作业'}${isCurrent ? '（当前）' : ''}${problemSet.examId ? '' : '（缺少考试 ID）'}`;
         label.append(checkbox, text);
         list.appendChild(label);
       });
       updateReviewDelayVisibility(panel);
-      requiredElement<HTMLButtonElement>(panel, '[data-action="export-review-sets"]').disabled =
-        !uniqueProblemSets.some((set) => set.examId);
       requiredElement(panel, '[data-review-count]').textContent = `已加载 ${uniqueProblemSets.length} 套题目集`;
       if (!automatic) {
         setStatus(panel, '题目集列表已加载');
@@ -183,6 +324,8 @@ export function createReviewExportPanel({
     reviewProblemSetInterval,
     problemDetailRequestDelay,
     exportSelectedReviewSets,
+    exportSelectedReviewAnswers,
+    exportSelectedQuestionBanks,
     updateReviewDelayVisibility,
     loadReviewProblemSets
   };

@@ -26,7 +26,8 @@ import type { PintiaQuestionBankResult } from '../shared/types';
 
   async function extract(
     forceRefresh = false,
-    onProgress?: (progress: Record<string, unknown>) => void
+    onProgress?: (progress: Record<string, unknown>) => void,
+    streamQuestions = false
   ): Promise<PintiaQuestionBankResult> {
     const source = location.href;
     if (!forceRefresh && cachedResult && cachedSource === source) return cachedResult;
@@ -35,7 +36,13 @@ import type { PintiaQuestionBankResult } from '../shared/types';
     const pendingExtraction = (async () => {
       const apiResult = await api.extractFromApi({
         detailRequestDelayMs: await problemDetailRequestDelay(),
-        onProgress
+        onProgress,
+        forceRefresh,
+        onQuestion: streamQuestions
+          ? (question, problemSetId) => {
+            if (location.href === source) assistantPanel.appendQuestions([question], problemSetId);
+          }
+          : undefined
       });
       const result = {
         title: apiResult.problemSetName || title(),
@@ -81,7 +88,7 @@ import type { PintiaQuestionBankResult } from '../shared/types';
     await assistantPanel.open();
     if (!api.currentProblemSetPage()) return;
     assistantPanel.showExtractionProgress({ phase: 'starting' });
-    extract(false, reportExtractionProgress)
+    extract(false, reportExtractionProgress, true)
       .then((result) => {
         if (assistantPanel.isVisible()) return assistantPanel.open(result);
       })
@@ -118,7 +125,11 @@ import type { PintiaQuestionBankResult } from '../shared/types';
       return true;
     }
     if (message.type === 'export-review-problem-set') {
-      api.extractProblemSetForReview(message.problemSet, message.detailRequestDelayMs)
+      api.extractProblemSetForReview(
+        message.problemSet,
+        message.detailRequestDelayMs,
+        message.includeSubmissions !== false
+      )
         .then((result) => sendResponse({ result }))
         .catch((error) => sendResponse({ error: errorMessage(error, '题目集导出失败。') }));
       return true;
@@ -129,7 +140,7 @@ import type { PintiaQuestionBankResult } from '../shared/types';
       if (assistantPanel.isVisible()) {
         assistantPanel.showExtractionProgress({ phase: 'starting' });
       }
-      return extract(message.type === 'inspect', reportExtractionProgress);
+      return extract(message.type === 'inspect', reportExtractionProgress, message.type === 'inspect');
     })();
     extraction
       .then(async (result) => {
@@ -182,7 +193,7 @@ import type { PintiaQuestionBankResult } from '../shared/types';
         }
         const result = await extract(false, (progress: Record<string, unknown>) => {
           assistantPanel.showExtractionProgress(progress);
-        });
+        }, true);
         if (location.href !== detectedLocation) return;
         if (!result.questions.length) {
           if (await assistantAutoOpenEnabled()) await assistantPanel.open(result, true);

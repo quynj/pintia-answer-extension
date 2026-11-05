@@ -1,5 +1,4 @@
 import { answerRunner } from '../answer/answer-runner';
-import { pintiaExtractor } from '../extraction/api-extractor';
 import { questionTypes } from '../question-types';
 import { createAssistantLog } from './assistant-log';
 import { createReviewExportPanel } from './review-export-panel';
@@ -78,6 +77,35 @@ function isAiConfigReady(config: AiConfig | null, apiKeyConfigured = Boolean(con
   } catch {
     return false;
   }
+}
+
+function appendQuestions(questions: PintiaQuestion[], problemSetId: string | null): void {
+  if (problemSetId) state.problemSetId = problemSetId;
+  const knownIds = new Set(state.questions.map((question) =>
+    String(question.id ?? question.problemId ?? question.prompt ?? '')
+  ));
+  questions.forEach((question) => {
+    const identity = String(question.id ?? question.problemId ?? question.prompt ?? '');
+    if (identity && !knownIds.has(identity)) {
+      state.questions.push(question);
+      knownIds.add(identity);
+    }
+  });
+
+  const panel = document.getElementById('pintia-assistant-panel');
+  if (!panel) return;
+  const types = [...new Set(state.questions.map((question) => question.type))];
+  renderQuestionTypes(panel, '[data-generate-types]', types);
+  renderQuestionTypes(panel, '[data-fill-types]', types);
+  const hasQuestions = state.questions.length > 0;
+  for (const action of ['prompt', 'apply']) {
+    const button = panel.querySelector<HTMLButtonElement>(`[data-action="${action}"]`);
+    if (button) button.disabled = !hasQuestions;
+  }
+  requiredElement<HTMLElement>(panel, '[data-programming-language]').hidden =
+    !state.questions.some(isProgrammingQuestion);
+  refreshProgrammingCodeAnswer(panel);
+  updateAiGenerateControl(panel);
 }
 
 function isPintiaQuestion(value: unknown): value is PintiaQuestion {
@@ -372,22 +400,16 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
     const label = checkbox.closest('label');
     if (!label) throw new Error('题目集选项缺少标签。');
     requiredElement<HTMLSpanElement>(label, 'span').textContent =
-      `${currentSet.name || '当前题目集'}${currentSet.examId ? '' : '（缺少考试 ID）'}`;
-    requiredElement<HTMLButtonElement>(panel, '[data-action="export-review-sets"]').disabled =
-      !state.reviewProblemSets.some((set) => set.examId);
-    requiredElement(panel, '[data-review-count]').textContent = '已识别当前题目集';
+      `${currentSet.name || '当前题目集'}${currentSet.examId ? '（当前）' : '（缺少考试 ID）'}`;
+    requiredElement(panel, '[data-review-count]').textContent = '已识别并勾选当前题目集';
     reviewExportPanel.updateReviewDelayVisibility(panel);
   }
 
-  async function loadQuestions(panel: HTMLElement, extractedQuestions?: PintiaQuestionBankResult): Promise<void> {
+  async function loadQuestions(panel: HTMLElement, result: PintiaQuestionBankResult): Promise<void> {
     try {
-      const result: PintiaQuestionBankResult = extractedQuestions ?? await pintiaExtractor.extractFromApi().then((extraction) => ({
-        ...extraction,
-        title: extraction.problemSetName || document.title,
-        source: location.href
-      }));
       state.questions = result.questions;
       state.problemSetId = result.problemSetId ?? null;
+      refreshProgrammingCodeAnswer(panel);
       if (result.problemSetId) {
         syncCurrentProblemSetSelection(panel, {
           id: result.problemSetId,
@@ -397,7 +419,8 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
       }
       const hasCurrentQuestionSet = state.questions.length > 0;
       setStatus(panel, hasCurrentQuestionSet ? '作业题目已就绪' : '当前页未检测到作业题目');
-      for (const action of ['prompt', 'export', 'apply']) {
+      requiredElement<HTMLElement>(panel, '[data-extraction-hint]').hidden = true;
+      for (const action of ['prompt', 'apply']) {
         const button = panel.querySelector<HTMLButtonElement>(`[data-action="${action}"]`);
         if (button) button.disabled = !hasCurrentQuestionSet;
       }
@@ -438,8 +461,10 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
   function showExtractionProgress(progress: ExtractionProgress = {}): void {
     const panel = document.getElementById('pintia-assistant-panel');
     if (!panel) return;
+    requiredElement<HTMLElement>(panel, '[data-extraction-hint]').hidden = !state.questions.length;
     const showTypeMessage = (message: string): void => {
       for (const selector of ['[data-generate-types]', '[data-fill-types]']) {
+        if (panel.querySelector(`${selector} input`)) continue;
         const detail = document.createElement('em');
         detail.textContent = message;
         requiredElement(panel, selector).replaceChildren(detail);
@@ -480,15 +505,65 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
       .map((input) => input.value);
   }
 
+  function currentProgrammingQuestion(): PintiaQuestion | null {
+    const programmingQuestions = state.questions.filter(isProgrammingQuestion);
+    const visibleEditors = [...document.querySelectorAll('[data-e2e="code-editor-input"]')]
+      .filter((editor) => editor.getClientRects().length > 0);
+    const editorQuestionIds = new Set<string>();
+    for (const editor of visibleEditors) {
+      let current: Element | null = editor;
+      while (current) {
+        if (current.id && programmingQuestions.some((question) =>
+          String(question.id ?? question.problemId ?? '') === current?.id
+        )) {
+          editorQuestionIds.add(current.id);
+          break;
+        }
+        current = current.parentElement;
+      }
+    }
+    if (editorQuestionIds.size === 1) {
+      const problemId = [...editorQuestionIds][0];
+      return programmingQuestions.find((question) =>
+        String(question.id ?? question.problemId ?? '') === problemId
+      ) || null;
+    }
+    const pathSegments = location.pathname.split('/').filter(Boolean).map((segment) => {
+      try {
+        return decodeURIComponent(segment);
+      } catch {
+        return segment;
+      }
+    });
+    const queryValues = [...new URLSearchParams(location.search).values()];
+    const matches = programmingQuestions.filter((question) => {
+      const problemId = question.id ?? question.problemId;
+      return isProgrammingQuestion(question)
+        && typeof problemId === 'string'
+        && (pathSegments.includes(problemId) || queryValues.includes(problemId));
+    });
+    if (matches.length === 1) return matches[0];
+    return programmingQuestions.length === 1 && visibleEditors.length === 1
+      ? programmingQuestions[0]
+      : null;
+  }
+
+  function refreshProgrammingCodeAnswer(panel: HTMLElement): void {
+    requiredElement<HTMLElement>(panel, '[data-code-answer]').hidden = !currentProgrammingQuestion();
+  }
+
   function renderQuestionTypes(panel: HTMLElement, selector: string, types: string[]): void {
     const container = requiredElement(panel, selector);
+    const previousSelection = new Map(
+      [...container.querySelectorAll<HTMLInputElement>('input')].map((input) => [input.value, input.checked])
+    );
     container.replaceChildren();
     types.forEach((type) => {
       const label = document.createElement('label');
       const input = document.createElement('input');
       input.type = 'checkbox';
       input.value = type;
-      input.checked = true;
+      input.checked = previousSelection.get(type) ?? true;
       const name = document.createElement('span');
       name.textContent = typeLabels[type] || type;
       label.append(input, name);
@@ -657,32 +732,32 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
     }
   }
 
-  async function exportQuestionBank(panel: HTMLElement): Promise<void> {
-    setStatus(panel, '正在导出题库');
-    const response = await sendRuntimeMessage({ type: 'get-question-bank' });
-    if (!isQuestionBankResult(response.result)) throw new Error('后台返回了无效的题库数据。');
-    const result = response.result;
-    const filename = (result.problemSetName || result.title || document.title || 'pintia-question-bank')
-      .replace(/[\\/:*?"<>|]/g, '_')
-      .slice(0, 80) || 'pintia-question-bank';
-    const url = URL.createObjectURL(new Blob([JSON.stringify(result, null, 2)], { type: 'application/json' }));
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = `${filename}.json`;
-    link.click();
-    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-    setStatus(panel, '题库导出已开始');
-    setLog(panel, `正在导出包含 ${result.questions.length} 道题目的 JSON 文件。`);
-  }
-
-  async function applyAnswers(panel: HTMLElement, options: { save?: boolean } = {}): Promise<void> {
-    const button = requiredElement<HTMLButtonElement>(panel, '[data-action="apply"]');
+  async function applyAnswers(
+    panel: HTMLElement,
+    options: { save?: boolean; rawCode?: string; actionButton?: HTMLButtonElement } = {}
+  ): Promise<void> {
+    const button = options.actionButton || requiredElement<HTMLButtonElement>(panel, '[data-action="apply"]');
     button.disabled = true;
     try {
-      const answers = answerRunner.parse(
-        requiredElement<HTMLTextAreaElement>(panel, '[data-answer]').value,
-        state.problemSetId
-      );
+      const answerText = requiredElement<HTMLTextAreaElement>(panel, '[data-answer]').value;
+      const answers = options.rawCode !== undefined
+        ? (() => {
+          const question = currentProgrammingQuestion();
+          const problemId = question?.id ?? question?.problemId;
+          if (!question || typeof problemId !== 'string') {
+            throw new Error('无法从当前页面唯一确定编程题，请在具体编程题编辑器页面使用代码输入框。');
+          }
+          return answerRunner.parse(JSON.stringify({
+            problemSetId: state.problemSetId,
+            answers: [{
+              questionNumber: question.number ?? question.questionNumber ?? null,
+              problemId,
+              type: question.type,
+              answer: options.rawCode
+            }]
+          }), state.problemSetId);
+        })()
+        : answerRunner.parse(answerText, state.problemSetId);
       const selectedTypes = selectedFillTypes(panel);
       if (!selectedTypes.length) throw new Error('请至少选择一种回填题型。');
       const answerCount = answers.answers.filter((answer) => selectedTypes.includes(answer.type)).length;
@@ -867,7 +942,10 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
         }
         if (action === 'close') {
           const requestId = state.activeAiRequestId;
-          const answerExists = Boolean(requiredElement<HTMLTextAreaElement>(panel, '[data-answer]').value.trim());
+          const answerExists = Boolean(
+            requiredElement<HTMLTextAreaElement>(panel, '[data-answer]').value.trim()
+            || requiredElement<HTMLTextAreaElement>(panel, '[data-programming-code]').value.trim()
+          );
           if (requestId || answerExists) {
             const message = requestId
               ? 'AI 任务正在准备或生成，关闭将取消本次任务；面板中的答案内容也不会保留。仍要关闭？'
@@ -877,6 +955,7 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
           if (requestId && state.aiMessageSentRequestId === requestId) {
             await sendRuntimeMessage({ type: 'cancel-ai', requestId });
           }
+          await chrome.storage.local.set({ assistantAutoOpenEnabled: false });
           if (state.activeAiRequestId === requestId) state.activeAiRequestId = null;
           if (state.aiMessageSentRequestId === requestId) state.aiMessageSentRequestId = null;
           if (state.aiElapsedTimer) window.clearInterval(state.aiElapsedTimer);
@@ -903,10 +982,16 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
             updateAiGenerateControl(panel);
           }
         }
-        if (action === 'export') await exportQuestionBank(panel);
         if (action === 'load-review-sets') await reviewExportPanel.loadReviewProblemSets(panel);
         if (action === 'export-review-sets') await reviewExportPanel.exportSelectedReviewSets(panel);
+        if (action === 'export-review-answers') await reviewExportPanel.exportSelectedReviewAnswers(panel);
+        if (action === 'export-review-question-bank') await reviewExportPanel.exportSelectedQuestionBanks(panel);
         if (action === 'apply') await applyAnswers(panel);
+        if (action === 'apply-code') {
+          const code = requiredElement<HTMLTextAreaElement>(panel, '[data-programming-code]').value;
+          const button = requiredElement<HTMLButtonElement>(panel, '[data-action="apply-code"]');
+          await applyAnswers(panel, { rawCode: code, actionButton: button });
+        }
       } catch (error) {
         if (action === 'load-review-sets') {
           requiredElement(panel, '[data-review-count]').textContent = '加载失败，请重试';
@@ -934,6 +1019,7 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
 export const assistantPanel: PintiaAssistantApi = {
     open,
     showExtractionProgress,
+    appendQuestions,
     canAutoOpen() {
       return state.dismissedPageUrl !== location.href;
     },
@@ -944,6 +1030,7 @@ export const assistantPanel: PintiaAssistantApi = {
     clearCurrentProblemSet() {
       const panel = document.getElementById('pintia-assistant-panel');
       if (!panel) return;
+      requiredElement<HTMLElement>(panel, '[data-extraction-hint]').hidden = false;
       panel.querySelectorAll('[data-current-problem-set]').forEach((label) => label.remove());
       state.reviewProblemSets = state.reviewProblemSets?.filter((set) => !set.isCurrentOnly) || [];
       state.problemSetId = null;
@@ -951,8 +1038,6 @@ export const assistantPanel: PintiaAssistantApi = {
         ? `已加载 ${state.reviewProblemSets.length} 套题目集`
         : '尚未加载题目集';
       reviewExportPanel.updateReviewDelayVisibility(panel);
-      requiredElement<HTMLButtonElement>(panel, '[data-action="export-review-sets"]').disabled =
-        !state.reviewProblemSets?.some((set) => set.examId);
     },
     async refreshQuestions(extractedQuestions) {
       const panel = document.getElementById('pintia-assistant-panel');

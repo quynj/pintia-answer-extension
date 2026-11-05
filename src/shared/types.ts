@@ -149,7 +149,8 @@ export interface PintiaExtractorApi extends PintiaExtractorCommonApi {
   listProblemSets(): Promise<PintiaProblemSet[]>;
   extractProblemSetForReview(
     problemSet: PintiaProblemSet,
-    detailRequestDelayMs?: number
+    detailRequestDelayMs?: number,
+    includeSubmissions?: boolean
   ): Promise<PintiaQuestionBankResult>;
   extractFromApi(options?: PintiaExtractOptions): Promise<PintiaQuestionBankResult>;
 }
@@ -157,6 +158,8 @@ export interface PintiaExtractorApi extends PintiaExtractorCommonApi {
 export interface PintiaExtractOptions {
   detailRequestDelayMs?: number;
   onProgress?: (progress: Record<string, unknown>) => void;
+  onQuestion?: (question: PintiaQuestion, problemSetId: string | null) => void;
+  forceRefresh?: boolean;
 }
 
 export interface PintiaPromptApi {
@@ -195,6 +198,7 @@ export interface PintiaAssistantApi {
     automatic?: boolean
   ): Promise<HTMLElement | null>;
   showExtractionProgress(progress?: Record<string, unknown>): void;
+  appendQuestions(questions: PintiaQuestion[], problemSetId: string | null): void;
   canAutoOpen(): boolean;
   hide(): void;
   clearCurrentProblemSet(): void;

@@ -15,6 +15,8 @@ type FetchQuestionOptions = {
   expectedTotal?: number;
   detailRequestDelayMs?: number;
   requestDelayMs?: number;
+  forceRefresh?: boolean;
+  onQuestion?: (question: PintiaQuestion) => void;
   onProgress?: ((progress: Record<string, unknown>) => void) | null;
   typeProgress?: Record<string, unknown>;
 };
@@ -28,6 +30,10 @@ type FetchQuestionOptions = {
 
   function asRecord(value: unknown): ApiObject {
     return isRecord(value) ? value : {};
+  }
+
+  function isPintiaQuestion(value: unknown): value is PintiaQuestion {
+    return isRecord(value) && typeof value.type === 'string';
   }
 
   function readVarint(bytes: Uint8Array, offset: number): { value: number; offset: number } | null {
@@ -294,6 +300,60 @@ type FetchQuestionOptions = {
     return parsed.toString();
   }
 
+  function questionCacheKey(listUrl: string, problemType: string): string | null {
+    const parsed = new URL(listUrl);
+    const problemSetId = parsed.pathname.match(/^\/api\/problem-sets\/([^/]+)\//)?.[1];
+    const examId = parsed.searchParams.get('exam_id');
+    if (!problemSetId || !examId) return null;
+    return `pintia-question-cache:v1:${encodeURIComponent(problemSetId)}:${encodeURIComponent(examId)}:${encodeURIComponent(problemType)}`;
+  }
+
+  function sendQuestionCacheMessage(message: Record<string, unknown>): Promise<Record<string, unknown>> {
+    return new Promise((resolve, reject) => {
+      chrome.runtime.sendMessage(message, (response: unknown) => {
+        if (chrome.runtime.lastError) reject(new Error(chrome.runtime.lastError.message));
+        else if (!isRecord(response)) reject(new Error('题目缓存返回了无效响应。'));
+        else if (typeof response.error === 'string') reject(new Error(response.error));
+        else resolve(response);
+      });
+    });
+  }
+
+  async function readQuestionCache(
+    cacheKey: string
+  ): Promise<Map<string, { savedAt: number; question: PintiaQuestion }>> {
+    try {
+      const response = await sendQuestionCacheMessage({ type: 'get-question-cache', cacheKey });
+      const entries = asRecord(response.entries);
+      return new Map(Object.entries(entries).flatMap(([problemId, value]) => {
+        if (!isRecord(value) || typeof value.savedAt !== 'number'
+          || !isPintiaQuestion(value.question)) return [];
+        return [[problemId, {
+          savedAt: value.savedAt,
+          question: value.question
+        }]];
+      }));
+    } catch (error) {
+      console.warn('读取题目详情缓存失败，将重新请求：', error);
+      return new Map();
+    }
+  }
+
+  async function writeQuestionCache(
+    cacheKey: string,
+    entries: Map<string, { savedAt: number; question: PintiaQuestion }>
+  ): Promise<void> {
+    try {
+      await sendQuestionCacheMessage({
+        type: 'set-question-cache',
+        cacheKey,
+        entries: Object.fromEntries(entries)
+      });
+    } catch (error) {
+      console.warn('保存题目详情缓存失败：', error);
+    }
+  }
+
   function normalizeProblemDetail(
     data: unknown,
     listedProblem: ApiObject | null,
@@ -327,25 +387,41 @@ type FetchQuestionOptions = {
     list: ProblemList,
     detailRequestDelayMs = 0,
     onProgress: ((progress: Record<string, unknown>) => void) | null = null,
-    typeProgress: Record<string, unknown> = {}
+    typeProgress: Record<string, unknown> = {},
+    forceRefresh = false,
+    onQuestion?: (question: PintiaQuestion) => void
   ): Promise<PintiaQuestion[]> {
     const labelById = list.examLabelByProblemSetProblemId || {};
     const problemType = new URL(listUrl).searchParams.get('problem_type');
     const questions = [];
     const listedProblems = list.problems.filter((problem) => problem.id !== undefined && problem.id !== null);
+    const cacheKey = questionCacheKey(listUrl, problemType || '');
+    const cachedEntries = cacheKey && !forceRefresh
+      ? await readQuestionCache(cacheKey)
+      : new Map<string, { savedAt: number; question: PintiaQuestion }>();
     for (const [index, listedProblem] of listedProblems.entries()) {
       if (listedProblem.id === undefined || listedProblem.id === null) continue;
       const listedProblemId = String(listedProblem.id);
       let question = null;
-      try {
-        const listedType = String(listedProblem.type || listedProblem.problem_type || problemType || 'NO_PROBLEM_TYPE');
-        const response = await fetchResponse(
-          problemDetailUrl(listUrl, listedProblemId, listedType),
-          detailRequestDelayMs
-        );
-        if (response) question = normalizeProblemDetail(await responseData(response), listedProblem, labelById[listedProblemId], listedType);
-      } catch (error) {
-        console.warn(`题目详情读取失败（${listedProblemId}）：`, error);
+      let fetchedDetail = false;
+      const cachedQuestion = cachedEntries.get(listedProblemId)?.question;
+      if (!forceRefresh && cachedQuestion
+        && String(cachedQuestion.id || cachedQuestion.problemId || '') === listedProblemId) {
+        question = cachedQuestion;
+      } else {
+        try {
+          const listedType = String(listedProblem.type || listedProblem.problem_type || problemType || 'NO_PROBLEM_TYPE');
+          const response = await fetchResponse(
+            problemDetailUrl(listUrl, listedProblemId, listedType),
+            detailRequestDelayMs
+          );
+          if (response) {
+            question = normalizeProblemDetail(await responseData(response), listedProblem, labelById[listedProblemId], listedType);
+            fetchedDetail = question !== null;
+          }
+        } catch (error) {
+          console.warn(`题目详情读取失败（${listedProblemId}）：`, error);
+        }
       }
       if (!question) {
         question = commonApi.normalizeApiQuestion({
@@ -354,7 +430,14 @@ type FetchQuestionOptions = {
           number: listedProblem.problemPoolIndex ?? listedProblem.indexInProblemPool
         }, Number(listedProblem.problemPoolIndex) || 0);
       }
-      if (question) questions.push(question);
+      if (question) {
+        questions.push(question);
+        onQuestion?.(question);
+        if (cacheKey && fetchedDetail) {
+          cachedEntries.set(listedProblemId, { savedAt: Date.now(), question });
+          await writeQuestionCache(cacheKey, cachedEntries);
+        }
+      }
       onProgress?.({
         ...typeProgress,
         phase: 'details',
@@ -422,12 +505,16 @@ type FetchQuestionOptions = {
         list,
         options.detailRequestDelayMs || 0,
         options.onProgress,
-        options.typeProgress
+        options.typeProgress,
+        options.forceRefresh,
+        options.onQuestion
       );
     }
     const collectionUrl = withExamId(typedUrl(options.collectionUrl, type), options.examId);
     if (!collectionUrl) return [];
-    return fetchExamUrl(collectionUrl, options.expectedTotal || 0, requestDelayMs);
+    const questions = await fetchExamUrl(collectionUrl, options.expectedTotal || 0, requestDelayMs);
+    questions.forEach((question) => options.onQuestion?.(question));
+    return questions;
   }
 
   function requiredResponse(response: Response | null, label: string): Response {
@@ -435,9 +522,15 @@ type FetchQuestionOptions = {
     return response;
   }
 
-  function reviewSubmissionUrl(examId: string, problemSetId: string, type: string): string {
+  function reviewSubmissionUrl(
+    examId: string,
+    problemSetId: string,
+    type: string,
+    problemSetProblemId?: string
+  ): string {
     const url = new URL(`/api/exams/${encodeURIComponent(examId)}/problem-sets/${encodeURIComponent(problemSetId)}/last-submissions`, location.origin);
     url.searchParams.set('problem_type', type);
+    if (problemSetProblemId) url.searchParams.set('problem_set_problem_id', problemSetProblemId);
     return url.href;
   }
 
@@ -489,7 +582,11 @@ type FetchQuestionOptions = {
     }
   }
 
-  async function extractProblemSetForReview(problemSet: PintiaProblemSet, detailRequestDelayMs = 1000) {
+  async function extractProblemSetForReview(
+    problemSet: PintiaProblemSet,
+    detailRequestDelayMs = 1000,
+    includeSubmissions = true
+  ) {
     const problemSetId = String(problemSet?.id || '');
     const examId = String(problemSet?.examId || '');
     if (!problemSetId || !examId) throw new Error('作业缺少考试 ID，无法读取题目及作答。');
@@ -528,20 +625,46 @@ type FetchQuestionOptions = {
       }
       questions.push(...typeQuestions);
 
-      const response = requiredResponse(
-        await fetchResponse(reviewSubmissionUrl(examId, problemSetId, type)),
-        `${type}作答记录`
-      );
-      const result = await responseData(response);
-      for (const [id, submission] of submissionResults(result.data || {}).entries()) {
-        submissions.set(id, submission);
+      if (!includeSubmissions) continue;
+      if (isListBackedProblemType(type)) {
+        for (const [index, question] of typeQuestions.entries()) {
+          const problemSetProblemId = String(question.id || question.problemId || '');
+          if (!problemSetProblemId) {
+            throw new Error(`${type}题目缺少 ID，无法读取对应的最近作答记录。`);
+          }
+          if (index > 0 && detailRequestDelayMs > 0) {
+            await new Promise((resolve) => window.setTimeout(resolve, detailRequestDelayMs));
+          }
+          const response = requiredResponse(
+            await fetchResponse(reviewSubmissionUrl(examId, problemSetId, type, problemSetProblemId)),
+            `${type}题目 ${problemSetProblemId} 作答记录`
+          );
+          const result = await responseData(response);
+          for (const [id, submission] of submissionResults(result.data || {}, problemSetProblemId).entries()) {
+            submissions.set(id, submission);
+          }
+        }
+      } else {
+        const response = requiredResponse(
+          await fetchResponse(reviewSubmissionUrl(examId, problemSetId, type)),
+          `${type}作答记录`
+        );
+        const result = await responseData(response);
+        for (const [id, submission] of submissionResults(result.data || {}).entries()) {
+          submissions.set(id, submission);
+        }
       }
     }
 
     const uniqueQuestions = commonApi.uniqueQuestions(questions);
     return {
       title: problemSet.name || 'Pintia 作业',
+      problemSetName: problemSet.name || 'Pintia 作业',
+      problemSetId,
       source: `${location.origin}/problem-sets/${encodeURIComponent(problemSetId)}`,
+      extraction: 'api',
+      exportedAt: new Date().toISOString(),
+      summaries,
       questions: uniqueQuestions.map((question) => ({
         ...question,
         submission: submissions.get(String(question.id || '')) || null
@@ -635,6 +758,8 @@ type FetchQuestionOptions = {
           examId,
           expectedTotal: Number(asRecord(summaries[type]).total || 0),
           detailRequestDelayMs,
+          forceRefresh: options.forceRefresh,
+          onQuestion: (question) => options.onQuestion?.(question, problemSetId),
           onProgress: options.onProgress,
           typeProgress
         }));

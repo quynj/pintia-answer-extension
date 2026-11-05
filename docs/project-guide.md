@@ -33,16 +33,16 @@ docs/                         契约、设计和开发文档
 
 ### Pintia 页面识别与题库导出
 
-1. `src/content/content.ts` 接收扩展消息、协调自动检测和缓存。
-2. `src/content/extraction/api-extractor.ts` 读取当前页面可见的 Pintia API 资源，并请求题集和题目；`src/content/extraction/review-submissions.ts` 解析作答记录及平台评测状态；`src/content/extraction/extractor-common.ts` 负责题型归一化、图片和题目结构处理。
-3. 归一化的题目进入助手面板、题库 JSON 或 Markdown 导出。
+1. `src/content/content.ts` 接收扩展消息、协调自动检测、渐进式题目更新和页面内缓存。
+2. `src/content/extraction/api-extractor.ts` 读取当前页面可见的 Pintia API 资源，并请求题集和题目；列表型题目逐题更新助手，并复用后台 `chrome.storage.session` 中有效期 10 分钟的详情缓存。`src/content/extraction/review-submissions.ts` 解析作答记录及平台评测状态；`src/content/extraction/extractor-common.ts` 负责题型归一化、图片和题目结构处理。
+3. 归一化的题目进入助手面板、题库 JSON、作业 Markdown 或兼容答案契约的「我的答案」JSON 导出。
 4. `docs/question-export-contract.md` 描述导出数据格式；不得推断或生成平台未返回的标准答案。
 
 ### AI 答案与校验/回填
 
 1. `src/content/assistant/assistant-panel.ts` 管理助手状态和答题流程；`src/content/assistant/assistant-panel.template.html` 与 `assistant-panel.css` 定义面板结构和样式；HTML 片段由构建时内嵌，不作为独立扩展资源发布。面板以标签页组织答题、题目导出和日志；答题页的「生成题型」仅筛选提示词/AI 输入，「回填题型」仅筛选答案写入，操作日志只在日志标签页显示并最多保留 200 条；`src/content/assistant/assistant-log.ts` 管理会话内日志，`src/content/assistant/review-export-panel.ts` 负责作业列表与批量导出操作；使用 `src/shared/prompt-builder.ts` 生成模型输入。
 2. `src/background/service-worker.ts` 处理 `ask-ai` 消息、调用用户配置的模型，并在答案复核时调用共享校验逻辑。
-3. `src/shared/answer-contract.ts` 校验模型答案和粘贴答案；`src/content/answer/answer-runner.ts` 按题目 ID 定位控件、注入答案并验证结果。
+3. `src/shared/answer-contract.ts` 校验模型答案和粘贴答案；`src/content/answer/answer-runner.ts` 按题目 ID 定位控件、注入答案并验证结果。答题文本框支持答案 JSON；当前 URL 能唯一匹配编程题时也可切换为直接粘贴代码。
 4. 回填和保存可能改变用户作答；保持明确的用户操作、题型筛选、失败报告及现有自动保存默认行为。
 5. 消息、答案字段和题型规则见 `docs/answer-json-contract.md` 与 `docs/answer-fill-design.md`。
 
@@ -56,6 +56,7 @@ docs/                         契约、设计和开发文档
 - 浏览器权限和外部网络请求须遵守最小权限；增加权限或数据去向时同时更新 README 与产品需求规格。
 - `chrome.runtime` 消息的发送方和后台处理器是共同维护的接口。修改消息时搜索所有发送方和接收方，不要让错误变成成功形状的响应。
 - `chrome.storage.local` 的配置也是持久化接口。新增字段需有明确类型、默认值和旧存储值兼容策略。
+- 题目详情缓存仅放在 `chrome.storage.session`，由后台校验 Pintia 页面消息、按 10 分钟过期；缓存不包含提交记录，强制重新检测会绕过缓存。
 - Pintia 响应和页面 DOM 均视为不可信输入。答案回填必须以唯一 `problemId` 定位，不以题干或选项文字模糊匹配。
 - 脚本模块只通过导入/导出共享能力，不使用隐式全局命名空间来规避类型边界。
 - 业务类型从 `src/shared/types.ts` 显式导入，避免把类型声明暴露为全局名称。
@@ -84,7 +85,7 @@ git diff --check
 | AI 配置默认值/兼容 | `src/shared/ai-config.ts`、`src/background/service-worker.ts` | `AGENTS.md` |
 | 答案 JSON 校验 | `src/shared/answer-contract.ts` | `docs/answer-json-contract.md` |
 | 答案输入、验证和保存 | `src/content/answer/answer-runner.ts` | `docs/answer-fill-design.md` |
-| 作业回顾导出 | `src/content/assistant/review-export-panel.ts`、`src/content/extraction/review-submissions.ts`、`src/content/extraction/review-markdown.ts` | `docs/question-export-contract.md` |
+| 作业回顾及我的答案导出 | `src/content/assistant/review-export-panel.ts`、`src/content/extraction/review-submissions.ts`、`src/content/extraction/review-markdown.ts` | `docs/question-export-contract.md`、`docs/answer-json-contract.md` |
 | 助手操作日志 | `src/content/assistant/assistant-log.ts` | 始终写入日志控制台，面板内存保存，关闭面板清空 |
 | 助手面板和操作流程 | `src/content/assistant/assistant-panel.ts`、`src/content/content.ts` | `README.md`、`docs/product-specification.md` |
 | 扩展消息、模型请求、下载 | `src/background/service-worker.ts` | 搜索消息类型的所有调用方 |

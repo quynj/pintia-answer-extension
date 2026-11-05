@@ -11,6 +11,7 @@
   <section id="pintia-panel-answer" class="pintia-assistant-tab-panel" role="tabpanel" aria-labelledby="pintia-tab-answer" tabindex="0" data-tab-panel="answer">
     <div class="pintia-assistant-context">
       <p class="pintia-assistant-status" data-status>等待题目识别…</p>
+      <small data-extraction-hint hidden>读取未完成；提示词和 AI 生成只包含当前已加载题目。</small>
     </div>
     <div class="pintia-assistant-options">
       <details class="pintia-assistant-help">
@@ -52,19 +53,27 @@
       <button type="button" data-action="prompt">复制提示词</button>
       <button type="button" data-action="apply">校验并回填/输入</button>
     </div>
+    <section class="pintia-assistant-code-answer" data-code-answer hidden>
+      <label for="pintia-assistant-code">当前编程题代码</label>
+      <small>直接粘贴完整代码；回填会替换编辑器现有内容并保留换行。</small>
+      <textarea id="pintia-assistant-code" data-programming-code placeholder="在这里粘贴编程题代码…"></textarea>
+      <button type="button" data-action="apply-code">直接回填代码</button>
+    </section>
   </section>
   <section id="pintia-panel-export" class="pintia-assistant-tab-panel" role="tabpanel" aria-labelledby="pintia-tab-export" tabindex="0" data-tab-panel="export" hidden>
-    <button class="pintia-question-bank-export-button" data-action="export">导出当前题库 JSON</button>
-    <details class="pintia-review-export" data-review-export open>
-      <summary>作业回顾导出</summary>
+    <section class="pintia-review-export" data-review-export aria-labelledby="pintia-export-heading">
+      <header class="pintia-review-heading">
+        <strong id="pintia-export-heading">题目集导出</strong>
+        <small>当前题集默认勾选；可多选批量导出</small>
+      </header>
       <label data-review-delay-option hidden>题集间隔（毫秒）
         <input type="number" min="0" max="10000" step="100" value="300" data-review-delay />
       </label>
-      <small data-review-delay-hint hidden>仅控制一套 Markdown 导出完成到下一套开始前的等待。</small>
+      <small data-review-delay-hint hidden>适用于 Markdown、我的答案 JSON 和题库 JSON 批量导出；每套完成后等待再导出下一套。</small>
       <label>题目详情间隔（毫秒）
         <input type="number" min="0" max="10000" step="100" value="1000" data-problem-detail-delay />
       </label>
-      <small>仅作用于列表题型（编程、SQL 编程、程序填空、主观题）的逐题详情请求；JSON 导出复用缓存，仅重新提取时请求。</small>
+      <small>作用于以上三种导出中的列表题型（编程、SQL 编程、程序填空、主观题）详情请求。</small>
       <div class="pintia-review-loader">
         <div class="pintia-review-loader-copy">
           <strong>作业题目集</strong>
@@ -72,11 +81,18 @@
         </div>
         <button data-action="load-review-sets"><span aria-hidden="true">↻</span><span data-loader-label>加载题目集</span></button>
       </div>
+      <section class="pintia-review-selected" data-selected-review-container hidden>
+        <strong>已选题目集 <span data-selected-review-count>0</span></strong>
+        <ul data-selected-review-sets></ul>
+      </section>
       <div data-review-sets aria-live="polite"></div>
-      <label class="pintia-review-answers"><input type="checkbox" data-review-include-answers checked />包含作答内容</label>
+      <label class="pintia-review-answers"><input type="checkbox" data-review-include-answers checked />Markdown 包含作答内容</label>
+      <small class="pintia-review-answer-hint">此选项只控制 Markdown；我的答案 JSON 始终导出可用的最近作答记录。</small>
       <button class="pintia-review-export-button" data-action="export-review-sets" disabled>导出 Markdown</button>
-      <small>普通题型作答仅来自平台返回的最近提交，不含标准答案；主观题、编程题及 SQL 编程题的作答内容暂不支持导出。只请求作业实际包含的题型；无法确认评测结果时标记为未评测，图片使用在线地址。</small>
-    </details>
+      <button class="pintia-review-export-button" data-action="export-review-answers" disabled>导出我的答案 JSON</button>
+      <button class="pintia-review-export-button" data-action="export-review-question-bank" disabled>导出题库 JSON</button>
+      <small>当前题目集会自动识别并默认勾选；可直接导出 Markdown、我的答案 JSON 或题库 JSON。答案 JSON 使用各题型最近提交记录，可直接用于「答题」页。不会导出或推断标准答案。</small>
+    </section>
   </section>
   <section id="pintia-panel-logs" class="pintia-assistant-tab-panel" role="tabpanel" aria-labelledby="pintia-tab-logs" tabindex="0" data-tab-panel="logs" hidden>
     <p class="pintia-assistant-log-hint">日志最多保留 200 条，仅在本次面板打开期间保存；关闭面板后清空。</p>

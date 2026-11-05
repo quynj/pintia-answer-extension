@@ -36,6 +36,7 @@ type InternalAnswerRunResult = Record<string, unknown> & { success: boolean; ski
   let focusedEditorSelection: EditorSelection | null = null;
   const observedDocuments = new WeakSet<Document>();
   const isProgrammingType = (type: string): boolean => type === 'PROGRAMMING' || type === 'SQL_PROGRAMMING';
+  const programmingAnswerText = (item: PintiaAnswerItem): string => stringAnswer(item).replace(/\r\n?/g, '\n');
 
   function isEditorElement(element: Element | null): element is EditorElement {
     return element instanceof HTMLInputElement
@@ -402,6 +403,31 @@ type InternalAnswerRunResult = Record<string, unknown> & { success: boolean; ski
     }
   }
 
+  function selectProgrammingEditorContents(editor: EditorElement): void {
+    editor.focus({ preventScroll: true });
+    focusedEditor = editor;
+    if (editor instanceof HTMLInputElement || editor instanceof HTMLTextAreaElement) {
+      editor.setSelectionRange(0, editor.value.length);
+      focusedEditorSelection = { start: 0, end: editor.value.length, direction: 'none' };
+      return;
+    }
+    const selection = editor.ownerDocument.getSelection();
+    if (!selection) throw new Error('programming editor selection is unavailable');
+    const range = editor.ownerDocument.createRange();
+    range.selectNodeContents(editor);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    focusedEditorSelection = { range: range.cloneRange() };
+  }
+
+  function programmingEditorValue(editor: EditorElement): string {
+    if (editor instanceof HTMLInputElement || editor instanceof HTMLTextAreaElement) return editor.value;
+    const lines = [...editor.querySelectorAll('.cm-line')];
+    return lines.length
+      ? lines.map((line) => line.textContent || '').join('\n')
+      : editor.innerText.replace(/\r\n/g, '\n');
+  }
+
   const ProgrammingInjector: AnswerInjector = {
     async inject(item, root) {
       const editor = programmingEditorFor(root);
@@ -415,8 +441,10 @@ type InternalAnswerRunResult = Record<string, unknown> & { success: boolean; ski
       }
 
       let typedCharacters = 0;
+      const answer = programmingAnswerText(item);
       try {
-        for (const character of stringAnswer(item)) {
+        selectProgrammingEditorContents(editor);
+        for (const character of answer) {
           if (!editor.isConnected) throw new Error('programming editor was removed while typing');
           if (editor instanceof HTMLInputElement || editor instanceof HTMLTextAreaElement) {
             insertIntoTextControl(editor, character);
@@ -427,6 +455,9 @@ type InternalAnswerRunResult = Record<string, unknown> & { success: boolean; ski
           await new Promise((resolve) => window.setTimeout(resolve, typingDelayMs));
         }
         editor.dispatchEvent(new Event('change', { bubbles: true }));
+        if (programmingEditorValue(editor) !== answer) {
+          throw new Error('programming editor content did not match answer');
+        }
       } catch (error) {
         return {
           success: false,
@@ -500,7 +531,7 @@ type InternalAnswerRunResult = Record<string, unknown> & { success: boolean; ski
   const AnswerVerifier = {
     verify(item: PintiaAnswerItem, root: Element, injected?: InjectionResult): { success: boolean; reason?: string } {
       if (isProgrammingType(item.type)) {
-        const typedCharacters = [...stringAnswer(item)].length;
+        const typedCharacters = [...programmingAnswerText(item)].length;
         return injected?.success && injected.typedCharacters === typedCharacters
           ? { success: true }
           : { success: false, reason: 'programming answer typing verification failed' };

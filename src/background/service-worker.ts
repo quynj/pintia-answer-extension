@@ -26,14 +26,84 @@ interface ReviewExportMessage {
   type: 'list-review-problem-sets' | 'export-review-problem-set';
   problemSet: PintiaProblemSet;
   detailRequestDelayMs?: unknown;
+  includeSubmissions?: boolean;
+}
+
+interface QuestionCacheEntry {
+  savedAt: number;
+  question: PintiaQuestion;
 }
 
 interface ModelVerifierConfig extends VerifierConfig {
   requestTimeoutSeconds?: number;
 }
 
+const QUESTION_CACHE_PREFIX = 'pintia-question-cache:v1:';
+const QUESTION_CACHE_TTL_MS = 10 * 60 * 1000;
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
+}
+
+function isPintiaQuestion(value: unknown): value is PintiaQuestion {
+  return isRecord(value) && typeof value.type === 'string';
+}
+
+function validQuestionCacheKey(value: unknown): value is string {
+  return typeof value === 'string'
+    && value.startsWith(QUESTION_CACHE_PREFIX)
+    && value.length <= 512;
+}
+
+function validQuestionCacheEntries(value: unknown): Record<string, QuestionCacheEntry> {
+  const entries: Record<string, QuestionCacheEntry> = {};
+  if (!isRecord(value)) return entries;
+  const now = Date.now();
+  Object.entries(value).forEach(([problemId, candidate]) => {
+    if (!isRecord(candidate)
+      || typeof candidate.savedAt !== 'number'
+      || now - candidate.savedAt < 0
+      || now - candidate.savedAt >= QUESTION_CACHE_TTL_MS
+      || !isPintiaQuestion(candidate.question)) return;
+    entries[problemId] = {
+      savedAt: candidate.savedAt,
+      question: candidate.question
+    };
+  });
+  return entries;
+}
+
+async function questionCacheRequest(
+  sender: chrome.runtime.MessageSender,
+  message: Record<string, unknown>
+) {
+  if (!sender.tab?.url?.startsWith('https://pintia.cn/')) {
+    throw new Error('题目缓存仅可由 Pintia 页面访问。');
+  }
+  if (!validQuestionCacheKey(message.cacheKey)) throw new Error('题目缓存键无效。');
+  const cacheKey = message.cacheKey;
+  if (message.type === 'get-question-cache') {
+    const stored = await chrome.storage.session.get(null);
+    const updates: Record<string, Record<string, QuestionCacheEntry>> = {};
+    const removals: string[] = [];
+    Object.entries(stored)
+      .filter(([key]) => key.startsWith(QUESTION_CACHE_PREFIX))
+      .forEach(([key, value]) => {
+        const freshEntries = validQuestionCacheEntries(value);
+        if (!Object.keys(freshEntries).length) removals.push(key);
+        else if (JSON.stringify(freshEntries) !== JSON.stringify(value)) updates[key] = freshEntries;
+      });
+    if (removals.length) await chrome.storage.session.remove(removals);
+    if (Object.keys(updates).length) await chrome.storage.session.set(updates);
+    return { entries: validQuestionCacheEntries(stored[cacheKey]) };
+  }
+  if (message.type === 'set-question-cache') {
+    const entries = validQuestionCacheEntries(message.entries);
+    if (Object.keys(entries).length) await chrome.storage.session.set({ [cacheKey]: entries });
+    else await chrome.storage.session.remove(cacheKey);
+    return { saved: Object.keys(entries).length };
+  }
+  throw new Error('题目缓存操作无效。');
 }
 
 function versionParts(version: string): number[] {
@@ -222,6 +292,7 @@ async function reviewExportRequest(sender: chrome.runtime.MessageSender, message
       throw new Error('题目详情间隔必须是 0 到 10000 毫秒之间的整数。');
     }
     request.detailRequestDelayMs = detailRequestDelayMs;
+    request.includeSubmissions = message.includeSubmissions !== false;
   }
   const response = await sendTabMessage(tabId, request);
   if (response?.error) throw new Error(response.error);
@@ -496,7 +567,10 @@ async function runAiRequest(
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   let operation;
-  if (message.type === 'check-for-updates') {
+  if (message.type === 'get-question-cache' || message.type === 'set-question-cache') {
+    operation = questionCacheRequest(sender, message);
+  }
+  else if (message.type === 'check-for-updates') {
     operation = checkForUpdates(message.force === true).then((update) => ({ update }));
   }
   else if (message.type === 'get-ai-config') {

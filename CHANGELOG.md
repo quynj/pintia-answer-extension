@@ -1,5 +1,19 @@
 # 更新日志
 
+## v1.5.0
+
+### 中文
+
+- 新增「我的答案 JSON」导出，可将平台返回且符合答案格式的最近作答直接用于答题页；无可用答案或格式不兼容的题目会略过，不推断标准答案。
+- 列表型题目改为逐题加载，已加载题目可立即用于提示词和 AI 生成；题目详情在扩展会话中缓存 10 分钟，手动重新检测会强制刷新。
+- 编程题页面新增当前题代码输入框，可将粘贴的代码直接回填到唯一匹配的当前题目。
+
+### English
+
+- Added a “My Answers JSON” export containing the latest platform-submitted answers that match the answer format. Answers can be pasted into the answering panel; unavailable or incompatible answers are skipped, and no correct answers are inferred.
+- List-based questions now load incrementally, so loaded questions can be used in prompts and AI generation immediately. Question details are cached for 10 minutes per extension session; manual re-detection forces a refresh.
+- Added a code input for the current programming question, allowing pasted code to be filled into the uniquely matched question.
+
 ## v1.4.0
 
 - 新增作业作答回顾 Markdown 导出，可选择是否包含平台返回的最近作答，并显示可识别的评测状态；无法确认时标记为未评测，不推断标准答案。

@@ -49,7 +49,11 @@
 
 导出页在题集概览页或具体题目页识别当前 `problemSetId`，请求 `/api/problem-sets/{problemSetId}/exams` 获取题集名称和考试 ID，并默认勾选当前题目集；概览页只读取元信息，不读取摘要或完整题目。选中题集可直接导出 Markdown、「我的答案」JSON 或题库 JSON。需要导出其他题集时，用户可主动点击「加载题目集」读取可访问列表，再勾选额外题集；多选后会单独显示已选题集清单。列表在当前页面内复用，手动再次加载不会重复请求列表、显示重复题目集或清空现有选择。用户导出已选题集时，扩展先读取摘要，仅请求摘要中数量大于零的题型。常规题型直接请求 `/api/problem-sets/{problemSetId}/exam-problems`，并通过 `exam_id` 和 `problem_type` 查询；编程题、SQL 编程题、程序填空题和主观题先请求 `/api/problem-sets/{problemSetId}/exam-problem-list`（携带 `exam_id` 和 `problem_type`），再按列表中每个子题目的 ID 请求 `/api/problem-sets/{problemSetId}/exam-problems/{problemSetProblemId}` 详情。详情中的 `description` 优先作为实际题目内容，避免导出通用模板 `content`。详情在扩展会话内按题集、考试、题型及子题 ID 缓存 10 分钟，过期后重新请求；手动重新检测会绕过缓存。Markdown 和答案 JSON 还会按题型读取最近提交记录；列表型题目需对每个子题 ID 分别请求 `/api/exams/{examId}/problem-sets/{problemSetId}/last-submissions?problem_type={type}&problem_set_problem_id={problemId}`，避免只返回该题型最后一道详情题的提交。题库 JSON 则导出题目数据及摘要，不包含提交记录。
 
-每套作业可导出一个 Markdown 文件、一个「我的答案」JSON 文件或一个题库 JSON 文件。Markdown 按面板显示的题型名称分组，包含题干、选项和评测标记；可选择是否包含平台返回的最近作答，默认包含。普通题型的作答仅在平台返回可关联的最近提交记录时导出；Markdown 回顾不显示主观题、编程题及 SQL 编程题的作答正文，但仍导出题目正文和可识别的评测标记。题库 JSON 使用 `problemSetId`、题目集元信息、题型摘要及题目列表，与原有题库导出格式兼容，不附带最近提交字段。作答选项不代表标准答案；这些导出均不查找或推断标准答案。
+每套作业可导出一个 Markdown 文件、一个「我的答案」JSON 文件或一个题库 JSON 文件。Markdown 按面板显示的题型名称分组，包含题干、选项和评测标记；可选择是否包含平台返回的最近作答，默认包含。打开「包含作答内容」时，各题型均会尝试显示可关联的最近作答；编程题和 SQL 编程题作答以代码块显示。题库 JSON 使用 `problemSetId`、题集元信息、题型摘要及题目列表，与原有题库导出格式兼容，不附带最近提交字段。作答选项不代表标准答案；这些导出均不查找或推断标准答案。
+
+**阅读限制：** Pintia 的题干、选项及其他描述可能分布在不同字段，原始内容也可能同时包含彼此重复或不完整的片段。扩展会按可提取字段整理，但 Markdown 仍可能出现题干或选项重复、缺失，图片或排版效果也可能不如 Pintia 页面。请将该 Markdown 视为粗略参考，并回到 Pintia 页面核对题意和选项。平台返回的最近作答只是提交记录；评测标记仅反映可识别的平台状态，不会补出标准答案。
+
+如果希望进一步整理为复习题库，可将导出的题库 JSON 提供给 agent 并使用[题库转复习 Markdown skill](../.agents/skills/pintia-review-markdown/SKILL.md)。题库 JSON 是该 skill 的必需输入；「我的答案」JSON 可选。答案 JSON 中的作答默认只视为提交内容，不视为正确答案；请自行标记正确性，或明确告知 agent 哪些答案已核实。
 
 「我的答案」JSON 按每个非空题型读取最近提交接口，并以 `submissionDetails[].problemSetProblemId` 关联至题目；保留有可用且符合[答案 JSON 契约](./answer-json-contract.md)的最近作答，覆盖单选、多选、判断、填空、程序填空、编程、SQL 编程、主观题及接口返回的其他题型。没有提交记录、没有可提取答案或答案形状不兼容的题目会略过，并在助手日志中报告略过数。导出结构为 `problemSetId` 和 `answers`，可直接粘贴到「答题」页。程序题答案中的换行会原样保留。
 

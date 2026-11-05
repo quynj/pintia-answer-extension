@@ -1,5 +1,19 @@
 # 更新日志
 
+## v1.6.0
+
+### 中文
+
+- AI 生成答案校验通过后，会按已选「回填题型」自动回填并保存；手动回填也会保存。
+- 新增题库转复习 Markdown skill，可将导出的题库 JSON 整理成复习题库；答案 JSON 可选。
+- Markdown 作答导出支持展示各题型可关联的最近提交，编程和 SQL 编程作答以代码块显示。
+
+### English
+
+- Validated AI-generated answers are now automatically filled and saved for the selected question types. Manual answer filling also saves changes.
+- Added a review Markdown skill that turns exported question-bank JSON into a study/review bank; answer JSON is optional.
+- Markdown exports can show the latest associated submissions across question types, with programming and SQL answers displayed as code blocks.
+
 ## v1.5.0
 
 ### 中文

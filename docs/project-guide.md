@@ -43,7 +43,7 @@ docs/                         契约、设计和开发文档
 1. `src/content/assistant/assistant-panel.ts` 管理助手状态和答题流程；`src/content/assistant/assistant-panel.template.html` 与 `assistant-panel.css` 定义面板结构和样式；HTML 片段由构建时内嵌，不作为独立扩展资源发布。面板以标签页组织答题、题目导出和日志；答题页的「生成题型」仅筛选提示词/AI 输入，「回填题型」仅筛选答案写入，操作日志只在日志标签页显示并最多保留 200 条；`src/content/assistant/assistant-log.ts` 管理会话内日志，`src/content/assistant/review-export-panel.ts` 负责作业列表与批量导出操作；使用 `src/shared/prompt-builder.ts` 生成模型输入。
 2. `src/background/service-worker.ts` 处理 `ask-ai` 消息、调用用户配置的模型，并在答案复核时调用共享校验逻辑。
 3. `src/shared/answer-contract.ts` 校验模型答案和粘贴答案；`src/content/answer/answer-runner.ts` 按题目 ID 定位控件、注入答案并验证结果。答题文本框支持答案 JSON；当前 URL 能唯一匹配编程题时也可切换为直接粘贴代码。
-4. 回填和保存可能改变用户作答；保持明确的用户操作、题型筛选、失败报告及现有自动保存默认行为。
+4. AI 生成后会按「回填题型」自动回填并保存校验通过的匹配答案；手动回填也会保存。保持明确的用户操作、题型筛选和失败报告。
 5. 消息、答案字段和题型规则见 `docs/answer-json-contract.md` 与 `docs/answer-fill-design.md`。
 
 ### 弹窗和设置

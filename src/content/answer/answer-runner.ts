@@ -778,7 +778,7 @@ type InternalAnswerRunResult = Record<string, unknown> & { success: boolean; ski
                 results[index] = { ...results[index], success: false, reason: saveResult.reason };
               }
             });
-            if (forcedBatchSave) {
+            if (saveRequested) {
               const remainingTypes = new Set(supportedTypes.slice(supportedTypes.indexOf(type) + 1));
               for (const { item, index } of answers
                 .map((item, index) => ({ item, index }))

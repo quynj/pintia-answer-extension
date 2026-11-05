@@ -1,0 +1,22 @@
+{
+  "title": "{{题库标题}}",
+  "problemSetName": "{{题集名称；无则为 null}}",
+  "problemSetId": null,
+  "examId": null,
+  "source": "{{题目来源 URL}}",
+  "extraction": "api",
+  "exportedAt": "{{ISO 8601 时间}}",
+  "summaries": {},
+  "questions": [
+    {
+      "id": "{{Pintia 题目 ID}}",
+      "number": 1,
+      "type": "{{Pintia 原始大写题型值}}",
+      "prompt": "{{题干简要文本}}",
+      "content": "{{题目原始 Markdown 内容}}",
+      "options": [],
+      "images": [],
+      "apiData": {}
+    }
+  ]
+}

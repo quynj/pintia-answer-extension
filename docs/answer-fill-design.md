@@ -55,7 +55,7 @@
 4. 优先处理选中的 `PROGRAMMING`、`SQL_PROGRAMMING`，然后按 `MULTIPLE_CHOICE -> MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER -> TRUE_OR_FALSE -> FILL_IN_THE_BLANK -> FILL_IN_THE_BLANK_FOR_PROGRAMMING` 顺序处理其他受支持类型。
 5. 编程题替换编辑器现有全文后逐字输入；其他题型切换到对应 PTA 分类，等待当前题型问题根容器可见。
 6. 对每题按 `problemId` 定位，注入并立即验证；异常记录为该题失败，不使任务整体崩溃。
-7. 若该批至少一题验证成功且保存选项开启，调用一次 `SaveManager.save()`。当答案实际涉及多个可回填题型且保存选项关闭时，面板须在执行前征求确认；确认后每批均保存，以免切换题型时丢失修改。仅涉及一种题型时，用户可选择保存或仅修改页面控件而不保存。多题型强制保存失败时停止后续题型导航，并将未执行的题目标记为失败。
+7. 若该批至少一题验证成功，调用一次 `SaveManager.save()`；涉及多个可回填题型时逐类保存，以免切换题型时丢失修改。保存失败时停止后续题型导航，并将未执行的题目标记为失败。
 8. 返回按输入答案顺序排列的逐题结果及总数。
 
 ```mermaid
@@ -76,7 +76,7 @@ sequenceDiagram
       PTA-->>Runner: 控件状态
       Runner->>Runner: 验证目标状态
     end
-    Runner->>Save: 保存选项开启或多题型安全保存时保存
+    Runner->>Save: 当前题型有成功回填时保存
     Save->>PTA: 点击底部保存按钮
     PTA-->>Save: 保存处理 / 错误提示
   end

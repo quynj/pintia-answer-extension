@@ -14,6 +14,8 @@
 
 根目录 [README](../README.md) 是面向初次使用者的安装和快速操作指南；根目录 [AGENTS.md](../AGENTS.md) 是面向 coding agent 和贡献者的工作约定；[CHANGELOG](../CHANGELOG.md) 记录已发布版本的变化。
 
+仓库还提供[题库转复习 Markdown skill](../.agents/skills/pintia-review-markdown/SKILL.md)：使用时必须提供题库 JSON，答案 JSON 可选。安装和使用方法见[根目录 README](../README.md)。
+
 ## 命名和维护规则
 
 - 使用小写 kebab-case 文件名，并在名称中说明文档角色：`*-specification.md`（需求规格）、`*-contract.md`（接口/数据契约）、`*-design.md`（特定流程设计）。架构入口沿用项目约定的 `project-guide.md`。

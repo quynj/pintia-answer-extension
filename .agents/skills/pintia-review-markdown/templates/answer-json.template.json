@@ -1,0 +1,11 @@
+{
+  "problemSetId": "{{从题库 JSON 原样复制；未知时使用 null}}",
+  "answers": [
+    {
+      "questionNumber": 1,
+      "problemId": "{{从题库 JSON 原样复制题目 ID}}",
+      "type": "{{从题库 JSON 原样复制 Pintia 题型值}}",
+      "answer": "{{按题型替换为正确 JSON 类型的答案}}"
+    }
+  ]
+}

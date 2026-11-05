@@ -209,7 +209,6 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
     const configReady = isAiConfigReady(state.aiConfig, state.apiKeyConfigured);
     const hasGenerationTypes = panel.querySelector('[data-generate-types] input:checked') !== null;
     control.disabled = !state.questions.length || !configReady || !hasGenerationTypes || state.activeAiRequestId !== null;
-    requiredElement(panel, '[data-auto-save-option]').hidden = state.activeAiRequestId === null;
     control.title = !state.questions.length
       ? '等待题目读取完成'
       : !configReady
@@ -328,7 +327,6 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
       const config = response.config;
       state.aiConfig = config;
       state.apiKeyConfigured = response.apiKeyConfigured;
-      requiredElement<HTMLInputElement>(panel, '[data-auto-save]').checked = config.autoApplyAnswers === true;
       renderLogs(panel);
       updateAiGenerateControl(panel);
     } catch (error) {
@@ -616,7 +614,6 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
     requireProgrammingStatements(questions);
     requireChoiceOptions(questions);
     const control = requiredElement<HTMLButtonElement>(panel, '[data-action="generate"]');
-    const autoSaveToggle = requiredElement<HTMLInputElement>(panel, '[data-auto-save]');
     const requestId = crypto.randomUUID();
     state.activeAiRequestId = requestId;
     control.disabled = true;
@@ -694,29 +691,22 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
         return;
       }
       const secondaryChecked = response.secondaryChecked === true;
-      if (autoSaveToggle.checked) {
-        const fillTypes = selectedFillTypes(panel);
-        const generatedAnswers = answerRunner.parse(answerText, state.problemSetId);
-        const matchingAnswerCount = generatedAnswers.answers
-          .filter((answer) => fillTypes.includes(answer.type)).length;
-        if (!matchingAnswerCount) {
-          setStatus(panel, secondaryChecked ? '答案已复核并载入' : '答案已载入');
-          setLog(panel, fillTypes.length
-            ? '生成题型与回填题型没有共同答案；答案已载入编辑区，未执行自动回填。'
-            : '尚未选择回填题型；答案已载入编辑区，未执行自动回填。');
-          return;
-        }
-        setStatus(panel, '最终答案已生成，正在自动回填并保存');
-        setLog(panel, secondaryChecked
-          ? '答案复核已完成，正在校验最终答案并按所选题型回填。'
-          : '正在校验模型答案并按所选题型回填。');
-        await applyAnswers(panel, { save: true });
+      const fillTypes = selectedFillTypes(panel);
+      const generatedAnswers = answerRunner.parse(answerText, state.problemSetId);
+      const matchingAnswerCount = generatedAnswers.answers
+        .filter((answer) => fillTypes.includes(answer.type)).length;
+      if (!matchingAnswerCount) {
+        setStatus(panel, secondaryChecked ? '答案已复核并载入' : '答案已载入');
+        setLog(panel, fillTypes.length
+          ? '生成题型与回填题型没有共同答案；答案已载入编辑区，未执行自动回填。'
+          : '尚未选择回填题型；答案已载入编辑区，未执行自动回填。');
         return;
       }
-      setStatus(panel, secondaryChecked ? '答案复核完成，最终答案已载入' : '答案已载入');
+      setStatus(panel, '最终答案已生成，正在按回填题型自动回填并保存');
       setLog(panel, secondaryChecked
-        ? '复核后的最终答案已载入答案编辑区。请核对 JSON 内容，再点击“校验并回填”。'
-        : '模型答案已载入答案编辑区。请核对 JSON 内容，再点击“校验并回填”。');
+        ? '答案复核已完成，正在校验最终答案并按所选题型回填。'
+        : '正在校验模型答案并按所选题型回填。');
+      await applyAnswers(panel, { save: true });
     } finally {
       if (state.aiTimerRequestId === requestId) {
         if (state.aiElapsedTimer) window.clearInterval(state.aiElapsedTimer);
@@ -728,7 +718,6 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
       if (state.activeAiRequestId === requestId) state.activeAiRequestId = null;
       if (state.aiMessageSentRequestId === requestId) state.aiMessageSentRequestId = null;
       updateAiGenerateControl(panel);
-      autoSaveToggle.disabled = false;
     }
   }
 
@@ -762,15 +751,7 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
       if (!selectedTypes.length) throw new Error('请至少选择一种回填题型。');
       const answerCount = answers.answers.filter((answer) => selectedTypes.includes(answer.type)).length;
       if (!answerCount) throw new Error('答案 JSON 中没有已勾选题型的答案。');
-      const save = options.save ?? requiredElement<HTMLInputElement>(panel, '[data-auto-save]').checked;
-      const forcedBatchSave = !save && answerRunner.requiresBatchSave(answers, selectedTypes);
-      if (forcedBatchSave && !window.confirm(
-        '答案包含多种可回填题型，Pintia 切换题型时可能阻止离开未保存的页面。为避免答案丢失，本次将逐类保存，即使“自动回填并保存”未勾选。是否继续？'
-      )) {
-        setStatus(panel, '已取消回填');
-        setLog(panel, '未开始回填；页面答案未修改或保存。');
-        return;
-      }
+      const save = options.save ?? true;
       setStatus(panel, selectedTypes.includes('PROGRAMMING') || selectedTypes.includes('SQL_PROGRAMMING')
         ? '正在校验答案并逐字输入编程代码'
         : '正在校验并回填答案');
@@ -795,8 +776,7 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
           ? '没有成功执行保存'
           : '本次未触发保存（如有修改，仍留在页面）';
       const changeMessage = changedCount ? `实际修改 ${changedCount} 道题` : '本次没有题目内容发生变化';
-      const batchSaveMessage = forcedBatchSave ? '多题型安全保护要求逐类保存' : '';
-      const message = `答案项 ${total}；成功 ${success}；失败 ${failed}；跳过 ${skipped}；${changeMessage}；${saveMessage}${batchSaveMessage ? `；${batchSaveMessage}` : ''}。`;
+      const message = `答案项 ${total}；成功 ${success}；失败 ${failed}；跳过 ${skipped}；${changeMessage}；${saveMessage}。`;
       setLog(panel, message);
     } finally {
       button.disabled = false;
@@ -915,16 +895,6 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
         }
         return;
       }
-      if (!target.matches('[data-auto-save]')) return;
-      if (!(target instanceof HTMLInputElement)) return;
-      try {
-        await sendRuntimeMessage({
-          type: 'save-assistant-options',
-          autoApplyAnswers: requiredElement<HTMLInputElement>(panel, '[data-auto-save]').checked
-        });
-      } catch (error) {
-        setLog(panel, errorMessage(error, '无法保存助手选项。'), 'error');
-      }
     });
     panel.addEventListener('click', async (event: MouseEvent) => {
       const action = event.target instanceof Element
@@ -974,8 +944,6 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
         if (action === 'settings') await openSettings(panel);
         if (action === 'prompt') await copyPrompt(panel);
         if (action === 'generate') {
-          requiredElement<HTMLInputElement>(panel, '[data-auto-save]').checked = true;
-          requiredElement(panel, '[data-auto-save-option]').hidden = false;
           try {
             await requestApiAnswer(panel);
           } finally {

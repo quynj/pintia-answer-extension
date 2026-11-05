@@ -12,14 +12,14 @@
 
 | 职责 | 当前实现位置 | 责任 |
 | --- | --- | --- |
-| 答案解析与校验 | `AnswerParser`、`AnswerValidator`，位于 `src/content/answer-runner.js` | 解析 JSON；校验题集 ID、数组、题目 ID、题号、题型和答案形状。 |
-| 类型导航 | `QuestionTypeNavigator`，位于 `src/content/answer-runner.js` | 依据 Pintia 原始题型点击左侧精确 ID 的 `<a>`，等待当前题型题目可见。 |
-| 题目定位 | `QuestionResolver`，位于 `src/content/answer-runner.js` | 使用 `document.getElementById(problemId)` 定位题目根容器。 |
-| 答案注入 | `*Injector`，位于 `src/content/answer-runner.js` | 各题型调用对应 PTA 输入控件并触发页面状态更新；编程题按 `problemId` 在题目容器内定位代码编辑器，并逐字输入到操作前记录的光标位置。 |
-| 回填验证 | `AnswerVerifier`，位于 `src/content/answer-runner.js` | 对照目标答案检查控件实际状态。 |
-| 保存 | `SaveManager`，位于 `src/content/answer-runner.js` | 点击 PTA 底部保存按钮、等待处理并检查新增错误提示。 |
-| 任务编排 | `TaskRunner`，位于 `src/content/answer-runner.js` | 应用题型筛选、按类型分批执行、隔离错误并汇总报告。 |
-| 用户交互 | `src/content/assistant-panel.js` | 编辑/粘贴 JSON、复用题型勾选框、启动执行并展示结果。 |
+| 答案解析与校验 | `AnswerParser`、`AnswerValidator`，位于 `src/content/answer/answer-runner.ts` | 解析 JSON；校验题集 ID、数组、题目 ID、题号、题型和答案形状。 |
+| 类型导航 | `QuestionTypeNavigator`，位于 `src/content/answer/answer-runner.ts` | 依据 Pintia 原始题型点击左侧精确 ID 的 `<a>`，等待当前题型题目可见。 |
+| 题目定位 | `QuestionResolver`，位于 `src/content/answer/answer-runner.ts` | 使用 `document.getElementById(problemId)` 定位题目根容器。 |
+| 答案注入 | `*Injector`，位于 `src/content/answer/answer-runner.ts` | 各题型调用对应 PTA 输入控件并触发页面状态更新；编程题按 `problemId` 在题目容器内定位代码编辑器，并逐字输入到操作前记录的光标位置。 |
+| 回填验证 | `AnswerVerifier`，位于 `src/content/answer/answer-runner.ts` | 对照目标答案检查控件实际状态。 |
+| 保存 | `SaveManager`，位于 `src/content/answer/answer-runner.ts` | 点击 PTA 底部保存按钮、等待处理并检查新增错误提示。 |
+| 任务编排 | `TaskRunner`，位于 `src/content/answer/answer-runner.ts` | 应用题型筛选、按类型分批执行、隔离错误并汇总报告。 |
+| 用户交互 | `src/content/assistant/assistant-panel.ts` | 编辑/粘贴 JSON、复用题型勾选框、启动执行并展示结果。 |
 
 虽然职责在同一脚本内定义，但逻辑按对象职责拆分，避免为每个职责额外引入独立文件和加载顺序。
 
@@ -47,7 +47,7 @@
 
 ## 执行流程
 
-1. 助手解析答案文本，并将当前勾选的题型传给任务执行器。
+1. 助手解析答案文本，并仅将「回填题型」中勾选的类型传给任务执行器；「生成题型」只用于挑选复制提示词和 AI 请求所包含的题目，不参与回填筛选。
 2. 校验整个 JSON。格式或字段不合法时，在启动回填前返回错误。
 3. 忽略未勾选类型，不加入执行报告；将所选的 `SUBJECTIVE` 和其他未实现类型记为不支持并跳过。
 4. 优先处理选中的 `PROGRAMMING`、`SQL_PROGRAMMING`，然后按 `MULTIPLE_CHOICE -> MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER -> TRUE_OR_FALSE -> FILL_IN_THE_BLANK -> FILL_IN_THE_BLANK_FOR_PROGRAMMING` 顺序处理其他受支持类型。
@@ -63,7 +63,7 @@ sequenceDiagram
   participant Nav as QuestionTypeNavigator
   participant PTA as PTA 页面
   participant Save as SaveManager
-  Panel->>Runner: JSON + 已勾选题型
+  Panel->>Runner: JSON + 已勾选回填题型
   Runner->>Runner: 解析和校验
   loop 每个选中且支持的题型
     Runner->>Nav: 切换题型
@@ -140,7 +140,7 @@ sequenceDiagram
     {
       "questionNumber": 3,
       "problemId": "2103815555000360962",
-      "type": "PROGRAMMING",
+      "type": "SUBJECTIVE",
       "success": false,
       "skipped": true,
       "reason": "unsupported question type"
@@ -152,7 +152,7 @@ sequenceDiagram
 - `success` 仅当没有失败且没有跳过项时为 `true`。
 - `failed` 统计执行或保存失败的题目；`skipped` 统计所选但不支持的题目。未勾选类型不进入报告和汇总。
 - 单题错误包含 `questionNumber`、`problemId`、`type` 和 `reason`。
-- 执行到题目控件的结果包含 `previousAnswer` 和 `targetAnswer`，供面板并列显示原答案与目标答案；`action` 为 `updated` 表示本次修改了控件，为 `unchanged` 表示原状态已与目标一致。多选题另有 `optionActions`，逐选项记录勾选、取消或保持原状；填空题另有 `blankActions`，逐空记录是否修改。助手面板的可展开「回填明细」还会显示失败、所选但不支持而跳过，以及所选题型中未出现在答案 JSON 里的题目。
+- 执行到题目控件的结果包含 `previousAnswer` 和 `targetAnswer`，供面板并列显示原答案与目标答案；`action` 为 `updated` 表示本次修改了控件，为 `unchanged` 表示原状态已与目标一致。多选题另有 `optionActions`，逐选项记录勾选、取消或保持原状；填空题另有 `blankActions`，逐空记录是否修改。助手面板的可展开「回填明细」还会显示失败、回填题型中所选但不支持而跳过，以及所选回填题型中未出现在答案 JSON 里的题目。
 - 报告的 `saveRequested` 表示本次是否要求执行保存；`saved` 表示至少一个成功题型批次已完成保存。单一题型选择不保存时 `saveRequested` 和 `saved` 均为 `false`，页面上的改动仍留在当前作答界面。多题型安全保存若失败，将停止后续题型导航，避免带着未保存修改切页。
 - 报告中的成功代表页面控件通过本地状态验证且题型批次保存流程未报告失败，不代表对服务端成绩或最终提交状态的独立证明。
 
@@ -161,4 +161,4 @@ sequenceDiagram
 - PTA 变化时先检查题型锚点 ID、题目根容器 ID、radio/checkbox ID、空位标记及底部保存按钮。
 - 修改导航映射后验证每种类型均只点击对应锚点，并且等待的是目标 `problemId` 可见。
 - 注入器变更应覆盖重复执行、已有选中状态、多选需要取消旧选项、缺失选项/题目和输入事件。
-- 当前仓库未配置独立自动化测试命令；代码改动至少运行 `node --check src/content/answer-runner.js`，并在可用的 PTA 测试题集上进行手动验证。
+- 代码改动运行 `npm run typecheck` 与 `npm run build`；涉及回填行为时，还需在可用的 PTA 测试题集上进行手动验证。

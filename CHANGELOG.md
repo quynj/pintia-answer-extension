@@ -1,5 +1,17 @@
 # 更新日志
 
+## v1.6.1
+
+### 中文
+
+- 项目新增 GPL-3.0-only 许可证；分发本项目或其衍生版本时，须按许可证提供对应源代码。
+- 构建后的扩展包现在包含许可证文件。
+
+### English
+
+- Added the GPL-3.0-only license. Distributions of this project or derivative works must provide the corresponding source code under the license terms.
+- The built extension package now includes the license file.
+
 ## v1.6.0
 
 ### 中文

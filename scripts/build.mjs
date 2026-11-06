@@ -27,6 +27,7 @@ await build({
 });
 
 await cp(join(root, 'manifest.json'), join(outputDirectory, 'manifest.json'));
+await cp(join(root, 'LICENSE'), join(outputDirectory, 'LICENSE'));
 
 async function copyStaticFiles(directory) {
   for (const entry of await readdir(directory, { withFileTypes: true })) {

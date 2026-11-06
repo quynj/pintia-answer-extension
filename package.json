@@ -1,6 +1,7 @@
 {
   "name": "pintia-answer-extension",
   "private": true,
+  "license": "GPL-3.0-only",
   "scripts": {
     "build": "node scripts/build.mjs",
     "typecheck": "tsc --noEmit",

@@ -1,6 +1,20 @@
 import { extractorApi as commonApi } from './extractor-common';
 import { submissionResults } from './review-submissions';
-import type { PintiaExtractOptions, PintiaExtractorApi, PintiaProblemSet, PintiaQuestion } from '../../shared/types';
+import {
+  calculateQuestionProgress,
+  examResponseData,
+  isPastProgressDeadline,
+  problemStatusEntriesFromResponse,
+  progressDeadlineFromExamResponse,
+  serverTimeFromResponse
+} from './progress-check';
+import type {
+  PintiaExtractOptions,
+  PintiaExtractorApi,
+  PintiaProblemSet,
+  PintiaProblemSetProgress,
+  PintiaQuestion
+} from '../../shared/types';
 type ApiObject = Record<string, unknown>;
 type ResponseData = { data: unknown; binary: Uint8Array | null };
 type ProblemList = {
@@ -536,10 +550,14 @@ type FetchQuestionOptions = {
 
   let reviewProblemSetsCache: PintiaProblemSet[] | null = null;
   let reviewProblemSetsPromise: Promise<PintiaProblemSet[]> | null = null;
-  async function listProblemSets() {
-    if (reviewProblemSetsCache) return reviewProblemSetsCache;
-    if (reviewProblemSetsPromise) return reviewProblemSetsPromise;
-    reviewProblemSetsPromise = (async () => {
+  async function listProblemSets(forceRefresh = false) {
+    if (!forceRefresh && reviewProblemSetsCache) return reviewProblemSetsCache;
+    if (!forceRefresh && reviewProblemSetsPromise) return reviewProblemSetsPromise;
+    if (forceRefresh) {
+      reviewProblemSetsCache = null;
+      reviewProblemSetsPromise = null;
+    }
+    const pendingProblemSets = (async () => {
       const setsById = new Map();
       const examIds: Record<string, string | number> = {};
       let page = 0;
@@ -574,11 +592,13 @@ type FetchQuestionOptions = {
         examId: examIds[set.id] ? String(examIds[set.id]) : null
       }));
     })();
+    reviewProblemSetsPromise = pendingProblemSets;
     try {
-      reviewProblemSetsCache = await reviewProblemSetsPromise;
-      return reviewProblemSetsCache;
+      const problemSets = await pendingProblemSets;
+      if (reviewProblemSetsPromise === pendingProblemSets) reviewProblemSetsCache = problemSets;
+      return problemSets;
     } finally {
-      reviewProblemSetsPromise = null;
+      if (reviewProblemSetsPromise === pendingProblemSets) reviewProblemSetsPromise = null;
     }
   }
 
@@ -670,6 +690,78 @@ type FetchQuestionOptions = {
         submission: submissions.get(String(question.id || '')) || null
       }))
     };
+  }
+
+  function progressResult(
+    problemSet: PintiaProblemSet,
+    state: PintiaProblemSetProgress['state'],
+    reason?: string,
+    progress?: { completed: number; total: number; percentage: number }
+  ): PintiaProblemSetProgress {
+    return {
+      problemSetId: String(problemSet.id),
+      problemSetName: problemSet.name,
+      state,
+      completed: progress?.completed ?? null,
+      total: progress?.total ?? null,
+      percentage: progress?.percentage ?? null,
+      ...(reason ? { reason } : {})
+    };
+  }
+
+  async function checkProblemSetProgress(problemSet: PintiaProblemSet): Promise<PintiaProblemSetProgress> {
+    const problemSetId = problemSet?.id === undefined || problemSet.id === null ? '' : String(problemSet.id);
+    if (!problemSetId) throw new Error('题目集缺少 ID，无法检查进度。');
+
+    const metadataUrl = new URL(`/api/problem-sets/${encodeURIComponent(problemSetId)}/exams`, location.origin);
+    const metadataResponse = requiredResponse(await fetchResponse(metadataUrl.href), '题集考试信息');
+    const metadataResult = await responseData(metadataResponse);
+    const metadataData = examResponseData(metadataResult.data);
+    const exam = asRecord(metadataData.exam);
+    const metadataProblemSet = asRecord(metadataData.problemSet);
+    const deadline = progressDeadlineFromExamResponse(metadataResult.data, problemSet.endAt);
+    const serverNow = serverTimeFromResponse(metadataResult.data, metadataResponse.headers.get('date'));
+    if (deadline === null) {
+      return progressResult(problemSet, 'unavailable', '无法确定题目集截止时间。');
+    }
+    if (serverNow !== null && isPastProgressDeadline(deadline, serverNow)) {
+      return progressResult(problemSet, 'expired');
+    }
+
+    const connections = asRecord(metadataProblemSet.connections);
+    const examIdValue = [problemSet.examId, exam.id, connections.omsExamId]
+      .find((candidate) => (typeof candidate === 'string' || typeof candidate === 'number')
+        && String(candidate).trim());
+    const examId = examIdValue === undefined ? '' : String(examIdValue).trim();
+    if (!examId) {
+      return progressResult(problemSet, 'unavailable', '题目集没有可用的考试 ID。');
+    }
+
+    const statusUrl = new URL(
+      `/api/exams/${encodeURIComponent(examId)}/problem-sets/${encodeURIComponent(problemSetId)}/problem-status`,
+      location.origin
+    );
+    const statusResponse = requiredResponse(await fetchResponse(statusUrl.href), '题目状态');
+    const statusResult = await responseData(statusResponse);
+    const statusNow = serverTimeFromResponse(statusResult.data, statusResponse.headers.get('date')) ?? serverNow;
+    if (statusNow === null) {
+      return progressResult(problemSet, 'unavailable', '接口未提供可用的服务端时间。');
+    }
+    if (isPastProgressDeadline(deadline, statusNow)) {
+      return progressResult(problemSet, 'expired');
+    }
+    const entries = problemStatusEntriesFromResponse(statusResult.data);
+    try {
+      const progress = calculateQuestionProgress(entries);
+      return progressResult(
+        problemSet,
+        progress.completed === progress.total ? 'complete' : 'incomplete',
+        undefined,
+        progress
+      );
+    } catch (error) {
+      return progressResult(problemSet, 'unavailable', error instanceof Error ? error.message : '题目状态无法解析。');
+    }
   }
 
   async function extractFromApi(options: PintiaExtractOptions = {}) {
@@ -799,6 +891,7 @@ export const pintiaExtractor: PintiaExtractorApi = {
   ...commonApi,
   currentProblemSetPage,
   listProblemSets,
+  checkProblemSetProgress,
   extractProblemSetForReview,
   extractFromApi
 };

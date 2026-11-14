@@ -23,10 +23,11 @@ interface TabMessageResponse {
 }
 
 interface ReviewExportMessage {
-  type: 'list-review-problem-sets' | 'export-review-problem-set';
-  problemSet: PintiaProblemSet;
+  type: 'list-review-problem-sets' | 'export-review-problem-set' | 'check-review-problem-set-progress';
+  problemSet?: PintiaProblemSet;
   detailRequestDelayMs?: unknown;
   includeSubmissions?: boolean;
+  forceRefresh?: boolean;
 }
 
 interface QuestionCacheEntry {
@@ -280,12 +281,19 @@ async function reviewExportRequest(sender: chrome.runtime.MessageSender, message
   const tab = sender.tab;
   const tabId = tab?.id;
   if (!tabId || !tab?.url?.startsWith('https://pintia.cn/')) {
-    throw new Error('请在已登录的 Pintia 页面中导出 Markdown。');
+    throw new Error('请在已登录的 Pintia 页面中执行此操作。');
   }
-  const request: Record<string, unknown> = {
-    type: message.type,
-    problemSet: message.problemSet
-  };
+  const request: Record<string, unknown> = { type: message.type };
+  if (message.type === 'list-review-problem-sets') {
+    request.forceRefresh = message.forceRefresh === true;
+  } else {
+    if (!message.problemSet
+      || (typeof message.problemSet.id !== 'string' && typeof message.problemSet.id !== 'number')
+      || typeof message.problemSet.name !== 'string') {
+      throw new Error('题目集参数无效。');
+    }
+    request.problemSet = message.problemSet;
+  }
   if (message.type === 'export-review-problem-set') {
     const detailRequestDelayMs = Number(message.detailRequestDelayMs);
     if (!Number.isInteger(detailRequestDelayMs) || detailRequestDelayMs < 0 || detailRequestDelayMs > 10000) {
@@ -298,6 +306,9 @@ async function reviewExportRequest(sender: chrome.runtime.MessageSender, message
   if (response?.error) throw new Error(response.error);
   if (message.type === 'list-review-problem-sets' && !Array.isArray(response?.problemSets)) {
     throw new Error('题目集列表接口返回格式无效。');
+  }
+  if (message.type === 'check-review-problem-set-progress' && !response?.result) {
+    throw new Error('题目集进度接口返回格式无效。');
   }
   if (message.type === 'export-review-problem-set' && !response?.result?.questions?.length) {
     throw new Error('该题目集没有读取到题目，未生成文件。');
@@ -596,7 +607,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
   else if (message.type === 'get-question-bank') operation = getQuestionBank(sender);
   else if (message.type === 'download-review-markdown') operation = downloadReviewMarkdown(sender, message);
-  else if (message.type === 'list-review-problem-sets' || message.type === 'export-review-problem-set') {
+  else if (message.type === 'list-review-problem-sets'
+    || message.type === 'export-review-problem-set'
+    || message.type === 'check-review-problem-set-progress') {
     operation = reviewExportRequest(sender, message);
   }
   else if (message.type === 'ask-ai') operation = askAi(message.input, message.questions, message.problemSetId, sender, message.requestId);

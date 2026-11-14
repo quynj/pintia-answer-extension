@@ -5,7 +5,8 @@
 <div class="pintia-assistant-tabs" role="tablist" aria-label="助手功能">
   <button id="pintia-tab-answer" type="button" role="tab" aria-selected="true" aria-controls="pintia-panel-answer" tabindex="0" data-tab="answer"><span>01</span>答题</button>
   <button id="pintia-tab-export" type="button" role="tab" aria-selected="false" aria-controls="pintia-panel-export" tabindex="-1" data-tab="export"><span>02</span>导出</button>
-  <button id="pintia-tab-logs" type="button" role="tab" aria-selected="false" aria-controls="pintia-panel-logs" tabindex="-1" data-tab="logs"><span>03</span>日志 <small data-log-tab-count>0</small></button>
+  <button id="pintia-tab-progress" type="button" role="tab" aria-selected="false" aria-controls="pintia-panel-progress" tabindex="-1" data-tab="progress"><span>03</span>进度</button>
+  <button id="pintia-tab-logs" type="button" role="tab" aria-selected="false" aria-controls="pintia-panel-logs" tabindex="-1" data-tab="logs"><span>04</span>日志 <small data-log-tab-count>0</small></button>
 </div>
 <div class="pintia-assistant-body" data-view="assistant">
   <section id="pintia-panel-answer" class="pintia-assistant-tab-panel" role="tabpanel" aria-labelledby="pintia-tab-answer" tabindex="0" data-tab-panel="answer">
@@ -89,6 +90,21 @@
       <button class="pintia-review-export-button" data-action="export-review-answers" disabled>导出我的答案 JSON</button>
       <button class="pintia-review-export-button" data-action="export-review-question-bank" disabled>导出题库 JSON</button>
       <small>当前题目集会自动识别并默认勾选；可直接导出 Markdown、我的答案 JSON 或题库 JSON。答案 JSON 使用各题型最近提交记录，可直接用于「答题」页。不会导出或推断标准答案。</small>
+    </section>
+  </section>
+  <section id="pintia-panel-progress" class="pintia-assistant-tab-panel" role="tabpanel" aria-labelledby="pintia-tab-progress" tabindex="0" data-tab-panel="progress" hidden>
+    <section class="pintia-progress-check" aria-labelledby="pintia-progress-heading">
+      <header>
+        <strong id="pintia-progress-heading">活跃题目集答题进度</strong>
+        <small>按已作答题数计算；不判断答案正确性，也不会提交或保存。</small>
+      </header>
+      <label>题集间隔（毫秒）
+        <input type="number" min="0" max="10000" step="100" value="1000" data-progress-delay />
+      </label>
+      <small>逐套检查；截止时间按 Pintia 服务端时间判断。无法确认截止时间或题目状态时不会标记为已完成。</small>
+      <button type="button" data-action="check-progress">手动检查进度</button>
+      <p data-progress-status aria-live="polite">进入此标签页显示最近检查结果；点击按钮手动更新。</p>
+      <div data-progress-results aria-live="polite"></div>
     </section>
   </section>
   <section id="pintia-panel-logs" class="pintia-assistant-tab-panel" role="tabpanel" aria-labelledby="pintia-tab-logs" tabindex="0" data-tab-panel="logs" hidden>

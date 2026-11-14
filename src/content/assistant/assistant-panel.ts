@@ -2,6 +2,7 @@ import { answerRunner } from '../answer/answer-runner';
 import { questionTypes } from '../question-types';
 import { createAssistantLog } from './assistant-log';
 import { createReviewExportPanel } from './review-export-panel';
+import { createProgressCheckPanel } from './progress-check-panel';
 import assistantPanelTemplate from './assistant-panel.template.html';
 import { promptBuilder } from '../../shared/prompt-builder';
 import type {
@@ -229,6 +230,8 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
   function bindTabs(panel: HTMLElement): void {
     const tabs = [...panel.querySelectorAll<HTMLButtonElement>('[role="tab"][data-tab]')];
     const selectTab = (selectedTab: HTMLButtonElement): void => {
+      const enteringProgressTab = selectedTab.dataset.tab === 'progress'
+        && selectedTab.getAttribute('aria-selected') !== 'true';
       tabs.forEach((tab) => {
         const selected = tab === selectedTab;
         tab.setAttribute('aria-selected', String(selected));
@@ -236,6 +239,7 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
         const tabPanel = panel.querySelector<HTMLElement>(`#${tab.getAttribute('aria-controls')}`);
         if (tabPanel) tabPanel.hidden = !selected;
       });
+      if (enteringProgressTab) void progressCheckPanel.showCachedProgress(panel);
     };
     tabs.forEach((tab, index) => {
       tab.addEventListener('click', () => selectTab(tab));
@@ -273,7 +277,6 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
       appendLog(panel, `${state.aiPhase}请求开始`, 'info');
       return;
     }
-
     const stage = message.phase.startsWith('draft-') ? '初稿' : '复核';
     const duration = `${((message.durationMs || 0) / 1000).toFixed(1)} 秒`;
     if (message.phase.endsWith('-completed')) {
@@ -316,6 +319,13 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
     setLog,
     appendLog,
     errorMessage
+  });
+
+  const progressCheckPanel = createProgressCheckPanel({
+    loadProblemSets: (panel) => reviewExportPanel.loadReviewProblemSets(panel, null, true, true),
+    sendRuntimeMessage,
+    requiredElement,
+    setLog
   });
 
   async function loadConfig(panel: HTMLElement): Promise<void> {
@@ -847,13 +857,16 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
   }
 
   function bindPanel(panel: HTMLElement): void {
-    chrome.storage.local.get(['reviewExportRequestDelayMs', 'problemDetailRequestDelayMs'])
-      .then(({ reviewExportRequestDelayMs, problemDetailRequestDelayMs }) => {
+    chrome.storage.local.get(['reviewExportRequestDelayMs', 'problemDetailRequestDelayMs', 'progressCheckRequestDelayMs'])
+      .then(({ reviewExportRequestDelayMs, problemDetailRequestDelayMs, progressCheckRequestDelayMs }) => {
         if (Number.isInteger(reviewExportRequestDelayMs) && reviewExportRequestDelayMs >= 0 && reviewExportRequestDelayMs <= 10000) {
           requiredElement<HTMLInputElement>(panel, '[data-review-delay]').value = String(reviewExportRequestDelayMs);
         }
         if (Number.isInteger(problemDetailRequestDelayMs) && problemDetailRequestDelayMs >= 0 && problemDetailRequestDelayMs <= 10000) {
           requiredElement<HTMLInputElement>(panel, '[data-problem-detail-delay]').value = String(problemDetailRequestDelayMs);
+        }
+        if (Number.isInteger(progressCheckRequestDelayMs) && progressCheckRequestDelayMs >= 0 && progressCheckRequestDelayMs <= 10000) {
+          requiredElement<HTMLInputElement>(panel, '[data-progress-delay]').value = String(progressCheckRequestDelayMs);
         }
       }).catch((error) => setLog(panel, errorMessage(error, '无法读取导出设置。'), 'error'));
     panel.addEventListener('change', async (event: Event) => {
@@ -875,6 +888,16 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
           setLog(panel, `${detailDelay ? '题目详情间隔' : '题集间隔'}已保存：${delay} 毫秒。`);
         } catch (error) {
           setLog(panel, errorMessage(error, '无法保存请求间隔设置。'), 'error');
+        }
+        return;
+      }
+      if (target.matches('[data-progress-delay]')) {
+        try {
+          const delay = progressCheckPanel.progressProblemSetInterval(panel);
+          await chrome.storage.local.set({ progressCheckRequestDelayMs: delay });
+          setLog(panel, `进度检查题集间隔已保存：${delay} 毫秒。`);
+        } catch (error) {
+          setLog(panel, errorMessage(error, '无法保存进度检查间隔设置。'), 'error');
         }
         return;
       }
@@ -951,6 +974,7 @@ function isProblemSet(value: unknown): value is PintiaProblemSet {
           }
         }
         if (action === 'load-review-sets') await reviewExportPanel.loadReviewProblemSets(panel);
+        if (action === 'check-progress') await progressCheckPanel.checkProgress(panel);
         if (action === 'export-review-sets') await reviewExportPanel.exportSelectedReviewSets(panel);
         if (action === 'export-review-answers') await reviewExportPanel.exportSelectedReviewAnswers(panel);
         if (action === 'export-review-question-bank') await reviewExportPanel.exportSelectedQuestionBanks(panel);

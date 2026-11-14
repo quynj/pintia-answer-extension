@@ -129,6 +129,16 @@ export interface PintiaProblemSet {
   [key: string]: unknown;
 }
 
+export interface PintiaProblemSetProgress {
+  problemSetId: string;
+  problemSetName: string;
+  state: 'complete' | 'incomplete' | 'expired' | 'unavailable';
+  completed: number | null;
+  total: number | null;
+  percentage: number | null;
+  reason?: string;
+}
+
 export interface PintiaExtractorCommonApi {
   cleanText(value: unknown): string;
   normalizeRichText(value: unknown): string;
@@ -146,7 +156,8 @@ export interface PintiaExtractorCommonApi {
 
 export interface PintiaExtractorApi extends PintiaExtractorCommonApi {
   currentProblemSetPage(): { id: string; path: string } | null;
-  listProblemSets(): Promise<PintiaProblemSet[]>;
+  listProblemSets(forceRefresh?: boolean): Promise<PintiaProblemSet[]>;
+  checkProblemSetProgress(problemSet: PintiaProblemSet): Promise<PintiaProblemSetProgress>;
   extractProblemSetForReview(
     problemSet: PintiaProblemSet,
     detailRequestDelayMs?: number,

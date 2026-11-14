@@ -255,10 +255,11 @@ export function createReviewExportPanel({
   async function loadReviewProblemSets(
     panel: HTMLElement,
     currentSetId: string | null = null,
-    automatic = false
-  ): Promise<void> {
+    automatic = false,
+    forceRefresh = false
+  ): Promise<PintiaProblemSet[]> {
     const button = requiredElement<HTMLButtonElement>(panel, '[data-action="load-review-sets"]');
-    if (button.disabled) return;
+    if (button.disabled) return state.reviewProblemSets;
     button.disabled = true;
     button.setAttribute('aria-busy', 'true');
     if (!automatic) {
@@ -268,7 +269,7 @@ export function createReviewExportPanel({
     requiredElement(panel, '[data-review-count]').textContent = '正在获取数量…';
     requiredElement(panel, '[data-loader-label]').textContent = '正在加载…';
     try {
-      const response = await sendRuntimeMessage({ type: 'list-review-problem-sets' });
+      const response = await sendRuntimeMessage({ type: 'list-review-problem-sets', forceRefresh });
       if (!Array.isArray(response.problemSets) || !response.problemSets.every(isProblemSet)) {
         throw new Error('后台返回了无效的题目集列表。');
       }
@@ -310,6 +311,7 @@ export function createReviewExportPanel({
         setStatus(panel, '题目集列表已加载');
         setLog(panel, `找到 ${uniqueProblemSets.length} 套题目集；没有考试 ID 的题目集无法导出。`);
       }
+      return uniqueProblemSets;
     } catch (error) {
       requiredElement(panel, '[data-review-count]').textContent = '加载失败，请重试';
       throw error;

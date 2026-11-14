@@ -119,7 +119,7 @@ import type { PintiaQuestionBankResult } from '../shared/types';
       return false;
     }
     if (message.type === 'list-review-problem-sets') {
-      api.listProblemSets()
+      api.listProblemSets(message.forceRefresh === true)
         .then((problemSets) => sendResponse({ problemSets }))
         .catch((error) => sendResponse({ error: errorMessage(error, '题目集列表读取失败。') }));
       return true;
@@ -132,6 +132,12 @@ import type { PintiaQuestionBankResult } from '../shared/types';
       )
         .then((result) => sendResponse({ result }))
         .catch((error) => sendResponse({ error: errorMessage(error, '题目集导出失败。') }));
+      return true;
+    }
+    if (message.type === 'check-review-problem-set-progress') {
+      api.checkProblemSetProgress(message.problemSet)
+        .then((result) => sendResponse({ result }))
+        .catch((error) => sendResponse({ error: errorMessage(error, '题目集进度检查失败。') }));
       return true;
     }
     if (message.type !== 'inspect' && message.type !== 'export') return false;

@@ -1,5 +1,19 @@
 # 更新日志
 
+## v1.7.0
+
+### 中文
+
+- 助手面板新增“活跃题目集答题进度”检查，可按设置间隔自动检查并缓存当前题目集的完成状态，支持手动刷新和最近结果查看。
+- 进度检查会汇总未完成、已过期和暂不可用的题目集，并在助手面板中直接展示结果与失败原因，方便快速定位待补做内容。
+- 支持在设置中调整进度检查间隔，避免频繁请求影响使用体验。
+
+### English
+
+- Added an “active problem-set progress” check to the assistant panel. It can automatically check and cache completion status at a configured interval, with support for manual refresh and recent result review.
+- Progress checks summarize incomplete, expired, and temporarily unavailable problem sets and display the results and failure reasons directly in the assistant panel for faster follow-up.
+- Added a configurable progress-check interval in settings to reduce unnecessary requests and improve the experience.
+
 ## v1.6.1
 
 ### 中文

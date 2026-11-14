@@ -28,6 +28,8 @@ const separateVerifierInput = requiredElement('separate-verifier-input', HTMLInp
 const secondaryPromptOption = requiredElement('secondary-prompt-option', HTMLLabelElement);
 const separateVerifierOption = requiredElement('separate-verifier-option', HTMLLabelElement);
 const verifierFields = requiredElement('verifier-config-fields', HTMLElement);
+const apiTypeInput = requiredElement('api-type-input', HTMLSelectElement);
+const verifierApiTypeInput = requiredElement('verifier-api-type-input', HTMLSelectElement);
 form.querySelectorAll<SettingsFormControl>('input, select, textarea, button').forEach((control) => {
   control.disabled = true;
 });
@@ -90,8 +92,20 @@ function syncAdvancedSettings(): void {
     : '答案复核已关闭';
 }
 
+function updateEndpointHelp(apiType: string, helpId: string): void {
+  const suffix = apiType === 'responses' ? 'responses' : 'chat/completions';
+  requiredElement(helpId, HTMLElement).textContent =
+    `填写完整接口 URL，例如 https://api.example.com/v1/${suffix}。本工具未引入相关SDK，不会自动补路径，若服务商只提供 Base URL，请按其文档补上 /${suffix}。若提供的已是完整接口地址，则原样填写。`;
+}
+
 secondaryCheckInput.addEventListener('change', syncAdvancedSettings);
 separateVerifierInput.addEventListener('change', syncAdvancedSettings);
+apiTypeInput.addEventListener('change', () => updateEndpointHelp(apiTypeInput.value, 'endpoint-help'));
+verifierApiTypeInput.addEventListener('change', () => {
+  updateEndpointHelp(verifierApiTypeInput.value, 'verifier-endpoint-help');
+});
+updateEndpointHelp(apiTypeInput.value, 'endpoint-help');
+updateEndpointHelp(verifierApiTypeInput.value, 'verifier-endpoint-help');
 
 sendRuntimeMessage({ type: 'get-ai-config' }, (error, response) => {
   if (error) {
@@ -105,6 +119,7 @@ sendRuntimeMessage({ type: 'get-ai-config' }, (error, response) => {
   const config = response.config;
   formControl('api-type-input').value = config.apiType;
   formControl('endpoint-input').value = config.endpoint;
+  updateEndpointHelp(config.apiType, 'endpoint-help');
   formControl('model-input').value = config.model;
   formControl('api-key-input').value = config.apiKey || '';
   formControl('prompt-input').value = config.prompt;
@@ -114,6 +129,7 @@ sendRuntimeMessage({ type: 'get-ai-config' }, (error, response) => {
   separateVerifierInput.checked = config.useSeparateVerifierConfig === true;
   const verifierConfig = config.verifierConfig;
   formControl('verifier-api-type-input').value = verifierConfig?.apiType || config.apiType;
+  updateEndpointHelp(formControl('verifier-api-type-input').value, 'verifier-endpoint-help');
   formControl('verifier-endpoint-input').value = verifierConfig?.endpoint || config.endpoint;
   formControl('verifier-model-input').value = verifierConfig?.model || config.model;
   formControl('verifier-api-key-input').value = verifierConfig?.apiKey || '';

@@ -1,5 +1,17 @@
 # 更新日志
 
+## v1.8.0
+
+### 中文
+
+- 「我的答案 JSON」导出新增按题目 ID 关联的平台评测状态，可用于复习时查看已判定正确、错误或尚未判定的作答；该可选字段不影响答案校验和回填。
+- 题库转复习 Markdown skill 可根据答案 JSON 中的平台状态呈现评测结果，并附带独立的数据格式说明，方便单独安装使用。
+
+### English
+
+- Added optional platform grading status to “My Answers JSON” exports, matched by question ID. It distinguishes accepted, incorrect, and not-yet-graded submissions for review without affecting answer validation or filling.
+- Updated the review Markdown skill to display platform status from answer JSON and include a standalone data-format reference for independent installation.
+
 ## v1.7.0
 
 ### 中文

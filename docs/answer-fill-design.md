@@ -50,7 +50,7 @@
 ## 执行流程
 
 1. 助手解析答案文本，并仅将「回填题型」中勾选的类型传给任务执行器；当前编程题纯代码模式会先依据 URL 唯一匹配题目，再构造标准答案项。「生成题型」只用于挑选复制提示词和 AI 请求所包含的题目，不参与回填筛选。
-2. 校验整个 JSON。格式或字段不合法时，在启动回填前返回错误。
+2. 校验整个 JSON。格式或字段不合法时，在启动回填前返回错误。答案项中的可选 `problemStatus` 是导出附带的只读评测元数据，会被校验器保留但不参与回填。
 3. 忽略未勾选类型，不加入执行报告；将所选的 `SUBJECTIVE` 和其他未实现类型记为不支持并跳过。
 4. 优先处理选中的 `PROGRAMMING`、`SQL_PROGRAMMING`，然后按 `MULTIPLE_CHOICE -> MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER -> TRUE_OR_FALSE -> FILL_IN_THE_BLANK -> FILL_IN_THE_BLANK_FOR_PROGRAMMING` 顺序处理其他受支持类型。
 5. 编程题替换编辑器现有全文后逐字输入；其他题型切换到对应 PTA 分类，等待当前题型问题根容器可见。

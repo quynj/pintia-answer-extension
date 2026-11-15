@@ -129,6 +129,32 @@ test('builds a reusable answer JSON payload from recent submissions across quest
   ]);
 });
 
+test('adds problem-status metadata to answers by exact problem ID', () => {
+  const result = reviewAnswerPayload('set-1', [
+    { id: 'question-1', type: 'MULTIPLE_CHOICE', submission: { answer: 'B' } },
+    { id: 'question-2', type: 'TRUE_OR_FALSE', submission: { answer: 'TRUE' } }
+  ], {
+    'question-1': 'PROBLEM_ACCEPTED',
+    unrelated: 'PROBLEM_WRONG_ANSWER'
+  });
+
+  assert.deepEqual(result.answers, [
+    {
+      problemId: 'question-1',
+      questionNumber: null,
+      type: 'MULTIPLE_CHOICE',
+      answer: 'B',
+      problemStatus: 'PROBLEM_ACCEPTED'
+    },
+    {
+      problemId: 'question-2',
+      questionNumber: null,
+      type: 'TRUE_OR_FALSE',
+      answer: true
+    }
+  ]);
+});
+
 test('skips recent answers that cannot satisfy the answer JSON contract', () => {
   const result = reviewAnswerPayload('set-2', [
     { id: 'invalid-blank', type: 'FILL_IN_THE_BLANK', submission: { answer: { value: 'no' } } },

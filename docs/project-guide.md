@@ -41,7 +41,7 @@ docs/                         契约、设计和开发文档
 ### AI 答案与校验/回填
 
 1. `src/content/assistant/assistant-panel.ts` 管理助手状态和答题流程；`src/content/assistant/assistant-panel.template.html` 与 `assistant-panel.css` 定义面板结构和样式；HTML 片段由构建时内嵌，不作为独立扩展资源发布。面板以标签页组织答题、题目导出、进度检查和日志；答题页的「生成题型」仅筛选提示词/AI 输入，「回填题型」仅筛选答案写入，操作日志只在日志标签页显示并最多保留 200 条；`src/content/assistant/assistant-log.ts` 管理会话内日志，`src/content/assistant/review-export-panel.ts` 负责作业列表与批量导出操作，`src/content/assistant/progress-check-panel.ts` 负责进度页面、缓存展示和多题集请求间隔；使用 `src/shared/prompt-builder.ts` 生成模型输入。
-2. `src/content/extraction/api-extractor.ts` 通过题集考试信息与 `/api/exams/{examId}/problem-sets/{problemSetId}/problem-status` 只读获取截止时间、题目状态和服务端时间；`src/content/extraction/progress-check.ts` 校验状态并计算已作答比例。截止时间优先使用考试实例时间，没有考试实例时使用响应中的 `problemSet.endAt`。最近一次进度统计和检查时间缓存在 `chrome.storage.local`，进入进度页只展示缓存，手动检查才请求更新；已确认过期的题集 ID 另合并持久缓存在单个列表键中。缓存不包含题目内容或答案，进度检查不会触发提交、答案修改或保存。
+2. `src/content/extraction/api-extractor.ts` 通过题集考试信息与 `/api/exams/{examId}/problem-sets/{problemSetId}/problem-status` 只读获取截止时间、题目状态和服务端时间；`src/content/extraction/progress-check.ts` 校验状态并计算已作答比例。「我的答案」JSON 导出也读取该状态接口，并按题目 ID 将状态作为可选 `problemStatus` 元数据附到答案项；答案校验保留它，但回填不使用它。截止时间优先使用考试实例时间，没有考试实例时使用响应中的 `problemSet.endAt`。最近一次进度统计和检查时间缓存在 `chrome.storage.local`，进入进度页只展示缓存，手动检查才请求更新；已确认过期的题集 ID 另合并持久缓存在单个列表键中。缓存不包含题目内容或答案，进度检查不会触发提交、答案修改或保存。
 3. `src/background/service-worker.ts` 处理 `ask-ai` 消息、调用用户配置的模型，并在答案复核时调用共享校验逻辑。
 4. `src/shared/answer-contract.ts` 校验模型答案和粘贴答案；`src/content/answer/answer-runner.ts` 按题目 ID 定位控件、注入答案并验证结果。答题文本框支持答案 JSON；当前 URL 能唯一匹配编程题时也可切换为直接粘贴代码。
 5. AI 生成后会按「回填题型」自动回填并保存校验通过的匹配答案；手动回填也会保存。保持明确的用户操作、题型筛选和失败报告。

@@ -101,7 +101,14 @@ export interface PintiaAnswerItem {
   questionNumber: number | null;
   type: string;
   answer: PintiaAnswerValue;
+  problemStatus?: string;
 }
+
+export type PintiaProblemSubmissionStatus =
+  | 'PROBLEM_NO_ANSWER'
+  | 'PROBLEM_SUBMITTED'
+  | 'PROBLEM_WRONG_ANSWER'
+  | 'PROBLEM_ACCEPTED';
 
 export interface PintiaAnswerPayload {
   problemSetId: string | null;
@@ -116,6 +123,7 @@ export interface PintiaQuestionBankResult {
   problemSetName?: string | null;
   examId?: string | null;
   summaries?: Record<string, unknown>;
+  problemStatusById?: Record<string, PintiaProblemSubmissionStatus>;
   reason?: string | null;
   exportedAt?: string;
   questions: PintiaQuestion[];
@@ -161,7 +169,8 @@ export interface PintiaExtractorApi extends PintiaExtractorCommonApi {
   extractProblemSetForReview(
     problemSet: PintiaProblemSet,
     detailRequestDelayMs?: number,
-    includeSubmissions?: boolean
+    includeSubmissions?: boolean,
+    includeProblemStatus?: boolean
   ): Promise<PintiaQuestionBankResult>;
   extractFromApi(options?: PintiaExtractOptions): Promise<PintiaQuestionBankResult>;
 }

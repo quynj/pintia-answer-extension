@@ -14,6 +14,21 @@ test('parses valid answers and preserves the payload', () => {
   assert.deepEqual(answerContract.parse(JSON.stringify(payload), 'set-1'), payload);
 });
 
+test('preserves exported problem status while validating answers for fill', () => {
+  const payload = {
+    problemSetId: 'set-1',
+    answers: [{
+      problemId: 'question-1',
+      questionNumber: 1,
+      type: 'MULTIPLE_CHOICE',
+      answer: 'B',
+      problemStatus: 'PROBLEM_ACCEPTED'
+    }]
+  };
+
+  assert.deepEqual(answerContract.parse(JSON.stringify(payload), 'set-1'), payload);
+});
+
 test('rejects duplicate IDs and invalid answer shapes', () => {
   assert.throws(() => answerContract.validate({
     problemSetId: null,

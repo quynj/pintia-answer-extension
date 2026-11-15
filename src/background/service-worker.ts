@@ -27,6 +27,7 @@ interface ReviewExportMessage {
   problemSet?: PintiaProblemSet;
   detailRequestDelayMs?: unknown;
   includeSubmissions?: boolean;
+  includeProblemStatus?: boolean;
   forceRefresh?: boolean;
 }
 
@@ -301,6 +302,7 @@ async function reviewExportRequest(sender: chrome.runtime.MessageSender, message
     }
     request.detailRequestDelayMs = detailRequestDelayMs;
     request.includeSubmissions = message.includeSubmissions !== false;
+    request.includeProblemStatus = message.includeProblemStatus === true;
   }
   const response = await sendTabMessage(tabId, request);
   if (response?.error) throw new Error(response.error);

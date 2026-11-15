@@ -12,7 +12,8 @@
       "questionNumber": 1,
       "problemId": "2103815555000360960",
       "type": "MULTIPLE_CHOICE",
-      "answer": "B"
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
     }
   ]
 }
@@ -26,8 +27,9 @@
 | `problemId` | 非空字符串 | PTA 当前题目的唯一 ID；用于导航后的精确 DOM 定位。必须原样提供。 |
 | `type` | 字符串 | 使用 Pintia 返回的原始题型值，保持大写及拼写原样。 |
 | `answer` | 随题型变化 | 按下表提供。 |
+| `problemStatus` | 可选字符串 | Pintia `problem-status` 接口返回的题目状态，仅供查看评测状态；不参与答案定位或回填。 |
 
-对象可以含其他字段，但当前解析器不会用它们定位题目或执行回填。
+当前导出的 `problemStatus` 为 `PROBLEM_NO_ANSWER`、`PROBLEM_SUBMITTED`、`PROBLEM_WRONG_ANSWER` 或 `PROBLEM_ACCEPTED`。答案校验会保留该字符串字段，但回填只使用 `problemId`、`type` 和 `answer` 等答案字段；旧格式无需提供此字段。其他未识别字段不会用于定位题目或执行回填。
 
 ## 支持题型和答案值
 
@@ -56,7 +58,8 @@
       "questionNumber": 1,
       "problemId": "2103815555000360960",
       "type": "MULTIPLE_CHOICE",
-      "answer": "B"
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
     },
     {
       "questionNumber": 2,

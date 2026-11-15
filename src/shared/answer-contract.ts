@@ -43,6 +43,9 @@ export const answerContract: PintiaAnswerContractApi = {
       if (questionNumber !== null && typeof questionNumber !== 'number') {
         throw new Error(`answers[${index}].questionNumber 必须是数字或 null。`);
       }
+      if (value.problemStatus !== undefined && typeof value.problemStatus !== 'string') {
+        throw new Error(`answers[${index}].problemStatus 必须是字符串。`);
+      }
       if (!Object.prototype.hasOwnProperty.call(value, 'answer')) {
         throw new Error(`answers[${index}] 缺少 answer。`);
       }
@@ -78,7 +81,13 @@ export const answerContract: PintiaAnswerContractApi = {
         throw new Error(`题目 ${questionLabel} 的主观题答案必须是字符串。`);
       }
 
-      return { problemId, questionNumber, type, answer };
+      return {
+        problemId,
+        questionNumber,
+        type,
+        answer,
+        ...(value.problemStatus !== undefined ? { problemStatus: value.problemStatus } : {})
+      };
     });
 
     if (expectedQuestions) {

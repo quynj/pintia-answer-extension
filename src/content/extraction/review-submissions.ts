@@ -1,5 +1,9 @@
 import { answerContract } from '../../shared/answer-contract';
-import type { PintiaAnswerItem, PintiaQuestion } from '../../shared/types';
+import type {
+  PintiaAnswerItem,
+  PintiaProblemSubmissionStatus,
+  PintiaQuestion
+} from '../../shared/types';
 
 export interface ReviewSubmission {
   answer: unknown;
@@ -110,7 +114,11 @@ function fillBlankCount(question: PintiaQuestion): number | undefined {
   return Array.isArray(config?.blanks) ? config.blanks.length : question.fillBlankCount;
 }
 
-export function reviewAnswerPayload(problemSetId: string, questions: PintiaQuestion[]): ReviewAnswerPayload {
+export function reviewAnswerPayload(
+  problemSetId: string,
+  questions: PintiaQuestion[],
+  problemStatusById: Record<string, PintiaProblemSubmissionStatus> = {}
+): ReviewAnswerPayload {
   const answers: PintiaAnswerItem[] = [];
   const seenProblemIds = new Set<string>();
   let skippedCount = 0;
@@ -136,11 +144,15 @@ export function reviewAnswerPayload(problemSetId: string, questions: PintiaQuest
       skippedCount += 1;
       continue;
     }
+    const problemStatus = Object.prototype.hasOwnProperty.call(problemStatusById, problemId)
+      ? problemStatusById[problemId]
+      : undefined;
     const candidate = {
       questionNumber,
       problemId,
       type: question.type,
-      answer: normalizedAnswer
+      answer: normalizedAnswer,
+      ...(problemStatus !== undefined ? { problemStatus } : {})
     };
     try {
       const serialized = JSON.stringify({ problemSetId, answers: [candidate] });

@@ -53,9 +53,9 @@
 
 **阅读限制：** Pintia 的题干、选项及其他描述可能分布在不同字段，原始内容也可能同时包含彼此重复或不完整的片段。扩展会按可提取字段整理，但 Markdown 仍可能出现题干或选项重复、缺失，图片或排版效果也可能不如 Pintia 页面。请将该 Markdown 视为粗略参考，并回到 Pintia 页面核对题意和选项。平台返回的最近作答只是提交记录；评测标记仅反映可识别的平台状态，不会补出标准答案。
 
-如果希望进一步整理为复习题库，可将导出的题库 JSON 提供给 agent 并使用[题库转复习 Markdown skill](../.agents/skills/pintia-review-markdown/SKILL.md)。题库 JSON 是该 skill 的必需输入；「我的答案」JSON 可选。答案 JSON 中的作答默认只视为提交内容，不视为正确答案；请自行标记正确性，或明确告知 agent 哪些答案已核实。
+如果希望进一步整理为复习题库，可将导出的题库 JSON 提供给 agent 并使用[题库转复习 Markdown skill](../.agents/skills/pintia-review-markdown/SKILL.md)。题库 JSON 是该 skill 的必需输入；「我的答案」JSON 可选。该 skill 独立包含所需字段与处理规则；提供答案 JSON 后会按题目 ID 匹配并显示「我的答案」。若答案项含 `problemStatus`，仅将 `PROBLEM_ACCEPTED` 和 `PROBLEM_WRONG_ANSWER` 分别标为平台判定正确或错误；其他、缺失或未知状态不会推断正确性。
 
-「我的答案」JSON 按每个非空题型读取最近提交接口，并以 `submissionDetails[].problemSetProblemId` 关联至题目；保留有可用且符合[答案 JSON 契约](./answer-json-contract.md)的最近作答，覆盖单选、多选、判断、填空、程序填空、编程、SQL 编程、主观题及接口返回的其他题型。没有提交记录、没有可提取答案或答案形状不兼容的题目会略过，并在助手日志中报告略过数。导出结构为 `problemSetId` 和 `answers`，可直接粘贴到「答题」页。程序题答案中的换行会原样保留。
+「我的答案」JSON 按每个非空题型读取最近提交接口，并以 `submissionDetails[].problemSetProblemId` 关联至题目；保留有可用且符合[答案 JSON 契约](./answer-json-contract.md)的最近作答，覆盖单选、多选、判断、填空、程序填空、编程、SQL 编程、主观题及接口返回的其他题型。另读取 `/api/exams/{examId}/problem-sets/{problemSetId}/problem-status`，按题目 ID 将返回的状态写入对应答案项的可选 `problemStatus` 字段；没有对应状态的答案仍保留，不按题号或题目文本猜测。该状态只反映平台评测状态，不是标准答案。没有提交记录、没有可提取答案或答案形状不兼容的题目会略过，并在助手日志中报告略过数。导出结构为 `problemSetId` 和 `answers`，可直接粘贴到「答题」页；答案校验会保留 `problemStatus`，回填过程不使用该字段。程序题答案中的换行会原样保留。
 
 填空题按 `fillBlankConfig.blanks[].index` 在题干对应位置插入前后留有空格的下划线，确保横线与相邻文字之间仍可正确显示；有原始填空标记时会先移除标记，并避免拼接标题、描述和正文造成重复。填空题不显示普通题型选项。编程题、SQL编程题和主观题会分别显示。导出 `PROGRAMMING`、`SQL_PROGRAMMING` 和 `SUBJECTIVE` 题型时，会读取题目列表及详情。`judgeResponseContents` 等响应中只有能关联到具体题目且明确表示正确或错误的状态才会标记；其余显示“未评测/未知”。Markdown 图片中的 `~/...` 地址会转换为 `https://images.ptausercontent.com/...` 在线地址，不下载图片。
 

@@ -1,7 +1,18 @@
+import type { PintiaProblemSubmissionStatus } from '../../shared/types';
+
 export interface QuestionProgress {
   completed: number;
   total: number;
   percentage: number;
+}
+
+export type ProblemSubmissionStatus = PintiaProblemSubmissionStatus;
+
+function isProblemSubmissionStatus(value: unknown): value is ProblemSubmissionStatus {
+  return value === 'PROBLEM_NO_ANSWER'
+    || value === 'PROBLEM_SUBMITTED'
+    || value === 'PROBLEM_WRONG_ANSWER'
+    || value === 'PROBLEM_ACCEPTED';
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -75,15 +86,9 @@ export function problemStatusEntriesFromResponse(value: unknown): unknown[] {
   return Array.isArray(entries) ? entries : [];
 }
 
-export function calculateQuestionProgress(entries: unknown[]): QuestionProgress {
+export function problemStatusById(entries: unknown[]): Map<string, ProblemSubmissionStatus> {
   if (!entries.length) throw new Error('题目状态列表为空。');
-  const statusById = new Map<string, string>();
-  const validStatuses = new Set([
-    'PROBLEM_NO_ANSWER',
-    'PROBLEM_SUBMITTED',
-    'PROBLEM_WRONG_ANSWER',
-    'PROBLEM_ACCEPTED'
-  ]);
+  const statusById = new Map<string, ProblemSubmissionStatus>();
   for (const entry of entries) {
     if (!isRecord(entry)) throw new Error('题目状态数据结构无效。');
     const rawId = [entry.id, entry.problemSetProblemId, entry.problem_set_problem_id, entry.problemId, entry.problem_id, entry.questionId]
@@ -100,7 +105,7 @@ export function calculateQuestionProgress(entries: unknown[]): QuestionProgress 
       ?? entry.problem_status
       ?? entry.status;
     const statusValue = isRecord(rawStatus) ? rawStatus.status : rawStatus;
-    if (typeof statusValue !== 'string' || !validStatuses.has(statusValue)) {
+    if (!isProblemSubmissionStatus(statusValue)) {
       throw new Error('题目状态缺失或无法识别。');
     }
     const status = statusValue;
@@ -111,6 +116,11 @@ export function calculateQuestionProgress(entries: unknown[]): QuestionProgress 
     statusById.set(id, status);
   }
   if (!statusById.size) throw new Error('题目状态列表为空。');
+  return statusById;
+}
+
+export function calculateQuestionProgress(entries: unknown[]): QuestionProgress {
+  const statusById = problemStatusById(entries);
   const total = statusById.size;
   const completed = [...statusById.values()].filter((status) => status !== 'PROBLEM_NO_ANSWER').length;
   return {

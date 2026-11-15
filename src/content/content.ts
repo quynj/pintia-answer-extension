@@ -128,7 +128,8 @@ import type { PintiaQuestionBankResult } from '../shared/types';
       api.extractProblemSetForReview(
         message.problemSet,
         message.detailRequestDelayMs,
-        message.includeSubmissions !== false
+        message.includeSubmissions !== false,
+        message.includeProblemStatus === true
       )
         .then((result) => sendResponse({ result }))
         .catch((error) => sendResponse({ error: errorMessage(error, '题目集导出失败。') }));

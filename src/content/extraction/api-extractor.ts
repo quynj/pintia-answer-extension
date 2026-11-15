@@ -4,6 +4,7 @@ import {
   calculateQuestionProgress,
   examResponseData,
   isPastProgressDeadline,
+  problemStatusById,
   problemStatusEntriesFromResponse,
   progressDeadlineFromExamResponse,
   serverTimeFromResponse
@@ -13,6 +14,7 @@ import type {
   PintiaExtractorApi,
   PintiaProblemSet,
   PintiaProblemSetProgress,
+  PintiaProblemSubmissionStatus,
   PintiaQuestion
 } from '../../shared/types';
 type ApiObject = Record<string, unknown>;
@@ -605,7 +607,8 @@ type FetchQuestionOptions = {
   async function extractProblemSetForReview(
     problemSet: PintiaProblemSet,
     detailRequestDelayMs = 1000,
-    includeSubmissions = true
+    includeSubmissions = true,
+    includeProblemStatus = false
   ) {
     const problemSetId = String(problemSet?.id || '');
     const examId = String(problemSet?.examId || '');
@@ -677,6 +680,16 @@ type FetchQuestionOptions = {
     }
 
     const uniqueQuestions = commonApi.uniqueQuestions(questions);
+    let statuses: Record<string, PintiaProblemSubmissionStatus> | undefined;
+    if (includeProblemStatus) {
+      const statusUrl = new URL(
+        `/api/exams/${encodeURIComponent(examId)}/problem-sets/${encodeURIComponent(problemSetId)}/problem-status`,
+        location.origin
+      );
+      const statusResponse = requiredResponse(await fetchResponse(statusUrl.href), '题目状态');
+      const statusResult = await responseData(statusResponse);
+      statuses = Object.fromEntries(problemStatusById(problemStatusEntriesFromResponse(statusResult.data)));
+    }
     return {
       title: problemSet.name || 'Pintia 作业',
       problemSetName: problemSet.name || 'Pintia 作业',
@@ -685,6 +698,7 @@ type FetchQuestionOptions = {
       extraction: 'api',
       exportedAt: new Date().toISOString(),
       summaries,
+      ...(statuses ? { problemStatusById: statuses } : {}),
       questions: uniqueQuestions.map((question) => ({
         ...question,
         submission: submissions.get(String(question.id || '')) || null

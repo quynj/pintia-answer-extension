@@ -146,12 +146,17 @@ export function createReviewExportPanel({
         const response = await sendRuntimeMessage({
           type: 'export-review-problem-set',
           problemSet,
-          detailRequestDelayMs
+          detailRequestDelayMs,
+          includeProblemStatus: true
         });
         if (!isQuestionBankResult(response.result) || typeof response.result.problemSetId !== 'string') {
           throw new Error('后台返回了无效的题目集答案数据。');
         }
-        const payload = reviewAnswerPayload(response.result.problemSetId, response.result.questions);
+        const payload = reviewAnswerPayload(
+          response.result.problemSetId,
+          response.result.questions,
+          response.result.problemStatusById
+        );
         if (!payload.answers.length) {
           throw new Error(`“${problemSet.name}”没有可导出的最近作答记录。`);
         }

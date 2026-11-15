@@ -5,6 +5,7 @@ import {
   examResponseData,
   isPastProgressDeadline,
   parsePintiaTimestamp,
+  problemStatusById,
   problemStatusEntriesFromResponse,
   progressDeadline,
   progressDeadlineFromExamResponse,
@@ -31,6 +32,11 @@ test('parses problem-status API records using problemSubmissionStatus', () => {
     ]
   });
   assert.deepEqual(calculateQuestionProgress(entries), { completed: 2, total: 3, percentage: 66 });
+  assert.deepEqual(problemStatusById(entries), new Map([
+    ['one', 'PROBLEM_ACCEPTED'],
+    ['two', 'PROBLEM_WRONG_ANSWER'],
+    ['three', 'PROBLEM_NO_ANSWER']
+  ]));
 });
 
 test('deduplicates consistent question IDs and rejects conflicting or incomplete statuses', () => {

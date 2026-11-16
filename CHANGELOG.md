@@ -1,5 +1,15 @@
 # 更新日志
 
+## v1.8.1
+
+### 中文
+
+- 修复作业 Markdown 导出中的题干清洗，减少格式噪声并改进导出内容的可读性。
+
+### English
+
+- Fixed question-stem cleaning in review Markdown exports to reduce formatting noise and improve readability.
+
 ## v1.8.0
 
 ### 中文

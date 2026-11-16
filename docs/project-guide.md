@@ -96,4 +96,4 @@ git diff --check
 
 ## 发布流程
 
-发布新版本时先更新 `manifest.json` 中的版本号，并创建匹配的 `vX.Y.Z` 标签。GitHub Actions 会校验标签与清单版本，运行测试、类型检查和构建，将 `dist/` 打包为 ZIP 并创建 GitHub Release。扩展弹窗读取该 Release 的版本信息，但不会自动替换或安装用户本地目录。
+影响扩展源码或构建产物的 PR 应同时更新 `manifest.json` 中的版本号，并在 `CHANGELOG.md` 顶部添加对应的中英文版本说明。PR 合并到 `main` 后，Release 工作流会校验版本和更新日志，运行测试、类型检查和构建，将 `dist/` 打包为 ZIP，并在同一次工作流中创建匹配的版本标签和 GitHub Release。工作流不向受保护的 `main` 推送提交；扩展弹窗读取 Release 版本信息，但不会自动替换或安装用户本地目录。

@@ -6,7 +6,7 @@
 
 - `main` 是受保护的主分支。不要直接在 `main` 上开发或推送；从最新的 `main` 创建工作分支，并通过 Pull Request（PR）合并。
 - 普通协作者的 PR 至少需要 **1 位其他协作者批准**，新提交会使旧审批失效。仓库管理员可以绕过传统分支保护的全部要求；管理员也应优先通过 PR 合并，并自行检查变更。普通协作者不能强推或删除 `main`。
-- 当前没有配置 PR 必需的状态检查。刷题室 Pages 工作流在合并后运行，不能代替 PR 审查或合并前检查。
+- `main` 的保护规则要求 `validate-release-metadata` 状态检查通过。该检查会在所有 PR 阶段运行；非扩展改动会直接通过，扩展改动则须更新版本和更新日志。刷题室 Pages 工作流在合并后运行，不能代替 PR 审查或合并前检查。
 - 分支名建议使用 `feat/<topic>`、`fix/<topic>`、`docs/<topic>` 或 `chore/<topic>`。文档专属分支只改文档，不混入代码改动。
 
 典型流程：
@@ -61,6 +61,12 @@ git diff --check
 ## 个人刷题室部署
 
 合并到 `main` 后，若 PR 改动了 `practice-room/**` 或 `.github/workflows/deploy-pages.yml`，GitHub Actions 会运行刷题室测试、类型检查和构建，并将构建产物部署到 GitHub Pages。PR 阶段不会触发正式部署；可在仓库 Actions 页面查看部署结果。
+
+## 浏览器扩展发布
+
+影响扩展源码或构建产物的 PR 应同时更新 `manifest.json` 版本号和 `CHANGELOG.md` 中对应的中英文版本说明。修复通常递增 patch，兼容功能通常递增 minor，破坏性变更递增 major。
+
+此类 PR 合并到 `main` 后，Release 工作流会校验版本与更新日志，运行测试、类型检查和构建，打包扩展并创建匹配的版本标签及 GitHub Release。工作流只需创建标签和 Release，不会向受保护的 `main` 推送提交；不要手动重复创建同一版本的标签或 Release。
 
 ## 变更与安全边界
 

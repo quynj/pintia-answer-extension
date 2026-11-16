@@ -1,19 +1,79 @@
 name: Release
 
 on:
+  pull_request:
+    branches:
+      - main
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
+    paths:
+      - 'CHANGELOG.md'
+      - 'LICENSE'
+      - 'manifest.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/**'
+      - 'src/**'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  release:
+  validate-release-metadata:
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate release metadata
+        env:
+          BASE_REF: ${{ github.base_ref }}
+        run: |
+          set -euo pipefail
+          changed_files=$(git diff --name-only "origin/$BASE_REF...HEAD")
+          if ! grep -Eq '^(CHANGELOG\.md|LICENSE|manifest\.json|package\.json|package-lock\.json|scripts/|src/)' <<< "$changed_files"; then
+            echo "No extension changes; release metadata validation is not needed."
+            exit 0
+          fi
+
+          base_version=$(git show "origin/$BASE_REF:manifest.json" | jq -er '.version | strings')
+          manifest_version=$(jq -er '.version | strings' manifest.json)
+          if [[ ! "$base_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ || ! "$manifest_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Manifest versions must use x.y.z SemVer"
+            exit 1
+          fi
+
+          newest_version=$(printf '%s\n%s\n' "$base_version" "$manifest_version" | sort -V | tail -n 1)
+          if [ "$manifest_version" = "$base_version" ] || [ "$newest_version" != "$manifest_version" ]; then
+            echo "::error::Extension changes must increase manifest.json version from $base_version"
+            exit 1
+          fi
+
+          release_section=$(awk -v heading="## v$manifest_version" '
+            $0 == heading { found = 1; next }
+            found && /^## / { exit }
+            found { print }
+            END { if (!found) exit 1 }
+          ' CHANGELOG.md)
+          if ! grep -Fxq '### 中文' <<< "$release_section" || ! grep -Fxq '### English' <<< "$release_section"; then
+            echo "::error::CHANGELOG.md must provide Chinese and English notes for v$manifest_version"
+            exit 1
+          fi
+
+  release:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -23,12 +83,41 @@ jobs:
 
       - name: Validate release version
         run: |
-          manifest_version=$(jq -r '.version' manifest.json)
-          tag_version="${GITHUB_REF_NAME#v}"
-          if [ "$tag_version" != "$manifest_version" ]; then
-            echo "::error::Release tag $GITHUB_REF_NAME does not match manifest version $manifest_version"
+          set -euo pipefail
+          git fetch --tags origin
+          manifest_version=$(jq -er '.version | strings' manifest.json)
+          if [[ ! "$manifest_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::Invalid manifest version: $manifest_version"
             exit 1
           fi
+
+          release_tag="v$manifest_version"
+          if git rev-parse --verify "refs/tags/$release_tag" >/dev/null 2>&1; then
+            echo "::error::Release tag $release_tag already exists"
+            exit 1
+          fi
+
+          latest_tag=$(git tag --list 'v[0-9]*' --sort=-version:refname | head -n 1)
+          if [ -n "$latest_tag" ]; then
+            latest_version="${latest_tag#v}"
+            newest_version=$(printf '%s\n%s\n' "$latest_version" "$manifest_version" | sort -V | tail -n 1)
+            if [ "$newest_version" != "$manifest_version" ] || [ "$latest_version" = "$manifest_version" ]; then
+              echo "::error::Manifest version $manifest_version must be newer than $latest_tag"
+              exit 1
+            fi
+          fi
+
+          release_section=$(awk -v heading="## $release_tag" '
+            $0 == heading { found = 1; next }
+            found && /^## / { exit }
+            found { print }
+            END { if (!found) exit 1 }
+          ' CHANGELOG.md)
+          if ! grep -Fxq '### 中文' <<< "$release_section" || ! grep -Fxq '### English' <<< "$release_section"; then
+            echo "::error::CHANGELOG.md must provide Chinese and English notes for $release_tag"
+            exit 1
+          fi
+          echo "RELEASE_TAG=$release_tag" >> "$GITHUB_ENV"
 
       - name: Build extension
         run: |
@@ -40,16 +129,19 @@ jobs:
       - name: Package extension
         run: |
           cd dist
-          zip -r "../pintia-answer-extension-${GITHUB_REF_NAME}.zip" .
+          zip -r "../pintia-answer-extension-${RELEASE_TAG}.zip" .
 
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          awk -v heading="## ${GITHUB_REF_NAME}" '
+          awk -v heading="## ${RELEASE_TAG}" '
             $0 == heading { found = 1; next }
             found && /^## / { exit }
             found { print }
             END { if (!found) exit 1 }
           ' CHANGELOG.md > release-notes.md
-          gh release create "$GITHUB_REF_NAME" "pintia-answer-extension-${GITHUB_REF_NAME}.zip" --title "$GITHUB_REF_NAME" --notes-file release-notes.md
+          gh release create "$RELEASE_TAG" "pintia-answer-extension-${RELEASE_TAG}.zip" \
+            --target "$GITHUB_SHA" \
+            --title "$RELEASE_TAG" \
+            --notes-file release-notes.md

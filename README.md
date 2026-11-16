@@ -81,6 +81,7 @@ npm run build
 
 ## 文档
 
+- [贡献指南](CONTRIBUTING.md)：分支与 PR 流程、提交前检查和刷题室部署说明。
 - [文档索引与命名约定](docs/README.md)：需求、架构、契约和设计文档的职责。
 - [产品需求规格](docs/product-specification.md)：功能范围、用户行为和约束。
 - [项目导览与系统架构](docs/project-guide.md)：源码目录、运行上下文、数据流和修改入口。

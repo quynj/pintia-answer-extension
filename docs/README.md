@@ -6,6 +6,7 @@
 
 | 文档 | 角色 | 主要读者 |
 | --- | --- | --- |
+| [贡献指南](../CONTRIBUTING.md) | 分支与 PR 流程、提交前检查和刷题室部署说明 | 开发者、贡献者、coding agent |
 | [product-specification.md](./product-specification.md) | 产品需求规格：范围、用户可见行为、约束和验收条件 | 产品、用户、开发者 |
 | [project-guide.md](./project-guide.md) | 系统设计：目录职责、运行上下文、数据流和修改入口 | 开发者、coding agent |
 | [answer-json-contract.md](./answer-json-contract.md) | 答案输入/输出契约：字段、类型、校验和生成要求 | 用户、AI、开发者 |
@@ -14,7 +15,7 @@
 | [pintia-question-cleaning-rules.md](./pintia-question-cleaning-rules.md) | Pintia 题库题干清洗规则，可供扩展导出与刷题室复用 | 开发者、coding agent |
 | [刷题室 SDD](../practice-room/docs/SDD.md) | 独立静态刷题室的需求、架构和数据契约 | 开发者、coding agent |
 
-根目录 [README](../README.md) 是面向初次使用者的安装和快速操作指南；根目录 [AGENTS.md](../AGENTS.md) 是面向 coding agent 和贡献者的工作约定；[CHANGELOG](../CHANGELOG.md) 记录已发布版本的变化。
+根目录 [README](../README.md) 是面向初次使用者的安装和快速操作指南；根目录 [CONTRIBUTING](../CONTRIBUTING.md) 说明协作流程；根目录 [AGENTS.md](../AGENTS.md) 是面向 coding agent 和贡献者的工作约定；[CHANGELOG](../CHANGELOG.md) 记录已发布版本的变化。
 
 仓库还提供[题库转复习 Markdown skill](../.agents/skills/pintia-review-markdown/SKILL.md)：使用时必须提供题库 JSON，答案 JSON 可选。安装和使用方法见[根目录 README](../README.md)。
 

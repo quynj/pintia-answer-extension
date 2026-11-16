@@ -1,6 +1,6 @@
 # 项目导览与系统架构
 
-本文面向维护者和 coding agent，说明扩展的组成、主要数据流、边界和修改入口。用户行为需求见[产品需求规格](./product-specification.md)，操作步骤见根目录 README，字段细节以各契约文档为准。
+本文面向维护者和 coding agent，仅说明仓库根目录浏览器扩展的组成、主要数据流、边界和修改入口。仓库还包含独立静态刷题室，位于 [`practice-room/`](../practice-room/)，使用独立依赖和 Pages 部署流程；其设计见[刷题室 SDD](../practice-room/docs/SDD.md)。扩展的用户行为需求见[产品需求规格](./product-specification.md)，操作步骤见根目录 README，字段细节以各契约文档为准。
 
 ## 项目是什么
 
@@ -25,6 +25,7 @@ scripts/                      构建与测试入口
 tests/                        纯逻辑回归测试
 dist/                         生成的扩展包；不可手工编辑或提交
 docs/                         契约、设计和开发文档
+practice-room/                独立 Vue 静态刷题室，单独安装依赖、测试和构建
 ```
 
 后台、内容脚本、弹窗和设置页是不同的浏览器上下文。源码通过 TypeScript ES modules 明确依赖；esbuild 为各入口打包成浏览器可加载的经典脚本。浏览器不加载 `src/` 中的 TypeScript 源码。

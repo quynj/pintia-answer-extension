@@ -2,6 +2,8 @@
 
 本文是 coding agent 和贡献者的仓库级工作约定。面向普通用户的安装与操作说明见根目录 [README](./README.md)。
 
+仓库根目录是 Chrome/Edge 扩展；独立静态刷题室位于 [`practice-room/`](./practice-room/)，使用自己的 `package.json`、依赖和验证命令。改动刷题室前阅读其 [`AGENTS.md`](./practice-room/AGENTS.md)，并从该目录运行对应命令，不要把扩展与刷题室的构建混为一谈。
+
 ## 开始修改前
 
 - 先检查工作区和相关实现；保留已有未提交修改，不覆盖或回退与当前任务无关的工作。

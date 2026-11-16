@@ -1,0 +1,53 @@
+name: Deploy practice room to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'practice-room/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.18.0
+          cache: npm
+          cache-dependency-path: practice-room/package-lock.json
+      - name: Install dependencies
+        working-directory: practice-room
+        run: npm ci
+      - name: Test, typecheck, and build
+        working-directory: practice-room
+        run: npm test && npm run typecheck && npm run build
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: practice-room/dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

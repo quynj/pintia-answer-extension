@@ -90,6 +90,10 @@ npm run build
 - [Agent 与开发者指南](AGENTS.md)：代码修改约定、文档维护和验证命令。
 - [更新日志](CHANGELOG.md)：已发布版本的变化。
 
+## 个人刷题室
+
+本仓库还提供独立静态刷题页，可导入本扩展导出的题库和答案 JSON，在浏览器中管理题库与练习作答。在线使用：[题间 · 个人刷题室](https://quynj.github.io/pintia-answer-extension/)；源码和独立开发说明见 [`practice-room/README.md`](practice-room/README.md)。
+
 ## 问题排查
 
 - **面板未显示：** 在扩展弹窗点「显示或隐藏助手面板」；确认当前标签页是已登录的 Pintia 页面。

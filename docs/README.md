@@ -11,6 +11,8 @@
 | [answer-json-contract.md](./answer-json-contract.md) | 答案输入/输出契约：字段、类型、校验和生成要求 | 用户、AI、开发者 |
 | [question-export-contract.md](./question-export-contract.md) | 题库 JSON 与作业 Markdown 导出契约 | 用户、开发者 |
 | [answer-fill-design.md](./answer-fill-design.md) | 答案回填的定位、注入、验证、保存和报告设计 | 开发者 |
+| [pintia-question-cleaning-rules.md](./pintia-question-cleaning-rules.md) | Pintia 题库题干清洗规则，可供扩展导出与刷题室复用 | 开发者、coding agent |
+| [刷题室 SDD](../practice-room/docs/SDD.md) | 独立静态刷题室的需求、架构和数据契约 | 开发者、coding agent |
 
 根目录 [README](../README.md) 是面向初次使用者的安装和快速操作指南；根目录 [AGENTS.md](../AGENTS.md) 是面向 coding agent 和贡献者的工作约定；[CHANGELOG](../CHANGELOG.md) 记录已发布版本的变化。
 

@@ -1,0 +1,77 @@
+{
+  "problemSetId": "2109131391876833280",
+  "answers": [
+    {
+      "problemId": "2109132744510513152",
+      "questionNumber": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "CHECK",
+        "IN"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2109132744514707456",
+      "questionNumber": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "auto_increment",
+        "foreign key(cno) references course(cno)",
+        "foreign key(tno) references teachers(tno)"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2109132744514707457",
+      "questionNumber": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "alter table",
+        "add",
+        "students(sno)",
+        "cno"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2109132744514707458",
+      "questionNumber": 4,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "teaching",
+        "constraint",
+        "cterm between 1 and 10"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2109132744514707460",
+      "questionNumber": 5,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "constraint",
+        "foreign key",
+        "teachers(tno)"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2109132744514707461",
+      "questionNumber": 6,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "course",
+        "drop"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2109268951789838336",
+      "questionNumber": 1,
+      "type": "SUBJECTIVE",
+      "answer": "create database if not exists  \\`cms_demo\\` CHARACTER set utf8mb4;\n\n<br>\n\nuse \\`cms_demo\\`;\n\n<br>\n\ncreate table if not exists \\`cms_cate\\`(\n\nid tinyint primary key comment '分类编号',\n\ncateName varchar(50) not null comment '分类名称',\n\ncateDesc varchar(200) comment '分类描述'\n\n<br>\n\n)comment '新闻分类表';\n\n<br>\n\n<br>\n\ncreate table if not exists  \\`cms_news\\`(\n\nid int primary key comment '新闻编号',\n\ntitle varchar(50) not null comment '新闻标题',\n\ncontent text comment '新闻内容',\n\npubTime datetime not null DEFAULT CURRENT_TIMESTAMP comment '发布时间',\n\nclickNum int not null DEFAULT 0 CHECK(clickNum>=0) comment '点击量',\n\nisTop tinyint UNSIGNED not null default 0 comment '是否置顶，0：不置顶，1：置顶',\n\ncId tinyint not null comment '所属分类',\n\nCONSTRAINT cId_cmsCate_fk foreign key(cId) REFERENCES cms_cate(id)\n\n<br>\n\n)comment '新闻表';<br>\n\n<br>\n\n<br>\n\n![image.png]({PTA_URL}/api/private-image?p=user-uploads/2097505778148417536/2026-10-12/1791791208-92f661e6-f870-4ec1-8a60-a88a6787fde0.png \"image.png\")![image.png]({PTA_URL}/api/private-image?p=user-uploads/2097505778148417536/2026-10-12/1791791237-8da5db82-e32f-46bc-85a5-35ece7f34f74.png \"image.png\")",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

@@ -1,0 +1,1821 @@
+{
+  "title": "MySQL数据库理论2026.9",
+  "problemSetName": "MySQL数据库理论2026.9",
+  "problemSetId": "2101644573819555840",
+  "examId": "2101926754064199680",
+  "source": "https://pintia.cn/problem-sets/2101644573819555840",
+  "extraction": "api",
+  "exportedAt": "2026-11-15T06:24:41.682Z",
+  "summaries": {
+    "TRUE_OR_FALSE": {
+      "total": 7,
+      "totalScore": 7
+    },
+    "MULTIPLE_CHOICE": {
+      "total": 14,
+      "totalScore": 28
+    },
+    "FILL_IN_THE_BLANK": {
+      "total": 10,
+      "totalScore": 84
+    }
+  },
+  "questions": [
+    {
+      "id": "2101644574062825472",
+      "number": 1,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "属性的取值范围称为属性的域。",
+      "content": "属性的取值范围称为属性的域。",
+      "title": "属性的取值范围称为属性的域。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2101644574062825472",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "属性的取值范围称为属性的域。",
+        "content": "属性的取值范围称为属性的域。",
+        "type": "TRUE_OR_FALSE",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1369500621828579328",
+        "description": "属性的取值范围称为属性的域。",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2101644574062825473",
+      "number": 2,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "实体之间的联系可抽象为三类，它们是 1∶1 、1∶m和 m∶n",
+      "content": "实体之间的联系可抽象为三类，它们是 1∶1 、1∶m和   m∶n",
+      "title": "实体之间的联系可抽象为三类，它们是 1∶1 、1∶m和   m∶n",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2101644574062825473",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "实体之间的联系可抽象为三类，它们是 1∶1 、1∶m和   m∶n",
+        "content": "实体之间的联系可抽象为三类，它们是 1∶1 、1∶m和   m∶n ",
+        "type": "TRUE_OR_FALSE",
+        "author": "祁长兴",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1399888096773578752",
+        "description": "实体之间的联系可抽象为三类，它们是 1∶1 、1∶m和   m∶n ",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2101644574062825475",
+      "number": 3,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "MySQL是一处关系型数据库管理系统，它是开源软件，可以免费使用。",
+      "content": "MySQL是一处关系型数据库管理系统，它是开源软件，可以免费使用。",
+      "title": "MySQL是一处关系型数据库管理系统，它是开源软件，可以免费使用。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2101644574062825475",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "MySQL是一处关系型数据库管理系统，它是开源软件，可以免费使用。",
+        "content": "MySQL是一处关系型数据库管理系统，它是开源软件，可以免费使用。",
+        "type": "TRUE_OR_FALSE",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1722214769432010752",
+        "description": "MySQL是一处关系型数据库管理系统，它是开源软件，可以免费使用。",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2101644574062825476",
+      "number": 4,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "MySQL数据库管理系统只能在Windows操作系统下运行。",
+      "content": "MySQL数据库管理系统只能在Windows操作系统下运行。",
+      "title": "MySQL数据库管理系统只能在Windows操作系统下运行。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2101644574062825476",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "MySQL数据库管理系统只能在Windows操作系统下运行。",
+        "content": "MySQL数据库管理系统只能在Windows操作系统下运行。",
+        "type": "TRUE_OR_FALSE",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1722231829646090240",
+        "description": "MySQL数据库管理系统只能在Windows操作系统下运行。",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2101644574062825477",
+      "number": 5,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "数据独立性指数据的存储与应用程序无关，数据存储结构的改变不影响应用程序的正常运行。",
+      "content": "数据独立性指数据的存储与应用程序无关，数据存储结构的改变不影响应用程序的正常运行。",
+      "title": "数据独立性指数据的存储与应用程序无关，数据存储结构的改变不影响应用程序的正常运行。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2101644574062825477",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "数据独立性指数据的存储与应用程序无关，数据存储结构的改变不影响应用程序的正常运行。",
+        "content": "数据独立性指数据的存储与应用程序无关，数据存储结构的改变不影响应用程序的正常运行。",
+        "type": "TRUE_OR_FALSE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1771824475941834752",
+        "description": "数据独立性指数据的存储与应用程序无关，数据存储结构的改变不影响应用程序的正常运行。",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825478",
+      "number": 6,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "用二维表来表示实体之间联系的模型称为网状模型。",
+      "content": "用二维表来表示实体之间联系的模型称为网状模型。",
+      "title": "用二维表来表示实体之间联系的模型称为网状模型。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2101644574062825478",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "用二维表来表示实体之间联系的模型称为网状模型。",
+        "content": "用二维表来表示实体之间联系的模型称为网状模型。",
+        "type": "TRUE_OR_FALSE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1771828404528312320",
+        "description": "用二维表来表示实体之间联系的模型称为网状模型。",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825479",
+      "number": 7,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "这是一个判断题的样例。答案为T，分值为5分。",
+      "content": "这是一个判断题的样例。答案为T，分值为5分。",
+      "title": "数据库体系结构按照模式 、外模式和内模式三级结构进行组织。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2101644574062825479",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "数据库体系结构按照模式 、外模式和内模式三级结构进行组织。",
+        "content": "这是一个判断题的样例。答案为T，分值为5分。",
+        "type": "TRUE_OR_FALSE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1856317209191874560",
+        "description": "数据库体系结构按照模式 、外模式和内模式三级结构进行组织。",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825480",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "数据库管理系统的英文缩写是",
+      "content": "数据库管理系统的英文缩写是",
+      "title": "数据库管理系统的英文缩写是",
+      "options": [
+        "DBMS",
+        "DBS",
+        "DBA",
+        "DB"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825480",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "DBMS",
+              "DBS",
+              "DBA",
+              "DB"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "数据库管理系统的英文缩写是",
+        "content": "数据库管理系统的英文缩写是",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1771812732284903424",
+        "description": "数据库管理系统的英文缩写是",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825481",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "SQL的中文含义是：",
+      "content": "SQL的中文含义是：",
+      "title": "SQL的中文含义是：",
+      "options": [
+        "结构化查询语言",
+        "结构化定义语言",
+        "结构化操纵语言",
+        "结构化选择语言"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825481",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "结构化查询语言",
+              "结构化定义语言",
+              "结构化操纵语言",
+              "结构化选择语言"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "SQL的中文含义是：",
+        "content": "SQL的中文含义是：\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1567421622611288064",
+        "description": "SQL的中文含义是：\n\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825482",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "SQL 语言是\\____\\_语言",
+      "content": "SQL 语言是\\____\\_语言",
+      "title": "SQL 语言是\\____\\_语言",
+      "options": [
+        "层次数据库",
+        "网络数据库",
+        "关系数据库",
+        "非数据库"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825482",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "层次数据库",
+              "网络数据库",
+              "关系数据库",
+              "非数据库"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "SQL 语言是\\____\\_语言",
+        "content": "SQL 语言是\\____\\_语言",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1709487625330880512",
+        "description": "SQL 语言是\\____\\_语言",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825483",
+      "number": 4,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "SQL语言具有()的功能：",
+      "content": "SQL语言具有()的功能：",
+      "title": "SQL语言具有 ____ 的功能：",
+      "options": [
+        "关系规范化、数据操纵、数据控制",
+        "数据定义、数据操纵、数据控制",
+        "数据定义、关系规范化、数据控制",
+        "数据定义、关系规范化、数据操纵"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825483",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "关系规范化、数据操纵、数据控制",
+              "数据定义、数据操纵、数据控制",
+              "数据定义、关系规范化、数据控制",
+              "数据定义、关系规范化、数据操纵"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "SQL语言具有 ____ 的功能：",
+        "content": " SQL语言具有()的功能：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1710302753009823744",
+        "description": " SQL语言具有()的功能：",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825484",
+      "number": 5,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在概念模型中的客观存在并可相互区别的事物称( )。 @[](2) A. 实体 B. 元组 C. 属性 D. 节点",
+      "content": "在概念模型中的客观存在并可相互区别的事物称( )。   @[](2)\n\nA. 实体\nB. 元组\nC. 属性\nD. 节点",
+      "title": "在概念模型中的客观存在并可相互区别的事物称( )。   ",
+      "options": [
+        "实体",
+        "元组",
+        "属性",
+        "节点"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825484",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "实体",
+              "元组",
+              "属性",
+              "节点"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在概念模型中的客观存在并可相互区别的事物称( )。   ",
+        "content": "在概念模型中的客观存在并可相互区别的事物称( )。   @[](2)\n\nA. 实体\nB. 元组\nC. 属性\nD. 节点\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "黄淑伟",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1217020280533622784",
+        "description": "在概念模型中的客观存在并可相互区别的事物称( )。",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2101644574062825485",
+      "number": 6,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "概念模型是现实世界的第一层抽象，这一类模型中最著名的模型是( )",
+      "content": "概念模型是现实世界的第一层抽象，这一类模型中最著名的模型是(      )",
+      "title": "概念模型是现实世界的第一层抽象，这一类模型中最著名的模型是(      )",
+      "options": [
+        "层次模型",
+        "关系模型",
+        "网状模型",
+        "实体-联系模型"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825485",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "层次模型\t",
+              "关系模型",
+              "网状模型",
+              "实体-联系模型"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "概念模型是现实世界的第一层抽象，这一类模型中最著名的模型是(      )",
+        "content": "概念模型是现实世界的第一层抽象，这一类模型中最著名的模型是(      )",
+        "type": "MULTIPLE_CHOICE",
+        "author": "祁长兴",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1399897391900676096",
+        "description": "概念模型是现实世界的第一层抽象，这一类模型中最著名的模型是(      )",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2101644574062825486",
+      "number": 7,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "E-R图是表示概念模型的有效工具之一， E-R图中的菱形框“表示”的是：",
+      "content": "E-R图是表示概念模型的有效工具之一， E-R图中的菱形框“表示”的是：",
+      "title": "E-R图是表示概念模型的有效工具之一， E-R图中的菱形框“表示”的是：",
+      "options": [
+        "联系",
+        "实体",
+        "实体的属性",
+        "联系的属性"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825486",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "联系",
+              "实体",
+              "实体的属性",
+              "联系的属性"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "E-R图是表示概念模型的有效工具之一， E-R图中的菱形框“表示”的是：",
+        "content": "E-R图是表示概念模型的有效工具之一， E-R图中的菱形框“表示”的是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1442665825154117632",
+        "description": "E-R图是表示概念模型的有效工具之一， E-R图中的菱形框“表示”的是：",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825487",
+      "number": 8,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "绘制E-R图的3个基本要素是：",
+      "content": "绘制E-R图的3个基本要素是：",
+      "title": "绘制E-R图的3个基本要素是：",
+      "options": [
+        "实体、属性、关键字",
+        "属性、实体、联系",
+        "属性、数据类型、实体",
+        "约束、属性、实体"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825487",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "实体、属性、关键字",
+              "属性、实体、联系",
+              "属性、数据类型、实体",
+              "约束、属性、实体"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "绘制E-R图的3个基本要素是：",
+        "content": "绘制E-R图的3个基本要素是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1441010449012867072",
+        "description": "绘制E-R图的3个基本要素是：",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825488",
+      "number": 9,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "数据库概念设计的E-R方法中，用属性描述实体的特征，属性在E-R图中，用（）表示。",
+      "content": "数据库概念设计的E-R方法中，用属性描述实体的特征，属性在E-R图中，用（）表示。",
+      "title": "数据库概念设计的E-R方法中，用属性描述实体的特征，属性在E-R图中，用（）表示。",
+      "options": [
+        "矩形",
+        "正方形",
+        "菱形",
+        "椭圆形"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825488",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "矩形",
+              "正方形",
+              "菱形",
+              "椭圆形"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "数据库概念设计的E-R方法中，用属性描述实体的特征，属性在E-R图中，用（）表示。",
+        "content": "数据库概念设计的E-R方法中，用属性描述实体的特征，属性在E-R图中，用（）表示。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1442664483773755392",
+        "description": "数据库概念设计的E-R方法中，用属性描述实体的特征，属性在E-R图中，用（）表示。",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825489",
+      "number": 10,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "创建数据库的命令是：",
+      "content": "创建数据库的命令是：",
+      "title": "创建数据库的命令是：",
+      "options": [
+        "create database",
+        "create table",
+        "create index",
+        "create view"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825489",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "create database",
+              "create table",
+              "create index",
+              "create view"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "创建数据库的命令是：",
+        "content": "创建数据库的命令是：\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1567408348964515840",
+        "description": "创建数据库的命令是：\n\n",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825490",
+      "number": 11,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "数据库(DB)、数据库系统(DBS)和数据库管理系统(DBMS)三者之间的关系是：",
+      "content": "数据库(DB)、数据库系统(DBS)和数据库管理系统(DBMS)三者之间的关系是：",
+      "title": "数据库(DB)、数据库系统(DBS)和数据库管理系统(DBMS)三者之间的关系是：",
+      "options": [
+        "DBS包括DB和DBMS",
+        "DBMS包括DB和DBS",
+        "DB包括DBS和DBMS",
+        "DBS就是DB,也就是DBMS"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825490",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "DBS包括DB和DBMS",
+              "DBMS包括DB和DBS",
+              "DB包括DBS和DBMS",
+              "DBS就是DB,也就是DBMS"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "数据库(DB)、数据库系统(DBS)和数据库管理系统(DBMS)三者之间的关系是：",
+        "content": "数据库(DB)、数据库系统(DBS)和数据库管理系统(DBMS)三者之间的关系是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1709500983585140736",
+        "description": "数据库(DB)、数据库系统(DBS)和数据库管理系统(DBMS)三者之间的关系是：",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825493",
+      "number": 12,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "这是一个单选题的样例。答案为C，分值为2分。",
+      "content": "这是一个单选题的样例。答案为C，分值为2分。",
+      "title": "在选课表中，学号和课程号共同组成主键，这种主键称为?",
+      "options": [
+        "单主键",
+        "唯一键",
+        "外键",
+        "复合主键"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825493",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "单主键",
+              "唯一键",
+              "外键",
+              "复合主键"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在选课表中，学号和课程号共同组成主键，这种主键称为?",
+        "content": "这是一个单选题的样例。答案为C，分值为2分。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1965574259457802240",
+        "description": "在选课表中，学号和课程号共同组成主键，这种主键称为?",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2101644574062825494",
+      "number": 13,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "什么是位于用户与操作系统之间的一层数据管理软件,它属于系统软件,它为用户或应用程序提供访问数据库的方法.数据库在建立、使用和维护时由其统一管理、统一控制。",
+      "content": "什么是位于用户与操作系统之间的一层数据管理软件,它属于系统软件,它为用户或应用程序提供访问数据库的方法.数据库在建立、使用和维护时由其统一管理、统一控制。",
+      "title": "什么是位于用户与操作系统之间的一层数据管理软件",
+      "options": [
+        "DBMS",
+        "DB",
+        "DBS",
+        "DBA"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825494",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "DBMS",
+              "DB",
+              "DBS",
+              "DBA"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "什么是位于用户与操作系统之间的一层数据管理软件",
+        "content": "什么是位于用户与操作系统之间的一层数据管理软件,它属于系统软件,它为用户或应用程序提供访问数据库的方法.数据库在建立、使用和维护时由其统一管理、统一控制。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1771512713170329600",
+        "description": "什么是位于用户与操作系统之间的一层数据管理软件,它属于系统软件,它为用户或应用程序提供访问数据库的方法.数据库在建立、使用和维护时由其统一管理、统一控制。",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825495",
+      "number": 14,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "这是一个单选题的样例。答案为C，分值为2分。",
+      "content": "这是一个单选题的样例。答案为C，分值为2分。",
+      "title": "MySQL安装时的默认端口为 ____ 。",
+      "options": [
+        "3389",
+        "1158",
+        "8080",
+        "3306"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825495",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "3389",
+              "1158",
+              "8080",
+              "3306"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "MySQL安装时的默认端口为 ____ 。",
+        "content": "这是一个单选题的样例。答案为C，分值为2分。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "王斌",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1848954804141477888",
+        "description": "MySQL安装时的默认端口为（ ）。",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2101644574062825496",
+      "number": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "实体所具有的某一特征称为实体的。 填空位置：________",
+      "content": "实体所具有的某一特征称为实体的。\n\n填空位置：________",
+      "title": "实体所具有的某一特征称为实体的。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825496",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2
+            ],
+            "blankLength": 20,
+            "blanks": [
+              {
+                "index": 15,
+                "multipleLine": false,
+                "length": 4,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "实体所具有的某一特征称为实体的。",
+        "content": "实体所具有的某一特征称为实体的。\n\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1442060587337187328",
+        "description": "实体所具有的某一特征称为实体的。\n\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101644574062825497",
+      "number": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "是表中的属性或属性组，用于唯一地确定一个元组。 填空位置：________",
+      "content": "是表中的属性或属性组，用于唯一地确定一个元组。\n\n填空位置：________",
+      "title": "是表中的属性或属性组，用于唯一地确定一个元组。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101644574062825497",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2
+            ],
+            "blankLength": 20,
+            "blanks": [
+              {
+                "index": 0,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "是表中的属性或属性组，用于唯一地确定一个元组。",
+        "content": "是表中的属性或属性组，用于唯一地确定一个元组。\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1442500716204077056",
+        "description": "是表中的属性或属性组，用于唯一地确定一个元组。\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101650258758225920",
+      "number": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "使用二维表存储数据的数据库是型数据库。 填空位置：________",
+      "content": "使用二维表存储数据的数据库是型数据库。\n\n填空位置：________",
+      "title": "使用二维表存储数据的数据库是型数据库。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101650258758225920",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2
+            ],
+            "blankLength": 4,
+            "blanks": [
+              {
+                "index": 14,
+                "multipleLine": false,
+                "length": 4,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用二维表存储数据的数据库是型数据库。",
+        "content": "使用二维表存储数据的数据库是型数据库。\n\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "shang",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1372146518203199488",
+        "description": "使用二维表存储数据的数据库是型数据库。\n\n",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2101650896363732992",
+      "number": 4,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "请分析以下语义并补充完整E-R图（班级-运动员-比赛项目）：有若干班级，每个班级包括： 班级号，班级名，专业，人数 ；每个班级有若干运动员，运动员只能属于一个班；运动员属性：运动员编号，姓名，性别，年龄；有若干比赛项目，包括：项目号，名称，比赛地点；每名运动员可参加多项比赛，每个项目可有多名运动员参加，比赛项目有比赛名次和成绩。 (说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示) ![PTA-ER模型-班级-运动员-比赛项目-题目.jpg](~/3a843162-cb25-4757-a7a1-074aba1e2085.jpg) [填空1] [填空2] [填空3] [填空4] [填空5] 填空位置：________、________、________、________、________",
+      "content": "请分析以下语义并补充完整E-R图（班级-运动员-比赛项目）：有若干班级，每个班级包括： 班级号，班级名，专业，人数 ；每个班级有若干运动员，运动员只能属于一个班；运动员属性：运动员编号，姓名，性别，年龄；有若干比赛项目，包括：项目号，名称，比赛地点；每名运动员可参加多项比赛，每个项目可有多名运动员参加，比赛项目有比赛名次和成绩。\n(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)\n\n\n![PTA-ER模型-班级-运动员-比赛项目-题目.jpg](~/3a843162-cb25-4757-a7a1-074aba1e2085.jpg)\n\n\n[填空1] [填空2]  [填空3]  [填空4]  [填空5]\n\n填空位置：________、________、________、________、________",
+      "title": "请分析以下语义并补充完整E-R图（班级-运动员-比赛项目）：有若干班级，每个班级包括： 班级号，班级名，专业，人数 ；每个班级有",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/3a843162-cb25-4757-a7a1-074aba1e2085.jpg",
+          "markdownPath": "~/3a843162-cb25-4757-a7a1-074aba1e2085.jpg",
+          "location": "content",
+          "index": 201
+        },
+        {
+          "url": "https://images.ptausercontent.com/3a843162-cb25-4757-a7a1-074aba1e2085.jpg",
+          "markdownPath": "~/3a843162-cb25-4757-a7a1-074aba1e2085.jpg",
+          "location": "description",
+          "index": 201
+        }
+      ],
+      "score": 10,
+      "apiData": {
+        "id": "2101650896363732992",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "blankLength": 13,
+            "blanks": [
+              {
+                "index": 283,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 290,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 297,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 304,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 310,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "请分析以下语义并补充完整E-R图（班级-运动员-比赛项目）：有若干班级，每个班级包括： 班级号，班级名，专业，人数 ；每个班级有",
+        "content": "请分析以下语义并补充完整E-R图（班级-运动员-比赛项目）：有若干班级，每个班级包括： 班级号，班级名，专业，人数 ；每个班级有若干运动员，运动员只能属于一个班；运动员属性：运动员编号，姓名，性别，年龄；有若干比赛项目，包括：项目号，名称，比赛地点；每名运动员可参加多项比赛，每个项目可有多名运动员参加，比赛项目有比赛名次和成绩。\n(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)\n\n\n![PTA-ER模型-班级-运动员-比赛项目-题目.jpg](~/3a843162-cb25-4757-a7a1-074aba1e2085.jpg)\n\n\n[填空1] [填空2]  [填空3]  [填空4]  [填空5]",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "张悦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1386500460979912704",
+        "description": "请分析以下语义并补充完整E-R图（班级-运动员-比赛项目）：有若干班级，每个班级包括： 班级号，班级名，专业，人数 ；每个班级有若干运动员，运动员只能属于一个班；运动员属性：运动员编号，姓名，性别，年龄；有若干比赛项目，包括：项目号，名称，比赛地点；每名运动员可参加多项比赛，每个项目可有多名运动员参加，比赛项目有比赛名次和成绩。\n(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)\n\n\n![PTA-ER模型-班级-运动员-比赛项目-题目.jpg](~/3a843162-cb25-4757-a7a1-074aba1e2085.jpg)\n\n\n[填空1] [填空2]  [填空3]  [填空4]  [填空5]",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2101650896363732993",
+      "number": 5,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "请分析以下语义并补充完整E-R图（医生-科室-病人）：设有一局部应用，包括“科室”、“医生”和“病人”等信息，且有如下事实：每位医生属于且仅属于一个科室，每个科室有多位医生可接诊病人，医生被某一科室聘用时有聘用日期和聘用期限；病人看病时，每次可能由不同的医生为其诊断，病人就诊有就诊日期。科室信息包括科室代码，科室名称；医生信息包括工号，姓名，职称；病人信息包括病历号，姓名，年龄。(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)。 ![QQ截图20211129200325.jpg](~/c410bc0d-d54b-450f-b90b-5724351b6796.jpg) [填空1][填空2] [填空3] [填空4] [填空5] 填空位置：________、________、________、________、________",
+      "content": "请分析以下语义并补充完整E-R图（医生-科室-病人）：设有一局部应用，包括“科室”、“医生”和“病人”等信息，且有如下事实：每位医生属于且仅属于一个科室，每个科室有多位医生可接诊病人，医生被某一科室聘用时有聘用日期和聘用期限；病人看病时，每次可能由不同的医生为其诊断，病人就诊有就诊日期。科室信息包括科室代码，科室名称；医生信息包括工号，姓名，职称；病人信息包括病历号，姓名，年龄。(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)。\n\n\n![QQ截图20211129200325.jpg](~/c410bc0d-d54b-450f-b90b-5724351b6796.jpg)\n\n\n[填空1][填空2]   [填空3]\n\n[填空4]  [填空5]\n\n填空位置：________、________、________、________、________",
+      "title": "请分析以下语义并补充完整E-R图（医生-科室-病人）：设有一局部应用，包括“科室”、“医生”和“病人”等信息，且有如下事实：每位",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/c410bc0d-d54b-450f-b90b-5724351b6796.jpg",
+          "markdownPath": "~/c410bc0d-d54b-450f-b90b-5724351b6796.jpg",
+          "location": "content",
+          "index": 227
+        },
+        {
+          "url": "https://images.ptausercontent.com/c410bc0d-d54b-450f-b90b-5724351b6796.jpg",
+          "markdownPath": "~/c410bc0d-d54b-450f-b90b-5724351b6796.jpg",
+          "location": "description",
+          "index": 227
+        }
+      ],
+      "score": 10,
+      "apiData": {
+        "id": "2101650896363732993",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "blankLength": 17,
+            "blanks": [
+              {
+                "index": 304,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 310,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 317,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 325,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 331,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "请分析以下语义并补充完整E-R图（医生-科室-病人）：设有一局部应用，包括“科室”、“医生”和“病人”等信息，且有如下事实：每位",
+        "content": "请分析以下语义并补充完整E-R图（医生-科室-病人）：设有一局部应用，包括“科室”、“医生”和“病人”等信息，且有如下事实：每位医生属于且仅属于一个科室，每个科室有多位医生可接诊病人，医生被某一科室聘用时有聘用日期和聘用期限；病人看病时，每次可能由不同的医生为其诊断，病人就诊有就诊日期。科室信息包括科室代码，科室名称；医生信息包括工号，姓名，职称；病人信息包括病历号，姓名，年龄。(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)。\n\n\n![QQ截图20211129200325.jpg](~/c410bc0d-d54b-450f-b90b-5724351b6796.jpg)\n\n\n[填空1][填空2]   [填空3]\n\n[填空4]  [填空5]\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "张悦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1386521778331844608",
+        "description": "请分析以下语义并补充完整E-R图（医生-科室-病人）：设有一局部应用，包括“科室”、“医生”和“病人”等信息，且有如下事实：每位医生属于且仅属于一个科室，每个科室有多位医生可接诊病人，医生被某一科室聘用时有聘用日期和聘用期限；病人看病时，每次可能由不同的医生为其诊断，病人就诊有就诊日期。科室信息包括科室代码，科室名称；医生信息包括工号，姓名，职称；病人信息包括病历号，姓名，年龄。(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)。\n\n\n![QQ截图20211129200325.jpg](~/c410bc0d-d54b-450f-b90b-5724351b6796.jpg)\n\n\n[填空1][填空2]   [填空3]\n\n[填空4]  [填空5]\n",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2101650896363732994",
+      "number": 6,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "请分析以下语义并补充完整E-R图（图书借阅）：图书信息包括：书号，书名，作者，数量，出版社，单价，架号。出版社信息包括：出版社号，社名，地址，电话，邮编。读者信息包括：借书证号，姓名，单位。一个出版社可以出版多种书籍，但每本书只能在一个出版社出版，出版图书时应有出版日期和责任编辑；每个读者可以借阅多本图书，每本图书可以有多人借阅，读者借阅图书时要登记借书日期，还书日期，是否续借。 (说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示) ![PTA-ER模型-图书借阅-题目.jpg](~/26314de1-17fd-4bae-afff-b816c60b9dd5.jpg) [填空1] [填空2] [填空3] [填空4] [填空5] 填空位置：________、________、________、________、________",
+      "content": "请分析以下语义并补充完整E-R图（图书借阅）：图书信息包括：书号，书名，作者，数量，出版社，单价，架号。出版社信息包括：出版社号，社名，地址，电话，邮编。读者信息包括：借书证号，姓名，单位。一个出版社可以出版多种书籍，但每本书只能在一个出版社出版，出版图书时应有出版日期和责任编辑；每个读者可以借阅多本图书，每本图书可以有多人借阅，读者借阅图书时要登记借书日期，还书日期，是否续借。\n(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)\n\n![PTA-ER模型-图书借阅-题目.jpg](~/26314de1-17fd-4bae-afff-b816c60b9dd5.jpg)\n\n[填空1]  [填空2]  [填空3]  \n[填空4] [填空5]\n\n填空位置：________、________、________、________、________",
+      "title": "请分析以下语义并补充完整E-R图（图书借阅）：图书信息包括：书号，书名，作者，数量，出版社，单价，架号。出版社信息包括：出版社号",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/26314de1-17fd-4bae-afff-b816c60b9dd5.jpg",
+          "markdownPath": "~/26314de1-17fd-4bae-afff-b816c60b9dd5.jpg",
+          "location": "content",
+          "index": 226
+        },
+        {
+          "url": "https://images.ptausercontent.com/26314de1-17fd-4bae-afff-b816c60b9dd5.jpg",
+          "markdownPath": "~/26314de1-17fd-4bae-afff-b816c60b9dd5.jpg",
+          "location": "description",
+          "index": 226
+        }
+      ],
+      "score": 10,
+      "apiData": {
+        "id": "2101650896363732994",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "blankLength": 8,
+            "blanks": [
+              {
+                "index": 300,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 307,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 314,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 322,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 328,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "请分析以下语义并补充完整E-R图（图书借阅）：图书信息包括：书号，书名，作者，数量，出版社，单价，架号。出版社信息包括：出版社号",
+        "content": "请分析以下语义并补充完整E-R图（图书借阅）：图书信息包括：书号，书名，作者，数量，出版社，单价，架号。出版社信息包括：出版社号，社名，地址，电话，邮编。读者信息包括：借书证号，姓名，单位。一个出版社可以出版多种书籍，但每本书只能在一个出版社出版，出版图书时应有出版日期和责任编辑；每个读者可以借阅多本图书，每本图书可以有多人借阅，读者借阅图书时要登记借书日期，还书日期，是否续借。\n(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)\n\n![PTA-ER模型-图书借阅-题目.jpg](~/26314de1-17fd-4bae-afff-b816c60b9dd5.jpg)\n\n[填空1]  [填空2]  [填空3]  \n[填空4] [填空5]\n\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "张悦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1386563103311790080",
+        "description": "请分析以下语义并补充完整E-R图（图书借阅）：图书信息包括：书号，书名，作者，数量，出版社，单价，架号。出版社信息包括：出版社号，社名，地址，电话，邮编。读者信息包括：借书证号，姓名，单位。一个出版社可以出版多种书籍，但每本书只能在一个出版社出版，出版图书时应有出版日期和责任编辑；每个读者可以借阅多本图书，每本图书可以有多人借阅，读者借阅图书时要登记借书日期，还书日期，是否续借。\n(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)\n\n![PTA-ER模型-图书借阅-题目.jpg](~/26314de1-17fd-4bae-afff-b816c60b9dd5.jpg)\n\n[填空1]  [填空2]  [填空3]  \n[填空4] [填空5]\n\n",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2101650896363732995",
+      "number": 7,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "有如下关于（学生-课程-教师-学校）的语义和说明： 学生：学号，姓名，性别，年龄； 课程：课程编号，课程名； 教师：教师号，姓名，性别，职称； 学校：学校名称，电话； 其中，一个学生可选修多门课，一门课可被多个学生选修，选课后要给出成绩；一个教师可讲授多门课，一门课可被多个教师讲授，都有各自的上课时间和教室号；一个学校可有多个教师，一个教师只能属于一个学校；一个学校可有多个学生，一个学生只能属于一个学校。 (说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示) 请分析语义并补充完整E-R图。 ![PTA-ER模型-学生-课程-教师-学校-题目.jpg](~/113275eb-b22a-49d2-87b9-b6fdad71bedc.jpg) [填空1] [填空2] [填空3] [填空4] [填空5] 填空位置：________、________、________、________、________",
+      "content": "有如下关于（学生-课程-教师-学校）的语义和说明：\n学生：学号，姓名，性别，年龄；\n\n课程：课程编号，课程名；\n\n教师：教师号，姓名，性别，职称； \n\n学校：学校名称，电话； \n\n其中，一个学生可选修多门课，一门课可被多个学生选修，选课后要给出成绩；一个教师可讲授多门课，一门课可被多个教师讲授，都有各自的上课时间和教室号；一个学校可有多个教师，一个教师只能属于一个学校；一个学校可有多个学生，一个学生只能属于一个学校。\n\n(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)\n\n请分析语义并补充完整E-R图。\n\n![PTA-ER模型-学生-课程-教师-学校-题目.jpg](~/113275eb-b22a-49d2-87b9-b6fdad71bedc.jpg)\n[填空1] [填空2] [填空3] \n\n[填空4]  [填空5]\n\n填空位置：________、________、________、________、________",
+      "title": "有如下关于（学生-课程-教师-学校）的语义和说明：",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/113275eb-b22a-49d2-87b9-b6fdad71bedc.jpg",
+          "markdownPath": "~/113275eb-b22a-49d2-87b9-b6fdad71bedc.jpg",
+          "location": "content",
+          "index": 263
+        },
+        {
+          "url": "https://images.ptausercontent.com/113275eb-b22a-49d2-87b9-b6fdad71bedc.jpg",
+          "markdownPath": "~/113275eb-b22a-49d2-87b9-b6fdad71bedc.jpg",
+          "location": "description",
+          "index": 263
+        }
+      ],
+      "score": 10,
+      "apiData": {
+        "id": "2101650896363732995",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "blankLength": 8,
+            "blanks": [
+              {
+                "index": 343,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 349,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 356,
+                "multipleLine": false,
+                "length": 4,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 364,
+                "multipleLine": false,
+                "length": 4,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 371,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "有如下关于（学生-课程-教师-学校）的语义和说明：",
+        "content": "有如下关于（学生-课程-教师-学校）的语义和说明：\n学生：学号，姓名，性别，年龄；\n\n课程：课程编号，课程名；\n\n教师：教师号，姓名，性别，职称； \n\n学校：学校名称，电话； \n\n其中，一个学生可选修多门课，一门课可被多个学生选修，选课后要给出成绩；一个教师可讲授多门课，一门课可被多个教师讲授，都有各自的上课时间和教室号；一个学校可有多个教师，一个教师只能属于一个学校；一个学校可有多个学生，一个学生只能属于一个学校。\n\n(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)\n\n请分析语义并补充完整E-R图。\n\n![PTA-ER模型-学生-课程-教师-学校-题目.jpg](~/113275eb-b22a-49d2-87b9-b6fdad71bedc.jpg)\n[填空1] [填空2] [填空3] \n\n[填空4]  [填空5] \n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "张悦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1386594403347333120",
+        "description": "有如下关于（学生-课程-教师-学校）的语义和说明：\n学生：学号，姓名，性别，年龄；\n\n课程：课程编号，课程名；\n\n教师：教师号，姓名，性别，职称； \n\n学校：学校名称，电话； \n\n其中，一个学生可选修多门课，一门课可被多个学生选修，选课后要给出成绩；一个教师可讲授多门课，一门课可被多个教师讲授，都有各自的上课时间和教室号；一个学校可有多个教师，一个教师只能属于一个学校；一个学校可有多个学生，一个学生只能属于一个学校。\n\n(说明：该题目中一对多或者多对多关系类型的多端只能由m或n表示)\n\n请分析语义并补充完整E-R图。\n\n![PTA-ER模型-学生-课程-教师-学校-题目.jpg](~/113275eb-b22a-49d2-87b9-b6fdad71bedc.jpg)\n[填空1] [填空2] [填空3] \n\n[填空4]  [填空5] \n",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2101650896363732997",
+      "number": 8,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "某医院病房计算机管理中心需要科室、病房、医生和病人等基本信息。 通过沟通获得如下需求分析结果：一个科室有多个病房，多名医生；一个病房只能属于一个科室，一个医生只能属于一个科室，但可负责多个病人的诊治，一个病人的主管医生只有一个；一个病房可以有多个病人入住。 另外，系统应描述科室名，科室地址，科室电话，医生的工作证号，姓名，职称，年龄，病房的病房号，床位号和病人的病历号，姓名，性别等。 ![QQ截图20211129200735.jpg](~/2a34df31-386a-44d0-a919-dfe30400a151.jpg) 请按照语义描述，将上述ER模型补充完整。（说明：图中带有下划线的属性为该实体的主键；ER图中多端联系只能用m或n表示，例如 1:m, n:1, m:n） 【填空1】 【填空2】 【填空3】 【填空4】 【填空5】 【填空6】 【填空7】 【填空8】 填空位置：________、________、________、________、________、________、________、________",
+      "content": "某医院病房计算机管理中心需要科室、病房、医生和病人等基本信息。 \n\n通过沟通获得如下需求分析结果：一个科室有多个病房，多名医生；一个病房只能属于一个科室，一个医生只能属于一个科室，但可负责多个病人的诊治，一个病人的主管医生只有一个；一个病房可以有多个病人入住。\n另外，系统应描述科室名，科室地址，科室电话，医生的工作证号，姓名，职称，年龄，病房的病房号，床位号和病人的病历号，姓名，性别等。\n\n![QQ截图20211129200735.jpg](~/2a34df31-386a-44d0-a919-dfe30400a151.jpg)\n\n请按照语义描述，将上述ER模型补充完整。（说明：图中带有下划线的属性为该实体的主键；ER图中多端联系只能用m或n表示，例如 1:m, n:1, m:n）\n\n【填空1】   【填空2】 【填空3】 【填空4】 \n\n【填空5】  【填空6】  【填空7】  【填空8】\n\n填空位置：________、________、________、________、________、________、________、________",
+      "title": "某医院病房计算机管理中心需要科室、病房、医生和病人等基本信息。 ",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/2a34df31-386a-44d0-a919-dfe30400a151.jpg",
+          "markdownPath": "~/2a34df31-386a-44d0-a919-dfe30400a151.jpg",
+          "location": "content",
+          "index": 197
+        },
+        {
+          "url": "https://images.ptausercontent.com/2a34df31-386a-44d0-a919-dfe30400a151.jpg",
+          "markdownPath": "~/2a34df31-386a-44d0-a919-dfe30400a151.jpg",
+          "location": "description",
+          "index": 197
+        }
+      ],
+      "score": 16,
+      "apiData": {
+        "id": "2101650896363732997",
+        "label": "",
+        "score": 16,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "blankLength": 4,
+            "blanks": [
+              {
+                "index": 351,
+                "multipleLine": false,
+                "length": 4,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 359,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 365,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 371,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 379,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 386,
+                "multipleLine": false,
+                "length": 4,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 393,
+                "multipleLine": false,
+                "length": 4,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 400,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "某医院病房计算机管理中心需要科室、病房、医生和病人等基本信息。 ",
+        "content": "某医院病房计算机管理中心需要科室、病房、医生和病人等基本信息。 \n\n通过沟通获得如下需求分析结果：一个科室有多个病房，多名医生；一个病房只能属于一个科室，一个医生只能属于一个科室，但可负责多个病人的诊治，一个病人的主管医生只有一个；一个病房可以有多个病人入住。\n另外，系统应描述科室名，科室地址，科室电话，医生的工作证号，姓名，职称，年龄，病房的病房号，床位号和病人的病历号，姓名，性别等。\n\n![QQ截图20211129200735.jpg](~/2a34df31-386a-44d0-a919-dfe30400a151.jpg)\n\n请按照语义描述，将上述ER模型补充完整。（说明：图中带有下划线的属性为该实体的主键；ER图中多端联系只能用m或n表示，例如 1:m, n:1, m:n）\n\n【填空1】   【填空2】 【填空3】 【填空4】 \n\n【填空5】  【填空6】  【填空7】  【填空8】\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "张悦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1400706138163945472",
+        "description": "某医院病房计算机管理中心需要科室、病房、医生和病人等基本信息。 \n\n通过沟通获得如下需求分析结果：一个科室有多个病房，多名医生；一个病房只能属于一个科室，一个医生只能属于一个科室，但可负责多个病人的诊治，一个病人的主管医生只有一个；一个病房可以有多个病人入住。\n另外，系统应描述科室名，科室地址，科室电话，医生的工作证号，姓名，职称，年龄，病房的病房号，床位号和病人的病历号，姓名，性别等。\n\n![QQ截图20211129200735.jpg](~/2a34df31-386a-44d0-a919-dfe30400a151.jpg)\n\n请按照语义描述，将上述ER模型补充完整。（说明：图中带有下划线的属性为该实体的主键；ER图中多端联系只能用m或n表示，例如 1:m, n:1, m:n）\n\n【填空1】   【填空2】 【填空3】 【填空4】 \n\n【填空5】  【填空6】  【填空7】  【填空8】\n",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2101650896363732999",
+      "number": 9,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "E-R数据模型一般在数据库设计的设计阶段使用。 填空位置：________",
+      "content": "E-R数据模型一般在数据库设计的设计阶段使用。\n\n填空位置：________",
+      "title": "E-R数据模型一般在数据库设计的设计阶段使用。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2101650896363732999",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2
+            ],
+            "blankLength": 20,
+            "blanks": [
+              {
+                "index": 16,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "E-R数据模型一般在数据库设计的设计阶段使用。",
+        "content": "E-R数据模型一般在数据库设计的设计阶段使用。\n\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1442666301153095680",
+        "description": "E-R数据模型一般在数据库设计的设计阶段使用。\n\n",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2101651427345842176",
+      "number": 10,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "请分析以下E-R图（图书借阅）将其转换为相应的关系模式完成逻辑模型设计。 ![PTA-ER模型-图书借阅-答案.jpg](~/726eaf3e-26d4-4e77-a70f-f64bfcba8a35.jpg) 读者（借书证号，姓名，单位） 图书（书号，书名，作者，数量，单价，架号，，，） 出版社（出版社号，社名，地址，电话，邮编） 借阅（，，借书日期，还书日期，是否续借） 或者将上述E-R图转换成如下形式的关系模式以完成逻辑模型设计。 读者（借书证号，姓名，单位） 图书（书号，书名，作者，数量，单价，架号） 出版社（出版社号，社名，地址，电话，邮编） 借阅（，，借书日期，还书日期，是否续借） 出版（书号，，，） 填空位置：________、________、________、________、________、________、________、________、________、________",
+      "content": "请分析以下E-R图（图书借阅）将其转换为相应的关系模式完成逻辑模型设计。\n\n![PTA-ER模型-图书借阅-答案.jpg](~/726eaf3e-26d4-4e77-a70f-f64bfcba8a35.jpg)\n\n读者（借书证号，姓名，单位）\n\n图书（书号，书名，作者，数量，单价，架号，，，）\n\n出版社（出版社号，社名，地址，电话，邮编）\n\n借阅（，，借书日期，还书日期，是否续借）\n\n或者将上述E-R图转换成如下形式的关系模式以完成逻辑模型设计。\n\n读者（借书证号，姓名，单位）\n\n图书（书号，书名，作者，数量，单价，架号）\n\n出版社（出版社号，社名，地址，电话，邮编）\n\n借阅（，，借书日期，还书日期，是否续借）\n\n出版（书号，，，）\n\n填空位置：________、________、________、________、________、________、________、________、________、________",
+      "title": "请分析以下E-R图（图书借阅）将其转换为相应的关系模式完成逻辑模型设计。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/726eaf3e-26d4-4e77-a70f-f64bfcba8a35.jpg",
+          "markdownPath": "~/726eaf3e-26d4-4e77-a70f-f64bfcba8a35.jpg",
+          "location": "content",
+          "index": 38
+        },
+        {
+          "url": "https://images.ptausercontent.com/726eaf3e-26d4-4e77-a70f-f64bfcba8a35.jpg",
+          "markdownPath": "~/726eaf3e-26d4-4e77-a70f-f64bfcba8a35.jpg",
+          "location": "description",
+          "index": 38
+        }
+      ],
+      "score": 20,
+      "apiData": {
+        "id": "2101651427345842176",
+        "label": "",
+        "score": 20,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "blankLength": 26,
+            "blanks": [
+              {
+                "index": 144,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 145,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 146,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 175,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 176,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 292,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 293,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 317,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 318,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 319,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "请分析以下E-R图（图书借阅）将其转换为相应的关系模式完成逻辑模型设计。",
+        "content": "请分析以下E-R图（图书借阅）将其转换为相应的关系模式完成逻辑模型设计。\n\n![PTA-ER模型-图书借阅-答案.jpg](~/726eaf3e-26d4-4e77-a70f-f64bfcba8a35.jpg)\n\n读者（借书证号，姓名，单位）\n\n图书（书号，书名，作者，数量，单价，架号，，，）\n\n出版社（出版社号，社名，地址，电话，邮编）\n\n借阅（，，借书日期，还书日期，是否续借）\n\n或者将上述E-R图转换成如下形式的关系模式以完成逻辑模型设计。\n\n读者（借书证号，姓名，单位）\n\n图书（书号，书名，作者，数量，单价，架号）\n\n出版社（出版社号，社名，地址，电话，邮编）\n\n借阅（，，借书日期，还书日期，是否续借）\n\n出版（书号，，，）\n\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "张悦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2101644573819555840",
+        "problemId": "1386571788868124672",
+        "description": "请分析以下E-R图（图书借阅）将其转换为相应的关系模式完成逻辑模型设计。\n\n![PTA-ER模型-图书借阅-答案.jpg](~/726eaf3e-26d4-4e77-a70f-f64bfcba8a35.jpg)\n\n读者（借书证号，姓名，单位）\n\n图书（书号，书名，作者，数量，单价，架号，，，）\n\n出版社（出版社号，社名，地址，电话，邮编）\n\n借阅（，，借书日期，还书日期，是否续借）\n\n或者将上述E-R图转换成如下形式的关系模式以完成逻辑模型设计。\n\n读者（借书证号，姓名，单位）\n\n图书（书号，书名，作者，数量，单价，架号）\n\n出版社（出版社号，社名，地址，电话，邮编）\n\n借阅（，，借书日期，还书日期，是否续借）\n\n出版（书号，，，）\n\n",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    }
+  ]
+}

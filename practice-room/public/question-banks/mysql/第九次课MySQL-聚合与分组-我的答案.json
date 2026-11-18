@@ -1,0 +1,167 @@
+{
+  "problemSetId": "2113427752458776576",
+  "answers": [
+    {
+      "problemId": "2113432046322966528",
+      "questionNumber": 1,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113432046322966529",
+      "questionNumber": 2,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113432046322966530",
+      "questionNumber": 3,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113432046322966531",
+      "questionNumber": 4,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113432932558430208",
+      "questionNumber": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "class"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113432932558430209",
+      "questionNumber": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "AS"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113432932558430210",
+      "questionNumber": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "SUM(number)",
+        "gno"
+      ],
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2113432932558430211",
+      "questionNumber": 4,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "WHERE",
+        "HAVING"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113443016168566784",
+      "questionNumber": 5,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "84",
+        "3",
+        "78",
+        "168"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113427752702042112",
+      "questionNumber": 1,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select AVG(SCScore3) avg_score from sc where CId = 1;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113427752702042113",
+      "questionNumber": 2,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select avg(score) '平均分', max(score) '最高分', min(score) '最低分' from sc where cno = '0000001';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113427752702042114",
+      "questionNumber": 3,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select sdept '系', count(*) '人数' from students group by sdept;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113427752702042115",
+      "questionNumber": 4,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select cno '课程号', count(*) '不及格人数' from sc where score < 60 group by cno having count(*) > 3;\n\n",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113427752702042116",
+      "questionNumber": 5,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select Pid, sum(QTY) 'sum_QTY' from orders group by Pid;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113434655775645696",
+      "questionNumber": 6,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select count(*) '总人数' from Student;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113434655775645697",
+      "questionNumber": 7,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select avg(grade) '平均成绩' from SC where cno = 'C01' group by cno;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113434655775645698",
+      "questionNumber": 8,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select cno, count(cno) '人数' from SC group by cno;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113434655775645699",
+      "questionNumber": 9,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select major, count(*) '人数' from Student group by major;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113434655775645700",
+      "questionNumber": 10,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select  sno '学号',  AVG(grade) '平均成绩', count(cno) '修课门数' from SC\n    group by sno having count(cno) >= 3;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113434655775645701",
+      "questionNumber": 11,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select sno, sum(grade) '总成绩' from SC where sno = '21012101' group by sno;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2113434655779840000",
+      "questionNumber": 12,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select avg(grade) '平均成绩' from SC where cno = 'C01'",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

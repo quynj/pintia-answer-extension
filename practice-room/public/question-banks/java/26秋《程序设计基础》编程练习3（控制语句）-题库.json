@@ -1,0 +1,742 @@
+{
+  "title": "26秋《程序设计基础》编程练习3（控制语句）",
+  "problemSetName": "26秋《程序设计基础》编程练习3（控制语句）",
+  "problemSetId": "2116065122293002240",
+  "examId": "2116496553032888320",
+  "source": "https://pintia.cn/problem-sets/2116065122293002240",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:40:07.210Z",
+  "summaries": {
+    "PROGRAMMING": {
+      "total": 8,
+      "totalScore": 100
+    }
+  },
+  "questions": [
+    {
+      "id": "2116065122334945280",
+      "number": 1,
+      "type": "PROGRAMMING",
+      "prompt": "为倡导节约用电，某省部分地区电网实施阶梯电价，对于一户一表的居民生活用电，分为两种电压等级，分别是不满1千伏和1至10千伏及以上，每种等级对应三档。\\\n第一档，居民户月用电量在180度及以内，维持现行电价水平，其中不满1千伏用户电价每度0.52元(居民用户电属压一般为220伏)，1-10千伏用户电价每度0.47元；\\\n第二档，居民户月用电量在181度-280度，在第一档电价基础上每度提高0.05元；\\\n第三档，居民户月用电量在281度及以上，在第一档电价基础上每度提高0.30元。\\\n编写程序，计算当月电费。\n\n### 输入格式:\n\n输入电压等级和当月用电量，整数表示，使用空格分隔。\n\n### 输出格式:\n\n输出当月电费，保留小数点后两位。\n\n如果输入数据出现以下情况，输出“invalid value”。\n\n（1）电压等级不大于0时，用电量大于0；\n\n（2）用电量小于0。\n\n提示：电压和用电量都等于0时，结果是0.00。\n\n### 输入样例:\n\n```in\n220 123\n```\n\n### 输出样例:\n\n```out\n63.96\n```",
+      "content": "为倡导节约用电，某省部分地区电网实施阶梯电价，对于一户一表的居民生活用电，分为两种电压等级，分别是不满1千伏和1至10千伏及以上，每种等级对应三档。\\\n第一档，居民户月用电量在180度及以内，维持现行电价水平，其中不满1千伏用户电价每度0.52元(居民用户电属压一般为220伏)，1-10千伏用户电价每度0.47元；\\\n第二档，居民户月用电量在181度-280度，在第一档电价基础上每度提高0.05元；\\\n第三档，居民户月用电量在281度及以上，在第一档电价基础上每度提高0.30元。\\\n编写程序，计算当月电费。\n\n### 输入格式:\n\n输入电压等级和当月用电量，整数表示，使用空格分隔。\n\n### 输出格式:\n\n输出当月电费，保留小数点后两位。\n\n如果输入数据出现以下情况，输出“invalid value”。\n\n（1）电压等级不大于0时，用电量大于0；\n\n（2）用电量小于0。\n\n提示：电压和用电量都等于0时，结果是0.00。\n\n### 输入样例:\n\n```in\n220 123\n```\n\n### 输出样例:\n\n```out\n63.96\n```",
+      "hasStatement": true,
+      "title": "阶梯电价计算",
+      "options": [],
+      "images": [],
+      "score": 10,
+      "apiData": {
+        "id": "2116065122334945280",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "t1": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "t2": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "t3": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "t4": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "t5": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "t6": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "t7": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "t8": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "t9": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "t10": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "220 123\n",
+                "output": "63.96\n"
+              },
+              {
+                "name": "",
+                "input": "220 123\n",
+                "output": "63.96\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "阶梯电价计算",
+        "content": "为倡导节约用电，某省部分地区电网实施阶梯电价，对于一户一表的居民生活用电，分为两种电压等级，分别是不满1千伏和1至10千伏及以上，每种等级对应三档。\\\n第一档，居民户月用电量在180度及以内，维持现行电价水平，其中不满1千伏用户电价每度0.52元(居民用户电属压一般为220伏)，1-10千伏用户电价每度0.47元；\\\n第二档，居民户月用电量在181度-280度，在第一档电价基础上每度提高0.05元；\\\n第三档，居民户月用电量在281度及以上，在第一档电价基础上每度提高0.30元。\\\n编写程序，计算当月电费。\n\n### 输入格式:\n\n输入电压等级和当月用电量，整数表示，使用空格分隔。\n\n### 输出格式:\n\n输出当月电费，保留小数点后两位。\n\n如果输入数据出现以下情况，输出“invalid value”。\n\n（1）电压等级不大于0时，用电量大于0；\n\n（2）用电量小于0。\n\n提示：电压和用电量都等于0时，结果是0.00。\n\n### 输入样例:\n\n```in\n220 123\n```\n\n### 输出样例:\n\n```out\n63.96\n```",
+        "type": "PROGRAMMING",
+        "author": "zhl",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116065122293002240",
+        "problemId": "1587630780464005120",
+        "description": "为倡导节约用电，某省部分地区电网实施阶梯电价，对于一户一表的居民生活用电，分为两种电压等级，分别是不满1千伏和1至10千伏及以上，每种等级对应三档。\\\n第一档，居民户月用电量在180度及以内，维持现行电价水平，其中不满1千伏用户电价每度0.52元(居民用户电属压一般为220伏)，1-10千伏用户电价每度0.47元；\\\n第二档，居民户月用电量在181度-280度，在第一档电价基础上每度提高0.05元；\\\n第三档，居民户月用电量在281度及以上，在第一档电价基础上每度提高0.30元。\\\n编写程序，计算当月电费。\n\n### 输入格式:\n\n输入电压等级和当月用电量，整数表示，使用空格分隔。\n\n### 输出格式:\n\n输出当月电费，保留小数点后两位。\n\n如果输入数据出现以下情况，输出“invalid value”。\n\n（1）电压等级不大于0时，用电量大于0；\n\n（2）用电量小于0。\n\n提示：电压和用电量都等于0时，结果是0.00。\n\n### 输入样例:\n\n```in\n220 123\n```\n\n### 输出样例:\n\n```out\n63.96\n```",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1579826711180861440",
+        "number": 1,
+        "examLabel": "7-1"
+      }
+    },
+    {
+      "id": "2116065122334945282",
+      "number": 2,
+      "type": "PROGRAMMING",
+      "prompt": "需求说明\n\nØ  VIP顾客购物时，根据积分的不同享受不同的折扣\n\nØ  计算VIP顾客购物时获得的折扣\n\n折扣的详细描述见表\n\n<br>![QQ截图20230927163325.png](~/3e39f65b-742c-4b2b-a4ca-201803a55b7e.png \"QQ截图20230927163325.png\")\n\n### 输入格式:\n\n输入顾客积分\n\n### 输出格式:\n\n输出折扣值\n\n<br>\n\n### 输入样例1:\n\n在这里给出一组输入。例如：\n\n```in\n500\n```\n\n### 输出样例1:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.9\n```\n\n### 输入样例2:\n\n在这里给出一组输入。例如：\n\n```in\n3500\n```\n\n### 输出样例2:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.8\n```\n\n### 输入样例3:\n\n在这里给出一组输入。例如：\n\n```in\n7500\n```\n\n### 输出样例3:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.7\n```\n\n### 输入样例4:\n\n在这里给出一组输入。例如：\n\n```in\n8500\n```\n\n### 输出样例4:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.6\n```",
+      "content": "需求说明\n\nØ  VIP顾客购物时，根据积分的不同享受不同的折扣\n\nØ  计算VIP顾客购物时获得的折扣\n\n折扣的详细描述见表\n\n<br>![QQ截图20230927163325.png](~/3e39f65b-742c-4b2b-a4ca-201803a55b7e.png \"QQ截图20230927163325.png\")\n\n### 输入格式:\n\n输入顾客积分\n\n### 输出格式:\n\n输出折扣值\n\n<br>\n\n### 输入样例1:\n\n在这里给出一组输入。例如：\n\n```in\n500\n```\n\n### 输出样例1:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.9\n```\n\n### 输入样例2:\n\n在这里给出一组输入。例如：\n\n```in\n3500\n```\n\n### 输出样例2:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.8\n```\n\n### 输入样例3:\n\n在这里给出一组输入。例如：\n\n```in\n7500\n```\n\n### 输出样例3:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.7\n```\n\n### 输入样例4:\n\n在这里给出一组输入。例如：\n\n```in\n8500\n```\n\n### 输出样例4:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.6\n```",
+      "hasStatement": true,
+      "title": "练习4：计算VIP顾客折扣",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/3e39f65b-742c-4b2b-a4ca-201803a55b7e.png",
+          "markdownPath": "~/3e39f65b-742c-4b2b-a4ca-201803a55b7e.png",
+          "location": "content",
+          "index": 69
+        },
+        {
+          "url": "https://images.ptausercontent.com/3e39f65b-742c-4b2b-a4ca-201803a55b7e.png",
+          "markdownPath": "~/3e39f65b-742c-4b2b-a4ca-201803a55b7e.png",
+          "location": "description",
+          "index": 69
+        }
+      ],
+      "score": 10,
+      "apiData": {
+        "id": "2116065122334945282",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "3": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "4": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "500\n",
+                "output": "该VIP顾客享受的折扣是：0.9\n"
+              },
+              {
+                "name": "",
+                "input": "3500\n",
+                "output": "该VIP顾客享受的折扣是：0.8\n"
+              },
+              {
+                "name": "",
+                "input": "7500\n",
+                "output": "该VIP顾客享受的折扣是：0.7\n"
+              },
+              {
+                "name": "",
+                "input": "8500\n",
+                "output": "该VIP顾客享受的折扣是：0.6\n"
+              },
+              {
+                "name": "",
+                "input": "500\n",
+                "output": "该VIP顾客享受的折扣是：0.9\n"
+              },
+              {
+                "name": "",
+                "input": "3500\n",
+                "output": "该VIP顾客享受的折扣是：0.8\n"
+              },
+              {
+                "name": "",
+                "input": "7500\n",
+                "output": "该VIP顾客享受的折扣是：0.7\n"
+              },
+              {
+                "name": "",
+                "input": "8500\n",
+                "output": "该VIP顾客享受的折扣是：0.6\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "练习4：计算VIP顾客折扣",
+        "content": "需求说明\n\nØ  VIP顾客购物时，根据积分的不同享受不同的折扣\n\nØ  计算VIP顾客购物时获得的折扣\n\n折扣的详细描述见表\n\n<br>![QQ截图20230927163325.png](~/3e39f65b-742c-4b2b-a4ca-201803a55b7e.png \"QQ截图20230927163325.png\")\n\n### 输入格式:\n\n输入顾客积分\n\n### 输出格式:\n\n输出折扣值\n\n<br>\n\n### 输入样例1:\n\n在这里给出一组输入。例如：\n\n```in\n500\n```\n\n### 输出样例1:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.9\n```\n\n### 输入样例2:\n\n在这里给出一组输入。例如：\n\n```in\n3500\n```\n\n### 输出样例2:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.8\n```\n\n### 输入样例3:\n\n在这里给出一组输入。例如：\n\n```in\n7500\n```\n\n### 输出样例3:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.7\n```\n\n### 输入样例4:\n\n在这里给出一组输入。例如：\n\n```in\n8500\n```\n\n### 输出样例4:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.6\n```",
+        "type": "PROGRAMMING",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116065122293002240",
+        "problemId": "1706951556144156672",
+        "description": "需求说明\n\nØ  VIP顾客购物时，根据积分的不同享受不同的折扣\n\nØ  计算VIP顾客购物时获得的折扣\n\n折扣的详细描述见表\n\n<br>![QQ截图20230927163325.png](~/3e39f65b-742c-4b2b-a4ca-201803a55b7e.png \"QQ截图20230927163325.png\")\n\n### 输入格式:\n\n输入顾客积分\n\n### 输出格式:\n\n输出折扣值\n\n<br>\n\n### 输入样例1:\n\n在这里给出一组输入。例如：\n\n```in\n500\n```\n\n### 输出样例1:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.9\n```\n\n### 输入样例2:\n\n在这里给出一组输入。例如：\n\n```in\n3500\n```\n\n### 输出样例2:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.8\n```\n\n### 输入样例3:\n\n在这里给出一组输入。例如：\n\n```in\n7500\n```\n\n### 输出样例3:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.7\n```\n\n### 输入样例4:\n\n在这里给出一组输入。例如：\n\n```in\n8500\n```\n\n### 输出样例4:\n\n在这里给出相应的输出。例如：\n\n```out\n该VIP顾客享受的折扣是：0.6\n```",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632",
+        "number": 2,
+        "examLabel": "7-2"
+      }
+    },
+    {
+      "id": "2116065122334945283",
+      "number": 3,
+      "type": "PROGRAMMING",
+      "prompt": "<br>\n\n设有一长为3000米的绳子，每天减去一半，问需几天时间绳子长度会短于5米？\n\n### \n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n需要：10 天时间\n```",
+      "content": "<br>\n\n设有一长为3000米的绳子，每天减去一半，问需几天时间绳子长度会短于5米？\n\n### \n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n需要：10 天时间\n```",
+      "hasStatement": true,
+      "title": "挑战剪绳子",
+      "options": [],
+      "images": [],
+      "score": 10,
+      "apiData": {
+        "id": "2116065122334945283",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "ceshi": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "\n",
+                "output": "需要：10 天时间\n"
+              },
+              {
+                "name": "",
+                "input": "\n",
+                "output": "需要：10 天时间\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "挑战剪绳子",
+        "content": "这是一个编程题模板。\n\n请在这里写题目描述。例如：本题目要求读入2个整数A和B，然后输出它们的和。\n\n### 输入格式:\n\n请在这里写输入格式。例如：输入在一行中给出2个绝对值不超过1000的整数A和B。\n\n### 输出格式:\n\n请在这里描述输出格式。例如：对每一组输入，在一行中输出A+B的值。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n18 -299\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n-281\n```\n",
+        "type": "PROGRAMMING",
+        "author": "徐丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116065122293002240",
+        "problemId": "1832960891430150144",
+        "description": "<br>\n\n设有一长为3000米的绳子，每天减去一半，问需几天时间绳子长度会短于5米？\n\n### \n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n需要：10 天时间\n```",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "173",
+        "number": 3,
+        "examLabel": "7-3"
+      }
+    },
+    {
+      "id": "2116065748892667904",
+      "number": 4,
+      "type": "PROGRAMMING",
+      "prompt": "等腰直角三角形是指一个角是直角，且两条直角边相等的三角形。这里我们输出直角边长为n的等腰直角三角形的格式如下所示: \n比如n=1，则输出:\n<pre>\n*  \n</pre>\nn=2，输出: \n<pre>\n*\n** \n</pre>\n\nn=3，输出: \n<pre>\n*\n** \n*** \n</pre>\n\n那么，你能用程序来实现么?\n\n### 输入格式:\n\n输入一个数n，表示三角形的边长。1<n<1000。\n\n### 输出格式:\n\n输出对应的用*表示的等腰直角三角形。\n\n### 输入样例:\n\n```in\n4\n```\n\n### 输出样例:\n\n\n```out\n*\n**\n***\n****\n```",
+      "content": "等腰直角三角形是指一个角是直角，且两条直角边相等的三角形。这里我们输出直角边长为n的等腰直角三角形的格式如下所示: \n比如n=1，则输出:\n<pre>\n*  \n</pre>\nn=2，输出: \n<pre>\n*\n** \n</pre>\n\nn=3，输出: \n<pre>\n*\n** \n*** \n</pre>\n\n那么，你能用程序来实现么?\n\n### 输入格式:\n\n输入一个数n，表示三角形的边长。1<n<1000。\n\n### 输出格式:\n\n输出对应的用*表示的等腰直角三角形。\n\n### 输入样例:\n\n```in\n4\n```\n\n### 输出样例:\n\n\n```out\n*\n**\n***\n****\n```",
+      "hasStatement": true,
+      "title": "等腰直角三角形",
+      "options": [],
+      "images": [],
+      "score": 10,
+      "apiData": {
+        "id": "2116065748892667904",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "3": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "4": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "4\n",
+                "output": "*\n**\n***\n****\n"
+              },
+              {
+                "name": "",
+                "input": "4\n",
+                "output": "*\n**\n***\n****\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "等腰直角三角形",
+        "content": "等腰直角三角形是指一个角是直角，且两条直角边相等的三角形。这里我们输出直角边长为n的等腰直角三角形的格式如下所示: \n比如n=1，则输出:\n<pre>\n*  \n</pre>\nn=2，输出: \n<pre>\n*\n** \n</pre>\n\nn=3，输出: \n<pre>\n*\n** \n*** \n</pre>\n\n那么，你能用程序来实现么?\n\n### 输入格式:\n\n输入一个数n，表示三角形的边长。1<n<1000。\n\n### 输出格式:\n\n输出对应的用*表示的等腰直角三角形。\n\n### 输入样例:\n\n```in\n4\n```\n\n### 输出样例:\n\n\n```out\n*\n**\n***\n****\n```\n",
+        "type": "PROGRAMMING",
+        "author": "翁恺",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116065122293002240",
+        "problemId": "926688922443059200",
+        "description": "等腰直角三角形是指一个角是直角，且两条直角边相等的三角形。这里我们输出直角边长为n的等腰直角三角形的格式如下所示: \n比如n=1，则输出:\n<pre>\n*  \n</pre>\nn=2，输出: \n<pre>\n*\n** \n</pre>\n\nn=3，输出: \n<pre>\n*\n** \n*** \n</pre>\n\n那么，你能用程序来实现么?\n\n### 输入格式:\n\n输入一个数n，表示三角形的边长。1<n<1000。\n\n### 输出格式:\n\n输出对应的用*表示的等腰直角三角形。\n\n### 输入样例:\n\n```in\n4\n```\n\n### 输出样例:\n\n\n```out\n*\n**\n***\n****\n```\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1",
+        "number": 4,
+        "examLabel": "7-4"
+      }
+    },
+    {
+      "id": "2116065748892667905",
+      "number": 5,
+      "type": "PROGRAMMING",
+      "prompt": "判断一个给定的正整数是否素数。\n\n### 输入格式:\n输入在第一行给出一个正整数N（≤ 10）。\n\n随后N行，每行给出一个小于1000000 的需要判断的正整数。\n\n### 输出格式:\n\n\n对每个需要判断的正整数，如果它是素数，则在一行中输出：Yes；否则输出No。\n\n### 输入样例:\n\n```in\n3\n11\n111\n10\n```\n\n### 输出样例:\n\n```out\nYes\nNo\nNo\n```",
+      "content": "判断一个给定的正整数是否素数。\n\n### 输入格式:\n输入在第一行给出一个正整数N（≤ 10）。\n\n随后N行，每行给出一个小于1000000 的需要判断的正整数。\n\n### 输出格式:\n\n\n对每个需要判断的正整数，如果它是素数，则在一行中输出：Yes；否则输出No。\n\n### 输入样例:\n\n```in\n3\n11\n111\n10\n```\n\n### 输出样例:\n\n```out\nYes\nNo\nNo\n```",
+      "hasStatement": true,
+      "title": "sdut-判断素数",
+      "options": [],
+      "images": [],
+      "score": 20,
+      "apiData": {
+        "id": "2116065748892667905",
+        "label": "",
+        "score": 20,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "3\n11\n111\n10",
+                "output": "Yes\nNo\nNo"
+              },
+              {
+                "name": "",
+                "input": "3\n11\n111\n10",
+                "output": "Yes\nNo\nNo"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "sdut-判断素数",
+        "content": "判断一个给定的正整数是否素数。\n\n### 输入格式:\n输入在第一行给出一个正整数N（≤ 10）。\n\n随后N行，每行给出一个小于1000000 的需要判断的正整数。\n\n### 输出格式:\n\n\n对每个需要判断的正整数，如果它是素数，则在一行中输出：Yes；否则输出No。\n\n### 输入样例:\n\n```in\n3\n11\n111\n10\n```\n\n### 输出样例:\n\n```out\nYes\nNo\nNo\n```\n",
+        "type": "PROGRAMMING",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116065122293002240",
+        "problemId": "1420678313244368896",
+        "description": "判断一个给定的正整数是否素数。\n\n### 输入格式:\n输入在第一行给出一个正整数N（≤ 10）。\n\n随后N行，每行给出一个小于1000000 的需要判断的正整数。\n\n### 输出格式:\n\n\n对每个需要判断的正整数，如果它是素数，则在一行中输出：Yes；否则输出No。\n\n### 输入样例:\n\n```in\n3\n11\n111\n10\n```\n\n### 输出样例:\n\n```out\nYes\nNo\nNo\n```\n",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77",
+        "number": 5,
+        "examLabel": "7-5"
+      }
+    },
+    {
+      "id": "2116067564254568448",
+      "number": 6,
+      "type": "PROGRAMMING",
+      "prompt": "1234是一个非常特殊的四位数，因为它的各位数之和为10，编程求所有这样的四位正整数，并要求这四个位数中没有0。 \n\n### 输入格式:\n\n无\n\n### 输出格式:\n\n输出结果如下：\n1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n```",
+      "content": "1234是一个非常特殊的四位数，因为它的各位数之和为10，编程求所有这样的四位正整数，并要求这四个位数中没有0。 \n\n### 输入格式:\n\n无\n\n### 输出格式:\n\n输出结果如下：\n1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n```",
+      "hasStatement": true,
+      "title": "Java简单编程-各位数之和等于10",
+      "options": [],
+      "images": [],
+      "score": 10,
+      "apiData": {
+        "id": "2116067564254568448",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "test0": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "\n",
+                "output": "1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n"
+              },
+              {
+                "name": "",
+                "input": "\n",
+                "output": "1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java简单编程-各位数之和等于10",
+        "content": "1234是一个非常特殊的四位数，因为它的各位数之和为10，编程求所有这样的四位正整数，并要求这四个位数中没有0。 \n\n### 输入格式:\n\n无\n\n### 输出格式:\n\n输出结果如下：\n1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n```\n",
+        "type": "PROGRAMMING",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116065122293002240",
+        "problemId": "1685083359887695872",
+        "description": "1234是一个非常特殊的四位数，因为它的各位数之和为10，编程求所有这样的四位正整数，并要求这四个位数中没有0。 \n\n### 输入格式:\n\n无\n\n### 输出格式:\n\n输出结果如下：\n1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n1117 1126 1135 1144 1153 1162 1171 1216 1225 1234 1243 1252 1261 1315 1324 1333 1342 1351 1414 1423 1432 1441 1513 1522 1531 1612 1621 1711 2116 2125 2134 2143 2152 2161 2215 2224 2233 2242 2251 2314 2323 2332 2341 2413 2422 2431 2512 2521 2611 3115 3124 3133 3142 3151 3214 3223 3232 3241 3313 3322 3331 3412 3421 3511 4114 4123 4132 4141 4213 4222 4231 4312 4321 4411 5113 5122 5131 5212 5221 5311 6112 6121 6211 7111 \n```\n",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205",
+        "number": 6,
+        "examLabel": "7-6"
+      }
+    },
+    {
+      "id": "2116067564258762752",
+      "number": 7,
+      "type": "PROGRAMMING",
+      "prompt": "小飞马今年15岁，假设他父亲大飞马比他大m（m<60)岁，多少年后他的父亲年龄他大一倍，到那时他们两人的年龄各为多少？ \n\n\n### 输入格式:\n\n输入一个不超过60的正整数\n\n### 输出格式:\n\n正整数（几年后） \n小飞马年龄 父亲年龄 \n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n20\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n5\n20 40\n```",
+      "content": "小飞马今年15岁，假设他父亲大飞马比他大m（m<60)岁，多少年后他的父亲年龄他大一倍，到那时他们两人的年龄各为多少？ \n\n\n### 输入格式:\n\n输入一个不超过60的正整数\n\n### 输出格式:\n\n正整数（几年后） \n小飞马年龄 父亲年龄 \n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n20\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n5\n20 40\n```",
+      "hasStatement": true,
+      "title": "Java简单编程-年龄",
+      "options": [],
+      "images": [],
+      "score": 15,
+      "apiData": {
+        "id": "2116067564258762752",
+        "label": "",
+        "score": 15,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "test0": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              },
+              "test1": {
+                "hint": "",
+                "showHint": false,
+                "score": 8,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "20\n",
+                "output": "5\n20 40"
+              },
+              {
+                "name": "",
+                "input": "20\n",
+                "output": "5\n20 40"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java简单编程-年龄",
+        "content": "小飞马今年15岁，假设他父亲大飞马比他大m（m<60)岁，多少年后他的父亲年龄他大一倍，到那时他们两人的年龄各为多少？ \n\n\n### 输入格式:\n\n输入一个不超过60的正整数\n\n### 输出格式:\n\n正整数（几年后） \n小飞马年龄 父亲年龄 \n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n20\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n5\n20 40\n```\n",
+        "type": "PROGRAMMING",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116065122293002240",
+        "problemId": "1685095809349525504",
+        "description": "小飞马今年15岁，假设他父亲大飞马比他大m（m<60)岁，多少年后他的父亲年龄他大一倍，到那时他们两人的年龄各为多少？ \n\n\n### 输入格式:\n\n输入一个不超过60的正整数\n\n### 输出格式:\n\n正整数（几年后） \n小飞马年龄 父亲年龄 \n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n20\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n5\n20 40\n```\n",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205",
+        "number": 7,
+        "examLabel": "7-7"
+      }
+    },
+    {
+      "id": "2116067564262957056",
+      "number": 8,
+      "type": "PROGRAMMING",
+      "prompt": "编写一个程序，根据给定的行数n（1 <= n <= 50），打印出对应的由星号(\\*)组成的菱形图案。上半部分包括一行或多行的空格加星号，而下半部分则与上半部分对称。\n\n### 输入格式:\n\n输入包含一个整数n，表示要打印的菱形图案的半高（即上半部分的行数）。\n\n### 输出格式:\n\n对于每个测试用例，在一行中按照示例格式打印相应的菱形图案。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n3\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n   *\n  ***\n *****\n*******\n *****\n  ***\n   *\n```",
+      "content": "编写一个程序，根据给定的行数n（1 <= n <= 50），打印出对应的由星号(\\*)组成的菱形图案。上半部分包括一行或多行的空格加星号，而下半部分则与上半部分对称。\n\n### 输入格式:\n\n输入包含一个整数n，表示要打印的菱形图案的半高（即上半部分的行数）。\n\n### 输出格式:\n\n对于每个测试用例，在一行中按照示例格式打印相应的菱形图案。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n3\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n   *\n  ***\n *****\n*******\n *****\n  ***\n   *\n```",
+      "hasStatement": true,
+      "title": "打印菱形图案",
+      "options": [],
+      "images": [],
+      "score": 15,
+      "apiData": {
+        "id": "2116067564262957056",
+        "label": "",
+        "score": 15,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 8,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "3\n",
+                "output": "   *\n  ***\n *****\n*******\n *****\n  ***\n   *"
+              },
+              {
+                "name": "",
+                "input": "3\n",
+                "output": "   *\n  ***\n *****\n*******\n *****\n  ***\n   *"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "打印菱形图案",
+        "content": "这是一个编程题模板。\n\n请在这里写题目描述。例如：本题目要求读入2个整数A和B，然后输出它们的和。\n\n### 输入格式:\n\n请在这里写输入格式。例如：输入在一行中给出2个绝对值不超过1000的整数A和B。\n\n### 输出格式:\n\n请在这里描述输出格式。例如：对每一组输入，在一行中输出A+B的值。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n18 -299\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n-281\n```\n",
+        "type": "PROGRAMMING",
+        "author": "Java课程组",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116065122293002240",
+        "problemId": "1892372051261050880",
+        "description": "编写一个程序，根据给定的行数n（1 <= n <= 50），打印出对应的由星号(\\*)组成的菱形图案。上半部分包括一行或多行的空格加星号，而下半部分则与上半部分对称。\n\n### 输入格式:\n\n输入包含一个整数n，表示要打印的菱形图案的半高（即上半部分的行数）。\n\n### 输出格式:\n\n对于每个测试用例，在一行中按照示例格式打印相应的菱形图案。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n3\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n   *\n  ***\n *****\n*******\n *****\n  ***\n   *\n```",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1317074433044500480",
+        "number": 8,
+        "examLabel": "7-8"
+      }
+    }
+  ]
+}

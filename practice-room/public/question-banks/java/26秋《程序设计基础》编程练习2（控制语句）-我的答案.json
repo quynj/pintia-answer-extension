@@ -1,0 +1,54 @@
+{
+  "problemSetId": "2116068004593549312",
+  "answers": [
+    {
+      "problemId": "2116068004631298048",
+      "questionNumber": 1,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int odd=0,even=0;\n        for(int i=1;i<=n;i++){\n            if(i%3==0){\n                if(i%2==1) odd++;\n                else even++;\n            }\n        }\n        System.out.println(odd+\",\"+even);\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116068004631298049",
+      "questionNumber": 2,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int a=sc.nextInt();\n        int b=sc.nextInt();\n        int sum=0;\n        int start=Math.min(a,b);\n        int end=Math.max(a,b);\n        for(int i=start;i<=end;i++){\n            if(i%2!=0) sum+=i;\n        }\n        System.out.println(\"SUM = \"+sum);\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116068004631298051",
+      "questionNumber": 3,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        String week=sc.next();\n        switch(week){\n            case \"星期一\":\n            case \"星期二\":\n                System.out.println(week+\"，慢跑5公里。\");\n                break;\n            case \"星期三\":\n            case \"星期四\":\n                System.out.println(week+\"，与同学金霞童子对打羽毛球1小时。\");\n                break;\n            case \"星期五\":\n            case \"星期六\":\n                System.out.println(week+\"，在校篮球队训练。\");\n                break;\n            case \"星期日\":\n                System.out.println(week+\"，休息。\");\n                break;\n            default:\n                System.out.println(\"对不起，输入错误！\");\n                break;\n        }\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116068004656463872",
+      "questionNumber": 4,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        int num=1;\n        for(int i=n;i>=1;i--){\n            for(int j=1;j<=i;j++){\n                System.out.printf(\"%4d\",num++);\n            }\n            System.out.println();\n        }\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116068004656463873",
+      "questionNumber": 5,
+      "type": "PROGRAMMING",
+      "answer": "public class Main{\n    public static void main(String[] args){\n        for(int i=100;i<=999;i++){\n            int ge=i%10;\n            int shi=i/10%10;\n            int bai=i/100;\n            if(ge*ge*ge+shi*shi*shi+bai*bai*bai==i){\n                System.out.println(i);\n            }\n        }\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116068004656463874",
+      "questionNumber": 6,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        if(n<1||n>9){\n            System.out.println(\"INPUT ERROR.\");\n            return;\n        }\n        for(int i=1;i<=n;i++){\n            for(int j=1;j<=i;j++){\n                if(j>1) System.out.print(\"\\t\");\n                System.out.print(i+\"X\"+j+\"=\"+i*j);\n            }\n            System.out.println();\n        }\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116068004656463875",
+      "questionNumber": 7,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int n=sc.nextInt();\n        long oddSum=0,evenSum=0;\n        for(int i=1;i<=n;i++){\n            if(i%2==1) oddSum+=i;\n            else evenSum+=i;\n        }\n        System.out.println(oddSum);\n        System.out.println(evenSum);\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

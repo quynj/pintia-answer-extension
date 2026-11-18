@@ -1,0 +1,274 @@
+{
+  "problemSetId": "2101644573819555840",
+  "answers": [
+    {
+      "problemId": "2101644574062825472",
+      "questionNumber": 1,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825473",
+      "questionNumber": 2,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825475",
+      "questionNumber": 3,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825476",
+      "questionNumber": 4,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825477",
+      "questionNumber": 5,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2101644574062825478",
+      "questionNumber": 6,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2101644574062825479",
+      "questionNumber": 7,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825480",
+      "questionNumber": 1,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825481",
+      "questionNumber": 2,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825482",
+      "questionNumber": 3,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825483",
+      "questionNumber": 4,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825484",
+      "questionNumber": 5,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825485",
+      "questionNumber": 6,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825486",
+      "questionNumber": 7,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825487",
+      "questionNumber": 8,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825488",
+      "questionNumber": 9,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825489",
+      "questionNumber": 10,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825490",
+      "questionNumber": 11,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825493",
+      "questionNumber": 12,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825494",
+      "questionNumber": 13,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825495",
+      "questionNumber": 14,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825496",
+      "questionNumber": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "属性"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101644574062825497",
+      "questionNumber": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "键"
+      ],
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2101650258758225920",
+      "questionNumber": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "关系"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101650896363732992",
+      "questionNumber": 4,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "比赛项目",
+        "1",
+        "m",
+        "比赛名次",
+        "成绩"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101650896363732993",
+      "questionNumber": 5,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "m",
+        "1",
+        "聘用日期",
+        "聘用期限",
+        "就诊日期"
+      ],
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2101650896363732994",
+      "questionNumber": 6,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "出版社号",
+        "1",
+        "m",
+        "是否续借",
+        "责任编辑"
+      ],
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2101650896363732995",
+      "questionNumber": 7,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "1",
+        "m",
+        "课程",
+        "成绩",
+        "上课时间"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2101650896363732997",
+      "questionNumber": 8,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "科室",
+        "1",
+        "1",
+        "1",
+        "n",
+        "病人",
+        "医生",
+        "m"
+      ],
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2101650896363732999",
+      "questionNumber": 9,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "概念"
+      ],
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2101651427345842176",
+      "questionNumber": 10,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "出版社号",
+        "出版日期",
+        "责任编辑",
+        "借书证号",
+        "书号",
+        "借书证号",
+        "书号",
+        "出版社号",
+        "出版日期",
+        "责任编辑"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

@@ -1,0 +1,519 @@
+{
+  "title": "第五次课-约束",
+  "problemSetName": "第五次课-约束",
+  "problemSetId": "2103830998473838592",
+  "examId": "2109485751496380416",
+  "source": "https://pintia.cn/problem-sets/2103830998473838592",
+  "extraction": "api",
+  "exportedAt": "2026-11-15T06:24:39.346Z",
+  "summaries": {
+    "MULTIPLE_CHOICE": {
+      "total": 3,
+      "totalScore": 6
+    },
+    "FILL_IN_THE_BLANK": {
+      "total": 5,
+      "totalScore": 20
+    }
+  },
+  "questions": [
+    {
+      "id": "2104189778910830592",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面选项中对约束的描述错误的是",
+      "content": "下面选项中对约束的描述错误的是",
+      "title": "下面选项中对约束的描述错误的是",
+      "options": [
+        "每个数据表中最多只能设置一个主键约束",
+        "非空约束通过NOT NULL进行限定",
+        "只可以在数据表中设置一个唯一约束",
+        "唯一约束通过关键字UNIQUE进行设置"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2104189778910830592",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "每个数据表中最多只能设置一个主键约束",
+              "非空约束通过NOT NULL进行限定",
+              "只可以在数据表中设置一个唯一约束",
+              "唯一约束通过关键字UNIQUE进行设置"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面选项中对约束的描述错误的是",
+        "content": "下面选项中对约束的描述错误的是",
+        "type": "MULTIPLE_CHOICE",
+        "author": "辛勤芳",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PRIVATE",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103830998473838592",
+        "problemId": "1732364726096592896",
+        "description": "下面选项中对约束的描述错误的是",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "972763327604785152"
+      }
+    },
+    {
+      "id": "2104190322370994176",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "关系的完整性约束不包括？ @[](2) A. 实体完整性 B. 参照完整性 C. 用户定义完整性 D. 结构完整性",
+      "content": "关系的完整性约束不包括？   @[](2)\n\nA. 实体完整性\nB. 参照完整性\nC. 用户定义完整性\nD. 结构完整性",
+      "title": "关系的完整性约束不包括？   ",
+      "options": [
+        "实体完整性",
+        "参照完整性",
+        "用户定义完整性",
+        "结构完整性"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2104190322370994176",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "实体完整性",
+              "参照完整性",
+              "用户定义完整性",
+              "结构完整性"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "关系的完整性约束不包括？   ",
+        "content": "关系的完整性约束不包括？   @[](2)\n\nA. 实体完整性\nB. 参照完整性\nC. 用户定义完整性\nD. 结构完整性\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "黄淑伟",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103830998473838592",
+        "problemId": "1214822799150358528",
+        "description": "关系的完整性约束不包括？",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2104190322370994177",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "要求学生的年龄在15至40岁之间，是关系模型的哪一种完整性规则（ ）",
+      "content": "要求学生的年龄在15至40岁之间，是关系模型的哪一种完整性规则（    ）",
+      "title": "要求学生的年龄在15至40岁之间，是关系模型的哪一种完整性规则（    ）",
+      "options": [
+        "参照完整性",
+        "实体完整性",
+        "用户自定义完整性",
+        "以上都不是"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2104190322370994177",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "参照完整性",
+              "实体完整性",
+              "用户自定义完整性",
+              "以上都不是"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "要求学生的年龄在15至40岁之间，是关系模型的哪一种完整性规则（    ）",
+        "content": "要求学生的年龄在15至40岁之间，是关系模型的哪一种完整性规则（    ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "wyf",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103830998473838592",
+        "problemId": "1501483177254907904",
+        "description": "要求学生的年龄在15至40岁之间，是关系模型的哪一种完整性规则（    ）",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "99"
+      }
+    },
+    {
+      "id": "2103832683598385152",
+      "number": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "使用SQL语句为students表的sname字段添加非空约束（假设该约束尚不存在）。 <br> ALTER TABLE students MODIFY COLUMN VARCHAR(8) ; (注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格） 填空位置：________、________",
+      "content": "使用SQL语句为students表的sname字段添加非空约束（假设该约束尚不存在）。\n\n<br>\n\nALTER TABLE students\n\nMODIFY COLUMN  VARCHAR(8) ;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）\n\n填空位置：________、________",
+      "title": "使用SQL语句为students表的sname字段添加非空约束（假设该约束尚不存在）。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "markdownPath": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "location": "content",
+          "index": 82
+        }
+      ],
+      "score": 4,
+      "apiData": {
+        "id": "2103832683598385152",
+        "label": "",
+        "score": 4,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2
+            ],
+            "blankLength": 17,
+            "blanks": [
+              {
+                "index": 87,
+                "multipleLine": false,
+                "length": 5,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 99,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用SQL语句为students表的sname字段添加非空约束（假设该约束尚不存在）。",
+        "content": "这是一道填空题模板，选中后，点击上方编辑器中 [添加填空] 按钮即可添加填空，被选中的文字将会被设为填空的默认答案，可在下方设置填空的答案及分数。\n\n添加填空按钮：![add-blank-inline.png](https://static.pintia.cn/assets/problems/add-blank-inline.png)\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103830998473838592",
+        "problemId": "1965615817657823232",
+        "description": "使用SQL语句为students表的sname字段添加非空约束（假设该约束尚不存在）。\n\n<br>\n\nALTER TABLE students\n\nMODIFY COLUMN  VARCHAR(8) ;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2103832683598385153",
+      "number": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "使用SQL语句为sc表添加主键约束，主键由sno和cno组成。 <br> TABLE sc ADD ; (注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格） 填空位置：________、________",
+      "content": "使用SQL语句为sc表添加主键约束，主键由sno和cno组成。\n\n<br>\n\n TABLE sc\n\nADD ;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）\n\n填空位置：________、________",
+      "title": "使用SQL语句为sc表添加主键约束，主键由sno和cno组成。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "markdownPath": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "location": "content",
+          "index": 82
+        }
+      ],
+      "score": 4,
+      "apiData": {
+        "id": "2103832683598385153",
+        "label": "",
+        "score": 4,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2
+            ],
+            "blankLength": 131,
+            "blanks": [
+              {
+                "index": 39,
+                "multipleLine": false,
+                "length": 5,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 54,
+                "multipleLine": false,
+                "length": 22,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用SQL语句为sc表添加主键约束，主键由sno和cno组成。",
+        "content": "这是一道填空题模板，选中后，点击上方编辑器中 [添加填空] 按钮即可添加填空，被选中的文字将会被设为填空的默认答案，可在下方设置填空的答案及分数。\n\n添加填空按钮：![add-blank-inline.png](https://static.pintia.cn/assets/problems/add-blank-inline.png)\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103830998473838592",
+        "problemId": "1965616322656223232",
+        "description": "使用SQL语句为sc表添加主键约束，主键由sno和cno组成。\n\n<br>\n\n TABLE sc\n\nADD ;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2104192434614099968",
+      "number": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "利用create table 命令创建student表，表结构见下图。 ![student.jpg](~/974a8099-8e74-41b1-a421-4a34c7cb9984.jpg) CREATE TABLE student ( sno char(7) , sname varchar(8) not null, ssex char(2) not null, score decimal(5,1) , class varchar(10) not null , sfzh char(18) , tp varchar(50), zw BLOB ) 填空位置：________、________",
+      "content": "利用create table 命令创建student表，表结构见下图。\n\n\n\n![student.jpg](~/974a8099-8e74-41b1-a421-4a34c7cb9984.jpg)\n\n\nCREATE  TABLE student (\n\nsno  char(7)   ,   \n\nsname   varchar(8)  not  null,       \n\nssex    char(2)  not  null, \n\nscore  decimal(5,1) ,\n\nclass  varchar(10)  not null ,\n\nsfzh  char(18) ,\n\ntp  varchar(50),\n\nzw BLOB\n\n)\n\n填空位置：________、________",
+      "title": "利用create table 命令创建student表，表结构见下图。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/974a8099-8e74-41b1-a421-4a34c7cb9984.jpg",
+          "markdownPath": "~/974a8099-8e74-41b1-a421-4a34c7cb9984.jpg",
+          "location": "content",
+          "index": 39
+        },
+        {
+          "url": "https://images.ptausercontent.com/974a8099-8e74-41b1-a421-4a34c7cb9984.jpg",
+          "markdownPath": "~/974a8099-8e74-41b1-a421-4a34c7cb9984.jpg",
+          "location": "description",
+          "index": 39
+        }
+      ],
+      "score": 4,
+      "apiData": {
+        "id": "2104192434614099968",
+        "label": "",
+        "score": 4,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2
+            ],
+            "blankLength": 23,
+            "blanks": [
+              {
+                "index": 140,
+                "multipleLine": false,
+                "length": 11,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 285,
+                "multipleLine": false,
+                "length": 6,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "利用create table 命令创建student表，表结构见下图。",
+        "content": "利用create table 命令创建student表，表结构见下图。\n\n\n\n![student.jpg](~/974a8099-8e74-41b1-a421-4a34c7cb9984.jpg)\n\n\nCREATE  TABLE student (\n\nsno  char(7)   ,   \n\nsname   varchar(8)  not  null,       \n\nssex    char(2)  not  null, \n\nscore  decimal(5,1) ,\n\nclass  varchar(10)  not null ,\n\nsfzh  char(18) ,\n\ntp  varchar(50),\n\nzw BLOB\n\n)\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103830998473838592",
+        "problemId": "1400287615298371584",
+        "description": "利用create table 命令创建student表，表结构见下图。\n\n\n\n![student.jpg](~/974a8099-8e74-41b1-a421-4a34c7cb9984.jpg)\n\n\nCREATE  TABLE student (\n\nsno  char(7)   ,   \n\nsname   varchar(8)  not  null,       \n\nssex    char(2)  not  null, \n\nscore  decimal(5,1) ,\n\nclass  varchar(10)  not null ,\n\nsfzh  char(18) ,\n\ntp  varchar(50),\n\nzw BLOB\n\n)\n",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2104192434614099969",
+      "number": 4,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "利用create table 命令创建borrow表，表结构见下图： ![360桌面截图20220410104910.jpg](~/6037451f-bafb-400e-b547-35b2ada6c4c4.jpg) CREATE TABLE borrow( XH int primary key, bbID CHAR(10) , bookID CHAR(10) not null, readerID CHAR(6) not null, Borrowdate DATETIME not null ); 注：填空时要么全部小写，要么全部大写 填空位置：________、________",
+      "content": "利用create table 命令创建borrow表，表结构见下图：\n\n![360桌面截图20220410104910.jpg](~/6037451f-bafb-400e-b547-35b2ada6c4c4.jpg)\nCREATE TABLE borrow(\nXH           int   primary key,\nbbID         CHAR(10)     ,\nbookID       CHAR(10) not null,\nreaderID     CHAR(6) not null,\nBorrowdate   DATETIME not null\n);\n注：填空时要么全部小写，要么全部大写\n\n填空位置：________、________",
+      "title": "利用create table 命令创建borrow表，表结构见下图：",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/6037451f-bafb-400e-b547-35b2ada6c4c4.jpg",
+          "markdownPath": "~/6037451f-bafb-400e-b547-35b2ada6c4c4.jpg",
+          "location": "content",
+          "index": 36
+        },
+        {
+          "url": "https://images.ptausercontent.com/6037451f-bafb-400e-b547-35b2ada6c4c4.jpg",
+          "markdownPath": "~/6037451f-bafb-400e-b547-35b2ada6c4c4.jpg",
+          "location": "description",
+          "index": 36
+        }
+      ],
+      "score": 4,
+      "apiData": {
+        "id": "2104192434614099969",
+        "label": "",
+        "score": 4,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2
+            ],
+            "blankLength": 20,
+            "blanks": [
+              {
+                "index": 148,
+                "multipleLine": false,
+                "length": 14,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 187,
+                "multipleLine": false,
+                "length": 6,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "利用create table 命令创建borrow表，表结构见下图：",
+        "content": "利用create table 命令创建borrow表，表结构见下图：\n\n![360桌面截图20220410104910.jpg](~/6037451f-bafb-400e-b547-35b2ada6c4c4.jpg)\nCREATE TABLE borrow(\nXH           int   primary key,\nbbID         CHAR(10)     ,\nbookID       CHAR(10) not null,\nreaderID     CHAR(6) not null,\nBorrowdate   DATETIME not null\n);\n注：填空时要么全部小写，要么全部大写\n\n\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103830998473838592",
+        "problemId": "1512986754520387584",
+        "description": "利用create table 命令创建borrow表，表结构见下图：\n\n![360桌面截图20220410104910.jpg](~/6037451f-bafb-400e-b547-35b2ada6c4c4.jpg)\nCREATE TABLE borrow(\nXH           int   primary key,\nbbID         CHAR(10)     ,\nbookID       CHAR(10) not null,\nreaderID     CHAR(6) not null,\nBorrowdate   DATETIME not null\n);\n注：填空时要么全部小写，要么全部大写\n\n\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2104192434614099970",
+      "number": 5,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "利用create table 命令创建Vip表，表结构见下图： ![Dingtalk_20230314115747.jpg](~/f20c4e22-7a40-40a9-8cee-32f0fd1a847a.jpg \"Dingtalk_20230314115747.jpg\") CREATE TABLE vip( vno char(4) , vname not null, sex char(2) not null, birthday date, phone char(11) );",
+      "content": "利用create table 命令创建Vip表，表结构见下图：\n\n![Dingtalk_20230314115747.jpg](~/f20c4e22-7a40-40a9-8cee-32f0fd1a847a.jpg \"Dingtalk_20230314115747.jpg\")\n\nCREATE TABLE vip(\n\nvno  char(4)  ,\n\nvname     not  null,\n\nsex  char(2) not null,\n\nbirthday  date,\n\nphone char(11)\n\n);",
+      "title": "利用create talbe 命令创建Vip表",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/f20c4e22-7a40-40a9-8cee-32f0fd1a847a.jpg",
+          "markdownPath": "~/f20c4e22-7a40-40a9-8cee-32f0fd1a847a.jpg",
+          "location": "content",
+          "index": 33
+        },
+        {
+          "url": "https://images.ptausercontent.com/f20c4e22-7a40-40a9-8cee-32f0fd1a847a.jpg",
+          "markdownPath": "~/f20c4e22-7a40-40a9-8cee-32f0fd1a847a.jpg",
+          "location": "description",
+          "index": 33
+        }
+      ],
+      "score": 4,
+      "apiData": {
+        "id": "2104192434614099970",
+        "label": "",
+        "score": 4,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2
+            ],
+            "blankLength": 23,
+            "blanks": [
+              {
+                "index": 172,
+                "multipleLine": false,
+                "length": 23,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 183,
+                "multipleLine": false,
+                "length": 18,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "利用create talbe 命令创建Vip表",
+        "content": "利用create table 命令创建Vip表，表结构见下图：\n\n![Dingtalk_20230314115747.jpg](~/f20c4e22-7a40-40a9-8cee-32f0fd1a847a.jpg \"Dingtalk_20230314115747.jpg\")\n\nCREATE TABLE vip(\n\nvno  char(4)  ,\n\nvname     not  null,\n\nsex  char(2) not null,\n\nbirthday  date,\n\nphone char(11)\n\n);",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103830998473838592",
+        "problemId": "1635491053921316864",
+        "description": "利用create table 命令创建Vip表，表结构见下图：\n\n![Dingtalk_20230314115747.jpg](~/f20c4e22-7a40-40a9-8cee-32f0fd1a847a.jpg \"Dingtalk_20230314115747.jpg\")\n\nCREATE TABLE vip(\n\nvno  char(4)  ,\n\nvname     not  null,\n\nsex  char(2) not null,\n\nbirthday  date,\n\nphone char(11)\n\n);",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    }
+  ]
+}

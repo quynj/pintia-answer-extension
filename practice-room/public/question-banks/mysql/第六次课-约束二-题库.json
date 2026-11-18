@@ -1,0 +1,559 @@
+{
+  "title": "第六次课-约束二",
+  "problemSetName": "第六次课-约束二",
+  "problemSetId": "2109131391876833280",
+  "examId": "2109547548878520320",
+  "source": "https://pintia.cn/problem-sets/2109131391876833280",
+  "extraction": "api",
+  "exportedAt": "2026-11-15T06:24:38.790Z",
+  "summaries": {
+    "FILL_IN_THE_BLANK": {
+      "total": 6,
+      "totalScore": 51
+    },
+    "SUBJECTIVE": {
+      "total": 1,
+      "totalScore": 9
+    }
+  },
+  "questions": [
+    {
+      "id": "2109132744510513152",
+      "number": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "限制性别列的取值只能是“男”或“女”的约束表达式是： (sex ('男','女')) 填空位置：________、________",
+      "content": "限制性别列的取值只能是“男”或“女”的约束表达式是：\n(sex ('男','女'))\n\n填空位置：________、________",
+      "title": "限制性别列的取值只能是“男”或“女”的约束表达式是",
+      "options": [],
+      "images": [],
+      "score": 6,
+      "apiData": {
+        "id": "2109132744510513152",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3
+            ],
+            "blankLength": 17,
+            "blanks": [
+              {
+                "index": 27,
+                "multipleLine": false,
+                "length": 5,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 32,
+                "multipleLine": false,
+                "length": 2,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "限制性别列的取值只能是“男”或“女”的约束表达式是",
+        "content": "限制性别列的取值只能是“男”或“女”的约束表达式是：\n`(sex ('男','女'))`\n\n\n\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2109131391876833280",
+        "problemId": "1567426785380077568",
+        "description": "限制性别列的取值只能是“男”或“女”的约束表达式是：\n(sex ('男','女'))\n\n\n\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2109132744514707456",
+      "number": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "按题目要求填写SQL语句，题目将用到以下表结构。 ![image.png](~/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")<br>![image.png](~/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\") 题目：**创建表并设置相应的约束1** 注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。 **代码如下：**<br>**CREATE TABLE teaching ( /\\*创建teaching表\\*/** **sid int PRIMARY KEY** , /\\*自增，主键\\*/ **cno CHAR(7) NOT NULL,** **tno CHAR(3) , /\\*tno上的外键\\*/** **cterm INT(1) NULL,** **class char(10) NULL,** **period INT(3) NULL,** , /\\*cno上的外键\\*/ **on update cascade** **);** 填空位置：________、________、________",
+      "content": "按题目要求填写SQL语句，题目将用到以下表结构。\n\n![image.png](~/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")<br>![image.png](~/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\")\n\n题目：**创建表并设置相应的约束1**\n\n注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。\n\n**代码如下：**<br>**CREATE TABLE teaching (   /\\*创建teaching表\\*/**\n\n**sid int PRIMARY KEY**   , /\\*自增，主键\\*/\n\n**cno CHAR(7) NOT NULL,**\n\n**tno CHAR(3) , /\\*tno上的外键\\*/**\n\n**cterm INT(1) NULL,**\n\n**class char(10) NULL,**\n\n**period INT(3) NULL,**\n\n,   /\\*cno上的外键\\*/\n\n **on update cascade**\n\n**);**\n\n填空位置：________、________、________",
+      "title": "创建表并设置相应的约束1",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "markdownPath": "~/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "location": "content",
+          "index": 26
+        },
+        {
+          "url": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "markdownPath": "~/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "location": "content",
+          "index": 98
+        },
+        {
+          "url": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "markdownPath": "~/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "location": "description",
+          "index": 26
+        },
+        {
+          "url": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "markdownPath": "~/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "location": "description",
+          "index": 98
+        }
+      ],
+      "score": 9,
+      "apiData": {
+        "id": "2109132744514707456",
+        "label": "",
+        "score": 9,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3,
+              3
+            ],
+            "blankLength": 171,
+            "blanks": [
+              {
+                "index": 319,
+                "multipleLine": false,
+                "length": 14,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 469,
+                "multipleLine": false,
+                "length": 41,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 488,
+                "multipleLine": false,
+                "length": 43,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "创建表并设置相应的约束1",
+        "content": "按题目要求填写SQL语句，题目将用到以下表结构。\n\n![image.png](~/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")<br>![image.png](~/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\")\n\n题目：**创建表并设置相应的约束1**\n\n注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。\n\n**代码如下：**<br>**CREATE TABLE teaching (   /\\*创建teaching表\\*/**\n\n**sid int PRIMARY KEY**   , /\\*自增，主键\\*/\n\n**cno CHAR(7) NOT NULL,**\n\n**tno CHAR(3) , /\\*tno上的外键\\*/**\n\n**cterm INT(1) NULL,**\n\n**class char(10) NULL,**\n\n,   /\\*cno上的外键\\*/\n\n **on update cascade**\n\n**);**",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2109131391876833280",
+        "problemId": "1688354088386338816",
+        "description": "按题目要求填写SQL语句，题目将用到以下表结构。\n\n![image.png](~/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")<br>![image.png](~/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\")\n\n题目：**创建表并设置相应的约束1**\n\n注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。\n\n**代码如下：**<br>**CREATE TABLE teaching (   /\\*创建teaching表\\*/**\n\n**sid int PRIMARY KEY**   , /\\*自增，主键\\*/\n\n**cno CHAR(7) NOT NULL,**\n\n**tno CHAR(3) , /\\*tno上的外键\\*/**\n\n**cterm INT(1) NULL,**\n\n**class char(10) NULL,**\n\n**period INT(3) NULL,**\n\n,   /\\*cno上的外键\\*/\n\n **on update cascade**\n\n**);**",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2109132744514707457",
+      "number": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "题目要求填写SQL语句，题目将用到以下表结构。 ![image.png](https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")\\ ![image.png](https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\") 题目：**为sc表添加外键约束。** 注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。 **代码如下：**<br> **sc** **FOREIGN KEY (sno) REFERENCES** , add FOREIGN KEY () REFERENCES course(cno); 填空位置：________、________、________、________",
+      "content": "题目要求填写SQL语句，题目将用到以下表结构。\n\n![image.png](https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")\\\n![image.png](https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\")\n\n题目：**为sc表添加外键约束。**\n\n注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。\n\n**代码如下：**<br> **sc**\n\n **FOREIGN KEY (sno) REFERENCES** ,\n\nadd FOREIGN KEY () REFERENCES course(cno);\n\n填空位置：________、________、________、________",
+      "title": "为sc表添加外键约束。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "markdownPath": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "location": "content",
+          "index": 25
+        },
+        {
+          "url": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "markdownPath": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "location": "content",
+          "index": 127
+        },
+        {
+          "url": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "markdownPath": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "location": "description",
+          "index": 25
+        },
+        {
+          "url": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "markdownPath": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "location": "description",
+          "index": 127
+        }
+      ],
+      "score": 12,
+      "apiData": {
+        "id": "2109132744514707457",
+        "label": "",
+        "score": 12,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "blankLength": 57,
+            "blanks": [
+              {
+                "index": 304,
+                "multipleLine": false,
+                "length": 11,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 313,
+                "multipleLine": false,
+                "length": 3,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 347,
+                "multipleLine": false,
+                "length": 14,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 367,
+                "multipleLine": false,
+                "length": 3,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "为sc表添加外键约束。",
+        "content": "题目要求填写SQL语句，题目将用到以下表结构。\n\n![image.png](https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")\\\n![image.png](https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\")\n\n题目：**为sc表添加外键约束。**\n\n注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。\n\n**代码如下：**<br> **sc**\n\n **FOREIGN KEY (sno) REFERENCES** ,\n\nadd FOREIGN KEY () REFERENCES course(cno);",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2109131391876833280",
+        "problemId": "1688356303163396096",
+        "description": "题目要求填写SQL语句，题目将用到以下表结构。\n\n![image.png](https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")\\\n![image.png](https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\")\n\n题目：**为sc表添加外键约束。**\n\n注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。\n\n**代码如下：**<br> **sc**\n\n **FOREIGN KEY (sno) REFERENCES** ,\n\nadd FOREIGN KEY () REFERENCES course(cno);",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2109132744514707458",
+      "number": 4,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "题目要求填写SQL语句，题目将用到以下表结构。 ![image.png](https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")\\ ![image.png](https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\") 题目：**为teaching表添加cterm列的检查约束，取名ck1，取值范围1～10。** 注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。 **代码如下：**<br>ALTER TABLE **ADD** ck1 check ( **)** 填空位置：________、________、________",
+      "content": "题目要求填写SQL语句，题目将用到以下表结构。\n\n![image.png](https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")\\\n![image.png](https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\")\n\n题目：**为teaching表添加cterm列的检查约束，取名ck1，取值范围1～10。**\n\n注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。\n\n**代码如下：**<br>ALTER TABLE  \n\n**ADD**   ck1 check (  **)**\n\n填空位置：________、________、________",
+      "title": "为teaching表添加cterm列的检查约束，取名ck1，取值范围1～10。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "markdownPath": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "location": "content",
+          "index": 25
+        },
+        {
+          "url": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "markdownPath": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "location": "content",
+          "index": 127
+        },
+        {
+          "url": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "markdownPath": "https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png",
+          "location": "description",
+          "index": 25
+        },
+        {
+          "url": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "markdownPath": "https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png",
+          "location": "description",
+          "index": 127
+        }
+      ],
+      "score": 9,
+      "apiData": {
+        "id": "2109132744514707458",
+        "label": "",
+        "score": 9,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3,
+              3
+            ],
+            "blankLength": 92,
+            "blanks": [
+              {
+                "index": 344,
+                "multipleLine": false,
+                "length": 8,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 355,
+                "multipleLine": false,
+                "length": 10,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 369,
+                "multipleLine": false,
+                "length": 22,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "为teaching表添加cterm列的检查约束，取名ck1，取值范围1～10。",
+        "content": "题目要求填写SQL语句，题目将用到以下表结构。\n\n![image.png](https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")\\\n![image.png](https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\")\n\n题目：**为teaching表添加cterm列的检查约束，取名ck1，取值范围1～10。**\n\n注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。\n\n**代码如下：**<br>ALTER TABLE  \n\n**ADD**   ck1 check (  **)**",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2109131391876833280",
+        "problemId": "1688358202373611520",
+        "description": "题目要求填写SQL语句，题目将用到以下表结构。\n\n![image.png](https://images.ptausercontent.com/5e7daf6a-8979-467e-ab66-e5e4e9cd2986.png \"image.png\")\\\n![image.png](https://images.ptausercontent.com/fafd0374-2b2d-4d91-a41d-3af09f0bd622.png \"image.png\")\n\n题目：**为teaching表添加cterm列的检查约束，取名ck1，取值范围1～10。**\n\n注意：填写时要么都小写，要么都大写，使用英文符号，单词之间一个空格分隔不要多加。\n\n**代码如下：**<br>ALTER TABLE  \n\n**ADD**   ck1 check (  **)**",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2109132744514707460",
+      "number": 5,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "使用SQL语句为teaching表的tno字段添加外键约束，参照teachers表的主键tno，外键名为fk_sc_sno。 <br> ALTER TABLE teaching ADD fk_sc_sno (tno) REFERENCES ; (注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+      "content": "使用SQL语句为teaching表的tno字段添加外键约束，参照teachers表的主键tno，外键名为fk_sc_sno。\n\n<br>\n\nALTER TABLE teaching\n\nADD  fk_sc_sno  (tno)\n\nREFERENCES ;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+      "title": "使用SQL语句为teaching表的tno字段添加外键约束，参照teachers表的主键tno，外键名为fk_sc_sno。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "markdownPath": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "location": "content",
+          "index": 82
+        }
+      ],
+      "score": 9,
+      "apiData": {
+        "id": "2109132744514707460",
+        "label": "",
+        "score": 9,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3,
+              3
+            ],
+            "blankLength": 57,
+            "blanks": [
+              {
+                "index": 96,
+                "multipleLine": false,
+                "length": 10,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 107,
+                "multipleLine": false,
+                "length": 11,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 126,
+                "multipleLine": false,
+                "length": 14,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用SQL语句为teaching表的tno字段添加外键约束，参照teachers表的主键tno，外键名为fk_sc_sno。",
+        "content": "这是一道填空题模板，选中后，点击上方编辑器中 [添加填空] 按钮即可添加填空，被选中的文字将会被设为填空的默认答案，可在下方设置填空的答案及分数。\n\n添加填空按钮：![add-blank-inline.png](https://static.pintia.cn/assets/problems/add-blank-inline.png)\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2109131391876833280",
+        "problemId": "1965617114905722880",
+        "description": "使用SQL语句为teaching表的tno字段添加外键约束，参照teachers表的主键tno，外键名为fk_sc_sno。\n\n<br>\n\nALTER TABLE teaching\n\nADD  fk_sc_sno  (tno)\n\nREFERENCES ;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2109132744514707461",
+      "number": 6,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "使用SQL语句删除course表中名为course_ibfk_1的外键约束。 <br> ALTER TABLE FOREIGN KEY course_ibfk_1; (注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+      "content": "使用SQL语句删除course表中名为course_ibfk_1的外键约束。\n\n<br>\n\nALTER TABLE \n\n  FOREIGN KEY course_ibfk_1;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+      "title": "使用SQL语句删除course表中名为course_ibfk_1的外键约束。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "markdownPath": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "location": "content",
+          "index": 82
+        }
+      ],
+      "score": 6,
+      "apiData": {
+        "id": "2109132744514707461",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3
+            ],
+            "blankLength": 13,
+            "blanks": [
+              {
+                "index": 58,
+                "multipleLine": false,
+                "length": 6,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 60,
+                "multipleLine": false,
+                "length": 4,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用SQL语句删除course表中名为course_ibfk_1的外键约束。",
+        "content": "这是一道填空题模板，选中后，点击上方编辑器中 [添加填空] 按钮即可添加填空，被选中的文字将会被设为填空的默认答案，可在下方设置填空的答案及分数。\n\n添加填空按钮：![add-blank-inline.png](https://static.pintia.cn/assets/problems/add-blank-inline.png)\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2109131391876833280",
+        "problemId": "1965617491558416384",
+        "description": "使用SQL语句删除course表中名为course_ibfk_1的外键约束。\n\n<br>\n\nALTER TABLE \n\n  FOREIGN KEY course_ibfk_1;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2109268951789838336",
+      "number": 1,
+      "type": "SUBJECTIVE",
+      "prompt": "某新闻门户网站正在开发内容管理系统（CMS）\n\n系统中最基础的是两张表：新闻分类表（cms_cate）用于存放栏目（如“国内新闻”“国际新闻”），新闻表（cms_news）用于存放每一条新闻，且每条新闻必须归属于某个分类。请使用SQL语句创建数据库 cms_demo，并选择数据库 cms_demo后再按下表要求完成两张表的创建。截图代码界面（包括运行成功的提示）提交答题。\\\n![6-10-11_205949.jpg](~/e8fd5d13-fbc1-4a29-97c2-37b94318c174.jpg \"6-10-11_205949.jpg\")\\\n![2026-10-11_205820.jpg](~/b5885743-a636-46ca-a1af-bc48cb95877a.jpg \"2026-10-11_205820.jpg\")",
+      "content": "某新闻门户网站正在开发内容管理系统（CMS）\n\n系统中最基础的是两张表：新闻分类表（cms_cate）用于存放栏目（如“国内新闻”“国际新闻”），新闻表（cms_news）用于存放每一条新闻，且每条新闻必须归属于某个分类。请使用SQL语句创建数据库 cms_demo，并选择数据库 cms_demo后再按下表要求完成两张表的创建。截图代码界面（包括运行成功的提示）提交答题。\\\n![6-10-11_205949.jpg](~/e8fd5d13-fbc1-4a29-97c2-37b94318c174.jpg \"6-10-11_205949.jpg\")\\\n![2026-10-11_205820.jpg](~/b5885743-a636-46ca-a1af-bc48cb95877a.jpg \"2026-10-11_205820.jpg\")",
+      "hasStatement": true,
+      "title": "某新闻门户网站正在开发内容管理系统（CMS）",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/e8fd5d13-fbc1-4a29-97c2-37b94318c174.jpg",
+          "markdownPath": "~/e8fd5d13-fbc1-4a29-97c2-37b94318c174.jpg",
+          "location": "description",
+          "index": 189
+        },
+        {
+          "url": "https://images.ptausercontent.com/b5885743-a636-46ca-a1af-bc48cb95877a.jpg",
+          "markdownPath": "~/b5885743-a636-46ca-a1af-bc48cb95877a.jpg",
+          "location": "description",
+          "index": 277
+        }
+      ],
+      "score": 9,
+      "apiData": {
+        "id": "2109268951789838336",
+        "label": "",
+        "score": 9,
+        "problemConfig": {
+          "subjectiveProblemConfig": {
+            "allowFileUpload": false
+          },
+          "solutionVisible": true,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "某新闻门户网站正在开发内容管理系统（CMS）",
+        "content": "这是一个主观题模板。请在这里写题目描述。",
+        "type": "SUBJECTIVE",
+        "author": "辛勤芳",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PRIVATE",
+        "lastSubmissionId": "0",
+        "solution": "\\-- 建库\n\nCREATE DATABASE IF NOT EXISTS cms_demo;\n\nUSE cms_demo;\n\n\\-- ---------- 表1：新闻分类表 ----------\n\nCREATE TABLE cms_cate (\n\n  id       TINYINT      PRIMARY KEY,\n\n  cateName VARCHAR(50)  NOT NULL ,\n\n  cateDesc VARCHAR(200) \n\n) ;<br>\n\n\\-- ---------- 表2：新闻表 ----------\n\nCREATE TABLE cms_news (\n\n  id       INT          PRIMARY KEY AUTO_INCREMENT,\n\n  title    VARCHAR(50)      NOT NULL,\n\n  content  TEXT ,\n\n  pubTime  DATETIME         NOT NULL DEFAULT CURRENT_TIMESTAMP,\n\n  clickNum INT              NOT NULL DEFAULT 0,\n\n  isTop    TINYINT UNSIGNED NOT NULL DEFAULT 0 COMMENT '是否置顶：0不置顶，1置顶',\n\n  cId      TINYINT      NOT NULL,\n\n  CONSTRAINT chk_news_istop    CHECK (isTop IN (0, 1)),\n\n  CONSTRAINT chk_news_clicknum CHECK (clickNum >= 0),\n\n  CONSTRAINT fk_news_cate FOREIGN KEY (cId) REFERENCES cms_cate (id)\n\n);",
+        "problemSetId": "2109131391876833280",
+        "problemId": "2109268914577973248",
+        "description": "某新闻门户网站正在开发内容管理系统（CMS）\n\n系统中最基础的是两张表：新闻分类表（cms_cate）用于存放栏目（如“国内新闻”“国际新闻”），新闻表（cms_news）用于存放每一条新闻，且每条新闻必须归属于某个分类。请使用SQL语句创建数据库 cms_demo，并选择数据库 cms_demo后再按下表要求完成两张表的创建。截图代码界面（包括运行成功的提示）提交答题。\\\n![6-10-11_205949.jpg](~/e8fd5d13-fbc1-4a29-97c2-37b94318c174.jpg \"6-10-11_205949.jpg\")\\\n![2026-10-11_205820.jpg](~/b5885743-a636-46ca-a1af-bc48cb95877a.jpg \"2026-10-11_205820.jpg\")",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "972763327604785152",
+        "number": 1,
+        "examLabel": "8-1"
+      }
+    }
+  ]
+}

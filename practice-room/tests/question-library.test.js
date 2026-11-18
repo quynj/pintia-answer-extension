@@ -26,6 +26,9 @@ test('imports and pairs bank and answer files before returning the new bank key'
   assert.equal(library.bank.value?.title, '示例题集')
   assert.equal(library.answerMap.value.get('q-1')?.answer, 'A')
   assert.equal(library.matchedAnswerCount.value, 1)
+  assert.deepEqual(library.bankEntries.value[0].categories, [
+    { id: 'source.local-import', name: '本地导入' }
+  ])
   assert.equal(notices.at(-1)?.isError, false)
 })
 
@@ -34,8 +37,10 @@ test('loads platform banks and paired answers from a JSON catalog', async () => 
   const library = useQuestionLibrary((message, isError = false) => notices.push({ message, isError }))
   const resources = new Map([
     ['https://example.test/question-banks/catalog.json', {
+      categories: [{ id: 'language.java', name: 'Java' }],
       banks: [{
         id: 'bank-1',
+        categoryIds: ['language.java'],
         questionBankUrl: 'bank-1/questions.json',
         answerUrl: 'bank-1/answers.json'
       }]
@@ -56,6 +61,9 @@ test('loads platform banks and paired answers from a JSON catalog', async () => 
 
   assert.equal(library.bankEntries.value.length, 1)
   assert.equal(library.bankEntries.value[0].isPlatformBank, true)
+  assert.deepEqual(library.bankEntries.value[0].categories, [
+    { id: 'language.java', name: 'Java' }
+  ])
   library.selectBank('platform-bank-1')
   assert.equal(library.bank.value?.title, '平台题库')
   assert.equal(library.answerMap.value.get('q-1')?.answer, 'A')
@@ -87,6 +95,9 @@ test('reports individual platform bank failures without discarding valid banks',
   await library.loadPlatformBanks('https://example.test/catalog.json', fetcher)
 
   assert.deepEqual(library.bankEntries.value.map((entry) => entry.bank.title), ['可用题库'])
+  assert.deepEqual(library.bankEntries.value[0].categories, [
+    { id: 'source.uncategorized', name: '未分类' }
+  ])
   assert.equal(notices.at(-1)?.isError, true)
   assert.match(notices.at(-1)?.message, /broken.*HTTP 404/)
 })
@@ -107,4 +118,46 @@ test('rejects insecure cross-origin platform bank URLs', async () => {
   assert.equal(library.bankEntries.value.length, 0)
   assert.equal(notices.at(-1)?.isError, true)
   assert.match(notices.at(-1)?.message, /数据地址无效/)
+})
+
+test('keeps selection outside the visible group and labels merged banks', async () => {
+  const library = useQuestionLibrary(() => {})
+  const bankFiles = ['甲', '乙', '丙'].map((title, index) => new File([JSON.stringify({
+    title,
+    questions: [{ id: `q-${index}`, type: 'SUBJECTIVE', content: title }]
+  })], `${title}.json`, { type: 'application/json' }))
+
+  await library.importFiles(bankFiles)
+  const keys = library.bankEntries.value.map((entry) => entry.key)
+  library.toggleBanksSelection(keys.slice(0, 2))
+  library.toggleBanksSelection(keys.slice(2))
+  assert.deepEqual(library.mergeSelection.value, keys)
+
+  library.toggleBanksSelection(keys.slice(2))
+  assert.deepEqual(library.mergeSelection.value, keys.slice(0, 2))
+  library.mergeSelectedBanks()
+
+  assert.deepEqual(library.bankEntries.value[3].categories, [
+    { id: 'source.merged', name: '合并' }
+  ])
+})
+
+test('rejects catalog bank references to undefined categories', async () => {
+  const notices = []
+  const library = useQuestionLibrary((message, isError = false) => notices.push({ message, isError }))
+  const fetcher = async () => new Response(JSON.stringify({
+    categories: [],
+    banks: [{
+      id: 'broken',
+      categoryIds: ['missing'],
+      questionBankUrl: 'questions.json',
+      answerUrl: 'answers.json'
+    }]
+  }), { status: 200 })
+
+  await library.loadPlatformBanks('https://example.test/catalog.json', fetcher)
+
+  assert.equal(library.bankEntries.value.length, 0)
+  assert.equal(notices.at(-1)?.isError, true)
+  assert.match(notices.at(-1)?.message, /未定义的分类：missing/)
 })

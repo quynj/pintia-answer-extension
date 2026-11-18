@@ -1,0 +1,368 @@
+{
+  "title": "26秋《程序设计基础》编程练习4（方法）",
+  "problemSetName": "26秋《程序设计基础》编程练习4（方法）",
+  "problemSetId": "2116074122480865280",
+  "examId": "2116523901522350080",
+  "source": "https://pintia.cn/problem-sets/2116074122480865280",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:39:55.130Z",
+  "summaries": {
+    "PROGRAMMING": {
+      "total": 4,
+      "totalScore": 100
+    }
+  },
+  "questions": [
+    {
+      "id": "2116074833226649600",
+      "number": 1,
+      "type": "PROGRAMMING",
+      "prompt": "一个数如果恰好等于它的因子(除自身外)之和，这个数就称为\"完数\"。比如6=1+2+3,因此6是完数。在Main类里面定义一个方法  方法名为isPerfect 返回类型为boolean，该方法要求接收用户输入的一个整数，并判断该整数是否是完数，将判断结果返回，在main函数中 通过键盘输入这个整数，然后调用isPerfect判断这个整数判断是否是完数，如果是输出n:Yes，否则输出n:No ，n是这个具体的数，其中在main方法中调用方法的格式为 ： boolean result = isPerfect(n);\n \n\n### 输入格式:\n\n从键盘输入一个整数\n\n### 输出格式:\n\n在显示器输出Yes 或者No\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n6\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n6:Yes\n```",
+      "content": "一个数如果恰好等于它的因子(除自身外)之和，这个数就称为\"完数\"。比如6=1+2+3,因此6是完数。在Main类里面定义一个方法  方法名为isPerfect 返回类型为boolean，该方法要求接收用户输入的一个整数，并判断该整数是否是完数，将判断结果返回，在main函数中 通过键盘输入这个整数，然后调用isPerfect判断这个整数判断是否是完数，如果是输出n:Yes，否则输出n:No ，n是这个具体的数，其中在main方法中调用方法的格式为 ： boolean result = isPerfect(n);\n \n\n### 输入格式:\n\n从键盘输入一个整数\n\n### 输出格式:\n\n在显示器输出Yes 或者No\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n6\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n6:Yes\n```",
+      "hasStatement": true,
+      "title": "定义完数方法",
+      "options": [],
+      "images": [],
+      "score": 25,
+      "apiData": {
+        "id": "2116074833226649600",
+        "label": "",
+        "score": 25,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 15,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "6\n",
+                "output": "6:Yes\n"
+              },
+              {
+                "name": "",
+                "input": "6\n",
+                "output": "6:Yes\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "定义完数方法",
+        "content": "一个数如果恰好等于它的因子(除自身外)之和，这个数就称为\"完数\"。比如6=1+2+3,因此6是完数。在Main类里面定义一个方法  方法名为isPerfect 返回类型为boolean，该方法要求接收用户输入的一个整数，并判断该整数是否是完数，将判断结果返回，在main函数中 通过键盘输入这个整数，然后调用isPerfect判断这个整数判断是否是完数，如果是输出n:Yes，否则输出n:No ，n是这个具体的数，其中在main方法中调用方法的格式为 ： boolean result = isPerfect(n);\n \n\n### 输入格式:\n\n从键盘输入一个整数\n\n### 输出格式:\n\n在显示器输出Yes 或者No\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n6\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n6:Yes\n```\n",
+        "type": "PROGRAMMING",
+        "author": "ami",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116074122480865280",
+        "problemId": "1057824090520580096",
+        "description": "一个数如果恰好等于它的因子(除自身外)之和，这个数就称为\"完数\"。比如6=1+2+3,因此6是完数。在Main类里面定义一个方法  方法名为isPerfect 返回类型为boolean，该方法要求接收用户输入的一个整数，并判断该整数是否是完数，将判断结果返回，在main函数中 通过键盘输入这个整数，然后调用isPerfect判断这个整数判断是否是完数，如果是输出n:Yes，否则输出n:No ，n是这个具体的数，其中在main方法中调用方法的格式为 ： boolean result = isPerfect(n);\n \n\n### 输入格式:\n\n从键盘输入一个整数\n\n### 输出格式:\n\n在显示器输出Yes 或者No\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n6\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n6:Yes\n```\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "99",
+        "number": 1,
+        "examLabel": "7-1"
+      }
+    },
+    {
+      "id": "2116074833226649601",
+      "number": 2,
+      "type": "PROGRAMMING",
+      "prompt": "在Main类中编写方法，提示用户输入一个点(x,y)，然后检查这个点是否在以原点(0,0)为圆心、半径为r的圆内。方法的首部定义为：<br/>\npublic boolean inCircle(int x,int y,int r);<br/>\n方法在圆内，则返回true，否则返回false <br/>\n在main方法中：\n1. 通过键盘输入点的x,y坐标以及圆的半价\n2. 调用inCircle方法，如果在圆内，输出yes，否则输出no\n\n\n### 输入格式:\n\n通过键盘入在一行中给出3整数，表示一个点坐标x,y,以及圆的半价\n\n### 输出格式:\n\n对每一组输入，在一行中输出yes或者no。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n3 4 6\n```\n```in\n2 3 2\n```\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nyes\n```\n```out\nno\n```",
+      "content": "在Main类中编写方法，提示用户输入一个点(x,y)，然后检查这个点是否在以原点(0,0)为圆心、半径为r的圆内。方法的首部定义为：<br/>\npublic boolean inCircle(int x,int y,int r);<br/>\n方法在圆内，则返回true，否则返回false <br/>\n在main方法中：\n1. 通过键盘输入点的x,y坐标以及圆的半价\n2. 调用inCircle方法，如果在圆内，输出yes，否则输出no\n\n\n### 输入格式:\n\n通过键盘入在一行中给出3整数，表示一个点坐标x,y,以及圆的半价\n\n### 输出格式:\n\n对每一组输入，在一行中输出yes或者no。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n3 4 6\n```\n```in\n2 3 2\n```\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nyes\n```\n```out\nno\n```",
+      "hasStatement": true,
+      "title": "判断一个点是否在园内",
+      "options": [],
+      "images": [],
+      "score": 25,
+      "apiData": {
+        "id": "2116074833226649601",
+        "label": "",
+        "score": 25,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "3 4 6\n",
+                "output": "yes\n"
+              },
+              {
+                "name": "",
+                "input": "2 3 2\n",
+                "output": "no\n"
+              },
+              {
+                "name": "",
+                "input": "3 4 6\n",
+                "output": "yes\n"
+              },
+              {
+                "name": "",
+                "input": "2 3 2\n",
+                "output": "no\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "判断一个点是否在园内",
+        "content": "在Main类中编写方法，提示用户输入一个点(x,y)，然后检查这个点是否在以原点(0,0)为圆心、半径为r的圆内。方法的首部定义为：<br/>\npublic boolean inCircle(int x,int y,int r);<br/>\n方法在圆内，则返回true，否则返回false <br/>\n在main方法中：\n1. 通过键盘输入点的x,y坐标以及圆的半价\n2. 调用inCircle方法，如果在圆内，输出yes，否则输出no\n\n\n### 输入格式:\n\n通过键盘入在一行中给出3整数，表示一个点坐标x,y,以及圆的半价\n\n### 输出格式:\n\n对每一组输入，在一行中输出yes或者no。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n3 4 6\n```\n```in\n2 3 2\n```\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nyes\n```\n```out\nno\n```\n",
+        "type": "PROGRAMMING",
+        "author": "Ami",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116074122480865280",
+        "problemId": "1178287065869864960",
+        "description": "在Main类中编写方法，提示用户输入一个点(x,y)，然后检查这个点是否在以原点(0,0)为圆心、半径为r的圆内。方法的首部定义为：<br/>\npublic boolean inCircle(int x,int y,int r);<br/>\n方法在圆内，则返回true，否则返回false <br/>\n在main方法中：\n1. 通过键盘输入点的x,y坐标以及圆的半价\n2. 调用inCircle方法，如果在圆内，输出yes，否则输出no\n\n\n### 输入格式:\n\n通过键盘入在一行中给出3整数，表示一个点坐标x,y,以及圆的半价\n\n### 输出格式:\n\n对每一组输入，在一行中输出yes或者no。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n3 4 6\n```\n```in\n2 3 2\n```\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nyes\n```\n```out\nno\n```\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "99",
+        "number": 2,
+        "examLabel": "7-2"
+      }
+    },
+    {
+      "id": "2116074833226649602",
+      "number": 3,
+      "type": "PROGRAMMING",
+      "prompt": "自恋数是数学家马达齐在1966年给出的名称，也叫“自重数”“还原数”或“超完全数字不变数”，谈祥柏先生给他起了个好听的名字“水仙花数”。一般的定义是：一个n位数中各数字的n次幂之和等于该数本身。如：153=1^3+5^3+3^3，我们想知道哪些数是水仙花数。<br/>\n1.定义一个Tool类，\n 类中有一个方法isDaffodil（），可以判断用户给的一个3位数是不是水仙花数，并返回true或者false<br/>\n   public boolean isDaffodilf(int num)<br/>\n2.定义Main类，在main方法中，完成两件事情：<br/>\n（1）输入一个三位数，判断该数是不是水仙花数，如果是，输出yes，否则输出no，如果不是3位数，输出error<br/>\n（2)输出所有的3位数中所有的水仙花数，每一个数占一行\n\n### 输入格式:\n\n输入在一行中给出一个整数。\n\n### 输出格式:\n\n输出一个数是否是水仙花数，以及所有的3位水仙花数\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n299\n```\n```in\n153\n```\n```in\n1000\n```\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nno\n153\n370\n371\n407\n```\n```out\nyes\n153\n370\n371\n407\n```\n```out\nerror\n153\n370\n371\n407\n```",
+      "content": "自恋数是数学家马达齐在1966年给出的名称，也叫“自重数”“还原数”或“超完全数字不变数”，谈祥柏先生给他起了个好听的名字“水仙花数”。一般的定义是：一个n位数中各数字的n次幂之和等于该数本身。如：153=1^3+5^3+3^3，我们想知道哪些数是水仙花数。<br/>\n1.定义一个Tool类，\n 类中有一个方法isDaffodil（），可以判断用户给的一个3位数是不是水仙花数，并返回true或者false<br/>\n   public boolean isDaffodilf(int num)<br/>\n2.定义Main类，在main方法中，完成两件事情：<br/>\n（1）输入一个三位数，判断该数是不是水仙花数，如果是，输出yes，否则输出no，如果不是3位数，输出error<br/>\n（2)输出所有的3位数中所有的水仙花数，每一个数占一行\n\n### 输入格式:\n\n输入在一行中给出一个整数。\n\n### 输出格式:\n\n输出一个数是否是水仙花数，以及所有的3位水仙花数\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n299\n```\n```in\n153\n```\n```in\n1000\n```\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nno\n153\n370\n371\n407\n```\n```out\nyes\n153\n370\n371\n407\n```\n```out\nerror\n153\n370\n371\n407\n```",
+      "hasStatement": true,
+      "title": "自恋的水仙花",
+      "options": [],
+      "images": [],
+      "score": 25,
+      "apiData": {
+        "id": "2116074833226649602",
+        "label": "",
+        "score": 25,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "test1": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              },
+              "test2": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              },
+              "test3": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "299\n",
+                "output": "no\n153\n370\n371\n407\n"
+              },
+              {
+                "name": "",
+                "input": "153\n",
+                "output": "yes\n153\n370\n371\n407\n"
+              },
+              {
+                "name": "",
+                "input": "1000\n",
+                "output": "error\n153\n370\n371\n407\n"
+              },
+              {
+                "name": "",
+                "input": "299\n",
+                "output": "no\n153\n370\n371\n407\n"
+              },
+              {
+                "name": "",
+                "input": "153\n",
+                "output": "yes\n153\n370\n371\n407\n"
+              },
+              {
+                "name": "",
+                "input": "1000\n",
+                "output": "error\n153\n370\n371\n407\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "自恋的水仙花",
+        "content": "自恋数是数学家马达齐在1966年给出的名称，也叫“自重数”“还原数”或“超完全数字不变数”，谈祥柏先生给他起了个好听的名字“水仙花数”。一般的定义是：一个n位数中各数字的n次幂之和等于该数本身。如：153=1^3+5^3+3^3，我们想知道哪些数是水仙花数。<br/>\n1.定义一个Tool类，\n 类中有一个方法isDaffodil（），可以判断用户给的一个3位数是不是水仙花数，并返回true或者false<br/>\n   public boolean isDaffodilf(int num)<br/>\n2.定义Main类，在main方法中，完成两件事情：<br/>\n（1）输入一个三位数，判断该数是不是水仙花数，如果是，输出yes，否则输出no，如果不是3位数，输出error<br/>\n（2)输出所有的3位数中所有的水仙花数，每一个数占一行\n\n### 输入格式:\n\n输入在一行中给出一个整数。\n\n### 输出格式:\n\n输出一个数是否是水仙花数，以及所有的3位水仙花数\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n299\n```\n```in\n153\n```\n```in\n1000\n```\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nno\n153\n370\n371\n407\n```\n```out\nyes\n153\n370\n371\n407\n```\n```out\nerror\n153\n370\n371\n407\n```\n",
+        "type": "PROGRAMMING",
+        "author": "AMi",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116074122480865280",
+        "problemId": "1310569618571124736",
+        "description": "自恋数是数学家马达齐在1966年给出的名称，也叫“自重数”“还原数”或“超完全数字不变数”，谈祥柏先生给他起了个好听的名字“水仙花数”。一般的定义是：一个n位数中各数字的n次幂之和等于该数本身。如：153=1^3+5^3+3^3，我们想知道哪些数是水仙花数。<br/>\n1.定义一个Tool类，\n 类中有一个方法isDaffodil（），可以判断用户给的一个3位数是不是水仙花数，并返回true或者false<br/>\n   public boolean isDaffodilf(int num)<br/>\n2.定义Main类，在main方法中，完成两件事情：<br/>\n（1）输入一个三位数，判断该数是不是水仙花数，如果是，输出yes，否则输出no，如果不是3位数，输出error<br/>\n（2)输出所有的3位数中所有的水仙花数，每一个数占一行\n\n### 输入格式:\n\n输入在一行中给出一个整数。\n\n### 输出格式:\n\n输出一个数是否是水仙花数，以及所有的3位水仙花数\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n299\n```\n```in\n153\n```\n```in\n1000\n```\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nno\n153\n370\n371\n407\n```\n```out\nyes\n153\n370\n371\n407\n```\n```out\nerror\n153\n370\n371\n407\n```\n",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "99",
+        "number": 3,
+        "examLabel": "7-3"
+      }
+    },
+    {
+      "id": "2116074833226649603",
+      "number": 4,
+      "type": "PROGRAMMING",
+      "prompt": "一年级小学生期末考试有三门课程：语文、数学、科学，小明同学知道自己每门课程的成绩，想知道自己的平均成绩，但是他不会求，请帮助他和其他一年级学生求课程的平均成绩。\n请写一个类Tools，<br/>\n 1.请完成一个求平均分的方法 getAvg()，该方法返回三门课程的平均分，形参为3个 int的成绩，请定义完成。\n 2.请完成一个平均分显示的方法showAvg(),该方法输出三门课程的平均分，形参为3个int 的成绩，（求平均分为整除）请定义完成，\n\t 输出的样式为 你的平均分=分值\n\t <br/>\n请在Main类中的main方法输入一个小朋友的3门课程的成绩，然后调用相应的方法，给出小朋友的平均分。\n![pic.png](~/564f73a3-4754-4a2c-b243-acee2d7a0602.png)\n\n\n### 输入格式:\n\n在一行内输入一个学生的3门课程的成绩（输入整数）\nEnter a student's scores for the three subjects on one line (input integers).\n### 输出格式:\n\n请对每一组输入，在一行中输出学生的平均分\nFor each set of input, output the student's average score on one line.\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n99  98 99\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nYour average score=98\n```",
+      "content": "一年级小学生期末考试有三门课程：语文、数学、科学，小明同学知道自己每门课程的成绩，想知道自己的平均成绩，但是他不会求，请帮助他和其他一年级学生求课程的平均成绩。\n请写一个类Tools，<br/>\n 1.请完成一个求平均分的方法 getAvg()，该方法返回三门课程的平均分，形参为3个 int的成绩，请定义完成。\n 2.请完成一个平均分显示的方法showAvg(),该方法输出三门课程的平均分，形参为3个int 的成绩，（求平均分为整除）请定义完成，\n\t 输出的样式为 你的平均分=分值\n\t <br/>\n请在Main类中的main方法输入一个小朋友的3门课程的成绩，然后调用相应的方法，给出小朋友的平均分。\n![pic.png](~/564f73a3-4754-4a2c-b243-acee2d7a0602.png)\n\n\n### 输入格式:\n\n在一行内输入一个学生的3门课程的成绩（输入整数）\nEnter a student's scores for the three subjects on one line (input integers).\n### 输出格式:\n\n请对每一组输入，在一行中输出学生的平均分\nFor each set of input, output the student's average score on one line.\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n99  98 99\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nYour average score=98\n```",
+      "hasStatement": true,
+      "title": "帮小朋友计算他的学习成绩",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/564f73a3-4754-4a2c-b243-acee2d7a0602.png",
+          "markdownPath": "~/564f73a3-4754-4a2c-b243-acee2d7a0602.png",
+          "location": "description",
+          "index": 304
+        }
+      ],
+      "score": 25,
+      "apiData": {
+        "id": "2116074833226649603",
+        "label": "",
+        "score": 25,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "test1": {
+                "hint": "",
+                "showHint": false,
+                "score": 25,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "99  98 99\n",
+                "output": "Your average score=98\n"
+              },
+              {
+                "name": "",
+                "input": "99  98 99\n",
+                "output": "Your average score=98\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "帮小朋友计算他的学习成绩",
+        "content": "一年级小学生期末考试有三门课程：语文、数学、科学，小明同学知道自己每门课程的成绩，想知道自己的平均成绩，但是他不会求，请帮助他和其他一年级学生求课程的平均成绩。\n请写一个类Tools，<br/>\n 1.请完成一个求平均分的方法 getAvg()，该方法返回三门课程的平均分，形参为3个 int的成绩，请定义完成。\n 2.请完成一个平均分显示的方法showAvg(),该方法输出三门课程的平均分，形参为3个int 的成绩，（求平均分为整除）请定义完成，\n\t 输出的样式为 你的平均分=分值\n\t <br/>\n请在Main类中的main方法输入一个小朋友的3门课程的成绩，然后调用相应的方法，给出小朋友的平均分。\n\n\n\n### 输入格式:\n\n在一行内输入一个学生的3门课程的成绩（输入整数）\n\n### 输出格式:\n\n请对每一组输入，在一行中输出学生的平均分\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n99  98 99\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n你的平均分=98\n```\n",
+        "type": "PROGRAMMING",
+        "author": "Ami",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116074122480865280",
+        "problemId": "1310769114106159104",
+        "description": "一年级小学生期末考试有三门课程：语文、数学、科学，小明同学知道自己每门课程的成绩，想知道自己的平均成绩，但是他不会求，请帮助他和其他一年级学生求课程的平均成绩。\n请写一个类Tools，<br/>\n 1.请完成一个求平均分的方法 getAvg()，该方法返回三门课程的平均分，形参为3个 int的成绩，请定义完成。\n 2.请完成一个平均分显示的方法showAvg(),该方法输出三门课程的平均分，形参为3个int 的成绩，（求平均分为整除）请定义完成，\n\t 输出的样式为 你的平均分=分值\n\t <br/>\n请在Main类中的main方法输入一个小朋友的3门课程的成绩，然后调用相应的方法，给出小朋友的平均分。\n![pic.png](~/564f73a3-4754-4a2c-b243-acee2d7a0602.png)\n\n\n### 输入格式:\n\n在一行内输入一个学生的3门课程的成绩（输入整数）\nEnter a student's scores for the three subjects on one line (input integers).\n### 输出格式:\n\n请对每一组输入，在一行中输出学生的平均分\nFor each set of input, output the student's average score on one line.\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n99  98 99\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nYour average score=98\n```\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "99",
+        "number": 4,
+        "examLabel": "7-4"
+      }
+    }
+  ]
+}

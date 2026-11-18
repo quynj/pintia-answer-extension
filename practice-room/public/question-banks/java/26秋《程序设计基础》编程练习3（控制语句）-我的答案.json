@@ -1,0 +1,61 @@
+{
+  "problemSetId": "2116065122293002240",
+  "answers": [
+    {
+      "problemId": "2116065122334945280",
+      "questionNumber": 1,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main{\n    public static void main(String[] args){\n        Scanner sc=new Scanner(System.in);\n        int v = sc.nextInt();\n        int p = sc.nextInt();\n        if((v<=0 && p>0) || p <0){\n            System.out.println(\"invalid value\");\n            return;\n        }\n        double b;\n        if (v<1000){\n            b=0.52;\n        }else{\n            b=0.47;\n        }\n        double f =0;\n        if(p<=180){\n            f = p*b;\n        }else if(p<=280){\n            f = p * (b + 0.05);\n        }else{\n            f= p * (b+0.30);\n        }\n        System.out.printf(\"%.2f%n\",f);\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116065122334945282",
+      "questionNumber": 2,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int points = sc.nextInt();\n        double discount;\n\n        if (points < 1000) {\n            discount = 0.9;\n        } else if (points < 5000) {\n            discount = 0.8;\n        } else if (points < 8000) {\n            discount = 0.7;\n        } else {\n            discount = 0.6;\n        }\n\n        System.out.println(\"该VIP顾客享受的折扣是：\" + discount);\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116065122334945283",
+      "questionNumber": 3,
+      "type": "PROGRAMMING",
+      "answer": "public class Main {\n    public static void main(String[] args) {\n        double length = 3000;\n        int days = 0;\n\n        while (length >= 5) {\n            length /= 2;\n            days++;\n        }\n\n        System.out.println(\"需要：\" + days + \" 天时间\");\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116065748892667904",
+      "questionNumber": 4,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        StringBuilder sb = new StringBuilder();\n\n        for (int i = 1; i <= n; i++) {\n            for (int j = 0; j < i; j++) {\n                sb.append('*');\n            }\n            if (i < n) {\n                sb.append('\\n');\n            }\n        }\n\n        System.out.print(sb);\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116065748892667905",
+      "questionNumber": 5,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n\n        for (int i = 0; i < n; i++) {\n            int num = sc.nextInt();\n            boolean prime = num >= 2;\n\n            for (int j = 2; j <= num / j && prime; j++) {\n                if (num % j == 0) {\n                    prime = false;\n                }\n            }\n\n            System.out.println(prime ? \"Yes\" : \"No\");\n        }\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116067564254568448",
+      "questionNumber": 6,
+      "type": "PROGRAMMING",
+      "answer": "public class Main {\n    public static void main(String[] args) {\n        for(int i =1000; i <= 9999; i++){\n            int a = i/ 1000;\n            int b = i / 100 % 10;\n            int c = i / 10 % 10;\n            int d = i % 10;\n\n            if(a != 0 && b != 0 && c != 0 && d != 0\n              && a+b+c+d==10){\n                System.out.print(i+\" \");\n              }\n        }\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116067564258762752",
+      "questionNumber": 7,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int m = sc.nextInt();\n\n        int years = m - 15;\n        int sonAge = 15 + years;\n        int fatherAge = 15 + m + years;\n\n        System.out.println(years);\n        System.out.println(sonAge + \" \" + fatherAge);\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116067564262957056",
+      "questionNumber": 8,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n\n        for (int i = 0; i <= 2 * n; i++) {\n            int level = i <= n ? i : 2 * n - i;\n\n            for (int j = 0; j < n - level; j++) {\n                System.out.print(\" \");\n            }\n\n            for (int j = 0; j < 2 * level + 1; j++) {\n                System.out.print(\"*\");\n            }\n\n            System.out.println();\n        }\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

@@ -1,0 +1,1189 @@
+{
+  "title": "第十次课MySQL-排序和限量",
+  "problemSetName": "第十次课MySQL-排序和限量",
+  "problemSetId": "2116850798953381888",
+  "examId": "2117092896113766400",
+  "source": "https://pintia.cn/problem-sets/2116850798953381888",
+  "extraction": "api",
+  "exportedAt": "2026-11-15T06:24:00.627Z",
+  "summaries": {
+    "SQL_PROGRAMMING": {
+      "total": 15,
+      "totalScore": 100
+    }
+  },
+  "questions": [
+    {
+      "id": "2116850799163097088",
+      "number": 1,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "查询价格在2.00元到10.20元之间的水果名称和价格，先按f_price降序排序，再按f_name排序\n\n### 表结构:\n\n\n```\n\nCREATE TABLE fruits\n(\nf_id    char(10)     \tNOT NULL,\ns_id    INT        \tNOT NULL,\nf_name  char(255)  \tNOT NULL,\nf_price decimal(8,2)  \tNOT NULL,\nPRIMARY KEY(f_id) \n);\n```\n\n### 表数据：\n\n![fruit表数据.jpg](~/2473a98c-a77d-40a9-93f5-6958c65a2f9a.jpg)\n\n\n### 输出样例:\n\n|f_name|f_price|\n|--|----|\n|apple|\t5.2|\n|pear|\t3.6|\n|plum|\t3.2|\n|watermelon|\t2.6|\n|apricot\t|2.2|\n|ab\t|2|",
+      "content": "查询价格在2.00元到10.20元之间的水果名称和价格，先按f_price降序排序，再按f_name排序\n\n### 表结构:\n\n\n```\n\nCREATE TABLE fruits\n(\nf_id    char(10)     \tNOT NULL,\ns_id    INT        \tNOT NULL,\nf_name  char(255)  \tNOT NULL,\nf_price decimal(8,2)  \tNOT NULL,\nPRIMARY KEY(f_id) \n);\n```\n\n### 表数据：\n\n![fruit表数据.jpg](~/2473a98c-a77d-40a9-93f5-6958c65a2f9a.jpg)\n\n\n### 输出样例:\n\n|f_name|f_price|\n|--|----|\n|apple|\t5.2|\n|pear|\t3.6|\n|plum|\t3.2|\n|watermelon|\t2.6|\n|apricot\t|2.2|\n|ab\t|2|",
+      "hasStatement": true,
+      "title": "查询价格在2.00元到10.20元之间的水果名称和价格，先按f_price降序排序，再按f_name排序",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/2473a98c-a77d-40a9-93f5-6958c65a2f9a.jpg",
+          "markdownPath": "~/2473a98c-a77d-40a9-93f5-6958c65a2f9a.jpg",
+          "location": "content",
+          "index": 254
+        },
+        {
+          "url": "https://images.ptausercontent.com/2473a98c-a77d-40a9-93f5-6958c65a2f9a.jpg",
+          "markdownPath": "~/2473a98c-a77d-40a9-93f5-6958c65a2f9a.jpg",
+          "location": "description",
+          "index": 254
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2116850799163097088",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE fruits\n(\nf_id    char(10)     \tNOT NULL,\ns_id    INT        \tNOT NULL,\nf_name  char(255)  \tNOT NULL,\nf_price decimal(8,2)  \tNOT NULL,\nPRIMARY KEY(f_id) \n);",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "create table result(\nf_name  char(255)  \tNOT NULL,\nf_price decimal(8,2)  \tNOT NULL\n)",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询价格在2.00元到10.20元之间的水果名称和价格，先按f_price降序排序，再按f_name排序",
+        "content": "查询价格在2.00元到10.20元之间的水果名称和价格，先按f_price降序排序，再按f_name排序\n\n### 表结构:\n\n\n```\n\nCREATE TABLE fruits\n(\nf_id    char(10)     \tNOT NULL,\ns_id    INT        \tNOT NULL,\nf_name  char(255)  \tNOT NULL,\nf_price decimal(8,2)  \tNOT NULL,\nPRIMARY KEY(f_id) \n);\n```\n\n### 表数据：\n\n![fruit表数据.jpg](~/2473a98c-a77d-40a9-93f5-6958c65a2f9a.jpg)\n\n\n### 输出样例:\n\n|f_name|f_price|\n|--|----|\n|apple|\t5.2|\n|pear|\t3.6|\n|plum|\t3.2|\n|watermelon|\t2.6|\n|apricot\t|2.2|\n|ab\t|2|\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "刘",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1202042138323750912",
+        "description": "查询价格在2.00元到10.20元之间的水果名称和价格，先按f_price降序排序，再按f_name排序\n\n### 表结构:\n\n\n```\n\nCREATE TABLE fruits\n(\nf_id    char(10)     \tNOT NULL,\ns_id    INT        \tNOT NULL,\nf_name  char(255)  \tNOT NULL,\nf_price decimal(8,2)  \tNOT NULL,\nPRIMARY KEY(f_id) \n);\n```\n\n### 表数据：\n\n![fruit表数据.jpg](~/2473a98c-a77d-40a9-93f5-6958c65a2f9a.jpg)\n\n\n### 输出样例:\n\n|f_name|f_price|\n|--|----|\n|apple|\t5.2|\n|pear|\t3.6|\n|plum|\t3.2|\n|watermelon|\t2.6|\n|apricot\t|2.2|\n|ab\t|2|\n\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "46",
+        "number": 1,
+        "examLabel": "10-1"
+      }
+    },
+    {
+      "id": "2116850799163097089",
+      "number": 2,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，\n统计出``teachers```表中各系的老师人数，并按人数升序排序，要求结果中列名分别显示“系别”、“教师人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE teachers (\n  tno char(3) ,\n  tname char(8),\n  ps char(10),\n  tbirthday date ,\n  tdept char(16) ,\n  tsex char(2),\n  PRIMARY KEY (tno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n``teachers```表：\n\n|tno|tname|ps|tbirthday|tdept|tsex|\n|----|-------|--|-----|-----|------|----|\n|001|谭浩强|教授|1958-01-01|计科|男|\n|002|王珊|教授|1962-02-13|计科|女|\n|003|萨师煊|教授|1953-05-01|计科|男|\n|004|严蔚敏|副教授|1968-07-02|软工|女|\n|005|李琳|讲师|1988-11-15|软工|女|\n|006|韩万江|助教|1992-10-17|信管|男|\n\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|系别|教师人数|\n|-----|---------|\n|信管|1|\n|软工|2|\n|计科|3|",
+      "content": "本题目要求编写SQL语句，\n统计出``teachers```表中各系的老师人数，并按人数升序排序，要求结果中列名分别显示“系别”、“教师人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE teachers (\n  tno char(3) ,\n  tname char(8),\n  ps char(10),\n  tbirthday date ,\n  tdept char(16) ,\n  tsex char(2),\n  PRIMARY KEY (tno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n``teachers```表：\n\n|tno|tname|ps|tbirthday|tdept|tsex|\n|----|-------|--|-----|-----|------|----|\n|001|谭浩强|教授|1958-01-01|计科|男|\n|002|王珊|教授|1962-02-13|计科|女|\n|003|萨师煊|教授|1953-05-01|计科|男|\n|004|严蔚敏|副教授|1968-07-02|软工|女|\n|005|李琳|讲师|1988-11-15|软工|女|\n|006|韩万江|助教|1992-10-17|信管|男|\n\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|系别|教师人数|\n|-----|---------|\n|信管|1|\n|软工|2|\n|计科|3|",
+      "hasStatement": true,
+      "title": "统计各系的老师人数，并按人数升序排序",
+      "options": [],
+      "images": [],
+      "score": 7,
+      "apiData": {
+        "id": "2116850799163097089",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE teachers (\n  tno char(3) ,\n  tname char(8),\n  ps char(10),\n  tbirthday date ,\n  tdept char(16) ,\n  tsex char(2),\n  PRIMARY KEY (tno)\n) ;",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE teachers (\n  系别 char(16) ,\n  教师人数 int\n) ;",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "统计各系的老师人数，并按人数升序排序",
+        "content": "本题目要求编写SQL语句，\n统计出``teachers```表中各系的老师人数，并按人数升序排序，要求结果中列名分别显示“系别”、“教师人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE teachers (\n  tno char(3) ,\n  tname char(8),\n  ps char(10),\n  tbirthday date ,\n  tdept char(16) ,\n  tsex char(2),\n  PRIMARY KEY (tno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n``teachers```表：\n\n|tno|tname|ps|tbirthday|tdept|tsex|\n|----|-------|--|-----|-----|------|----|\n|001|谭浩强|教授|1958-01-01|计科|男|\n|002|王珊|教授|1962-02-13|计科|女|\n|003|萨师煊|教授|1953-05-01|计科|男|\n|004|严蔚敏|副教授|1968-07-02|软工|女|\n|005|李琳|讲师|1988-11-15|软工|女|\n|006|韩万江|助教|1992-10-17|信管|男|\n\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|系别|教师人数|\n|-----|---------|\n|信管|1|\n|软工|2|\n|计科|3|\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1378966779637563392",
+        "description": "本题目要求编写SQL语句，\n统计出``teachers```表中各系的老师人数，并按人数升序排序，要求结果中列名分别显示“系别”、“教师人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE teachers (\n  tno char(3) ,\n  tname char(8),\n  ps char(10),\n  tbirthday date ,\n  tdept char(16) ,\n  tsex char(2),\n  PRIMARY KEY (tno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n``teachers```表：\n\n|tno|tname|ps|tbirthday|tdept|tsex|\n|----|-------|--|-----|-----|------|----|\n|001|谭浩强|教授|1958-01-01|计科|男|\n|002|王珊|教授|1962-02-13|计科|女|\n|003|萨师煊|教授|1953-05-01|计科|男|\n|004|严蔚敏|副教授|1968-07-02|软工|女|\n|005|李琳|讲师|1988-11-15|软工|女|\n|006|韩万江|助教|1992-10-17|信管|男|\n\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|系别|教师人数|\n|-----|---------|\n|信管|1|\n|软工|2|\n|计科|3|\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146",
+        "number": 2,
+        "examLabel": "10-2"
+      }
+    },
+    {
+      "id": "2116850799163097090",
+      "number": 3,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，\\\n统计\\`\\`sc\\`\\`表中，每个学生的选课门数和考试总成绩，并按选课门数升序排列，要求结果中列名分别显示“学号”、“选课门数”、“考试总成绩”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 80\\.0 | 1\\.0 |\n| 1711202 | 0000052 | 77\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 84\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n<br>\n\n| 学号 | 选课门数 | 考试总成绩 |\n| ----- | ----- | ----- |\n| 1411101 | 1 |  |\n| 1401102 | 3 | 156\\.0 |\n| 1811102 | 4 | 296\\.8 |\n| 1411201 | 7 | 501\\.6 |\n| 1511211 | 7 | 487\\.0 |\n| 1711101 | 7 | 525\\.6 |\n| 1711202 | 7 | 510\\.0 |\n| 1911201 | 7 | 532\\.2 |\n| 1701102 | 8 | 635\\.7 |\n| 1701101 | 8 | 704\\.1 |\n| 1711102 | 9 | 705\\.7 |",
+      "content": "本题目要求编写SQL语句，\\\n统计\\`\\`sc\\`\\`表中，每个学生的选课门数和考试总成绩，并按选课门数升序排列，要求结果中列名分别显示“学号”、“选课门数”、“考试总成绩”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 80\\.0 | 1\\.0 |\n| 1711202 | 0000052 | 77\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 84\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n<br>\n\n| 学号 | 选课门数 | 考试总成绩 |\n| ----- | ----- | ----- |\n| 1411101 | 1 |  |\n| 1401102 | 3 | 156\\.0 |\n| 1811102 | 4 | 296\\.8 |\n| 1411201 | 7 | 501\\.6 |\n| 1511211 | 7 | 487\\.0 |\n| 1711101 | 7 | 525\\.6 |\n| 1711202 | 7 | 510\\.0 |\n| 1911201 | 7 | 532\\.2 |\n| 1701102 | 8 | 635\\.7 |\n| 1701101 | 8 | 704\\.1 |\n| 1711102 | 9 | 705\\.7 |",
+      "hasStatement": true,
+      "title": "统计每个学生的选课门数和考试总成绩，并按选课门数升序排列",
+      "options": [],
+      "images": [],
+      "score": 7,
+      "apiData": {
+        "id": "2116850799163097090",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n score decimal(4,1),\n point decimal(2,1),\n PRIMARY KEY (sno,cno)\n);",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE sc (\n 学号 char(7),\n 选课门数 int,\n 考试总成绩 decimal(4,1)\n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "统计每个学生的选课门数和考试总成绩，并按选课门数升序排列",
+        "content": "本题目要求编写SQL语句，\\\n统计\\`\\`sc\\`\\`表中，每个学生的选课门数和考试总成绩，并按选课门数升序排列，要求结果中列名分别显示“学号”、“选课门数”、“考试总成绩”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 80\\.0 | 1\\.0 |\n| 1711202 | 0000052 | 77\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 84\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n<br>\n\n| 学号 | 选课门数 | 考试总成绩 |\n| ----- | ----- | ----- |\n| 1411101 | 1 |  |\n| 1401102 | 3 | 156\\.0 |\n| 1811102 | 4 | 296\\.8 |\n| 1411201 | 7 | 501\\.6 |\n| 1511211 | 7 | 487\\.0 |\n| 1711101 | 7 | 525\\.6 |\n| 1711202 | 7 | 510\\.0 |\n| 1911201 | 7 | 532\\.2 |\n| 1701102 | 8 | 635\\.7 |\n| 1701101 | 8 | 704\\.1 |\n| 1711102 | 9 | 705\\.7 |\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1378952364544598016",
+        "description": "本题目要求编写SQL语句，\\\n统计\\`\\`sc\\`\\`表中，每个学生的选课门数和考试总成绩，并按选课门数升序排列，要求结果中列名分别显示“学号”、“选课门数”、“考试总成绩”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 80\\.0 | 1\\.0 |\n| 1711202 | 0000052 | 77\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 84\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n<br>\n\n| 学号 | 选课门数 | 考试总成绩 |\n| ----- | ----- | ----- |\n| 1411101 | 1 |  |\n| 1401102 | 3 | 156\\.0 |\n| 1811102 | 4 | 296\\.8 |\n| 1411201 | 7 | 501\\.6 |\n| 1511211 | 7 | 487\\.0 |\n| 1711101 | 7 | 525\\.6 |\n| 1711202 | 7 | 510\\.0 |\n| 1911201 | 7 | 532\\.2 |\n| 1701102 | 8 | 635\\.7 |\n| 1701101 | 8 | 704\\.1 |\n| 1711102 | 9 | 705\\.7 |\n",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146",
+        "number": 3,
+        "examLabel": "10-3"
+      }
+    },
+    {
+      "id": "2116850799163097091",
+      "number": 4,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "这是一个SQL编程题模板。本题目要求编写SQL语句，\n查询`Grade`表中课程“Dp010004”的学生学号和成绩，并按成绩降序排列，成绩相同按学号升序排列。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCreate table Grade(\nCourseID   char(8) ,\nStudentID char(12) ,\nSemester  int not null,\nSchoolYear int ,\nGrade numeric(5,1),\nprimary key(CourseID,StudentID)\n);\n```\n\n### 表样例\n\n\n```Grade```表：\n\n\n![Grade表第1部分.PNG](~/661c3086-9d33-4718-bacb-e38056d1c4e4.PNG)\n\n![Grade表第2部分.PNG](~/df85b11c-474b-492b-8174-984f7e9c911b.PNG)\n\n![Grade表第3部分.PNG](~/d208a14e-2b4e-4ef7-9220-ba5e3bc4f667.PNG)\n\n\n### 输出样例:\n\n![答案.PNG](~/ac4e30a1-b90d-42ec-bd20-1a2694d4742d.PNG)",
+      "content": "这是一个SQL编程题模板。本题目要求编写SQL语句，\n查询`Grade`表中课程“Dp010004”的学生学号和成绩，并按成绩降序排列，成绩相同按学号升序排列。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCreate table Grade(\nCourseID   char(8) ,\nStudentID char(12) ,\nSemester  int not null,\nSchoolYear int ,\nGrade numeric(5,1),\nprimary key(CourseID,StudentID)\n);\n```\n\n### 表样例\n\n\n```Grade```表：\n\n\n![Grade表第1部分.PNG](~/661c3086-9d33-4718-bacb-e38056d1c4e4.PNG)\n\n![Grade表第2部分.PNG](~/df85b11c-474b-492b-8174-984f7e9c911b.PNG)\n\n![Grade表第3部分.PNG](~/d208a14e-2b4e-4ef7-9220-ba5e3bc4f667.PNG)\n\n\n### 输出样例:\n\n![答案.PNG](~/ac4e30a1-b90d-42ec-bd20-1a2694d4742d.PNG)",
+      "hasStatement": true,
+      "title": "查询课程“Dp010004”的学生学号和成绩，并按成绩降序排列，成绩相同按学号升序排列",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/661c3086-9d33-4718-bacb-e38056d1c4e4.PNG",
+          "markdownPath": "~/661c3086-9d33-4718-bacb-e38056d1c4e4.PNG",
+          "location": "content",
+          "index": 328
+        },
+        {
+          "url": "https://images.ptausercontent.com/df85b11c-474b-492b-8174-984f7e9c911b.PNG",
+          "markdownPath": "~/df85b11c-474b-492b-8174-984f7e9c911b.PNG",
+          "location": "content",
+          "index": 391
+        },
+        {
+          "url": "https://images.ptausercontent.com/d208a14e-2b4e-4ef7-9220-ba5e3bc4f667.PNG",
+          "markdownPath": "~/d208a14e-2b4e-4ef7-9220-ba5e3bc4f667.PNG",
+          "location": "content",
+          "index": 454
+        },
+        {
+          "url": "https://images.ptausercontent.com/ac4e30a1-b90d-42ec-bd20-1a2694d4742d.PNG",
+          "markdownPath": "~/ac4e30a1-b90d-42ec-bd20-1a2694d4742d.PNG",
+          "location": "content",
+          "index": 529
+        },
+        {
+          "url": "https://images.ptausercontent.com/661c3086-9d33-4718-bacb-e38056d1c4e4.PNG",
+          "markdownPath": "~/661c3086-9d33-4718-bacb-e38056d1c4e4.PNG",
+          "location": "description",
+          "index": 328
+        },
+        {
+          "url": "https://images.ptausercontent.com/df85b11c-474b-492b-8174-984f7e9c911b.PNG",
+          "markdownPath": "~/df85b11c-474b-492b-8174-984f7e9c911b.PNG",
+          "location": "description",
+          "index": 391
+        },
+        {
+          "url": "https://images.ptausercontent.com/d208a14e-2b4e-4ef7-9220-ba5e3bc4f667.PNG",
+          "markdownPath": "~/d208a14e-2b4e-4ef7-9220-ba5e3bc4f667.PNG",
+          "location": "description",
+          "index": 454
+        },
+        {
+          "url": "https://images.ptausercontent.com/ac4e30a1-b90d-42ec-bd20-1a2694d4742d.PNG",
+          "markdownPath": "~/ac4e30a1-b90d-42ec-bd20-1a2694d4742d.PNG",
+          "location": "description",
+          "index": 529
+        }
+      ],
+      "score": 6,
+      "apiData": {
+        "id": "2116850799163097091",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "Create table Grade(\nCourseID   char(8) ,\nStudentID char(12) ,\nSemester  int not null,\nSchoolYear int ,\nGrade numeric(5,1),\nprimary key(CourseID,StudentID)\n);",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "Create table Grade(\nStudentID char(12) ,\nGrade numeric(5,1)\n);",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询课程“Dp010004”的学生学号和成绩，并按成绩降序排列，成绩相同按学号升序排列",
+        "content": "这是一个SQL编程题模板。本题目要求编写SQL语句，\n查询`Grade`表中课程“Dp010004”的学生学号和成绩，并按成绩降序排列，成绩相同按学号升序排列。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCreate table Grade(\nCourseID   char(8) ,\nStudentID char(12) ,\nSemester  int not null,\nSchoolYear int ,\nGrade numeric(5,1),\nprimary key(CourseID,StudentID)\n);\n```\n\n### 表样例\n\n\n```Grade```表：\n\n\n![Grade表第1部分.PNG](~/661c3086-9d33-4718-bacb-e38056d1c4e4.PNG)\n\n![Grade表第2部分.PNG](~/df85b11c-474b-492b-8174-984f7e9c911b.PNG)\n\n![Grade表第3部分.PNG](~/d208a14e-2b4e-4ef7-9220-ba5e3bc4f667.PNG)\n\n\n### 输出样例:\n\n![答案.PNG](~/ac4e30a1-b90d-42ec-bd20-1a2694d4742d.PNG)\n\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "参考答案：\n```\nselect StudentID,Grade from Grade\nWHERE CourseID='Dp010004'\nORDER BY Grade DESC,StudentID;\n```",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1449382669410164736",
+        "description": "这是一个SQL编程题模板。本题目要求编写SQL语句，\n查询`Grade`表中课程“Dp010004”的学生学号和成绩，并按成绩降序排列，成绩相同按学号升序排列。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCreate table Grade(\nCourseID   char(8) ,\nStudentID char(12) ,\nSemester  int not null,\nSchoolYear int ,\nGrade numeric(5,1),\nprimary key(CourseID,StudentID)\n);\n```\n\n### 表样例\n\n\n```Grade```表：\n\n\n![Grade表第1部分.PNG](~/661c3086-9d33-4718-bacb-e38056d1c4e4.PNG)\n\n![Grade表第2部分.PNG](~/df85b11c-474b-492b-8174-984f7e9c911b.PNG)\n\n![Grade表第3部分.PNG](~/d208a14e-2b4e-4ef7-9220-ba5e3bc4f667.PNG)\n\n\n### 输出样例:\n\n![答案.PNG](~/ac4e30a1-b90d-42ec-bd20-1a2694d4742d.PNG)\n\n\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 4,
+        "examLabel": "10-4"
+      }
+    },
+    {
+      "id": "2116850799163097092",
+      "number": 5,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，\\\n统计出`sc`表中选修人数最多的3门课，要求结果中列名分别显示“课程号”、“选修人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 80\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 84\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n| 课程号 | 选修人数 |\n| ----- | ----- |\n| 0000027 | 2 |\n| 0000011 | 1 |\n| 0000052 | 1 |",
+      "content": "本题目要求编写SQL语句，\\\n统计出`sc`表中选修人数最多的3门课，要求结果中列名分别显示“课程号”、“选修人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 80\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 84\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n| 课程号 | 选修人数 |\n| ----- | ----- |\n| 0000027 | 2 |\n| 0000011 | 1 |\n| 0000052 | 1 |",
+      "hasStatement": true,
+      "title": "统计选修人数最多的3门课",
+      "options": [],
+      "images": [],
+      "score": 7,
+      "apiData": {
+        "id": "2116850799163097092",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n score decimal(4,1),\n point decimal(2,1),\n PRIMARY KEY (sno,cno)\n);",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE sc (\n 课程号 char(7) ,\n 选修人数 int\n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "统计选修人数最多的3门课",
+        "content": "本题目要求编写SQL语句，\\\n统计出`sc`表中选修人数最多的3门课，要求结果中列名分别显示“课程号”、“选修人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 80\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 84\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n| 课程号 | 选修人数 |\n| ----- | ----- |\n| 0000027 | 2 |\n| 0000011 | 1 |\n| 0000052 | 1 |\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1379022195847438336",
+        "description": "本题目要求编写SQL语句，\\\n统计出`sc`表中选修人数最多的3门课，要求结果中列名分别显示“课程号”、“选修人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 80\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 84\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n| 课程号 | 选修人数 |\n| ----- | ----- |\n| 0000027 | 2 |\n| 0000011 | 1 |\n| 0000052 | 1 |\n",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146",
+        "number": 5,
+        "examLabel": "10-5"
+      }
+    },
+    {
+      "id": "2116854209325187072",
+      "number": 6,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "### 题干:\n查看2010年的销售记录，查询结果以销售日期升序排列。<br>\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n定义表结构的SQL语句如下：<br>\nCREATE TABLE recorder(<br>\nid INT PRIMARY KEY AUTO_INCREMENT ,<br>\ncid CHAR(4),<br>\ngid CHAR(4),<br>\nquantity INT NOT NULL,<br>\nsale_date DATETIME<br>\n);<br>\n### 表样例\n上述表结构对应的表样例：\n\n```recorder```表：\n\n![recorder.png](~/826ade74-8939-4db8-8dc7-a03c6f3378b8.png)\n\n\n### 输出样例:\n输出样例：\n\n![4-3.png](~/9127f72e-9197-41d0-97a5-ecfc3cdc9f7e.png)",
+      "content": "### 题干:\n查看2010年的销售记录，查询结果以销售日期升序排列。<br>\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n定义表结构的SQL语句如下：<br>\nCREATE TABLE recorder(<br>\nid INT PRIMARY KEY AUTO_INCREMENT ,<br>\ncid CHAR(4),<br>\ngid CHAR(4),<br>\nquantity INT NOT NULL,<br>\nsale_date DATETIME<br>\n);<br>\n### 表样例\n上述表结构对应的表样例：\n\n```recorder```表：\n\n![recorder.png](~/826ade74-8939-4db8-8dc7-a03c6f3378b8.png)\n\n\n### 输出样例:\n输出样例：\n\n![4-3.png](~/9127f72e-9197-41d0-97a5-ecfc3cdc9f7e.png)",
+      "hasStatement": true,
+      "title": "查看2010年的销售记录，查询结果以销售日期升序排列。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/826ade74-8939-4db8-8dc7-a03c6f3378b8.png",
+          "markdownPath": "~/826ade74-8939-4db8-8dc7-a03c6f3378b8.png",
+          "location": "content",
+          "index": 286
+        },
+        {
+          "url": "https://images.ptausercontent.com/9127f72e-9197-41d0-97a5-ecfc3cdc9f7e.png",
+          "markdownPath": "~/9127f72e-9197-41d0-97a5-ecfc3cdc9f7e.png",
+          "location": "content",
+          "index": 365
+        },
+        {
+          "url": "https://images.ptausercontent.com/826ade74-8939-4db8-8dc7-a03c6f3378b8.png",
+          "markdownPath": "~/826ade74-8939-4db8-8dc7-a03c6f3378b8.png",
+          "location": "description",
+          "index": 286
+        },
+        {
+          "url": "https://images.ptausercontent.com/9127f72e-9197-41d0-97a5-ecfc3cdc9f7e.png",
+          "markdownPath": "~/9127f72e-9197-41d0-97a5-ecfc3cdc9f7e.png",
+          "location": "description",
+          "index": 365
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2116854209325187072",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE recorder(\nid INT PRIMARY KEY AUTO_INCREMENT,\ncid CHAR(4),\ngid CHAR(4),\nquantity INT NOT NULL,\nsale_date DATETIME\n);",
+            "cases": {
+              "4-3": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE recorder(\nid INT PRIMARY KEY AUTO_INCREMENT,\ncid CHAR(4),\ngid CHAR(4),\nquantity INT NOT NULL,\nsale_date DATETIME\n);\n\n\n",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查看2010年的销售记录，查询结果以销售日期升序排列。",
+        "content": "### 题干:\n查看2010年的销售记录，查询结果以销售日期升序排列。<br>\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n定义表结构的SQL语句如下：<br>\nCREATE TABLE recorder(<br>\nid INT PRIMARY KEY AUTO_INCREMENT ,<br>\ncid CHAR(4),<br>\ngid CHAR(4),<br>\nquantity INT NOT NULL,<br>\nsale_date DATETIME<br>\n);<br>\n### 表样例\n上述表结构对应的表样例：\n\n```recorder```表：\n\n![recorder.png](~/826ade74-8939-4db8-8dc7-a03c6f3378b8.png)\n\n\n### 输出样例:\n输出样例：\n\n![4-3.png](~/9127f72e-9197-41d0-97a5-ecfc3cdc9f7e.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "白彦辉",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1329793739811246080",
+        "description": "### 题干:\n查看2010年的销售记录，查询结果以销售日期升序排列。<br>\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n定义表结构的SQL语句如下：<br>\nCREATE TABLE recorder(<br>\nid INT PRIMARY KEY AUTO_INCREMENT ,<br>\ncid CHAR(4),<br>\ngid CHAR(4),<br>\nquantity INT NOT NULL,<br>\nsale_date DATETIME<br>\n);<br>\n### 表样例\n上述表结构对应的表样例：\n\n```recorder```表：\n\n![recorder.png](~/826ade74-8939-4db8-8dc7-a03c6f3378b8.png)\n\n\n### 输出样例:\n输出样例：\n\n![4-3.png](~/9127f72e-9197-41d0-97a5-ecfc3cdc9f7e.png)\n",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "975756327607476224",
+        "number": 6,
+        "examLabel": "10-6"
+      }
+    },
+    {
+      "id": "2116854209325187073",
+      "number": 7,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，查询`sh_goods`表，先按商品分类`category_id`升序排列，对于相同分类的商品再按商品价格`price`降序排列 。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n```\nCREATE TABLE sh_goods (\n  id INT  PRIMARY KEY,                         --商品id\n  category_id INT  NOT NULL DEFAULT 0 ,        -- 商品分类id\n  name VARCHAR(120) NOT NULL,                  --商品名称\n  keyword VARCHAR(255) NOT NULL,               -- 关键词编号\n  content TEXT NOT NULL ,                      --商品详情\n  price DECIMAL(10, 2)  NOT NULL DEFAULT 0 ,   --价格\n  stock INT  NOT NULL DEFAULT 0,               -- 库存\n  score DECIMAL(3, 2)  NOT NULL DEFAULT 0 ,    -- 用户评分\n  comment_count INT  NOT NULL DEFAULT 0        -- 评论数量\n) ;\n```\n\n### 表样例\n\n`sh_goods`表：\n\n\n![sh_goods表数据.PNG](~/17e69781-c3b6-424e-89ec-48dc00ba3d79.PNG)\n\n\n### 输出样例:\n\n![答案.PNG](~/5072deec-3bb6-42f1-8b32-89b1cb0bc7f4.PNG)",
+      "content": "本题目要求编写SQL语句，查询`sh_goods`表，先按商品分类`category_id`升序排列，对于相同分类的商品再按商品价格`price`降序排列 。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n```\nCREATE TABLE sh_goods (\n  id INT  PRIMARY KEY,                         --商品id\n  category_id INT  NOT NULL DEFAULT 0 ,        -- 商品分类id\n  name VARCHAR(120) NOT NULL,                  --商品名称\n  keyword VARCHAR(255) NOT NULL,               -- 关键词编号\n  content TEXT NOT NULL ,                      --商品详情\n  price DECIMAL(10, 2)  NOT NULL DEFAULT 0 ,   --价格\n  stock INT  NOT NULL DEFAULT 0,               -- 库存\n  score DECIMAL(3, 2)  NOT NULL DEFAULT 0 ,    -- 用户评分\n  comment_count INT  NOT NULL DEFAULT 0        -- 评论数量\n) ;\n```\n\n### 表样例\n\n`sh_goods`表：\n\n\n![sh_goods表数据.PNG](~/17e69781-c3b6-424e-89ec-48dc00ba3d79.PNG)\n\n\n### 输出样例:\n\n![答案.PNG](~/5072deec-3bb6-42f1-8b32-89b1cb0bc7f4.PNG)",
+      "hasStatement": true,
+      "title": "查询商品表，先按商品分类升序排列，再按商品价格降序排列",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/17e69781-c3b6-424e-89ec-48dc00ba3d79.PNG",
+          "markdownPath": "~/17e69781-c3b6-424e-89ec-48dc00ba3d79.PNG",
+          "location": "content",
+          "index": 663
+        },
+        {
+          "url": "https://images.ptausercontent.com/5072deec-3bb6-42f1-8b32-89b1cb0bc7f4.PNG",
+          "markdownPath": "~/5072deec-3bb6-42f1-8b32-89b1cb0bc7f4.PNG",
+          "location": "content",
+          "index": 739
+        },
+        {
+          "url": "https://images.ptausercontent.com/17e69781-c3b6-424e-89ec-48dc00ba3d79.PNG",
+          "markdownPath": "~/17e69781-c3b6-424e-89ec-48dc00ba3d79.PNG",
+          "location": "description",
+          "index": 663
+        },
+        {
+          "url": "https://images.ptausercontent.com/5072deec-3bb6-42f1-8b32-89b1cb0bc7f4.PNG",
+          "markdownPath": "~/5072deec-3bb6-42f1-8b32-89b1cb0bc7f4.PNG",
+          "location": "description",
+          "index": 739
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2116854209325187073",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE sh_goods (\n  id INT  PRIMARY KEY,                         --商品id\n  category_id INT  NOT NULL DEFAULT 0 ,        -- 商品分类id\n  name VARCHAR(120) NOT NULL,                  --商品名称\n  keyword VARCHAR(255) NOT NULL,               -- 关键词\n  content TEXT NOT NULL ,                      --商品详情\n  price DECIMAL(10, 2)  NOT NULL DEFAULT 0 ,   --价格\n  stock INT  NOT NULL DEFAULT 0,               -- 库存\n  score DECIMAL(3, 2)  NOT NULL DEFAULT 0 ,    -- 用户评分\n  comment_count INT  NOT NULL DEFAULT 0        -- 评论数量\n) ;",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE sh_goods (\n  name VARCHAR(120) NOT NULL,                  --商品名称\n  category_id INT  NOT NULL DEFAULT 0 ,        -- 商品分类id        \n  price DECIMAL(10, 2)  NOT NULL DEFAULT 0     --价格      \n) ;",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询商品表，先按商品分类升序排列，再按商品价格降序排列",
+        "content": "本题目要求编写SQL语句，查询`sh_goods`表，先按商品分类`category_id`升序排列，对于相同分类的商品再按商品价格`price`降序排列 。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n```\nCREATE TABLE sh_goods (\n  id INT  PRIMARY KEY,                         --商品id\n  category_id INT  NOT NULL DEFAULT 0 ,        -- 商品分类id\n  name VARCHAR(120) NOT NULL,                  --商品名称\n  keyword VARCHAR(255) NOT NULL,               -- 关键词编号\n  content TEXT NOT NULL ,                      --商品详情\n  price DECIMAL(10, 2)  NOT NULL DEFAULT 0 ,   --价格\n  stock INT  NOT NULL DEFAULT 0,               -- 库存\n  score DECIMAL(3, 2)  NOT NULL DEFAULT 0 ,    -- 用户评分\n  comment_count INT  NOT NULL DEFAULT 0        -- 评论数量\n) ;\n```\n\n### 表样例\n\n`sh_goods`表：\n\n\n![sh_goods表数据.PNG](~/17e69781-c3b6-424e-89ec-48dc00ba3d79.PNG)\n\n\n### 输出样例:\n\n![答案.PNG](~/5072deec-3bb6-42f1-8b32-89b1cb0bc7f4.PNG)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "参考答案：\n```\nselect name,category_id,price from sh_goods\norder by category_id,price desc;\n```",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1444572434817421312",
+        "description": "本题目要求编写SQL语句，查询`sh_goods`表，先按商品分类`category_id`升序排列，对于相同分类的商品再按商品价格`price`降序排列 。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n```\nCREATE TABLE sh_goods (\n  id INT  PRIMARY KEY,                         --商品id\n  category_id INT  NOT NULL DEFAULT 0 ,        -- 商品分类id\n  name VARCHAR(120) NOT NULL,                  --商品名称\n  keyword VARCHAR(255) NOT NULL,               -- 关键词编号\n  content TEXT NOT NULL ,                      --商品详情\n  price DECIMAL(10, 2)  NOT NULL DEFAULT 0 ,   --价格\n  stock INT  NOT NULL DEFAULT 0,               -- 库存\n  score DECIMAL(3, 2)  NOT NULL DEFAULT 0 ,    -- 用户评分\n  comment_count INT  NOT NULL DEFAULT 0        -- 评论数量\n) ;\n```\n\n### 表样例\n\n`sh_goods`表：\n\n\n![sh_goods表数据.PNG](~/17e69781-c3b6-424e-89ec-48dc00ba3d79.PNG)\n\n\n### 输出样例:\n\n![答案.PNG](~/5072deec-3bb6-42f1-8b32-89b1cb0bc7f4.PNG)\n",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 7,
+        "examLabel": "10-7"
+      }
+    },
+    {
+      "id": "2116854209325187074",
+      "number": 8,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "### 题干:\n统计每个学院的学生总人数，并按人数降序排列。<br>\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n定义表结构的SQL语句如下：<br>\nCREATE TABLE student (<br>\n  sno varchar(6) NOT NULL ,<br>\n  sname varchar(10) ,<br>\n  sex char(2) ,<br>\n  nation char(2) ,<br>\n  pnum char(18) ,<br>\n  birth date ,<br>\n  phone char(11) ,<br>\n  dept varchar(20) ,<br>\n  PRIMARY KEY (sno)<br>\n) ;<br>\nCREATE TABLE course (<br>\n  cno varchar(6) NOT NULL,<br>\n  cname varchar(20) ,<br>\n  credit int(11) ,<br>\n  attribute varchar(10) ,<br>\n  PRIMARY KEY (cno)<br>\n) ;<br>\nCREATE TABLE score (<br>\n  sno varchar(6) NOT NULL,<br>\n  cno varchar(6) NOT NULL,<br>\n  term varchar(15),<br>\n  grade int(11),<br>\n  PRIMARY KEY (sno,cno)<br>\n) ;<br>\n\n### 表样例\n\n```student```表：<br>\n![student.png](~/5ba2c268-ccb2-45c0-9f90-abc1bb915712.png)\n\n```course```表：<br>\n![course.png](~/aed71a58-8b5f-431c-8456-8627d6f6275d.png)\n\n```score```表：<br>\n![score.png](~/43cc116d-5ab4-4363-91dc-16d79c515e6b.png)\n\n### 输出样例:\n\n![6-4.png](~/51aba08c-3080-412d-9fbf-f6add6358c95.png)",
+      "content": "### 题干:\n统计每个学院的学生总人数，并按人数降序排列。<br>\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n定义表结构的SQL语句如下：<br>\nCREATE TABLE student (<br>\n  sno varchar(6) NOT NULL ,<br>\n  sname varchar(10) ,<br>\n  sex char(2) ,<br>\n  nation char(2) ,<br>\n  pnum char(18) ,<br>\n  birth date ,<br>\n  phone char(11) ,<br>\n  dept varchar(20) ,<br>\n  PRIMARY KEY (sno)<br>\n) ;<br>\nCREATE TABLE course (<br>\n  cno varchar(6) NOT NULL,<br>\n  cname varchar(20) ,<br>\n  credit int(11) ,<br>\n  attribute varchar(10) ,<br>\n  PRIMARY KEY (cno)<br>\n) ;<br>\nCREATE TABLE score (<br>\n  sno varchar(6) NOT NULL,<br>\n  cno varchar(6) NOT NULL,<br>\n  term varchar(15),<br>\n  grade int(11),<br>\n  PRIMARY KEY (sno,cno)<br>\n) ;<br>\n\n### 表样例\n\n```student```表：<br>\n![student.png](~/5ba2c268-ccb2-45c0-9f90-abc1bb915712.png)\n\n```course```表：<br>\n![course.png](~/aed71a58-8b5f-431c-8456-8627d6f6275d.png)\n\n```score```表：<br>\n![score.png](~/43cc116d-5ab4-4363-91dc-16d79c515e6b.png)\n\n### 输出样例:\n\n![6-4.png](~/51aba08c-3080-412d-9fbf-f6add6358c95.png)",
+      "hasStatement": true,
+      "title": "统计每个学院的学生总人数，并按人数降序排列。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/5ba2c268-ccb2-45c0-9f90-abc1bb915712.png",
+          "markdownPath": "~/5ba2c268-ccb2-45c0-9f90-abc1bb915712.png",
+          "location": "content",
+          "index": 698
+        },
+        {
+          "url": "https://images.ptausercontent.com/aed71a58-8b5f-431c-8456-8627d6f6275d.png",
+          "markdownPath": "~/aed71a58-8b5f-431c-8456-8627d6f6275d.png",
+          "location": "content",
+          "index": 777
+        },
+        {
+          "url": "https://images.ptausercontent.com/43cc116d-5ab4-4363-91dc-16d79c515e6b.png",
+          "markdownPath": "~/43cc116d-5ab4-4363-91dc-16d79c515e6b.png",
+          "location": "content",
+          "index": 854
+        },
+        {
+          "url": "https://images.ptausercontent.com/51aba08c-3080-412d-9fbf-f6add6358c95.png",
+          "markdownPath": "~/51aba08c-3080-412d-9fbf-f6add6358c95.png",
+          "location": "content",
+          "index": 923
+        },
+        {
+          "url": "https://images.ptausercontent.com/5ba2c268-ccb2-45c0-9f90-abc1bb915712.png",
+          "markdownPath": "~/5ba2c268-ccb2-45c0-9f90-abc1bb915712.png",
+          "location": "description",
+          "index": 698
+        },
+        {
+          "url": "https://images.ptausercontent.com/aed71a58-8b5f-431c-8456-8627d6f6275d.png",
+          "markdownPath": "~/aed71a58-8b5f-431c-8456-8627d6f6275d.png",
+          "location": "description",
+          "index": 777
+        },
+        {
+          "url": "https://images.ptausercontent.com/43cc116d-5ab4-4363-91dc-16d79c515e6b.png",
+          "markdownPath": "~/43cc116d-5ab4-4363-91dc-16d79c515e6b.png",
+          "location": "description",
+          "index": 854
+        },
+        {
+          "url": "https://images.ptausercontent.com/51aba08c-3080-412d-9fbf-f6add6358c95.png",
+          "markdownPath": "~/51aba08c-3080-412d-9fbf-f6add6358c95.png",
+          "location": "description",
+          "index": 923
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2116854209325187074",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE student (\n  sno varchar(6) NOT NULL ,\n  sname varchar(10) ,\n  sex char(2) ,\n  nation char(2) ,\n  pnum char(18) ,\n  birth date ,\n  phone char(11) ,\n  dept varchar(20) ,\n  PRIMARY KEY (sno)\n) ;",
+            "cases": {
+              "6-4": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE student (\n  院部 varchar(20) ,\n  总人数 int(11)\n) ;",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "统计每个学院的学生总人数，并按人数降序排列。",
+        "content": "### 题干:\n统计每个学院的学生总人数，并按人数降序排列。<br>\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n定义表结构的SQL语句如下：<br>\nCREATE TABLE student (<br>\n  sno varchar(6) NOT NULL ,<br>\n  sname varchar(10) ,<br>\n  sex char(2) ,<br>\n  nation char(2) ,<br>\n  pnum char(18) ,<br>\n  birth date ,<br>\n  phone char(11) ,<br>\n  dept varchar(20) ,<br>\n  PRIMARY KEY (sno)<br>\n) ;<br>\nCREATE TABLE course (<br>\n  cno varchar(6) NOT NULL,<br>\n  cname varchar(20) ,<br>\n  credit int(11) ,<br>\n  attribute varchar(10) ,<br>\n  PRIMARY KEY (cno)<br>\n) ;<br>\nCREATE TABLE score (<br>\n  sno varchar(6) NOT NULL,<br>\n  cno varchar(6) NOT NULL,<br>\n  term varchar(15),<br>\n  grade int(11),<br>\n  PRIMARY KEY (sno,cno)<br>\n) ;<br>\n\n### 表样例\n\n```student```表：<br>\n![student.png](~/5ba2c268-ccb2-45c0-9f90-abc1bb915712.png)\n\n```course```表：<br>\n![course.png](~/aed71a58-8b5f-431c-8456-8627d6f6275d.png)\n\n```score```表：<br>\n![score.png](~/43cc116d-5ab4-4363-91dc-16d79c515e6b.png)\n\n### 输出样例:\n\n![6-4.png](~/51aba08c-3080-412d-9fbf-f6add6358c95.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "白彦辉",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1445692566218440704",
+        "description": "### 题干:\n统计每个学院的学生总人数，并按人数降序排列。<br>\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n定义表结构的SQL语句如下：<br>\nCREATE TABLE student (<br>\n  sno varchar(6) NOT NULL ,<br>\n  sname varchar(10) ,<br>\n  sex char(2) ,<br>\n  nation char(2) ,<br>\n  pnum char(18) ,<br>\n  birth date ,<br>\n  phone char(11) ,<br>\n  dept varchar(20) ,<br>\n  PRIMARY KEY (sno)<br>\n) ;<br>\nCREATE TABLE course (<br>\n  cno varchar(6) NOT NULL,<br>\n  cname varchar(20) ,<br>\n  credit int(11) ,<br>\n  attribute varchar(10) ,<br>\n  PRIMARY KEY (cno)<br>\n) ;<br>\nCREATE TABLE score (<br>\n  sno varchar(6) NOT NULL,<br>\n  cno varchar(6) NOT NULL,<br>\n  term varchar(15),<br>\n  grade int(11),<br>\n  PRIMARY KEY (sno,cno)<br>\n) ;<br>\n\n### 表样例\n\n```student```表：<br>\n![student.png](~/5ba2c268-ccb2-45c0-9f90-abc1bb915712.png)\n\n```course```表：<br>\n![course.png](~/aed71a58-8b5f-431c-8456-8627d6f6275d.png)\n\n```score```表：<br>\n![score.png](~/43cc116d-5ab4-4363-91dc-16d79c515e6b.png)\n\n### 输出样例:\n\n![6-4.png](~/51aba08c-3080-412d-9fbf-f6add6358c95.png)\n",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "975756327607476224",
+        "number": 8,
+        "examLabel": "10-8"
+      }
+    },
+    {
+      "id": "2116854209325187075",
+      "number": 9,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，查询`Teacher`表中所有教师信息,按教师编号升序排列。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n```\nCreate table Teacher(\nTeacherID   char(8) primary key,     --教师编号\nTeachername char(12) not null,       --教师姓名\nSex  char(2) not null check(sex in('男','女')),  --教师性别\nBrith datetime ,                                 --出生日期\nProfession char(8) check(profession in('教授','副教授','讲师','助教')),  --职称\nTelephone varchar(20),                          --联系电话\nHomeAddr varchar(50),                           --家庭地址\nDepartmentID char(4)                            --系部编号\n);\n```\n\n### 表样例\n\n\n``Teacher```表：\n\n![Teacher表.PNG](~/c6a16b18-bfb6-44e1-932e-9bd472fd89f2.PNG)\n\n\n\n### 输出样例:\n\n\n![Teacher表.PNG](~/cb19c0b2-3b30-42c1-91c4-55d4d6098229.PNG)",
+      "content": "本题目要求编写SQL语句，查询`Teacher`表中所有教师信息,按教师编号升序排列。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n```\nCreate table Teacher(\nTeacherID   char(8) primary key,     --教师编号\nTeachername char(12) not null,       --教师姓名\nSex  char(2) not null check(sex in('男','女')),  --教师性别\nBrith datetime ,                                 --出生日期\nProfession char(8) check(profession in('教授','副教授','讲师','助教')),  --职称\nTelephone varchar(20),                          --联系电话\nHomeAddr varchar(50),                           --家庭地址\nDepartmentID char(4)                            --系部编号\n);\n```\n\n### 表样例\n\n\n``Teacher```表：\n\n![Teacher表.PNG](~/c6a16b18-bfb6-44e1-932e-9bd472fd89f2.PNG)\n\n\n\n### 输出样例:\n\n\n![Teacher表.PNG](~/cb19c0b2-3b30-42c1-91c4-55d4d6098229.PNG)",
+      "hasStatement": true,
+      "title": "查询所有教师信息,按教师编号升序排列",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/c6a16b18-bfb6-44e1-932e-9bd472fd89f2.PNG",
+          "markdownPath": "~/c6a16b18-bfb6-44e1-932e-9bd472fd89f2.PNG",
+          "location": "content",
+          "index": 568
+        },
+        {
+          "url": "https://images.ptausercontent.com/cb19c0b2-3b30-42c1-91c4-55d4d6098229.PNG",
+          "markdownPath": "~/cb19c0b2-3b30-42c1-91c4-55d4d6098229.PNG",
+          "location": "content",
+          "index": 643
+        },
+        {
+          "url": "https://images.ptausercontent.com/c6a16b18-bfb6-44e1-932e-9bd472fd89f2.PNG",
+          "markdownPath": "~/c6a16b18-bfb6-44e1-932e-9bd472fd89f2.PNG",
+          "location": "description",
+          "index": 568
+        },
+        {
+          "url": "https://images.ptausercontent.com/cb19c0b2-3b30-42c1-91c4-55d4d6098229.PNG",
+          "markdownPath": "~/cb19c0b2-3b30-42c1-91c4-55d4d6098229.PNG",
+          "location": "description",
+          "index": 643
+        }
+      ],
+      "score": 6,
+      "apiData": {
+        "id": "2116854209325187075",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "Create table Teacher(\nTeacherID   char(8) primary key,     --教师编号\nTeachername char(12) not null,       --教师姓名\nSex  char(2) not null check(sex in('男','女')),  --教师性别\nBrith datetime ,                                 --出生日期\nProfession char(8) check(profession in('教授','副教授','讲师','助教')),  --职称\nTelephone varchar(20),                          --联系电话\nHomeAddr varchar(50),                           --家庭地址\nDepartmentID char(4)                            --系部编号\n);",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "Create table Teacher(\nTeacherID   char(8) primary key,     --教师编号\nTeachername char(12) not null,       --教师姓名\nSex  char(2) not null check(sex in('男','女')),  --教师性别\nBrith datetime ,                                 --出生日期\nProfession char(8) check(profession in('教授','副教授','讲师','助教')),  --职称\nTelephone varchar(20),                          --联系电话\nHomeAddr varchar(50),                           --家庭地址\nDepartmentID char(4)                            --系部编号\n);",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询所有教师信息,按教师编号升序排列",
+        "content": "本题目要求编写SQL语句，查询`Teacher`表中所有教师信息,按教师编号升序排列。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n```\nCreate table Teacher(\nTeacherID   char(8) primary key,     --教师编号\nTeachername char(12) not null,       --教师姓名\nSex  char(2) not null check(sex in('男','女')),  --教师性别\nBrith datetime ,                                 --出生日期\nProfession char(8) check(profession in('教授','副教授','讲师','助教')),  --职称\nTelephone varchar(20),                          --联系电话\nHomeAddr varchar(50),                           --家庭地址\nDepartmentID char(4)                            --系部编号\n);\n```\n\n### 表样例\n\n\n``Teacher```表：\n\n![Teacher表.PNG](~/c6a16b18-bfb6-44e1-932e-9bd472fd89f2.PNG)\n\n\n\n### 输出样例:\n\n\n![Teacher表.PNG](~/cb19c0b2-3b30-42c1-91c4-55d4d6098229.PNG)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "参考答案：\n```\nselect * from Teacher order by TeacherID;\n```",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1449347961104162816",
+        "description": "本题目要求编写SQL语句，查询`Teacher`表中所有教师信息,按教师编号升序排列。\n\n提示：请使用`SELECT`语句作答。\n\n### 表结构:\n\n```\nCreate table Teacher(\nTeacherID   char(8) primary key,     --教师编号\nTeachername char(12) not null,       --教师姓名\nSex  char(2) not null check(sex in('男','女')),  --教师性别\nBrith datetime ,                                 --出生日期\nProfession char(8) check(profession in('教授','副教授','讲师','助教')),  --职称\nTelephone varchar(20),                          --联系电话\nHomeAddr varchar(50),                           --家庭地址\nDepartmentID char(4)                            --系部编号\n);\n```\n\n### 表样例\n\n\n``Teacher```表：\n\n![Teacher表.PNG](~/c6a16b18-bfb6-44e1-932e-9bd472fd89f2.PNG)\n\n\n\n### 输出样例:\n\n\n![Teacher表.PNG](~/cb19c0b2-3b30-42c1-91c4-55d4d6098229.PNG)\n",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 9,
+        "examLabel": "10-9"
+      }
+    },
+    {
+      "id": "2116854466108866560",
+      "number": 10,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，\n检索出```course```表中前3门课程的课号及课程名称的记录。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE course (\n cno char(7) ,\n cname varchar(20) NOT NULL,\n  cpno char(7),\n  ccredit int NOT NULL,\n  PRIMARY KEY (cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```course```表：\n\n|cno|cname|cpno|ccredit|\n|----|------|-----|--------|\n|0000001|数据库OCP考证||4|\n|0000002|C语言基础|0000027|9|\n|0000003|Linux操作系统|0000013|5|\n|0000004|C#程序设计|0000002|6|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|cno|cname||\n|----|------|\n|0000001|数据库OCP考证|\n|0000002|C语言基础|\n|0000003|Linux操作系统|",
+      "content": "本题目要求编写SQL语句，\n检索出```course```表中前3门课程的课号及课程名称的记录。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE course (\n cno char(7) ,\n cname varchar(20) NOT NULL,\n  cpno char(7),\n  ccredit int NOT NULL,\n  PRIMARY KEY (cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```course```表：\n\n|cno|cname|cpno|ccredit|\n|----|------|-----|--------|\n|0000001|数据库OCP考证||4|\n|0000002|C语言基础|0000027|9|\n|0000003|Linux操作系统|0000013|5|\n|0000004|C#程序设计|0000002|6|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|cno|cname||\n|----|------|\n|0000001|数据库OCP考证|\n|0000002|C语言基础|\n|0000003|Linux操作系统|",
+      "hasStatement": true,
+      "title": "查询前3门课程的课号及课程名称",
+      "options": [],
+      "images": [],
+      "score": 6,
+      "apiData": {
+        "id": "2116854466108866560",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE course (\n cno char(7) ,\n cname varchar(20) NOT NULL,\n cpno char(7),\n ccredit int NOT NULL,\n PRIMARY KEY (cno)\n) ;",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE course (\n cno char(7) ,\n cname varchar(20) NOT NULL,\n PRIMARY KEY (cno)\n) ;",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询前3门课程的课号及课程名称",
+        "content": "本题目要求编写SQL语句，\n检索出```course```表中前3门课程的课号及课程名称的记录。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE course (\n cno char(7) ,\n cname varchar(20) NOT NULL,\n  cpno char(7),\n  ccredit int NOT NULL,\n  PRIMARY KEY (cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```course```表：\n\n|cno|cname|cpno|ccredit|\n|----|------|-----|--------|\n|0000001|数据库OCP考证||4|\n|0000002|C语言基础|0000027|9|\n|0000003|Linux操作系统|0000013|5|\n|0000004|C#程序设计|0000002|6|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|cno|cname||\n|----|------|\n|0000001|数据库OCP考证|\n|0000002|C语言基础|\n|0000003|Linux操作系统|",
+        "type": "SQL_PROGRAMMING",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1378326142772871168",
+        "description": "本题目要求编写SQL语句，\n检索出```course```表中前3门课程的课号及课程名称的记录。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE course (\n cno char(7) ,\n cname varchar(20) NOT NULL,\n  cpno char(7),\n  ccredit int NOT NULL,\n  PRIMARY KEY (cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```course```表：\n\n|cno|cname|cpno|ccredit|\n|----|------|-----|--------|\n|0000001|数据库OCP考证||4|\n|0000002|C语言基础|0000027|9|\n|0000003|Linux操作系统|0000013|5|\n|0000004|C#程序设计|0000002|6|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|cno|cname||\n|----|------|\n|0000001|数据库OCP考证|\n|0000002|C语言基础|\n|0000003|Linux操作系统|",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146",
+        "number": 10,
+        "examLabel": "10-10"
+      }
+    },
+    {
+      "id": "2116865355860037632",
+      "number": 11,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "在```产品表(products)```中查询最多的```库存数量(UnitsInStock)```，并重命名为```maxUnitsInStock```\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n|列名|数据类型|长度|主码|说明|\n|---|---|---|---|---|\n|ProductID|int|11|√|产品编号|\n|ProductName|varchar|40||产品名称|\n|SupplierID|int|11||供应商编号|\n|CategoryID|int|11||种类编号|\n|QuantityPerUnit|varchar|20||数量|\n|UnitPrice|decimal|10,4||单价|\n|UnitsInStock|smallint|2||库存数量|\n|UnitsOnOrder|smallint|2||订购数量|\n|ReorderLevel|smallint|2||再次订购量|\n|Discontinued|bit|1||中止|\n\n\n### 表样例\n\n\n```products```表：\n\n|ProductID|ProductName|SupplierID|CategoryID|QuantityPerUnit|UnitPrice|UnitsInStock|UnitsOnOrder|ReorderLevel|Discontinued|\n|---|---|---|---|---|---|---|---|---|---|\n|1|Chai|1|1|10 boxes x 20 bags|18|39|0|10| |\n|2|Chang|1|1|24 - 12 oz bottles|19|17|40|25| |\n|3|Aniseed Syrup|1|2|12 - 550 ml bottles|10|13|70|25| |\n|4|Chef Anton's Cajun Seasoning|2|2|48 - 6 oz jars|22|53|0|0| |\n|5|Chef Anton's Gumbo Mix|2|2|36 boxes|21.35|0|0|0|\u0001|\n|6|Grandma's Boysenberry Spread|3|2|12 - 8 oz jars|25|120|0|25| |\n|7|Uncle Bob's Organic Dried Pears|3|7|12 - 1 lb pkgs.|30|15|0|10| |\n|8|Northwoods Cranberry Sauce|3|2|12 - 12 oz jars|40|6|0|0| |\n|9|Mishi Kobe Niku|4|6|18 - 500 g pkgs.|97|29|0|0|\u0001|\n|10|Ikura|4|8|12 - 200 ml jars|31|31|0|0| |\n\n### 输出样例:\n\n|maxUnitsInStock|\n|---|\n|120|",
+      "content": "在```产品表(products)```中查询最多的```库存数量(UnitsInStock)```，并重命名为```maxUnitsInStock```\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n|列名|数据类型|长度|主码|说明|\n|---|---|---|---|---|\n|ProductID|int|11|√|产品编号|\n|ProductName|varchar|40||产品名称|\n|SupplierID|int|11||供应商编号|\n|CategoryID|int|11||种类编号|\n|QuantityPerUnit|varchar|20||数量|\n|UnitPrice|decimal|10,4||单价|\n|UnitsInStock|smallint|2||库存数量|\n|UnitsOnOrder|smallint|2||订购数量|\n|ReorderLevel|smallint|2||再次订购量|\n|Discontinued|bit|1||中止|\n\n\n### 表样例\n\n\n```products```表：\n\n|ProductID|ProductName|SupplierID|CategoryID|QuantityPerUnit|UnitPrice|UnitsInStock|UnitsOnOrder|ReorderLevel|Discontinued|\n|---|---|---|---|---|---|---|---|---|---|\n|1|Chai|1|1|10 boxes x 20 bags|18|39|0|10| |\n|2|Chang|1|1|24 - 12 oz bottles|19|17|40|25| |\n|3|Aniseed Syrup|1|2|12 - 550 ml bottles|10|13|70|25| |\n|4|Chef Anton's Cajun Seasoning|2|2|48 - 6 oz jars|22|53|0|0| |\n|5|Chef Anton's Gumbo Mix|2|2|36 boxes|21.35|0|0|0|\u0001|\n|6|Grandma's Boysenberry Spread|3|2|12 - 8 oz jars|25|120|0|25| |\n|7|Uncle Bob's Organic Dried Pears|3|7|12 - 1 lb pkgs.|30|15|0|10| |\n|8|Northwoods Cranberry Sauce|3|2|12 - 12 oz jars|40|6|0|0| |\n|9|Mishi Kobe Niku|4|6|18 - 500 g pkgs.|97|29|0|0|\u0001|\n|10|Ikura|4|8|12 - 200 ml jars|31|31|0|0| |\n\n### 输出样例:\n\n|maxUnitsInStock|\n|---|\n|120|",
+      "hasStatement": true,
+      "title": "A3-4查询产品表中最大库存量",
+      "options": [],
+      "images": [],
+      "score": 6,
+      "apiData": {
+        "id": "2116865355860037632",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE `products` (\n  `ProductID` int(11) NOT NULL ,\n  `ProductName` varchar(40) NOT NULL,\n  `SupplierID` int(11),\n  `CategoryID` int(11),\n  `QuantityPerUnit` varchar(20),\n  `UnitPrice` decimal(10,4) DEFAULT '0.0000',\n  `UnitsInStock` smallint(2) DEFAULT '0',\n  `UnitsOnOrder` smallint(2) DEFAULT '0',\n  `ReorderLevel` smallint(2) DEFAULT '0',\n  `Discontinued` bit(1) NOT NULL DEFAULT b'0',\n  PRIMARY KEY (`ProductID`)\n);\n",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE `products` (\n  `maxUnitsInStock` smallint(2) \n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "A3-4查询产品表中最大库存量",
+        "content": "在```产品表(products)```中查询最多的```库存数量(UnitsInStock)```，并重命名为```maxUnitsInStock```\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n|列名|数据类型|长度|主码|说明|\n|---|---|---|---|---|\n|ProductID|int|11|√|产品编号|\n|ProductName|varchar|40||产品名称|\n|SupplierID|int|11||供应商编号|\n|CategoryID|int|11||种类编号|\n|QuantityPerUnit|varchar|20||数量|\n|UnitPrice|decimal|10,4||单价|\n|UnitsInStock|smallint|2||库存数量|\n|UnitsOnOrder|smallint|2||订购数量|\n|ReorderLevel|smallint|2||再次订购量|\n|Discontinued|bit|1||中止|\n\n\n### 表样例\n\n\n```products```表：\n\n|ProductID|ProductName|SupplierID|CategoryID|QuantityPerUnit|UnitPrice|UnitsInStock|UnitsOnOrder|ReorderLevel|Discontinued|\n|---|---|---|---|---|---|---|---|---|---|\n|1|Chai|1|1|10 boxes x 20 bags|18|39|0|10| |\n|2|Chang|1|1|24 - 12 oz bottles|19|17|40|25| |\n|3|Aniseed Syrup|1|2|12 - 550 ml bottles|10|13|70|25| |\n|4|Chef Anton's Cajun Seasoning|2|2|48 - 6 oz jars|22|53|0|0| |\n|5|Chef Anton's Gumbo Mix|2|2|36 boxes|21.35|0|0|0|\u0001|\n|6|Grandma's Boysenberry Spread|3|2|12 - 8 oz jars|25|120|0|25| |\n|7|Uncle Bob's Organic Dried Pears|3|7|12 - 1 lb pkgs.|30|15|0|10| |\n|8|Northwoods Cranberry Sauce|3|2|12 - 12 oz jars|40|6|0|0| |\n|9|Mishi Kobe Niku|4|6|18 - 500 g pkgs.|97|29|0|0|\u0001|\n|10|Ikura|4|8|12 - 200 ml jars|31|31|0|0| |\n\n### 输出样例:\n\n|maxUnitsInStock|\n|---|\n|120|\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "柯海丰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1239571003978686464",
+        "description": "在```产品表(products)```中查询最多的```库存数量(UnitsInStock)```，并重命名为```maxUnitsInStock```\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n|列名|数据类型|长度|主码|说明|\n|---|---|---|---|---|\n|ProductID|int|11|√|产品编号|\n|ProductName|varchar|40||产品名称|\n|SupplierID|int|11||供应商编号|\n|CategoryID|int|11||种类编号|\n|QuantityPerUnit|varchar|20||数量|\n|UnitPrice|decimal|10,4||单价|\n|UnitsInStock|smallint|2||库存数量|\n|UnitsOnOrder|smallint|2||订购数量|\n|ReorderLevel|smallint|2||再次订购量|\n|Discontinued|bit|1||中止|\n\n\n### 表样例\n\n\n```products```表：\n\n|ProductID|ProductName|SupplierID|CategoryID|QuantityPerUnit|UnitPrice|UnitsInStock|UnitsOnOrder|ReorderLevel|Discontinued|\n|---|---|---|---|---|---|---|---|---|---|\n|1|Chai|1|1|10 boxes x 20 bags|18|39|0|10| |\n|2|Chang|1|1|24 - 12 oz bottles|19|17|40|25| |\n|3|Aniseed Syrup|1|2|12 - 550 ml bottles|10|13|70|25| |\n|4|Chef Anton's Cajun Seasoning|2|2|48 - 6 oz jars|22|53|0|0| |\n|5|Chef Anton's Gumbo Mix|2|2|36 boxes|21.35|0|0|0|\u0001|\n|6|Grandma's Boysenberry Spread|3|2|12 - 8 oz jars|25|120|0|25| |\n|7|Uncle Bob's Organic Dried Pears|3|7|12 - 1 lb pkgs.|30|15|0|10| |\n|8|Northwoods Cranberry Sauce|3|2|12 - 12 oz jars|40|6|0|0| |\n|9|Mishi Kobe Niku|4|6|18 - 500 g pkgs.|97|29|0|0|\u0001|\n|10|Ikura|4|8|12 - 200 ml jars|31|31|0|0| |\n\n### 输出样例:\n\n|maxUnitsInStock|\n|---|\n|120|\n",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "2",
+        "number": 11,
+        "examLabel": "10-11"
+      }
+    },
+    {
+      "id": "2116867942931906561",
+      "number": 12,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写嵌套查询SQL语句，\n查询薪水最高的员工编号和姓名。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n\n```\nCREATE TABLE `employee` (\n  `Eid` varchar(10),   --职工编号\n  `EName` varchar(30), --职工姓名\n  `Wno` varchar(10),   --所在仓库\n  `Salary` int(11)     --职工工资\n);\n\n```\n\n### 表样例\n\n```employee```表：\n\n| Eid | EName | Wno  | Salary |\n| ---- | ---- | ---- | ------ |\n| 0010 | 张三  | A01  |  3600  |\n| 0011 | 刘勇  | A01  |  2700  |\n| 0012 | 张立  | A01  |  8500  |\n| 0021 | 刘靖  | A02  |  2500  |\n| 0022 | 王强  | A02  |  5600  |\n| 0023 | 李军  |      |  5000  |\n| 0031 | 王林  |      |  3500  |\n\n### 输出样例:\n\n| Eid | EName \n| ---- | ---- |\n| 0012 | 张立  |",
+      "content": "本题目要求编写嵌套查询SQL语句，\n查询薪水最高的员工编号和姓名。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n\n```\nCREATE TABLE `employee` (\n  `Eid` varchar(10),   --职工编号\n  `EName` varchar(30), --职工姓名\n  `Wno` varchar(10),   --所在仓库\n  `Salary` int(11)     --职工工资\n);\n\n```\n\n### 表样例\n\n```employee```表：\n\n| Eid | EName | Wno  | Salary |\n| ---- | ---- | ---- | ------ |\n| 0010 | 张三  | A01  |  3600  |\n| 0011 | 刘勇  | A01  |  2700  |\n| 0012 | 张立  | A01  |  8500  |\n| 0021 | 刘靖  | A02  |  2500  |\n| 0022 | 王强  | A02  |  5600  |\n| 0023 | 李军  |      |  5000  |\n| 0031 | 王林  |      |  3500  |\n\n### 输出样例:\n\n| Eid | EName \n| ---- | ---- |\n| 0012 | 张立  |",
+      "hasStatement": true,
+      "title": "查询薪水最高的员工编号和姓名",
+      "options": [],
+      "images": [],
+      "score": 6,
+      "apiData": {
+        "id": "2116867942931906561",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE `employee` (\n  `Eid` varchar(10),\n  `EName` varchar(30),\n  `Wno` varchar(10),\n  `Salary` int(11)\n);",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE `employee` (\n  `Eid` varchar(10),\n  `EName` varchar(30)\n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询薪水最高的员工编号和姓名",
+        "content": "本题目要求编写嵌套查询SQL语句，\n查询薪水最高的员工编号和姓名。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n\n```\nCREATE TABLE `employee` (\n  `Eid` varchar(10),   --职工编号\n  `EName` varchar(30), --职工姓名\n  `Wno` varchar(10),   --所在仓库\n  `Salary` int(11)     --职工工资\n);\n\n```\n\n### 表样例\n\n```employee```表：\n\n| Eid | EName | Wno  | Salary |\n| ---- | ---- | ---- | ------ |\n| 0010 | 张三  | A01  |  3600  |\n| 0011 | 刘勇  | A01  |  2700  |\n| 0012 | 张立  | A01  |  8500  |\n| 0021 | 刘靖  | A02  |  2500  |\n| 0022 | 王强  | A02  |  5600  |\n| 0023 | 李军  |      |  5000  |\n| 0031 | 王林  |      |  3500  |\n\n### 输出样例:\n\n| Eid | EName \n| ---- | ---- |\n| 0012 | 张立  |\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "浙大城院数据库课程组",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1506262803668025344",
+        "description": "本题目要求编写嵌套查询SQL语句，\n查询薪水最高的员工编号和姓名。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n\n```\nCREATE TABLE `employee` (\n  `Eid` varchar(10),   --职工编号\n  `EName` varchar(30), --职工姓名\n  `Wno` varchar(10),   --所在仓库\n  `Salary` int(11)     --职工工资\n);\n\n```\n\n### 表样例\n\n```employee```表：\n\n| Eid | EName | Wno  | Salary |\n| ---- | ---- | ---- | ------ |\n| 0010 | 张三  | A01  |  3600  |\n| 0011 | 刘勇  | A01  |  2700  |\n| 0012 | 张立  | A01  |  8500  |\n| 0021 | 刘靖  | A02  |  2500  |\n| 0022 | 王强  | A02  |  5600  |\n| 0023 | 李军  |      |  5000  |\n| 0031 | 王林  |      |  3500  |\n\n### 输出样例:\n\n| Eid | EName \n| ---- | ---- |\n| 0012 | 张立  |\n",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "2",
+        "number": 12,
+        "examLabel": "10-12"
+      }
+    },
+    {
+      "id": "2116867942931906562",
+      "number": 13,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "查询选修了101号课程的学生的学号及其成绩，查询结果按分数降序排列；\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\ncreate table xs_kc\n(sno  char(7) not null,\ncno  char(5) not null,\n grade int null,\nprimary key(sno,cno)\n)\n\n\n### 表样例\n\n![选课表.PNG](~/77fabb6c-d140-481f-b10d-c43ba2e0987b.PNG)\n\n### 输出样例:\n![6_1.PNG](~/5fe9ae01-eee8-4bf4-80e2-d5fc07dd9ce5.PNG)",
+      "content": "查询选修了101号课程的学生的学号及其成绩，查询结果按分数降序排列；\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\ncreate table xs_kc\n(sno  char(7) not null,\ncno  char(5) not null,\n grade int null,\nprimary key(sno,cno)\n)\n\n\n### 表样例\n\n![选课表.PNG](~/77fabb6c-d140-481f-b10d-c43ba2e0987b.PNG)\n\n### 输出样例:\n![6_1.PNG](~/5fe9ae01-eee8-4bf4-80e2-d5fc07dd9ce5.PNG)",
+      "hasStatement": true,
+      "title": "查询选修了101号课程的学生的学号及其成绩，查询结果按分数降序排列",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/77fabb6c-d140-481f-b10d-c43ba2e0987b.PNG",
+          "markdownPath": "~/77fabb6c-d140-481f-b10d-c43ba2e0987b.PNG",
+          "location": "content",
+          "index": 181
+        },
+        {
+          "url": "https://images.ptausercontent.com/5fe9ae01-eee8-4bf4-80e2-d5fc07dd9ce5.PNG",
+          "markdownPath": "~/5fe9ae01-eee8-4bf4-80e2-d5fc07dd9ce5.PNG",
+          "location": "content",
+          "index": 247
+        },
+        {
+          "url": "https://images.ptausercontent.com/77fabb6c-d140-481f-b10d-c43ba2e0987b.PNG",
+          "markdownPath": "~/77fabb6c-d140-481f-b10d-c43ba2e0987b.PNG",
+          "location": "description",
+          "index": 181
+        },
+        {
+          "url": "https://images.ptausercontent.com/5fe9ae01-eee8-4bf4-80e2-d5fc07dd9ce5.PNG",
+          "markdownPath": "~/5fe9ae01-eee8-4bf4-80e2-d5fc07dd9ce5.PNG",
+          "location": "description",
+          "index": 247
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2116867942931906562",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": " create table xs_kc(\n     sno  char(7) not null,\n     cno  char(5) not null,\n     grade int null,\n     primary key(sno,cno)\n   );\nINSERT INTO xs_kc VALUES('01101','101',85);\nINSERT INTO xs_kc VALUES('01102','101',72);\nINSERT INTO xs_kc VALUES('001102','102',83);\nINSERT INTO xs_kc VALUES('001103','102',65);\nINSERT INTO xs_kc VALUES('001103','104',58);\nINSERT INTO xs_kc VALUES('001104','105',66);\nINSERT INTO xs_kc VALUES('001105','103',89);\nINSERT INTO xs_kc VALUES('001106','104',78);\nINSERT INTO xs_kc VALUES('001107','103',48);\nINSERT INTO xs_kc VALUES('001107','104',96);\nINSERT INTO xs_kc VALUES('001107','105',47);\nINSERT INTO xs_kc VALUES('001109','103',77);\nINSERT INTO xs_kc VALUES('001109','105',85);",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "  create table xs_kc(\n      sno  char(7) not null,\n      grade int null\n);\nINSERT INTO xs_kc VALUES('01101',85);\nINSERT INTO xs_kc VALUES('01102',72);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询选修了101号课程的学生的学号及其成绩，查询结果按分数降序排列",
+        "content": "查询选修了101号课程的学生的学号及其成绩，查询结果按分数降序排列；\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\ncreate table xs_kc\n(sno  char(7) not null,\ncno  char(5) not null,\n grade int null,\nprimary key(sno,cno)\n)\n\n\n### 表样例\n\n![选课表.PNG](~/77fabb6c-d140-481f-b10d-c43ba2e0987b.PNG)\n\n### 输出样例:\n![6_1.PNG](~/5fe9ae01-eee8-4bf4-80e2-d5fc07dd9ce5.PNG)\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "fu",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1773143058733977600",
+        "description": "查询选修了101号课程的学生的学号及其成绩，查询结果按分数降序排列；\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\ncreate table xs_kc\n(sno  char(7) not null,\ncno  char(5) not null,\n grade int null,\nprimary key(sno,cno)\n)\n\n\n### 表样例\n\n![选课表.PNG](~/77fabb6c-d140-481f-b10d-c43ba2e0987b.PNG)\n\n### 输出样例:\n![6_1.PNG](~/5fe9ae01-eee8-4bf4-80e2-d5fc07dd9ce5.PNG)\n\n",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1175799612079312896",
+        "number": 13,
+        "examLabel": "10-13"
+      }
+    },
+    {
+      "id": "2116869825301987328",
+      "number": 14,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，\n检索``sc```表中成绩不及格的学生学号、课号和成绩，并按成绩降序排列。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n\tpoint decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```sc```表：\n\n|sno|cno|score|point|\n|----|----|------|------|\n|1711202|0000011|43.0|0.0|\n|1711202|0000027|80.0|1.0|\n|1911201|0000027|54.0|1.0|\n|1911201|0000052|71.0|2.0|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|sno|cno|score|\n|----|----|------|\n|1911201|0000027|54.0|\n|1711202|0000011|43.0|",
+      "content": "本题目要求编写SQL语句，\n检索``sc```表中成绩不及格的学生学号、课号和成绩，并按成绩降序排列。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n\tpoint decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```sc```表：\n\n|sno|cno|score|point|\n|----|----|------|------|\n|1711202|0000011|43.0|0.0|\n|1711202|0000027|80.0|1.0|\n|1911201|0000027|54.0|1.0|\n|1911201|0000052|71.0|2.0|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|sno|cno|score|\n|----|----|------|\n|1911201|0000027|54.0|\n|1711202|0000011|43.0|",
+      "hasStatement": true,
+      "title": "查询成绩不及格的学生学号、课号和成绩，并按成绩降序排列",
+      "options": [],
+      "images": [],
+      "score": 7,
+      "apiData": {
+        "id": "2116869825301987328",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n score decimal(4,1),\n point decimal(2,1),\n PRIMARY KEY (sno,cno)\n);",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n score decimal(4,1)\n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询成绩不及格的学生学号、课号和成绩，并按成绩降序排列",
+        "content": "本题目要求编写SQL语句，\n检索``sc```表中成绩不及格的学生学号、课号和成绩，并按成绩降序排列。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n\tpoint decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```sc```表：\n\n|sno|cno|score|point|\n|----|----|------|------|\n|1711202|0000011|43.0|0.0|\n|1711202|0000027|80.0|1.0|\n|1911201|0000027|54.0|1.0|\n|1911201|0000052|71.0|2.0|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|sno|cno|score|\n|----|----|------|\n|1911201|0000027|54.0|\n|1711202|0000011|43.0|\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1378950073955491840",
+        "description": "本题目要求编写SQL语句，\n检索``sc```表中成绩不及格的学生学号、课号和成绩，并按成绩降序排列。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n\tpoint decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```sc```表：\n\n|sno|cno|score|point|\n|----|----|------|------|\n|1711202|0000011|43.0|0.0|\n|1711202|0000027|80.0|1.0|\n|1911201|0000027|54.0|1.0|\n|1911201|0000052|71.0|2.0|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|sno|cno|score|\n|----|----|------|\n|1911201|0000027|54.0|\n|1711202|0000011|43.0|\n",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146",
+        "number": 14,
+        "examLabel": "10-14"
+      }
+    },
+    {
+      "id": "2116869825301987329",
+      "number": 15,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，查询统计每个班级的人数，显示班级编号，人数（Num），并按人数降序排列。\n#### 现有教务管理系统的关系描述如下：\n* 每个院系（部门）有多个班级和多名教师，每名教师各自开设有多门课程。\n* 每位教师管理多个班级（班主任），每个班级只能被一位老师管理。\n* 每名学生属于一个班级，可以选修多门课程。\n* 每门课程可被多位老师讲授，并且有些课程具有先导课程，每门课程的成绩由平时成绩、期中成绩、期末成绩组成，最终计算总评成绩。\n* 课程信息表供教师和学生查询，包含课程信息、任课教师、上课班级、上课教室、上课日期（周几）、上课时间（第几节课）、上课学期学年等信息。\n\n##### 1.学生表：student\n######  表结构\n![student-1.png](~/83dc7b69-e20f-4437-9153-044b5dcc1c41.png)\n######  表数据\n![student-2.png](~/f3303887-0bd5-4f59-b9c3-dd36cccb788a.png)\n##### ===>样例输出：\n![37.png](~/1f84690c-a016-4d51-813d-04c2083f8223.png)",
+      "content": "本题目要求编写SQL语句，查询统计每个班级的人数，显示班级编号，人数（Num），并按人数降序排列。\n#### 现有教务管理系统的关系描述如下：\n* 每个院系（部门）有多个班级和多名教师，每名教师各自开设有多门课程。\n* 每位教师管理多个班级（班主任），每个班级只能被一位老师管理。\n* 每名学生属于一个班级，可以选修多门课程。\n* 每门课程可被多位老师讲授，并且有些课程具有先导课程，每门课程的成绩由平时成绩、期中成绩、期末成绩组成，最终计算总评成绩。\n* 课程信息表供教师和学生查询，包含课程信息、任课教师、上课班级、上课教室、上课日期（周几）、上课时间（第几节课）、上课学期学年等信息。\n\n##### 1.学生表：student\n######  表结构\n![student-1.png](~/83dc7b69-e20f-4437-9153-044b5dcc1c41.png)\n######  表数据\n![student-2.png](~/f3303887-0bd5-4f59-b9c3-dd36cccb788a.png)\n##### ===>样例输出：\n![37.png](~/1f84690c-a016-4d51-813d-04c2083f8223.png)",
+      "hasStatement": true,
+      "title": "37.统计每个班级的人数，显示班级编号，人数（Num），并按人数降序排列",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/83dc7b69-e20f-4437-9153-044b5dcc1c41.png",
+          "markdownPath": "~/83dc7b69-e20f-4437-9153-044b5dcc1c41.png",
+          "location": "content",
+          "index": 329
+        },
+        {
+          "url": "https://images.ptausercontent.com/f3303887-0bd5-4f59-b9c3-dd36cccb788a.png",
+          "markdownPath": "~/f3303887-0bd5-4f59-b9c3-dd36cccb788a.png",
+          "location": "content",
+          "index": 402
+        },
+        {
+          "url": "https://images.ptausercontent.com/1f84690c-a016-4d51-813d-04c2083f8223.png",
+          "markdownPath": "~/1f84690c-a016-4d51-813d-04c2083f8223.png",
+          "location": "content",
+          "index": 479
+        },
+        {
+          "url": "https://images.ptausercontent.com/83dc7b69-e20f-4437-9153-044b5dcc1c41.png",
+          "markdownPath": "~/83dc7b69-e20f-4437-9153-044b5dcc1c41.png",
+          "location": "description",
+          "index": 329
+        },
+        {
+          "url": "https://images.ptausercontent.com/f3303887-0bd5-4f59-b9c3-dd36cccb788a.png",
+          "markdownPath": "~/f3303887-0bd5-4f59-b9c3-dd36cccb788a.png",
+          "location": "description",
+          "index": 402
+        },
+        {
+          "url": "https://images.ptausercontent.com/1f84690c-a016-4d51-813d-04c2083f8223.png",
+          "markdownPath": "~/1f84690c-a016-4d51-813d-04c2083f8223.png",
+          "location": "description",
+          "index": 479
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2116869825301987329",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE `student`  (\n  `SId` char(9),\n  `GId` char(2),\n  `SName` char(8),\n  `SSexy` char(2),\n  `SBdate` date,\n  `STele` char(11)\n) \n",
+            "cases": {
+              "test": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE `student`  (\n  `GId` char(2),\n  `Num` int(11)\n) \n",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "37.统计每个班级的人数，显示班级编号，人数（Num），并按人数降序排列",
+        "content": "本题目要求编写SQL语句，查询统计每个班级的人数，显示班级编号，人数（Num），并按人数降序排列。\n#### 现有教务管理系统的关系描述如下：\n* 每个院系（部门）有多个班级和多名教师，每名教师各自开设有多门课程。\n* 每位教师管理多个班级（班主任），每个班级只能被一位老师管理。\n* 每名学生属于一个班级，可以选修多门课程。\n* 每门课程可被多位老师讲授，并且有些课程具有先导课程，每门课程的成绩由平时成绩、期中成绩、期末成绩组成，最终计算总评成绩。\n* 课程信息表供教师和学生查询，包含课程信息、任课教师、上课班级、上课教室、上课日期（周几）、上课时间（第几节课）、上课学期学年等信息。\n\n##### 1.学生表：student\n######  表结构\n![student-1.png](~/83dc7b69-e20f-4437-9153-044b5dcc1c41.png)\n######  表数据\n![student-2.png](~/f3303887-0bd5-4f59-b9c3-dd36cccb788a.png)\n##### ===>样例输出：\n![37.png](~/1f84690c-a016-4d51-813d-04c2083f8223.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "宋光慧",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116850798953381888",
+        "problemId": "1618799927793102848",
+        "description": "本题目要求编写SQL语句，查询统计每个班级的人数，显示班级编号，人数（Num），并按人数降序排列。\n#### 现有教务管理系统的关系描述如下：\n* 每个院系（部门）有多个班级和多名教师，每名教师各自开设有多门课程。\n* 每位教师管理多个班级（班主任），每个班级只能被一位老师管理。\n* 每名学生属于一个班级，可以选修多门课程。\n* 每门课程可被多位老师讲授，并且有些课程具有先导课程，每门课程的成绩由平时成绩、期中成绩、期末成绩组成，最终计算总评成绩。\n* 课程信息表供教师和学生查询，包含课程信息、任课教师、上课班级、上课教室、上课日期（周几）、上课时间（第几节课）、上课学期学年等信息。\n\n##### 1.学生表：student\n######  表结构\n![student-1.png](~/83dc7b69-e20f-4437-9153-044b5dcc1c41.png)\n######  表数据\n![student-2.png](~/f3303887-0bd5-4f59-b9c3-dd36cccb788a.png)\n##### ===>样例输出：\n![37.png](~/1f84690c-a016-4d51-813d-04c2083f8223.png)\n",
+        "problemPoolIndex": 15,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "9",
+        "number": 15,
+        "examLabel": "10-15"
+      }
+    }
+  ]
+}

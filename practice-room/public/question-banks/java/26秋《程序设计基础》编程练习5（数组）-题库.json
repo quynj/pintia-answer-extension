@@ -1,0 +1,492 @@
+{
+  "title": "26秋《程序设计基础》编程练习5（数组）",
+  "problemSetName": "26秋《程序设计基础》编程练习5（数组）",
+  "problemSetId": "2121133349609480192",
+  "examId": "2121221056939323392",
+  "source": "https://pintia.cn/problem-sets/2121133349609480192",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:39:48.370Z",
+  "summaries": {
+    "FILL_IN_THE_BLANK_FOR_PROGRAMMING": {
+      "total": 2,
+      "totalScore": 20
+    },
+    "PROGRAMMING": {
+      "total": 4,
+      "totalScore": 80
+    }
+  },
+  "questions": [
+    {
+      "id": "2121133349626257408",
+      "number": 1,
+      "type": "FILL_IN_THE_BLANK_FOR_PROGRAMMING",
+      "prompt": "用数组来求Fibonacci数列问题，打印前20项数列，每行打印4个数。。 ``` public class Main { public static void main(String[] args) { int f[]=new int[20]; f[0]=1; f[1]=1; for(int i=2;i<20;i++){ @@[](3); } for(@@[](3);i<20;i++){ System.out.printf(\"%12d\",f[i]); if(@@[](4)) System.out.println(); } } } ```",
+      "content": "用数组来求Fibonacci数列问题，打印前20项数列，每行打印4个数。。\n\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint f[]=new int[20];\n\t\tf[0]=1;\n\t\tf[1]=1;\n\t\tfor(int i=2;i<20;i++){\n\t\t\t@@[](3);\n\t\t}\n\t\tfor(@@[](3);i<20;i++){\n\t\t\tSystem.out.printf(\"%12d\",f[i]);\n\t\t\tif(@@[](4))\n\t\t\t\tSystem.out.println();\n\t\t}\t\n\t}\t\n}\n```",
+      "title": "输出Fibonacci数列",
+      "options": [],
+      "images": [],
+      "score": 10,
+      "apiData": {
+        "id": "2121133349626257408",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "fillInTheBlankForProgrammingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "blankLength": 18,
+            "scores": [
+              3,
+              3,
+              4
+            ],
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              }
+            },
+            "blanks": [
+              {
+                "index": 176,
+                "multipleLine": false,
+                "length": 18,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 188,
+                "multipleLine": false,
+                "length": 7,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 241,
+                "multipleLine": false,
+                "length": 10,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ],
+            "tools": []
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "输出Fibonacci数列",
+        "content": "用数组来求Fibonacci数列问题，打印前20项数列，每行打印4个数。。\n\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint f[]=new int[20];\n\t\tf[0]=1;\n\t\tf[1]=1;\n\t\tfor(int i=2;i<20;i++){\n\t\t\t@@[](3);\n\t\t}\n\t\tfor(@@[](3);i<20;i++){\n\t\t\tSystem.out.printf(\"%12d\",f[i]);\n\t\t\tif(@@[](4))\n\t\t\t\tSystem.out.println();\n\t\t}\t\n\t}\t\n}\n```\n",
+        "type": "FILL_IN_THE_BLANK_FOR_PROGRAMMING",
+        "author": "刘永福",
+        "difficulty": 0,
+        "compiler": "JAVAC",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121133349609480192",
+        "problemId": "1209868015083397120",
+        "description": "用数组来求Fibonacci数列问题，打印前20项数列，每行打印4个数。。\n\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint f[]=new int[20];\n\t\tf[0]=1;\n\t\tf[1]=1;\n\t\tfor(int i=2;i<20;i++){\n\t\t\t;\n\t\t}\n\t\tfor(;i<20;i++){\n\t\t\tSystem.out.printf(\"%12d\",f[i]);\n\t\t\tif()\n\t\t\t\tSystem.out.println();\n\t\t}\t\n\t}\t\n}\n```\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75",
+        "number": 1,
+        "examLabel": "5-1"
+      }
+    },
+    {
+      "id": "2121133349626257409",
+      "number": 2,
+      "type": "FILL_IN_THE_BLANK_FOR_PROGRAMMING",
+      "prompt": "以下程序的功能是求一个二维数组中每行的最大值和每行的和。 # 输入样例 ``` 3 1 2 3 6 5 4 7 9 8 ``` # 输出样例 ``` 1 2 3 3 6 6 5 4 6 15 7 9 8 9 24 ``` ``` import java.util.Scanner; public class Main { public static void main(String[] args) { Scanner sc=new Scanner(@@[](2)); int n=sc.nextInt(); int a[][]=new int[n][n]; int b[]=new int[n]; int c[]=new int[n]; for(int i=0;i<a.length;i++){ for(int j=0;j<@@[](2);j++){ a[i][j]=sc.nextInt(); } } int max,s; for(int i=0;i<a.length;i++){ max=a[i][0]; @@[](2); for(int j=0;j<a[i].length;j++){ if(a[i][j]>max){ @@[](2); } s+=a[i][j]; } b[i]=max; c[i]=s; } for(int i=0;i<a.length;i++){ for(int j=0;j<a[i].length;j++){ System.out.printf(\"%3d\",@@[](2)); } System.out.printf(\"%3d%3d\",b[i],c[i]); System.out.println(); } } } ```",
+      "content": "以下程序的功能是求一个二维数组中每行的最大值和每行的和。\n# 输入样例\n```\n3 \n1 2 3 \n6 5 4 \n7 9 8\n```\n\n# 输出样例\n```\n1  2  3  3  6\n6  5  4  6 15\n7  9  8  9 24\n```\n\n\n```\nimport java.util.Scanner;\n\npublic class Main {\n\t\n\tpublic static void main(String[] args) {\n\t\tScanner sc=new Scanner(@@[](2));\n\t\tint n=sc.nextInt();\n\t\tint a[][]=new int[n][n];\n\t\tint b[]=new int[n];\n\t\tint c[]=new int[n];\n\t\tfor(int i=0;i<a.length;i++){\n\t\t\tfor(int j=0;j<@@[](2);j++){\n\t\t\t\ta[i][j]=sc.nextInt();\n\t\t\t}\n\t\t}\t\t\n\t\tint max,s;\n\t\tfor(int i=0;i<a.length;i++){\n\t\t\tmax=a[i][0];\n\t\t\t@@[](2);\n\t\t\tfor(int j=0;j<a[i].length;j++){\n\t\t\t\tif(a[i][j]>max){\n\t\t\t\t\t@@[](2);\n\t\t\t\t}\n\t\t\t\ts+=a[i][j];\n\t\t\t}\n\t\t\tb[i]=max;\n\t\t\tc[i]=s;\n\t\t}\n\t\tfor(int i=0;i<a.length;i++){\n\t\t\tfor(int j=0;j<a[i].length;j++){\n\t\t\t\tSystem.out.printf(\"%3d\",@@[](2));\n\t\t\t}\n\t\t\tSystem.out.printf(\"%3d%3d\",b[i],c[i]);\n\t\t\tSystem.out.println();\n\t\t}\n\t}\n}\n```",
+      "title": "求一个二维数组中每行的最大值和每行的和",
+      "options": [],
+      "images": [],
+      "score": 10,
+      "apiData": {
+        "id": "2121133349626257409",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "fillInTheBlankForProgrammingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "blankLength": 11,
+            "scores": [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              }
+            },
+            "blanks": [
+              {
+                "index": 247,
+                "multipleLine": false,
+                "length": 9,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 391,
+                "multipleLine": false,
+                "length": 11,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 498,
+                "multipleLine": false,
+                "length": 3,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 561,
+                "multipleLine": false,
+                "length": 11,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 712,
+                "multipleLine": false,
+                "length": 7,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ],
+            "tools": []
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "求一个二维数组中每行的最大值和每行的和",
+        "content": "以下程序的功能是求一个二维数组中每行的最大值和每行的和。\n# 输入样例\n```\n3 \n1 2 3 \n6 5 4 \n7 9 8\n```\n\n# 输出样例\n```\n1  2  3  3  6\n6  5  4  6 15\n7  9  8  9 24\n```\n\n\n```\nimport java.util.Scanner;\n\npublic class Main {\n\t\n\tpublic static void main(String[] args) {\n\t\tScanner sc=new Scanner(@@[](2));\n\t\tint n=sc.nextInt();\n\t\tint a[][]=new int[n][n];\n\t\tint b[]=new int[n];\n\t\tint c[]=new int[n];\n\t\tfor(int i=0;i<a.length;i++){\n\t\t\tfor(int j=0;j<@@[](2);j++){\n\t\t\t\ta[i][j]=sc.nextInt();\n\t\t\t}\n\t\t}\t\t\n\t\tint max,s;\n\t\tfor(int i=0;i<a.length;i++){\n\t\t\tmax=a[i][0];\n\t\t\t@@[](2);\n\t\t\tfor(int j=0;j<a[i].length;j++){\n\t\t\t\tif(a[i][j]>max){\n\t\t\t\t\t@@[](2);\n\t\t\t\t}\n\t\t\t\ts+=a[i][j];\n\t\t\t}\n\t\t\tb[i]=max;\n\t\t\tc[i]=s;\n\t\t}\n\t\tfor(int i=0;i<a.length;i++){\n\t\t\tfor(int j=0;j<a[i].length;j++){\n\t\t\t\tSystem.out.printf(\"%3d\",@@[](2));\n\t\t\t}\n\t\t\tSystem.out.printf(\"%3d%3d\",b[i],c[i]);\n\t\t\tSystem.out.println();\n\t\t}\n\t}\n}\n```\n",
+        "type": "FILL_IN_THE_BLANK_FOR_PROGRAMMING",
+        "author": "刘永福",
+        "difficulty": 0,
+        "compiler": "JAVAC",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121133349609480192",
+        "problemId": "1210176779816747008",
+        "description": "以下程序的功能是求一个二维数组中每行的最大值和每行的和。\n# 输入样例\n```\n3 \n1 2 3 \n6 5 4 \n7 9 8\n```\n\n# 输出样例\n```\n1  2  3  3  6\n6  5  4  6 15\n7  9  8  9 24\n```\n\n\n```\nimport java.util.Scanner;\n\npublic class Main {\n\t\n\tpublic static void main(String[] args) {\n\t\tScanner sc=new Scanner();\n\t\tint n=sc.nextInt();\n\t\tint a[][]=new int[n][n];\n\t\tint b[]=new int[n];\n\t\tint c[]=new int[n];\n\t\tfor(int i=0;i<a.length;i++){\n\t\t\tfor(int j=0;j<;j++){\n\t\t\t\ta[i][j]=sc.nextInt();\n\t\t\t}\n\t\t}\t\t\n\t\tint max,s;\n\t\tfor(int i=0;i<a.length;i++){\n\t\t\tmax=a[i][0];\n\t\t\t;\n\t\t\tfor(int j=0;j<a[i].length;j++){\n\t\t\t\tif(a[i][j]>max){\n\t\t\t\t\t;\n\t\t\t\t}\n\t\t\t\ts+=a[i][j];\n\t\t\t}\n\t\t\tb[i]=max;\n\t\t\tc[i]=s;\n\t\t}\n\t\tfor(int i=0;i<a.length;i++){\n\t\t\tfor(int j=0;j<a[i].length;j++){\n\t\t\t\tSystem.out.printf(\"%3d\",);\n\t\t\t}\n\t\t\tSystem.out.printf(\"%3d%3d\",b[i],c[i]);\n\t\t\tSystem.out.println();\n\t\t}\n\t}\n}\n```\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75",
+        "number": 2,
+        "examLabel": "5-2"
+      }
+    },
+    {
+      "id": "2121133349626257410",
+      "number": 1,
+      "type": "PROGRAMMING",
+      "prompt": "输入10个整数，输出这10个整数的的平均数，要求输出的平均数保留2位小数\n\n###输入样例：\n1 2 3 4 5 6 7 8 9 10\n###输出样例：\n5.50",
+      "content": "输入10个整数，输出这10个整数的的平均数，要求输出的平均数保留2位小数\n\n###输入样例：\n1 2 3 4 5 6 7 8 9 10\n###输出样例：\n5.50",
+      "hasStatement": true,
+      "title": "求一组数组中的平均数",
+      "options": [],
+      "images": [],
+      "score": 10,
+      "apiData": {
+        "id": "2121133349626257410",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "求一组数组中的平均数",
+        "content": "输入10个整数，输出这10个整数的的平均数，要求输出的平均数保留2位小数\n\n###输入样例：\n1 2 3 4 5 6 7 8 9 10\n###输出样例：\n5.50",
+        "type": "PROGRAMMING",
+        "author": "黎浩宏",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121133349609480192",
+        "problemId": "6035",
+        "description": "输入10个整数，输出这10个整数的的平均数，要求输出的平均数保留2位小数\n\n###输入样例：\n1 2 3 4 5 6 7 8 9 10\n###输出样例：\n5.50",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "172",
+        "number": 1,
+        "examLabel": "7-1"
+      }
+    },
+    {
+      "id": "2121133349626257411",
+      "number": 2,
+      "type": "PROGRAMMING",
+      "prompt": "找出10个整数中的最大值、最小值、偶数的个数、偶数的平均值。（使用Scanner类从键盘输入数据。）<br />\\\n请注意：含有main方法的类（class）的名字必须命名为Main，否则调试不成功。\n\n### 输入格式:\n\n在一行中输入10个整数，中间用空格隔开。\n\n### 输出格式:\n\n分四行分别输出最大值、最小值、偶数的个数、偶数的平均值。\n\n### 输入样例1:\n\n```in\n18 -6 12 27 9 31 -20 42 33 75\n```\n\n### 输出样例1:\n\n```out\n最大值是75\n最小值是-20\n偶数的个数是5\n偶数的平均值是9.2\n```\n\n### 输入样例2:\n\n```in\n11 13 15 17 19 21 23 25 27 29\n```\n\n### 输出样例2:\n\n```out\n最大值是29\n最小值是11\n偶数的个数是0\n偶数的平均值是0.0\n```",
+      "content": "找出10个整数中的最大值、最小值、偶数的个数、偶数的平均值。（使用Scanner类从键盘输入数据。）<br />\\\n请注意：含有main方法的类（class）的名字必须命名为Main，否则调试不成功。\n\n### 输入格式:\n\n在一行中输入10个整数，中间用空格隔开。\n\n### 输出格式:\n\n分四行分别输出最大值、最小值、偶数的个数、偶数的平均值。\n\n### 输入样例1:\n\n```in\n18 -6 12 27 9 31 -20 42 33 75\n```\n\n### 输出样例1:\n\n```out\n最大值是75\n最小值是-20\n偶数的个数是5\n偶数的平均值是9.2\n```\n\n### 输入样例2:\n\n```in\n11 13 15 17 19 21 23 25 27 29\n```\n\n### 输出样例2:\n\n```out\n最大值是29\n最小值是11\n偶数的个数是0\n偶数的平均值是0.0\n```",
+      "hasStatement": true,
+      "title": "找出10个整数中的最大值、最小值、偶数的个数、偶数的平均值。",
+      "options": [],
+      "images": [],
+      "score": 20,
+      "apiData": {
+        "id": "2121133349626257411",
+        "label": "",
+        "score": 20,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "test1": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              },
+              "test2": {
+                "hint": "",
+                "showHint": false,
+                "score": 10,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "18 -6 12 27 9 31 -20 42 33 75\n",
+                "output": "最大值是75\n最小值是-20\n偶数的个数是5\n偶数的平均值是9.2"
+              },
+              {
+                "name": "",
+                "input": "11 13 15 17 19 21 23 25 27 29\n",
+                "output": "最大值是29\n最小值是11\n偶数的个数是0\n偶数的平均值是0.0"
+              },
+              {
+                "name": "",
+                "input": "18 -6 12 27 9 31 -20 42 33 75\n",
+                "output": "最大值是75\n最小值是-20\n偶数的个数是5\n偶数的平均值是9.2"
+              },
+              {
+                "name": "",
+                "input": "11 13 15 17 19 21 23 25 27 29\n",
+                "output": "最大值是29\n最小值是11\n偶数的个数是0\n偶数的平均值是0.0"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "找出10个整数中的最大值、最小值、偶数的个数、偶数的平均值。",
+        "content": "找出10个整数中的最大值、最小值、偶数的个数、偶数的平均值。（使用Scanner类从键盘输入数据。）<br />\\\n请注意：含有main方法的类（class）的名字必须命名为Main，否则调试不成功。\n\n### 输入格式:\n\n在一行中输入10个整数，中间用空格隔开。\n\n### 输出格式:\n\n分四行分别输出最大值、最小值、偶数的个数、偶数的平均值。\n\n### 输入样例1:\n\n```in\n18 -6 12 27 9 31 -20 42 33 75\n```\n\n### 输出样例1:\n\n```out\n最大值是75\n最小值是-20\n偶数的个数是5\n偶数的平均值是9.2\n```\n\n### 输入样例2:\n\n```in\n11 13 15 17 19 21 23 25 27 29\n```\n\n### 输出样例2:\n\n```out\n最大值是29\n最小值是11\n偶数的个数是0\n偶数的平均值是0.0\n```",
+        "type": "PROGRAMMING",
+        "author": "吴光生",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121133349609480192",
+        "problemId": "1508287562106814464",
+        "description": "找出10个整数中的最大值、最小值、偶数的个数、偶数的平均值。（使用Scanner类从键盘输入数据。）<br />\\\n请注意：含有main方法的类（class）的名字必须命名为Main，否则调试不成功。\n\n### 输入格式:\n\n在一行中输入10个整数，中间用空格隔开。\n\n### 输出格式:\n\n分四行分别输出最大值、最小值、偶数的个数、偶数的平均值。\n\n### 输入样例1:\n\n```in\n18 -6 12 27 9 31 -20 42 33 75\n```\n\n### 输出样例1:\n\n```out\n最大值是75\n最小值是-20\n偶数的个数是5\n偶数的平均值是9.2\n```\n\n### 输入样例2:\n\n```in\n11 13 15 17 19 21 23 25 27 29\n```\n\n### 输出样例2:\n\n```out\n最大值是29\n最小值是11\n偶数的个数是0\n偶数的平均值是0.0\n```",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "974911818648657920",
+        "number": 2,
+        "examLabel": "7-2"
+      }
+    },
+    {
+      "id": "2121133349626257412",
+      "number": 3,
+      "type": "PROGRAMMING",
+      "prompt": "需求说明\n\nØ  从控制台接收用户5件商品的消费金额，并将计算的消费总金额统计显示出来。\n\n<br>实现思路\n\n(1)     创建一个长度为5的double类型数组，用于存储消费金额。\n\n(2)     循环输入5笔消费金额，并累加总金额。\n\n(3)     利用循环输出5笔消费金额。\n\n(4)     最后输出消费总金额。\n\n### 输入格式:\n\n一行输入一个消费金额\n\n### 输出格式:\n\n输出总金额\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n12\n34\n56\n78\n90\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n序号            金额\n1            ¥ 12.0\n2            ¥ 34.0\n3            ¥ 56.0\n4            ¥ 78.0\n5            ¥ 90.0\n----------------------\n消费总金额：    ¥ 270\n```",
+      "content": "需求说明\n\nØ  从控制台接收用户5件商品的消费金额，并将计算的消费总金额统计显示出来。\n\n<br>实现思路\n\n(1)     创建一个长度为5的double类型数组，用于存储消费金额。\n\n(2)     循环输入5笔消费金额，并累加总金额。\n\n(3)     利用循环输出5笔消费金额。\n\n(4)     最后输出消费总金额。\n\n### 输入格式:\n\n一行输入一个消费金额\n\n### 输出格式:\n\n输出总金额\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n12\n34\n56\n78\n90\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n序号            金额\n1            ¥ 12.0\n2            ¥ 34.0\n3            ¥ 56.0\n4            ¥ 78.0\n5            ¥ 90.0\n----------------------\n消费总金额：    ¥ 270\n```",
+      "hasStatement": true,
+      "title": "秒杀商品消费结算",
+      "options": [],
+      "images": [],
+      "score": 20,
+      "apiData": {
+        "id": "2121133349626257412",
+        "label": "",
+        "score": 20,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 20,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "12\n34\n56\n78\n90",
+                "output": "序号            金额\n1            ¥ 12.0\n2            ¥ 34.0\n3            ¥ 56.0\n4            ¥ 78.0\n5            ¥ 90.0\n----------------------\n消费总金额：    ¥ 270"
+              },
+              {
+                "name": "",
+                "input": "12\n34\n56\n78\n90",
+                "output": "序号            金额\n1            ¥ 12.0\n2            ¥ 34.0\n3            ¥ 56.0\n4            ¥ 78.0\n5            ¥ 90.0\n----------------------\n消费总金额：    ¥ 270"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "秒杀商品消费结算",
+        "content": "需求说明\n\nØ  从控制台接收用户5件商品的消费金额，并将计算的消费总金额统计显示出来。\n\n<br>实现思路\n\n(1)     创建一个长度为5的double类型数组，用于存储消费金额。\n\n(2)     循环输入5笔消费金额，并累加总金额。\n\n(3)     利用循环输出5笔消费金额。\n\n(4)     最后输出消费总金额。\n\n### 输入格式:\n\n一行输入一个消费金额\n\n### 输出格式:\n\n输出总金额\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n12\n34\n56\n78\n90\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n序号            金额\n1            ¥ 12.0\n2            ¥ 34.0\n3            ¥ 56.0\n4            ¥ 78.0\n5            ¥ 90.0\n----------------------\n消费总金额：    ¥ 270\n```",
+        "type": "PROGRAMMING",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121133349609480192",
+        "problemId": "1729659186505224192",
+        "description": "需求说明\n\nØ  从控制台接收用户5件商品的消费金额，并将计算的消费总金额统计显示出来。\n\n<br>实现思路\n\n(1)     创建一个长度为5的double类型数组，用于存储消费金额。\n\n(2)     循环输入5笔消费金额，并累加总金额。\n\n(3)     利用循环输出5笔消费金额。\n\n(4)     最后输出消费总金额。\n\n### 输入格式:\n\n一行输入一个消费金额\n\n### 输出格式:\n\n输出总金额\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n12\n34\n56\n78\n90\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n序号            金额\n1            ¥ 12.0\n2            ¥ 34.0\n3            ¥ 56.0\n4            ¥ 78.0\n5            ¥ 90.0\n----------------------\n消费总金额：    ¥ 270\n```",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632",
+        "number": 3,
+        "examLabel": "7-3"
+      }
+    },
+    {
+      "id": "2121133349626257413",
+      "number": 4,
+      "type": "PROGRAMMING",
+      "prompt": "使用二维数组打印一个 10 行杨辉三角。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n杨辉三角形\n1  \n1  1  \n1  2  1  \n1  3  3  1  \n1  4  6  4  1  \n1  5  10  10  5  1  \n1  6  15  20  15  6  1  \n1  7  21  35  35  21  7  1  \n1  8  28  56  70  56  28  8  1  \n1  9  36  84  126  126  84  36  9  1  \n\n```",
+      "content": "使用二维数组打印一个 10 行杨辉三角。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n杨辉三角形\n1  \n1  1  \n1  2  1  \n1  3  3  1  \n1  4  6  4  1  \n1  5  10  10  5  1  \n1  6  15  20  15  6  1  \n1  7  21  35  35  21  7  1  \n1  8  28  56  70  56  28  8  1  \n1  9  36  84  126  126  84  36  9  1  \n\n```",
+      "hasStatement": true,
+      "title": "杨辉三角",
+      "options": [],
+      "images": [],
+      "score": 30,
+      "apiData": {
+        "id": "2121133349626257413",
+        "label": "",
+        "score": 30,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "ceshi": {
+                "hint": "",
+                "showHint": false,
+                "score": 30,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "\n",
+                "output": "杨辉三角形\n1  \n1  1  \n1  2  1  \n1  3  3  1  \n1  4  6  4  1  \n1  5  10  10  5  1  \n1  6  15  20  15  6  1  \n1  7  21  35  35  21  7  1  \n1  8  28  56  70  56  28  8  1  \n1  9  36  84  126  126  84  36  9  1  \n"
+              },
+              {
+                "name": "",
+                "input": "\n",
+                "output": "杨辉三角形\n1  \n1  1  \n1  2  1  \n1  3  3  1  \n1  4  6  4  1  \n1  5  10  10  5  1  \n1  6  15  20  15  6  1  \n1  7  21  35  35  21  7  1  \n1  8  28  56  70  56  28  8  1  \n1  9  36  84  126  126  84  36  9  1  \n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "杨辉三角",
+        "content": "这是一个编程题模板。\n\n请在这里写题目描述。例如：本题目要求读入2个整数A和B，然后输出它们的和。\n\n### 输入格式:\n\n请在这里写输入格式。例如：输入在一行中给出2个绝对值不超过1000的整数A和B。\n\n### 输出格式:\n\n请在这里描述输出格式。例如：对每一组输入，在一行中输出A+B的值。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n18 -299\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n-281\n```\n",
+        "type": "PROGRAMMING",
+        "author": "徐丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121133349609480192",
+        "problemId": "1838396194083061760",
+        "description": "使用二维数组打印一个 10 行杨辉三角。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n杨辉三角形\n1  \n1  1  \n1  2  1  \n1  3  3  1  \n1  4  6  4  1  \n1  5  10  10  5  1  \n1  6  15  20  15  6  1  \n1  7  21  35  35  21  7  1  \n1  8  28  56  70  56  28  8  1  \n1  9  36  84  126  126  84  36  9  1  \n\n```",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "173",
+        "number": 4,
+        "examLabel": "7-4"
+      }
+    }
+  ]
+}

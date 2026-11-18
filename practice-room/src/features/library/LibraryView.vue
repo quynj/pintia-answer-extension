@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import { useQuestionLibrary } from './useQuestionLibrary'
+import type { BankCategory } from './question-bank-catalog.ts'
 
 const props = defineProps<{
   model: ReturnType<typeof useQuestionLibrary>
@@ -16,8 +18,57 @@ const {
   mergeSelection,
   handleAnswerChange,
   mergeSelectedBanks,
-  toggleAllBanksSelection
+  toggleBanksSelection
 } = props.model
+const searchQuery = ref('')
+const selectedCategoryId = ref('')
+
+const categoryFilters = computed(() => {
+  const categoriesById = new Map<string, { category: BankCategory; count: number }>()
+  for (const entry of bankEntries.value) {
+    for (const category of entry.categories) {
+      const current = categoriesById.get(category.id)
+      if (current) current.count += 1
+      else categoriesById.set(category.id, { category, count: 1 })
+    }
+  }
+  return [
+    { id: '', name: '全部', count: bankEntries.value.length },
+    ...Array.from(categoriesById.values(), ({ category, count }) => ({
+      id: category.id,
+      name: category.name,
+      count
+    }))
+  ]
+})
+
+const visibleBankEntries = computed(() => {
+  const query = searchQuery.value.trim().normalize('NFKC').toLowerCase()
+  return bankEntries.value.filter((entry) => {
+    const matchesTitle = !query
+      || entry.bank.title.normalize('NFKC').toLowerCase().includes(query)
+    const matchesCategory = !selectedCategoryId.value
+      || entry.categories.some((category) => category.id === selectedCategoryId.value)
+    return matchesTitle && matchesCategory
+  })
+})
+
+const allVisibleBanksSelected = computed(() => visibleBankEntries.value.length > 0
+  && visibleBankEntries.value.every((entry) => mergeSelection.value.includes(entry.key)))
+
+const hiddenSelectedCount = computed(() => {
+  const visibleKeys = new Set(visibleBankEntries.value.map((entry) => entry.key))
+  return mergeSelection.value.filter((key) => !visibleKeys.has(key)).length
+})
+
+function toggleVisibleBankSelection(): void {
+  toggleBanksSelection(visibleBankEntries.value.map((entry) => entry.key))
+}
+
+function clearFilters(): void {
+  searchQuery.value = ''
+  selectedCategoryId.value = ''
+}
 
 function handleBankChange(event: Event): void {
   const input = event.target
@@ -51,11 +102,11 @@ function handleBankChange(event: Event): void {
       </div>
       <div class="library-actions">
         <button
-          v-if="bankEntries.length > 1"
+          v-if="bankEntries.length > 1 && visibleBankEntries.length > 0"
           class="select-all-banks"
           type="button"
-          @click="toggleAllBanksSelection"
-        >{{ mergeSelection.length === bankEntries.length ? '取消全选' : '全选题库' }}</button>
+          @click="toggleVisibleBankSelection"
+        >{{ allVisibleBanksSelected ? '取消当前全选' : '全选当前结果' }}</button>
         <button
           v-if="mergeSelection.length > 1"
           class="button button-accent merge-banks-button"
@@ -75,47 +126,84 @@ function handleBankChange(event: Event): void {
       <span>{{ isPlatformBankLoading ? '正在读取题库目录与配套答案。' : '平台题库会自动载入；也可以导入自己的题库和答案，或合并多份题库。' }}</span>
     </p>
 
-    <div v-else class="bank-grid">
-      <article
-        v-for="(entry, index) in bankEntries"
-        :key="entry.key"
-        class="bank-card"
-        :class="{ 'bank-card-active': entry.key === activeBankKey }"
-      >
-        <div class="bank-card-top">
-          <span class="bank-index">{{ String(index + 1).padStart(2, '0') }}</span>
-          <span class="bank-identity">{{ entry.isPlatformBank ? 'PLATFORM BANK' : entry.bank.problemSetId ? `ID ${entry.bank.problemSetId}` : 'LOCAL BANK' }}</span>
-          <span v-if="entry.key === activeBankKey" class="active-bank-tag">最近练习</span>
-          <label class="bank-select">
-            <input v-model="mergeSelection" type="checkbox" :value="entry.key">
-            <span>合并</span>
-          </label>
-        </div>
-        <h3>{{ entry.bank.title }}</h3>
-        <p class="bank-card-summary">
-          {{ entry.bank.questions.length }} 道题
-          <span aria-hidden="true">·</span>
-          总分 {{ entry.bank.totalScore === null ? '未提供' : `${entry.bank.totalScore} 分` }}
-        </p>
-        <p class="file-name">{{ entry.bankFileName }}</p>
-        <div class="bank-answer-row">
-          <label v-if="!entry.isMerged" class="file-picker file-picker-compact">
-            <span class="picker-icon picker-icon-small" aria-hidden="true">↥</span>
-            <span>
-              <strong>{{ entry.answerFileName ? '更换对应答案' : '导入对应答案' }}</strong>
-              <small>{{ entry.answerFileName ? `${entry.answers.size} 条答案` : '按题目 ID 自动匹配' }}</small>
-            </span>
-            <input class="visually-hidden" type="file" accept=".json,application/json" @change="handleAnswerChange(entry.key, $event)">
-          </label>
-          <span v-if="entry.isMerged" class="merged-answer-note">{{ entry.answers.size }} 条答案随题库合并</span>
-          <span v-else-if="entry.answerFileName" class="answer-imported" aria-label="已导入答案">已配对</span>
-        </div>
-        <div class="bank-card-actions">
-          <button class="button button-dark start-practice" type="button" @click="emit('start-practice', entry.key)">
-            开始刷题 <span aria-hidden="true">↗</span>
+    <div v-else class="bank-browser">
+      <div class="bank-filters">
+        <label class="bank-search">
+          <span aria-hidden="true">⌕</span>
+          <input v-model="searchQuery" type="search" aria-label="搜索题库标题" placeholder="搜索题库标题">
+        </label>
+        <div class="bank-category-filters" role="group" aria-label="按分类筛选题库">
+          <button
+            v-for="category in categoryFilters"
+            :key="category.id || 'all'"
+            class="bank-category-filter"
+            :class="{ 'bank-category-filter-active': selectedCategoryId === category.id }"
+            type="button"
+            :aria-pressed="selectedCategoryId === category.id"
+            @click="selectedCategoryId = category.id"
+          >
+            {{ category.name }} <span>{{ category.count }}</span>
           </button>
         </div>
-      </article>
+      </div>
+
+      <p v-if="mergeSelection.length > 0" class="bank-selection-summary">
+        已选 {{ mergeSelection.length }} 个题库
+        <span v-if="hiddenSelectedCount > 0">（当前筛选隐藏 {{ hiddenSelectedCount }} 个）</span>
+        <button type="button" @click="mergeSelection = []">清空选择</button>
+      </p>
+
+      <p v-if="visibleBankEntries.length === 0" class="library-empty library-filter-empty">
+        <strong>没有找到匹配的题库</strong>
+        <span>换个标题关键词或分类，试试其他筛选条件。</span>
+        <button class="select-all-banks" type="button" @click="clearFilters">清除筛选</button>
+      </p>
+
+      <div v-else class="bank-grid">
+        <article
+          v-for="(entry, index) in visibleBankEntries"
+          :key="entry.key"
+          class="bank-card"
+          :class="{ 'bank-card-active': entry.key === activeBankKey }"
+        >
+          <div class="bank-card-top">
+            <span class="bank-index">{{ String(index + 1).padStart(2, '0') }}</span>
+            <span class="bank-identity">{{ entry.isPlatformBank ? 'PLATFORM BANK' : entry.bank.problemSetId ? `ID ${entry.bank.problemSetId}` : 'LOCAL BANK' }}</span>
+            <span v-if="entry.key === activeBankKey" class="active-bank-tag">最近练习</span>
+            <label class="bank-select">
+              <input v-model="mergeSelection" type="checkbox" :value="entry.key">
+              <span>合并</span>
+            </label>
+          </div>
+          <div class="bank-category-tags" aria-label="题库分类">
+            <span v-for="category in entry.categories" :key="category.id">{{ category.name }}</span>
+          </div>
+          <h3>{{ entry.bank.title }}</h3>
+          <p class="bank-card-summary">
+            {{ entry.bank.questions.length }} 道题
+            <span aria-hidden="true">·</span>
+            总分 {{ entry.bank.totalScore === null ? '未提供' : `${entry.bank.totalScore} 分` }}
+          </p>
+          <p class="file-name">{{ entry.bankFileName }}</p>
+          <div class="bank-answer-row">
+            <label v-if="!entry.isMerged" class="file-picker file-picker-compact">
+              <span class="picker-icon picker-icon-small" aria-hidden="true">↥</span>
+              <span>
+                <strong>{{ entry.answerFileName ? '更换对应答案' : '导入对应答案' }}</strong>
+                <small>{{ entry.answerFileName ? `${entry.answers.size} 条答案` : '按题目 ID 自动匹配' }}</small>
+              </span>
+              <input class="visually-hidden" type="file" accept=".json,application/json" @change="handleAnswerChange(entry.key, $event)">
+            </label>
+            <span v-if="entry.isMerged" class="merged-answer-note">{{ entry.answers.size }} 条答案随题库合并</span>
+            <span v-else-if="entry.answerFileName" class="answer-imported" aria-label="已导入答案">已配对</span>
+          </div>
+          <div class="bank-card-actions">
+            <button class="button button-dark start-practice" type="button" @click="emit('start-practice', entry.key)">
+              开始刷题 <span aria-hidden="true">↗</span>
+            </button>
+          </div>
+        </article>
+      </div>
     </div>
 
     <footer class="library-footer">

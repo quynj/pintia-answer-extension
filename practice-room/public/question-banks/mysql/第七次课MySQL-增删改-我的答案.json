@@ -1,0 +1,155 @@
+{
+  "problemSetId": "2111651757834321920",
+  "answers": [
+    {
+      "problemId": "2111651758119534592",
+      "questionNumber": 1,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111651758119534593",
+      "questionNumber": 2,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111651758119534594",
+      "questionNumber": 3,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111651758119534595",
+      "questionNumber": 4,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2111651758119534596",
+      "questionNumber": 5,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111651758119534597",
+      "questionNumber": 6,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653771679055872",
+      "questionNumber": 7,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653771679055874",
+      "questionNumber": 8,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653771683250176",
+      "questionNumber": 9,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653771683250178",
+      "questionNumber": 10,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653287421493248",
+      "questionNumber": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "set",
+        "bday = '1999-10-11'"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111651758119534598",
+      "questionNumber": 1,
+      "type": "SQL_PROGRAMMING",
+      "answer": "insert  dept(DId,Dname,DAddr,DTele,DEmail) values\n    ('EM','经济管理系','SC302','87464789','em@163.com');",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111651758119534599",
+      "questionNumber": 2,
+      "type": "SQL_PROGRAMMING",
+      "answer": "update dept set DEmail = 'el@163.com' where DId = 'EL';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111652751263629312",
+      "questionNumber": 3,
+      "type": "SQL_PROGRAMMING",
+      "answer": "delete from Product where regist_date is null;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111652751263629313",
+      "questionNumber": 4,
+      "type": "SQL_PROGRAMMING",
+      "answer": "delete from Product where sale_price >= 100;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653033716432896",
+      "questionNumber": 5,
+      "type": "SQL_PROGRAMMING",
+      "answer": "insert my_student values\n(\n    '212254203161','李芳芳','女','1999-10-01'\n);",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653033716432897",
+      "questionNumber": 6,
+      "type": "SQL_PROGRAMMING",
+      "answer": "update my_student set Birth = '1999-11-11' where StudentName = '李芳芳';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653033716432898",
+      "questionNumber": 7,
+      "type": "SQL_PROGRAMMING",
+      "answer": "delete from my_student where StudentID = '212254203161';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653033716432899",
+      "questionNumber": 8,
+      "type": "SQL_PROGRAMMING",
+      "answer": "insert into Product values(\n    '0003','菜刀','厨房用具',50,20,'2019-09-20'\n);",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653033716432901",
+      "questionNumber": 9,
+      "type": "SQL_PROGRAMMING",
+      "answer": "update Product set sale_price = sale_price * 10 where product_type = '衣服';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111653033716432902",
+      "questionNumber": 10,
+      "type": "SQL_PROGRAMMING",
+      "answer": "update Product set sale_price = 180 where regist_date is null;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

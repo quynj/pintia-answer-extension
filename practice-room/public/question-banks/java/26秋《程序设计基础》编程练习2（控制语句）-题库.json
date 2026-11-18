@@ -1,0 +1,703 @@
+{
+  "title": "26秋《程序设计基础》编程练习2（控制语句）",
+  "problemSetName": "26秋《程序设计基础》编程练习2（控制语句）",
+  "problemSetId": "2116068004593549312",
+  "examId": "2116492154122342400",
+  "source": "https://pintia.cn/problem-sets/2116068004593549312",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:40:16.082Z",
+  "summaries": {
+    "PROGRAMMING": {
+      "total": 7,
+      "totalScore": 100
+    }
+  },
+  "questions": [
+    {
+      "id": "2116068004631298048",
+      "number": 1,
+      "type": "PROGRAMMING",
+      "prompt": "统计1...n的闭区间中，能够被3整除元素的奇数和偶数的个数\n\n### 输入格式:\n输入值n的范围是 【1..1000】\n\n### 输出格式:\n奇数个数,偶数个数\n\n### 输入样例:\n\n```in\n5\n```\n\n### 输出样例:\n\n```out\n1,0\n```",
+      "content": "统计1...n的闭区间中，能够被3整除元素的奇数和偶数的个数\n\n### 输入格式:\n输入值n的范围是 【1..1000】\n\n### 输出格式:\n奇数个数,偶数个数\n\n### 输入样例:\n\n```in\n5\n```\n\n### 输出样例:\n\n```out\n1,0\n```",
+      "hasStatement": true,
+      "title": "编程题：统计符合条件元素的个数",
+      "options": [],
+      "images": [],
+      "score": 15,
+      "apiData": {
+        "id": "2116068004631298048",
+        "label": "",
+        "score": 15,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              },
+              "3": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "5",
+                "output": "1,0"
+              },
+              {
+                "name": "",
+                "input": "5",
+                "output": "1,0"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "编程题：统计符合条件元素的个数",
+        "content": "统计1...n的闭区间中，能够被3整除元素的奇数和偶数的个数\n\n### 输入格式:\n输入值n的范围是 【1..1000】\n\n### 输出格式:\n奇数个数,偶数个数\n\n### 输入样例:\n\n```in\n5\n```\n\n### 输出样例:\n\n```out\n1,0\n```\n",
+        "type": "PROGRAMMING",
+        "author": "abc618382",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116068004593549312",
+        "problemId": "1080452768213893120",
+        "description": "统计1...n的闭区间中，能够被3整除元素的奇数和偶数的个数\n\n### 输入格式:\n输入值n的范围是 【1..1000】\n\n### 输出格式:\n奇数个数,偶数个数\n\n### 输入样例:\n\n```in\n5\n```\n\n### 输出样例:\n\n```out\n1,0\n```\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "926401564535558144",
+        "number": 1,
+        "examLabel": "7-1"
+      }
+    },
+    {
+      "id": "2116068004631298049",
+      "number": 2,
+      "type": "PROGRAMMING",
+      "prompt": "本题目要求接收输入的2个整数a和b，然后输出a~b之间的所有奇数之和。\n\n### 输入格式:\n\n分别用两行输入两个整数a,b\n\n### 输出格式:\n\n输出a~b之间的所有奇数之和\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n1\n30\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nSUM = 225\n```",
+      "content": "本题目要求接收输入的2个整数a和b，然后输出a~b之间的所有奇数之和。\n\n### 输入格式:\n\n分别用两行输入两个整数a,b\n\n### 输出格式:\n\n输出a~b之间的所有奇数之和\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n1\n30\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nSUM = 225\n```",
+      "hasStatement": true,
+      "title": "计算给定两数之间的所有奇数之和",
+      "options": [],
+      "images": [],
+      "score": 10,
+      "apiData": {
+        "id": "2116068004631298049",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "1\n30",
+                "output": "SUM = 225"
+              },
+              {
+                "name": "",
+                "input": "1\n30",
+                "output": "SUM = 225"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "计算给定两数之间的所有奇数之和",
+        "content": "本题目要求接收输入的2个整数a和b，然后输出a~b之间的所有奇数之和。\n\n### 输入格式:\n\n分别用两行输入两个整数a,b\n\n### 输出格式:\n\n输出a~b之间的所有奇数之和\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n1\n30\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nSUM = 225\n```\n",
+        "type": "PROGRAMMING",
+        "author": "刘夏",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116068004593549312",
+        "problemId": "1464141391807184896",
+        "description": "本题目要求接收输入的2个整数a和b，然后输出a~b之间的所有奇数之和。\n\n### 输入格式:\n\n分别用两行输入两个整数a,b\n\n### 输出格式:\n\n输出a~b之间的所有奇数之和\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n1\n30\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\nSUM = 225\n```\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1375360427076300800",
+        "number": 2,
+        "examLabel": "7-2"
+      }
+    },
+    {
+      "id": "2116068004631298051",
+      "number": 3,
+      "type": "PROGRAMMING",
+      "prompt": "请帮助哪吒制定一周的健身计划吧：\n\n星期一、星期二，慢跑5公里；\n\n星期三、星期四，与同学金霞童子对打羽毛球1小时；\n\n星期五、星期六，在校篮球队训练；\n\n周日休息一天。\n\n如果用户星期录入错误，需要给出提示。\n\n<br>提示：使用switch结构分别比较星期一至星期日，相同的执行效果可以将case标签合并，录入有误的内容可以使用default标签处理。\n\n### 输入格式:\n\n输入字符串，例如：星期一\n\n### 输出格式:\n\n输出对应的计划\n\n### 输入样例1:\n\n在这里给出一组输入。例如：\n\n```in\n星期一\n```\n\n### 输出样例1:\n\n在这里给出相应的输出。例如：\n\n```out\n星期一，慢跑5公里。\n```\n\n### 输入样例2:\n\n在这里给出一组输入。例如：\n\n```in\n星期三\n```\n\n### 输出样例2:\n\n在这里给出相应的输出。例如：\n\n```out\n星期三，与同学金霞童子对打羽毛球1小时。\n```\n\n### 输入样例3:\n\n在这里给出一组输入。例如：\n\n```in\n星期五\n```\n\n### 输出样例3:\n\n在这里给出相应的输出。例如：\n\n```out\n星期五，在校篮球队训练。\n```\n\n### 输入样例4:\n\n在这里给出一组输入。例如：\n\n```in\n星期日\n```\n\n### 输出样例4:\n\n在这里给出相应的输出。例如：\n\n```out\n星期日，休息。\n```\n\n### 输入样例5:\n\n在这里给出一组输入。例如：\n\n```in\nww\n```\n\n### 输出样例5:\n\n在这里给出相应的输出。例如：\n\n```out\n对不起，输入错误！\n```\n\n###",
+      "content": "请帮助哪吒制定一周的健身计划吧：\n\n星期一、星期二，慢跑5公里；\n\n星期三、星期四，与同学金霞童子对打羽毛球1小时；\n\n星期五、星期六，在校篮球队训练；\n\n周日休息一天。\n\n如果用户星期录入错误，需要给出提示。\n\n<br>提示：使用switch结构分别比较星期一至星期日，相同的执行效果可以将case标签合并，录入有误的内容可以使用default标签处理。\n\n### 输入格式:\n\n输入字符串，例如：星期一\n\n### 输出格式:\n\n输出对应的计划\n\n### 输入样例1:\n\n在这里给出一组输入。例如：\n\n```in\n星期一\n```\n\n### 输出样例1:\n\n在这里给出相应的输出。例如：\n\n```out\n星期一，慢跑5公里。\n```\n\n### 输入样例2:\n\n在这里给出一组输入。例如：\n\n```in\n星期三\n```\n\n### 输出样例2:\n\n在这里给出相应的输出。例如：\n\n```out\n星期三，与同学金霞童子对打羽毛球1小时。\n```\n\n### 输入样例3:\n\n在这里给出一组输入。例如：\n\n```in\n星期五\n```\n\n### 输出样例3:\n\n在这里给出相应的输出。例如：\n\n```out\n星期五，在校篮球队训练。\n```\n\n### 输入样例4:\n\n在这里给出一组输入。例如：\n\n```in\n星期日\n```\n\n### 输出样例4:\n\n在这里给出相应的输出。例如：\n\n```out\n星期日，休息。\n```\n\n### 输入样例5:\n\n在这里给出一组输入。例如：\n\n```in\nww\n```\n\n### 输出样例5:\n\n在这里给出相应的输出。例如：\n\n```out\n对不起，输入错误！\n```\n\n###",
+      "hasStatement": true,
+      "title": "制定一周的健身计划",
+      "options": [],
+      "images": [],
+      "score": 15,
+      "apiData": {
+        "id": "2116068004631298051",
+        "label": "",
+        "score": 15,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 1,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "3": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "4": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "5": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "6": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "7": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "8": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "星期一\n",
+                "output": "星期一，慢跑5公里。\n"
+              },
+              {
+                "name": "",
+                "input": "星期三\n",
+                "output": "星期三，与同学金霞童子对打羽毛球1小时。\n"
+              },
+              {
+                "name": "",
+                "input": "星期五\n",
+                "output": "星期五，在校篮球队训练。\n"
+              },
+              {
+                "name": "",
+                "input": "星期日\n",
+                "output": "星期日，休息。\n"
+              },
+              {
+                "name": "",
+                "input": "ww\n",
+                "output": "对不起，输入错误！\n"
+              },
+              {
+                "name": "",
+                "input": "星期一\n",
+                "output": "星期一，慢跑5公里。\n"
+              },
+              {
+                "name": "",
+                "input": "星期三\n",
+                "output": "星期三，与同学金霞童子对打羽毛球1小时。\n"
+              },
+              {
+                "name": "",
+                "input": "星期五\n",
+                "output": "星期五，在校篮球队训练。\n"
+              },
+              {
+                "name": "",
+                "input": "星期日\n",
+                "output": "星期日，休息。\n"
+              },
+              {
+                "name": "",
+                "input": "ww\n",
+                "output": "对不起，输入错误！\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": true,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "制定一周的健身计划",
+        "content": "请帮助哪吒制定一周的健身计划吧：\n\n星期一、星期二，慢跑5公里；\n\n星期三、星期四，与同学金霞童子对打羽毛球1小时；\n\n星期五、星期六，在校篮球队训练；\n\n周日休息一天。\n\n如果用户星期录入错误，需要给出提示。\n\n<br>提示：使用switch结构分别比较星期一至星期日，相同的执行效果可以将case标签合并，录入有误的内容可以使用default标签处理。\n\n### 输入格式:\n\n输入字符串，例如：星期一\n\n### 输出格式:\n\n输出对应的计划\n\n### 输入样例1:\n\n在这里给出一组输入。例如：\n\n```in\n星期一\n```\n\n### 输出样例1:\n\n在这里给出相应的输出。例如：\n\n```out\n星期一，慢跑5公里。\n```\n\n### 输入样例2:\n\n在这里给出一组输入。例如：\n\n```in\n星期三\n```\n\n### 输出样例2:\n\n在这里给出相应的输出。例如：\n\n```out\n星期三，与同学金霞童子对打羽毛球1小时。\n```\n\n### 输入样例3:\n\n在这里给出一组输入。例如：\n\n```in\n星期五\n```\n\n### 输出样例3:\n\n在这里给出相应的输出。例如：\n\n```out\n星期五，在校篮球队训练。\n```\n\n### 输入样例4:\n\n在这里给出一组输入。例如：\n\n```in\n星期日\n```\n\n### 输出样例4:\n\n在这里给出相应的输出。例如：\n\n```out\n星期日，休息。\n```\n\n### 输入样例5:\n\n在这里给出一组输入。例如：\n\n```in\nww\n```\n\n### 输出样例5:\n\n在这里给出相应的输出。例如：\n\n```out\n对不起，输入错误！\n```\n\n### ",
+        "type": "PROGRAMMING",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116068004593549312",
+        "problemId": "1714458426015358976",
+        "description": "请帮助哪吒制定一周的健身计划吧：\n\n星期一、星期二，慢跑5公里；\n\n星期三、星期四，与同学金霞童子对打羽毛球1小时；\n\n星期五、星期六，在校篮球队训练；\n\n周日休息一天。\n\n如果用户星期录入错误，需要给出提示。\n\n<br>提示：使用switch结构分别比较星期一至星期日，相同的执行效果可以将case标签合并，录入有误的内容可以使用default标签处理。\n\n### 输入格式:\n\n输入字符串，例如：星期一\n\n### 输出格式:\n\n输出对应的计划\n\n### 输入样例1:\n\n在这里给出一组输入。例如：\n\n```in\n星期一\n```\n\n### 输出样例1:\n\n在这里给出相应的输出。例如：\n\n```out\n星期一，慢跑5公里。\n```\n\n### 输入样例2:\n\n在这里给出一组输入。例如：\n\n```in\n星期三\n```\n\n### 输出样例2:\n\n在这里给出相应的输出。例如：\n\n```out\n星期三，与同学金霞童子对打羽毛球1小时。\n```\n\n### 输入样例3:\n\n在这里给出一组输入。例如：\n\n```in\n星期五\n```\n\n### 输出样例3:\n\n在这里给出相应的输出。例如：\n\n```out\n星期五，在校篮球队训练。\n```\n\n### 输入样例4:\n\n在这里给出一组输入。例如：\n\n```in\n星期日\n```\n\n### 输出样例4:\n\n在这里给出相应的输出。例如：\n\n```out\n星期日，休息。\n```\n\n### 输入样例5:\n\n在这里给出一组输入。例如：\n\n```in\nww\n```\n\n### 输出样例5:\n\n在这里给出相应的输出。例如：\n\n```out\n对不起，输入错误！\n```\n\n### ",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632",
+        "number": 3,
+        "examLabel": "7-3"
+      }
+    },
+    {
+      "id": "2116068004656463872",
+      "number": 4,
+      "type": "PROGRAMMING",
+      "prompt": "输入一个正整数n，输出具有n层的上三角数字三角形。\n\n### 输入格式:\n\n只有一个正整数n，1<=n<=100。\n\n### 输出格式:\n\n一个上三角数字三角形，每个数字占四个字符位置。\n\n### 输入样例:\n\n```in\n5\n```\n\n### 输出样例:\n\n```out\n   1   2   3   4   5\n   6   7   8   9\n  10  11  12\n  13  14\n  15\n```",
+      "content": "输入一个正整数n，输出具有n层的上三角数字三角形。\n\n### 输入格式:\n\n只有一个正整数n，1<=n<=100。\n\n### 输出格式:\n\n一个上三角数字三角形，每个数字占四个字符位置。\n\n### 输入样例:\n\n```in\n5\n```\n\n### 输出样例:\n\n```out\n   1   2   3   4   5\n   6   7   8   9\n  10  11  12\n  13  14\n  15\n```",
+      "hasStatement": true,
+      "title": "上三角数字三角形",
+      "options": [],
+      "images": [],
+      "score": 15,
+      "apiData": {
+        "id": "2116068004656463872",
+        "label": "",
+        "score": 15,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "3": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "4": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "5\n",
+                "output": "   1   2   3   4   5\n   6   7   8   9\n  10  11  12\n  13  14\n  15\n"
+              },
+              {
+                "name": "",
+                "input": "5\n",
+                "output": "   1   2   3   4   5\n   6   7   8   9\n  10  11  12\n  13  14\n  15\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "上三角数字三角形",
+        "content": "输入一个正整数n，输出具有n层的上三角数字三角形。\n\n### 输入格式:\n\n只有一个正整数n，1<=n<=100。\n\n### 输出格式:\n\n一个上三角数字三角形，每个数字占四个字符位置。\n\n### 输入样例:\n\n```in\n5\n```\n\n### 输出样例:\n\n```out\n   1   2   3   4   5\n   6   7   8   9\n  10  11  12\n  13  14\n  15\n```\n",
+        "type": "PROGRAMMING",
+        "author": "翁恺",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116068004593549312",
+        "problemId": "928552020981620736",
+        "description": "输入一个正整数n，输出具有n层的上三角数字三角形。\n\n### 输入格式:\n\n只有一个正整数n，1<=n<=100。\n\n### 输出格式:\n\n一个上三角数字三角形，每个数字占四个字符位置。\n\n### 输入样例:\n\n```in\n5\n```\n\n### 输出样例:\n\n```out\n   1   2   3   4   5\n   6   7   8   9\n  10  11  12\n  13  14\n  15\n```\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1",
+        "number": 4,
+        "examLabel": "7-4"
+      }
+    },
+    {
+      "id": "2116068004656463873",
+      "number": 5,
+      "type": "PROGRAMMING",
+      "prompt": "输出所有的水仙花数。所谓的水仙花数是指一个三位数，其各位数字的立方和等于该数本身。<br />\n举例：153就是一个水仙花数。<br />\n153 =` 1*1*1 + 5*5*5 + 3*3*3` = 1 + 125 + 27 = 153 <br/>\n请注意：含有main方法的类（class）的名字必须命名为Main，否则调试不成功。\n### 输入格式:\n\n不需要输入。\n\n### 输出格式:\n\n每一行输出一个水仙花数。\n\n### 输入样例:\n\n不需要输入。\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n153\n370\n371\n407\n\n```",
+      "content": "输出所有的水仙花数。所谓的水仙花数是指一个三位数，其各位数字的立方和等于该数本身。<br />\n举例：153就是一个水仙花数。<br />\n153 =` 1*1*1 + 5*5*5 + 3*3*3` = 1 + 125 + 27 = 153 <br/>\n请注意：含有main方法的类（class）的名字必须命名为Main，否则调试不成功。\n### 输入格式:\n\n不需要输入。\n\n### 输出格式:\n\n每一行输出一个水仙花数。\n\n### 输入样例:\n\n不需要输入。\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n153\n370\n371\n407\n\n```",
+      "hasStatement": true,
+      "title": "输出所有的水仙花数",
+      "options": [],
+      "images": [],
+      "score": 15,
+      "apiData": {
+        "id": "2116068004656463873",
+        "label": "",
+        "score": 15,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "test": {
+                "hint": "",
+                "showHint": false,
+                "score": 15,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "",
+                "output": "153\n370\n371\n407\n"
+              },
+              {
+                "name": "",
+                "input": "",
+                "output": "153\n370\n371\n407\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "输出所有的水仙花数",
+        "content": "输出所有的水仙花数。所谓的水仙花数是指一个三位数，其各位数字的立方和等于该数本身。<br />\n举例：153就是一个水仙花数。<br />\n153 =` 1*1*1 + 5*5*5 + 3*3*3` = 1 + 125 + 27 = 153 <br/>\n请注意：含有main方法的类（class）的名字必须命名为Main，否则调试不成功。\n### 输入格式:\n\n不需要输入。\n\n### 输出格式:\n\n每一行输出一个水仙花数。\n\n### 输入样例:\n\n不需要输入。\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n153\n370\n371\n407\n\n```\n",
+        "type": "PROGRAMMING",
+        "author": "吴光生",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116068004593549312",
+        "problemId": "1506240143592468480",
+        "description": "输出所有的水仙花数。所谓的水仙花数是指一个三位数，其各位数字的立方和等于该数本身。<br />\n举例：153就是一个水仙花数。<br />\n153 =` 1*1*1 + 5*5*5 + 3*3*3` = 1 + 125 + 27 = 153 <br/>\n请注意：含有main方法的类（class）的名字必须命名为Main，否则调试不成功。\n### 输入格式:\n\n不需要输入。\n\n### 输出格式:\n\n每一行输出一个水仙花数。\n\n### 输入样例:\n\n不需要输入。\n\n```in\n\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\n153\n370\n371\n407\n\n```\n",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "974911818648657920",
+        "number": 5,
+        "examLabel": "7-5"
+      }
+    },
+    {
+      "id": "2116068004656463874",
+      "number": 6,
+      "type": "PROGRAMMING",
+      "prompt": "打印九九乘法表，乘法表格式如图。\n\n![chengfa.jpg](~/ef6bfc97-9d58-45da-83b0-4297f57cdd8a.jpg)\n\n接收用户从键盘输入的一个1到9(含边界)的整数，假设该整数是n，则打印乘法表的前n行。\n**说明：**\n(1)用户输入的整数不在1到9这个范围内，则固定输出下面信息：\n\nINPUT ERROR.\n\n(2)两个整数之间的乘号，是使用的大写字母X。同一行的多个乘法结果之间，用**制表符\\t**分开，一行末尾没有多余的制表符。\n\n\n### 输入格式:\n\n一个整数n。\n\n### 输出格式:\n\n乘法表的前n行。\n\n### 输入样例1:\n\n如用户输入16。\n```in\n16\n```\n\n### 输出样例1:\n\n提示用户输入的数据有误。\n```out\nINPUT ERROR.\n\n```\n### 输入样例2:\n\n如用户输入3，打印乘法表前3行。\n```in\n3\n```\n\n### 输出样例2:\n\n提示用户输入的数据有误。\n```out\n1X1=1\n2X1=2\t2X2=4\n3X1=3\t3X2=6\t3X3=9\n\n```",
+      "content": "打印九九乘法表，乘法表格式如图。\n\n![chengfa.jpg](~/ef6bfc97-9d58-45da-83b0-4297f57cdd8a.jpg)\n\n接收用户从键盘输入的一个1到9(含边界)的整数，假设该整数是n，则打印乘法表的前n行。\n**说明：**\n(1)用户输入的整数不在1到9这个范围内，则固定输出下面信息：\n\nINPUT ERROR.\n\n(2)两个整数之间的乘号，是使用的大写字母X。同一行的多个乘法结果之间，用**制表符\\t**分开，一行末尾没有多余的制表符。\n\n\n### 输入格式:\n\n一个整数n。\n\n### 输出格式:\n\n乘法表的前n行。\n\n### 输入样例1:\n\n如用户输入16。\n```in\n16\n```\n\n### 输出样例1:\n\n提示用户输入的数据有误。\n```out\nINPUT ERROR.\n\n```\n### 输入样例2:\n\n如用户输入3，打印乘法表前3行。\n```in\n3\n```\n\n### 输出样例2:\n\n提示用户输入的数据有误。\n```out\n1X1=1\n2X1=2\t2X2=4\n3X1=3\t3X2=6\t3X3=9\n\n```",
+      "hasStatement": true,
+      "title": "九九乘法表(双重循环)",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/ef6bfc97-9d58-45da-83b0-4297f57cdd8a.jpg",
+          "markdownPath": "~/ef6bfc97-9d58-45da-83b0-4297f57cdd8a.jpg",
+          "location": "content",
+          "index": 18
+        },
+        {
+          "url": "https://images.ptausercontent.com/ef6bfc97-9d58-45da-83b0-4297f57cdd8a.jpg",
+          "markdownPath": "~/ef6bfc97-9d58-45da-83b0-4297f57cdd8a.jpg",
+          "location": "description",
+          "index": 18
+        }
+      ],
+      "score": 20,
+      "apiData": {
+        "id": "2116068004656463874",
+        "label": "",
+        "score": 20,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              },
+              "3": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              },
+              "4": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "16",
+                "output": "INPUT ERROR.\n"
+              },
+              {
+                "name": "",
+                "input": "3",
+                "output": "1X1=1\n2X1=2\t2X2=4\n3X1=3\t3X2=6\t3X3=9\n"
+              },
+              {
+                "name": "",
+                "input": "16",
+                "output": "INPUT ERROR.\n"
+              },
+              {
+                "name": "",
+                "input": "3",
+                "output": "1X1=1\n2X1=2\t2X2=4\n3X1=3\t3X2=6\t3X3=9\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "九九乘法表(双重循环)",
+        "content": "打印九九乘法表，乘法表格式如图。\n\n![chengfa.jpg](~/ef6bfc97-9d58-45da-83b0-4297f57cdd8a.jpg)\n\n接收用户从键盘输入的一个1到9(含边界)的整数，假设该整数是n，则打印乘法表的前n行。\n**说明：**\n(1)用户输入的整数不在1到9这个范围内，则固定输出下面信息：\n\nINPUT ERROR.\n\n(2)两个整数之间的乘号，是使用的大写字母X。同一行的多个乘法结果之间，用**制表符\\t**分开，一行末尾没有多余的制表符。\n\n\n### 输入格式:\n\n一个整数n。\n\n### 输出格式:\n\n乘法表的前n行。\n\n### 输入样例1:\n\n如用户输入16。\n```in\n16\n```\n\n### 输出样例1:\n\n提示用户输入的数据有误。\n```out\nINPUT ERROR.\n\n```\n### 输入样例2:\n\n如用户输入3，打印乘法表前3行。\n```in\n3\n```\n\n### 输出样例2:\n\n提示用户输入的数据有误。\n```out\n1X1=1\n2X1=2\t2X2=4\n3X1=3\t3X2=6\t3X3=9\n\n```",
+        "type": "PROGRAMMING",
+        "author": "周永",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116068004593549312",
+        "problemId": "1522496736994660352",
+        "description": "打印九九乘法表，乘法表格式如图。\n\n![chengfa.jpg](~/ef6bfc97-9d58-45da-83b0-4297f57cdd8a.jpg)\n\n接收用户从键盘输入的一个1到9(含边界)的整数，假设该整数是n，则打印乘法表的前n行。\n**说明：**\n(1)用户输入的整数不在1到9这个范围内，则固定输出下面信息：\n\nINPUT ERROR.\n\n(2)两个整数之间的乘号，是使用的大写字母X。同一行的多个乘法结果之间，用**制表符\\t**分开，一行末尾没有多余的制表符。\n\n\n### 输入格式:\n\n一个整数n。\n\n### 输出格式:\n\n乘法表的前n行。\n\n### 输入样例1:\n\n如用户输入16。\n```in\n16\n```\n\n### 输出样例1:\n\n提示用户输入的数据有误。\n```out\nINPUT ERROR.\n\n```\n### 输入样例2:\n\n如用户输入3，打印乘法表前3行。\n```in\n3\n```\n\n### 输出样例2:\n\n提示用户输入的数据有误。\n```out\n1X1=1\n2X1=2\t2X2=4\n3X1=3\t3X2=6\t3X3=9\n\n```",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "35",
+        "number": 6,
+        "examLabel": "7-6"
+      }
+    },
+    {
+      "id": "2116068004656463875",
+      "number": 7,
+      "type": "PROGRAMMING",
+      "prompt": "输入一个正整数 n（n<=100000)，求 1到n的奇数和和偶数和。\n\n### 输入格式:\n\n在一行中输入不超过100000的一个正整数n\n\n### 输出格式:\n\n1~n的所有奇数和\n1~n的所有偶数和\n\n### 输入样例:\n\n\n```in\n10\n```\n\n### 输出样例:\n\n\n```out\n25\n30\n```",
+      "content": "输入一个正整数 n（n<=100000)，求 1到n的奇数和和偶数和。\n\n### 输入格式:\n\n在一行中输入不超过100000的一个正整数n\n\n### 输出格式:\n\n1~n的所有奇数和\n1~n的所有偶数和\n\n### 输入样例:\n\n\n```in\n10\n```\n\n### 输出样例:\n\n\n```out\n25\n30\n```",
+      "hasStatement": true,
+      "title": "偶数和奇数和",
+      "options": [],
+      "images": [],
+      "score": 10,
+      "apiData": {
+        "id": "2116068004656463875",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "test0": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "test1": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              },
+              "test3": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "test4": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "10\n",
+                "output": "25\n30"
+              },
+              {
+                "name": "",
+                "input": "10\n",
+                "output": "25\n30"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "偶数和奇数和",
+        "content": "输入一个正整数 n（n<=100000)，求 1到n的奇数和和偶数和。\n\n### 输入格式:\n\n在一行中输入不超过100000的一个正整数n\n\n### 输出格式:\n\n1~n的所有奇数和\n1~n的所有偶数和\n\n### 输入样例:\n\n\n```in\n10\n```\n\n### 输出样例:\n\n\n```out\n25\n30\n```\n",
+        "type": "PROGRAMMING",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116068004593549312",
+        "problemId": "1601595022494134272",
+        "description": "输入一个正整数 n（n<=100000)，求 1到n的奇数和和偶数和。\n\n### 输入格式:\n\n在一行中输入不超过100000的一个正整数n\n\n### 输出格式:\n\n1~n的所有奇数和\n1~n的所有偶数和\n\n### 输入样例:\n\n\n```in\n10\n```\n\n### 输出样例:\n\n\n```out\n25\n30\n```\n",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205",
+        "number": 7,
+        "examLabel": "7-7"
+      }
+    }
+  ]
+}

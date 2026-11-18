@@ -1,0 +1,111 @@
+{
+  "problemSetId": "2103825342731706368",
+  "answers": [
+    {
+      "problemId": "2103830048933732352",
+      "questionNumber": 1,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2103830590208663552",
+      "questionNumber": 2,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2103830590208663553",
+      "questionNumber": 3,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2103830590208663554",
+      "questionNumber": 4,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2103830590208663555",
+      "questionNumber": 5,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2104175581275688960",
+      "questionNumber": 6,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2103827582011891712",
+      "questionNumber": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "varchar(20)",
+        "tinyint(1) unsigned"
+      ],
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2103833447381131264",
+      "questionNumber": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "enrollment"
+      ],
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2103833447381131265",
+      "questionNumber": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "MODIFY",
+        "char(20)"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2103833447381131266",
+      "questionNumber": 4,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "change",
+        "speciality spec"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2104176641130160128",
+      "questionNumber": 5,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "浮点数"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2104176641130160129",
+      "questionNumber": 6,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "char"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2103828961338122240",
+      "questionNumber": 1,
+      "type": "SUBJECTIVE",
+      "answer": "![image.png]({PTA_URL}/api/private-image?p=user-uploads/2097505778148417536/2026-9-28/1790567593-9b5dc79f-f49e-4d70-8be4-38dc8c5568ed.png \"image.png\")",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

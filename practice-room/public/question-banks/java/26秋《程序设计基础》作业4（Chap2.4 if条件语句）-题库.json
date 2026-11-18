@@ -1,0 +1,1030 @@
+{
+  "title": "26秋《程序设计基础》作业4（Chap2.4 if条件语句）",
+  "problemSetName": "26秋《程序设计基础》作业4（Chap2.4 if条件语句）",
+  "problemSetId": "2111003189616279552",
+  "examId": "2111068217178562560",
+  "source": "https://pintia.cn/problem-sets/2111003189616279552",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:48:08.581Z",
+  "summaries": {
+    "MULTIPLE_CHOICE": {
+      "total": 20,
+      "totalScore": 100
+    }
+  },
+  "questions": [
+    {
+      "id": "2111004380672843778",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，下列程序的运行结果是（ ）。@[](1) ![333.png](~/24f2011e-5fc6-4e01-9c15-04d7fc25fb64.png) A. a=20, b=10, c=20 B. a=30, b=10, c=20 C. a=30, b=10, c=30 D. a=20, b=10, c=30",
+      "content": "在Java中，下列程序的运行结果是（  ）。@[](1)\n\n![333.png](~/24f2011e-5fc6-4e01-9c15-04d7fc25fb64.png)\nA. a=20, b=10, c=20\nB. a=30, b=10, c=20\nC. a=30, b=10, c=30\nD. a=20, b=10, c=30",
+      "title": "在Java中，下列程序的运行结果是（  ）。",
+      "options": [
+        "a=20, b=10, c=20",
+        "a=30, b=10, c=20",
+        "a=30, b=10, c=30",
+        "a=20, b=10, c=30"
+      ],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/24f2011e-5fc6-4e01-9c15-04d7fc25fb64.png",
+          "markdownPath": "~/24f2011e-5fc6-4e01-9c15-04d7fc25fb64.png",
+          "location": "content",
+          "index": 30
+        },
+        {
+          "url": "https://images.ptausercontent.com/24f2011e-5fc6-4e01-9c15-04d7fc25fb64.png",
+          "markdownPath": "~/24f2011e-5fc6-4e01-9c15-04d7fc25fb64.png",
+          "location": "description",
+          "index": 24
+        }
+      ],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380672843778",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "a=20, b=10, c=20",
+              "a=30, b=10, c=20",
+              "a=30, b=10, c=30",
+              "a=20, b=10, c=30"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，下列程序的运行结果是（  ）。",
+        "content": "在Java中，下列程序的运行结果是（  ）。@[](1)\n\n![333.png](~/24f2011e-5fc6-4e01-9c15-04d7fc25fb64.png)\nA. a=20, b=10, c=20\nB. a=30, b=10, c=20\nC. a=30, b=10, c=30\nD. a=20, b=10, c=30\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘永福",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1211660537782804480",
+        "description": "在Java中，下列程序的运行结果是（  ）。\n\n![333.png](~/24f2011e-5fc6-4e01-9c15-04d7fc25fb64.png)",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2111004380677038080",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "假设有如下程序： ``` public class Demo { public static void main(String args[]) { boolean flag = 10%2 == 1 && 10 / 3 == 0 && 1 / 0 == 0 ; System.out.println(flag ? \"mldn\" : \"yootk\") ; } } ``` 最终执行结果是什么？@[](2) A. mldn B. yootk C. true D. 程序出错",
+      "content": "假设有如下程序：\n```\npublic class Demo {\n        public static void main(String args[]) {\n                 boolean flag = 10%2 == 1 && 10 / 3 == 0 && 1 / 0 == 0 ;\n                 System.out.println(flag ? \"mldn\" : \"yootk\") ;\n        }\n}\n```\n最终执行结果是什么？@[](2)\n\nA. mldn\nB. yootk\nC. true\nD. 程序出错",
+      "title": "假设有如下程序：",
+      "options": [
+        "mldn",
+        "yootk",
+        "true",
+        "程序出错"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380677038080",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "mldn",
+              "yootk",
+              "true",
+              "程序出错"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "假设有如下程序：",
+        "content": "假设有如下程序：\n```\npublic class Demo {\n        public static void main(String args[]) {\n                 boolean flag = 10%2 == 1 && 10 / 3 == 0 && 1 / 0 == 0 ;\n                 System.out.println(flag ? \"mldn\" : \"yootk\") ;\n        }\n}\n```\n最终执行结果是什么？@[](2)\n\nA. mldn\nB. yootk\nC. true\nD. 程序出错\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1227508090353635328",
+        "description": "假设有如下程序：\n```\npublic class Demo {\n        public static void main(String args[]) {\n                 boolean flag = 10%2 == 1 && 10 / 3 == 0 && 1 / 0 == 0 ;\n                 System.out.println(flag ? \"mldn\" : \"yootk\") ;\n        }\n}\n```\n最终执行结果是什么？",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2111004380677038081",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "编译运行以下程序后，关于输出结果的说明，正确的是（ ）。 @[](2) ``` public class Main { public static void main(String[] args) { int x = 4; System.out.println(\"value is \"+((x>4)?99.9:9)); } } ``` A. 输出结果为： value is 99.99 B. 输出结果为： value is 9 C. 输出结果为： value is 9.0 D. 编译错误",
+      "content": "编译运行以下程序后，关于输出结果的说明，正确的是（   ）。 @[](2)\n```\npublic class Main {\n    public static void main(String[] args) {\n    \tint x = 4;\n    \tSystem.out.println(\"value is \"+((x>4)?99.9:9));\n    }\n}\n```\n\nA. 输出结果为： value is 99.99\nB. 输出结果为： value is 9\nC. 输出结果为： value is 9.0\nD. 编译错误",
+      "title": "编译运行以下程序后，关于输出结果的说明，正确的是（   ）。 ",
+      "options": [
+        "输出结果为： value is 99.99",
+        "输出结果为： value is 9",
+        "输出结果为： value is 9.0",
+        "编译错误"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380677038081",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "输出结果为： value is 99.99",
+              "输出结果为： value is 9",
+              "输出结果为： value is 9.0",
+              "编译错误"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "编译运行以下程序后，关于输出结果的说明，正确的是（   ）。 ",
+        "content": "编译运行以下程序后，关于输出结果的说明，正确的是（   ）。 @[](2)\n```\npublic class Main {\n    public static void main(String[] args) {\n    \tint x = 4;\n    \tSystem.out.println(\"value is \"+((x>4)?99.9:9));\n    }\n}\n```\n\nA. 输出结果为： value is 99.99\nB. 输出结果为： value is 9\nC. 输出结果为： value is 9.0\nD. 编译错误\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1230391564068605952",
+        "description": "编译运行以下程序后，关于输出结果的说明，正确的是（   ）。\n```\npublic class Main {\n    public static void main(String[] args) {\n    \tint x = 4;\n    \tSystem.out.println(\"value is \"+((x>4)?99.9:9));\n    }\n}\n```",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2111004380677038082",
+      "number": 4,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面代码运行结果显示（ ）。 @[](2) ``` double temperature = 50; if (temperature >= 100) System.out.println(\"too hot\"); else if (temperature <= 40) System.out.println(\"too cold\"); else System.out.println(\"just right\"); ``` A. too hot B. too cold C. just right D. too hot too cold just right",
+      "content": "下面代码运行结果显示（   ）。   @[](2)\n```\ndouble temperature = 50;\nif (temperature >= 100)\n   System.out.println(\"too hot\");\nelse if (temperature <= 40)\n   System.out.println(\"too cold\");\nelse\n   System.out.println(\"just right\");\n```\nA. too hot\nB. too cold\nC. just right\nD. too hot too cold just right",
+      "title": "下面代码运行结果显示（   ）。   ",
+      "options": [
+        "too hot",
+        "too cold",
+        "just right",
+        "too hot too cold just right"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380677038082",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "too hot",
+              "too cold",
+              "just right",
+              "too hot too cold just right"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面代码运行结果显示（   ）。   ",
+        "content": "下面代码运行结果显示（   ）。   @[](2)\n```\ndouble temperature = 50;\nif (temperature >= 100)\n   System.out.println(\"too hot\");\nelse if (temperature <= 40)\n   System.out.println(\"too cold\");\nelse\n   System.out.println(\"just right\");\n```\nA. too hot\nB. too cold\nC. just right\nD. too hot too cold just right\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1238667116690153472",
+        "description": "下面代码运行结果显示（   ）。\n```\ndouble temperature = 50;\nif (temperature >= 100)\n   System.out.println(\"too hot\");\nelse if (temperature <= 40)\n   System.out.println(\"too cold\");\nelse\n   System.out.println(\"just right\");\n```",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2111004380677038083",
+      "number": 5,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析以下代码段，给布尔变量even赋值，下面选项正确的是（ ）。 @[](2) ``` 代码段1: if (number % 2 == 0) even = true; else even = false; ``` ``` 代码段 2: even = (number % 2 == 0) ? true: false; ``` ``` 代码段 3: even = number % 2 == 0; ``` A. 代码段1有语法错误 B. 代码段2有语法错误 C. 代码段3有语法错误 D. 所有代码段都正确",
+      "content": "分析以下代码段，给布尔变量even赋值，下面选项正确的是（    ）。   @[](2)\n```\n代码段1:\nif (number % 2 == 0)\n      even = true;\nelse\n      even = false;\n```\n```\n代码段 2:\neven = (number % 2 == 0) ? true: false;\n```\n```\n代码段 3:\neven = number % 2 == 0;\n```\nA. 代码段1有语法错误\nB. 代码段2有语法错误\nC. 代码段3有语法错误\nD. 所有代码段都正确",
+      "title": "分析以下代码段，给布尔变量even赋值，下面选项正确的是（    ）。   ",
+      "options": [
+        "代码段1有语法错误",
+        "代码段2有语法错误",
+        "代码段3有语法错误",
+        "所有代码段都正确"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380677038083",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "代码段1有语法错误",
+              "代码段2有语法错误",
+              "代码段3有语法错误",
+              "所有代码段都正确"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析以下代码段，给布尔变量even赋值，下面选项正确的是（    ）。   ",
+        "content": "分析以下代码段，给布尔变量even赋值，下面选项正确的是（    ）。   @[](2)\n```\n代码段1:\nif (number % 2 == 0)\n      even = true;\nelse\n      even = false;\n```\n```\n代码段 2:\neven = (number % 2 == 0) ? true: false;\n```\n```\n代码段 3:\neven = number % 2 == 0;\n```\nA. 代码段1有语法错误\nB. 代码段2有语法错误\nC. 代码段3有语法错误\nD. 所有代码段都正确\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1238669908943183872",
+        "description": "分析以下代码段，给布尔变量even赋值，下面选项正确的是（    ）。\n```\n代码段1:\nif (number % 2 == 0)\n      even = true;\nelse\n      even = false;\n```\n```\n代码段 2:\neven = (number % 2 == 0) ? true: false;\n```\n```\n代码段 3:\neven = number % 2 == 0;\n```",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2111004380677038084",
+      "number": 6,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "有如下程序代码，执行的结果是： ``` public class Main { public static void main(String[] args) { int x=10,y=20,z=30; if(x<y) z=x; else x=y; y=z; System.out.println(\"x=\"+x+\",y=\"+y+\",z=\"+z); } } ```",
+      "content": "有如下程序代码，执行的结果是：\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint x=10,y=20,z=30;\n\t\tif(x<y)\n\t\t\tz=x;\n\t\telse\n\t\t\tx=y;\n\t\ty=z;\n\t\tSystem.out.println(\"x=\"+x+\",y=\"+y+\",z=\"+z);\n\t}\n}\n```",
+      "title": "有如下程序代码，执行的结果是：",
+      "options": [
+        "x=10,y=10,z=10",
+        "x=20,y=30,z=10",
+        "x=20,y=20,z=20",
+        "x=20,y=30,z=20"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380677038084",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "x=10,y=10,z=10",
+              "x=20,y=30,z=10",
+              "x=20,y=20,z=20",
+              "x=20,y=30,z=20"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "有如下程序代码，执行的结果是：",
+        "content": "有如下程序代码，执行的结果是：\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint x=10,y=20,z=30;\n\t\tif(x<y)\n\t\t\tz=x;\n\t\telse\n\t\t\tx=y;\n\t\ty=z;\n\t\tSystem.out.println(\"x=\"+x+\",y=\"+y+\",z=\"+z);\n\t}\n}\n```",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1407683848603795456",
+        "description": "有如下程序代码，执行的结果是：\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint x=10,y=20,z=30;\n\t\tif(x<y)\n\t\t\tz=x;\n\t\telse\n\t\t\tx=y;\n\t\ty=z;\n\t\tSystem.out.println(\"x=\"+x+\",y=\"+y+\",z=\"+z);\n\t}\n}\n```",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2111004380677038085",
+      "number": 7,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在控制台显示消息的语句正确的是（ ）",
+      "content": "在控制台显示消息的语句正确的是（ ）",
+      "title": "在控制台显示消息的语句正确的是（ ）",
+      "options": [
+        "System.out.println(我是一个Java程序员了！);",
+        "System.Out.println(\"我是一个Java程序员了！\");",
+        "System.out.println(\"我是一个Java程序员了！\");",
+        "System.Out.Println(\"我是一个Java程序员了！\")"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380677038085",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "System.out.println(我是一个Java程序员了！);",
+              "System.Out.println(\"我是一个Java程序员了！\");",
+              "System.out.println(\"我是一个Java程序员了！\");",
+              "System.Out.Println(\"我是一个Java程序员了！\")"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在控制台显示消息的语句正确的是（ ）",
+        "content": "在控制台显示消息的语句正确的是（ ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1459861047742365696",
+        "description": "在控制台显示消息的语句正确的是（ ）",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2111004380677038086",
+      "number": 8,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中，以下程序运行输出的结果是 public static void main(String[] args){ int a=1,b=1,c=1; if(a!=b) if(b!=c) System.out.println(\"a==b==c\"); else System.out.println(\"a==b\"); System.out.println(\"a!=b\"); }",
+      "content": "Java中，以下程序运行输出的结果是\n\npublic static void main(String[] args){\n\nint a=1,b=1,c=1;\n\nif(a!=b)\n\nif(b!=c)\n\nSystem.out.println(\"a==b==c\");\n\nelse\n\nSystem.out.println(\"a==b\");\n\nSystem.out.println(\"a!=b\");\n\n}",
+      "title": "Java中，以下程序运行输出的结果是（if语句的嵌套）",
+      "options": [
+        "a!=b",
+        "a==b",
+        "a==b==c",
+        "程序编译错误"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380677038086",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "a!=b",
+              "a==b",
+              "a==b==c",
+              "程序编译错误"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，以下程序运行输出的结果是（if语句的嵌套）",
+        "content": "Java中，以下程序运行输出的结果是\n\npublic static void main(String[] args){\n\nint a=1,b=1,c=1;\n\nif(a!=b)\n\nif(b!=c)\n\nSystem.out.println(\"a==b==c\");\n\nelse\n\nSystem.out.println(\"a==b\");\n\nSystem.out.println(\"a!=b\");\n\n}\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1462684026997424128",
+        "description": "Java中，以下程序运行输出的结果是\n\npublic static void main(String[] args){\n\nint a=1,b=1,c=1;\n\nif(a!=b)\n\nif(b!=c)\n\nSystem.out.println(\"a==b==c\");\n\nelse\n\nSystem.out.println(\"a==b\");\n\nSystem.out.println(\"a!=b\");\n\n}\n",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2111004380681232384",
+      "number": 9,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中，以下Java程序运行输出的结果是 ``` public class Main { public static void main(String[] args) { int x = 1, y = 9; if(x > y) x = y; y =x; else x++; y++; System.out.println(x + \", \" + y); } } ```",
+      "content": "Java中，以下Java程序运行输出的结果是\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint x = 1, y = 9;\n\t\tif(x > y) \n\t\t\tx = y;\n\t\t\ty =x;\n\t\telse\n\t\t\tx++;\n\t\t\ty++;\n\t\tSystem.out.println(x + \", \" + y);\n\t}\n}\n```",
+      "title": "Java中，以下Java程序运行输出的结果是（if统领语句）",
+      "options": [
+        "2,10",
+        "1,1",
+        "2,2",
+        "程序语法错误"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380681232384",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "2,10",
+              "1,1",
+              "2,2",
+              "程序语法错误"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，以下Java程序运行输出的结果是（if统领语句）",
+        "content": "Java中，以下Java程序运行输出的结果是\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint x = 1, y = 9;\n\t\tif(x > y) \n\t\t\tx = y;\n\t\t\ty =x;\n\t\telse\n\t\t\tx++;\n\t\t\ty++;\n\t\tSystem.out.println(x + \", \" + y);\n\t}\n}\n```\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1462684438136422400",
+        "description": "Java中，以下Java程序运行输出的结果是\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint x = 1, y = 9;\n\t\tif(x > y) \n\t\t\tx = y;\n\t\t\ty =x;\n\t\telse\n\t\t\tx++;\n\t\t\ty++;\n\t\tSystem.out.println(x + \", \" + y);\n\t}\n}\n```\n\n",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2111004380681232385",
+      "number": 10,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中，以下程序运行输出的结果是 ``` public class Main { public static void main(String[] args) { int age = 18; if (age < 18);{ System.out.println(\"未成年人\"); } if (age > 18){ System.out.println(\"成年人\"); } if (age >=60){ System.out.println(\"老年人\"); } } } ```",
+      "content": "Java中，以下程序运行输出的结果是\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint age = 18;\n\t\tif (age < 18);{\n\t\t\tSystem.out.println(\"未成年人\");\n\t\t}\n\t\tif (age > 18){\n\t\t\tSystem.out.println(\"成年人\");\n\t\t}\n\t\tif (age >=60){\n\t\t\tSystem.out.println(\"老年人\");\n\t\t}\n\t}\n}\n\n```",
+      "title": "Java中，以下程序运行输出的结果是（if ____ ;）",
+      "options": [
+        "未成年人",
+        "成年人",
+        "老年人",
+        "没有输出"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380681232385",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "未成年人",
+              "成年人",
+              "老年人",
+              "没有输出"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，以下程序运行输出的结果是（if ____ ;）",
+        "content": "Java中，以下程序运行输出的结果是\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint age = 18;\n\t\tif (age < 18);{\n\t\t\tSystem.out.println(\"未成年人\");\n\t\t}\n\t\tif (age > 18){\n\t\t\tSystem.out.println(\"成年人\");\n\t\t}\n\t\tif (age >=60){\n\t\t\tSystem.out.println(\"老年人\");\n\t\t}\n\t}\n}\n\n```\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1462684960440414208",
+        "description": "Java中，以下程序运行输出的结果是\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint age = 18;\n\t\tif (age < 18);{\n\t\t\tSystem.out.println(\"未成年人\");\n\t\t}\n\t\tif (age > 18){\n\t\t\tSystem.out.println(\"成年人\");\n\t\t}\n\t\tif (age >=60){\n\t\t\tSystem.out.println(\"老年人\");\n\t\t}\n\t}\n}\n\n```\n\n",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2111004380681232386",
+      "number": 11,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析如下所示的Java代码，编译运行后的输出结果是（ ）。 public static void main ( String args[ ]) { boolean b = true ; System.out.print ( b ) ; if ( b ) { System.out.print(“真”); } else { System.out.print(“假”); } }",
+      "content": "分析如下所示的Java代码，编译运行后的输出结果是（    ）。\npublic static void main ( String args[ ]) {\n    boolean b = true ;\n    System.out.print ( b ) ;\n    if ( b ) {\n        System.out.print(“真”);\n    } else {\n        System.out.print(“假”);\n    }\n}",
+      "title": "分析如下所示的Java代码，编译运行后的输出结果是 ____ 。",
+      "options": [
+        "true",
+        "true真",
+        "true假",
+        "1"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380681232386",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "true",
+              "true真",
+              "true假",
+              "1"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析如下所示的Java代码，编译运行后的输出结果是 ____ 。",
+        "content": "分析如下所示的Java代码，编译运行后的输出结果是（    ）。\npublic static void main ( String args[ ]) {\n    boolean b = true ;\n    System.out.print ( b ) ;\n    if ( b ) {\n        System.out.print(“真”);\n    } else {\n        System.out.print(“假”);\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453411282944",
+        "description": "分析如下所示的Java代码，编译运行后的输出结果是（    ）。\npublic static void main ( String args[ ]) {\n    boolean b = true ;\n    System.out.print ( b ) ;\n    if ( b ) {\n        System.out.print(“真”);\n    } else {\n        System.out.print(“假”);\n    }\n}",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2111004380681232387",
+      "number": 12,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java类的main方法如下所示，当程序启动运行后，用户在控制台输入“你好”，则程序将（ ）。 public static void main ( String args[ ] ) { Scanner input = new Scanner(System.in); int score = input.nextInt( ); System.out.println( score ); }",
+      "content": "Java类的main方法如下所示，当程序启动运行后，用户在控制台输入“你好”，则程序将（    ）。\npublic static void main ( String args[ ] ) {\n    Scanner input = new Scanner(System.in);\n    int score = input.nextInt( );\n    System.out.println( score );\n}",
+      "title": "Java类的main方法如下所示，当程序启动运行后，用户在控制台输入“你好”，则程序将 ____ 。",
+      "options": [
+        "输出“你好”",
+        "输出“你”",
+        "程序正常运行，但不输出任何内容",
+        "程序出现错误，被中断，提示输入内容不匹配，无法获得整型数值"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380681232387",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "输出“你好”",
+              "输出“你”",
+              "程序正常运行，但不输出任何内容",
+              "程序出现错误，被中断，提示输入内容不匹配，无法获得整型数值"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java类的main方法如下所示，当程序启动运行后，用户在控制台输入“你好”，则程序将 ____ 。",
+        "content": "Java类的main方法如下所示，当程序启动运行后，用户在控制台输入“你好”，则程序将（    ）。\npublic static void main ( String args[ ] ) {\n    Scanner input = new Scanner(System.in);\n    int score = input.nextInt( );\n    System.out.println( score );\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453415477248",
+        "description": "Java类的main方法如下所示，当程序启动运行后，用户在控制台输入“你好”，则程序将（    ）。\npublic static void main ( String args[ ] ) {\n    Scanner input = new Scanner(System.in);\n    int score = input.nextInt( );\n    System.out.println( score );\n}",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2111004380681232388",
+      "number": 13,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，想要存储真或假、是或否的数据最好使用（ ）数据类型。",
+      "content": "在Java中，想要存储真或假、是或否的数据最好使用（    ）数据类型。",
+      "title": "在Java中，想要存储真或假、是或否的数据最好使用 ____ 数据类型。",
+      "options": [
+        "int",
+        "char",
+        "String",
+        "boolean"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380681232388",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int",
+              "char",
+              "String",
+              "boolean"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，想要存储真或假、是或否的数据最好使用 ____ 数据类型。",
+        "content": "在Java中，想要存储真或假、是或否的数据最好使用（    ）数据类型。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453419671552",
+        "description": "在Java中，想要存储真或假、是或否的数据最好使用（    ）数据类型。",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2111004380685426688",
+      "number": 14,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，下列代码的运行结果是（ ）。 public static void main (String [] args){ int a =1,b=2,c=3; if(a<0){ c=10; }else{ c=20; } System.out.println( c ); }",
+      "content": "在Java中，下列代码的运行结果是（    ）。\npublic static void main (String [] args){\n    int a =1,b=2,c=3;\n    if(a<0){\n        c=10;\n}else{\n        c=20;\n}\nSystem.out.println( c );\n}",
+      "title": "在Java中，下列代码的运行结果是 ____ 。",
+      "options": [
+        "输出：10",
+        "输出：20",
+        "输出：3",
+        "编译报错"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380685426688",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "输出：10",
+              "输出：20",
+              "输出：3",
+              "编译报错"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，下列代码的运行结果是 ____ 。",
+        "content": "在Java中，下列代码的运行结果是（    ）。\npublic static void main (String [] args){\n    int a =1,b=2,c=3;\n    if(a<0){\n        c=10;\n}else{\n        c=20;\n}\nSystem.out.println( c );\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453419671553",
+        "description": "在Java中，下列代码的运行结果是（    ）。\npublic static void main (String [] args){\n    int a =1,b=2,c=3;\n    if(a<0){\n        c=10;\n}else{\n        c=20;\n}\nSystem.out.println( c );\n}",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2111004380685426689",
+      "number": 15,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析如下的java代码，编译运行后的输出结果是（ ）。 public static void main(String [] args){ boolean a=true, b=false; if(!(a&&b)){ System.out.println(\"!(a&&b)\"); }else if(!(a||b)){ System.out.println(\"!(a||b)\"); }else{ System.out.println(\"ab\"); } }",
+      "content": "分析如下的java代码，编译运行后的输出结果是（    ）。\npublic static void main(String [] args){\n\tboolean a=true, b=false;\nif(!(a&&b)){\n\t\tSystem.out.println(\"!(a&&b)\");\n}else if(!(a||b)){\n\t\tSystem.out.println(\"!(a||b)\");\n}else{\n\t\tSystem.out.println(\"ab\");\n}\n}",
+      "title": "分析如下的java代码，编译运行后的输出结果是 ____ 。",
+      "options": [
+        "!(a&&b)",
+        "!(a||b)",
+        "ab",
+        "!(a||b)ab"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380685426689",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "!(a&&b)",
+              "!(a||b)",
+              "ab",
+              "!(a||b)ab"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析如下的java代码，编译运行后的输出结果是 ____ 。",
+        "content": "分析如下的java代码，编译运行后的输出结果是（    ）。\npublic static void main(String [] args){\n\tboolean a=true, b=false;\nif(!(a&&b)){\n\t\tSystem.out.println(\"!(a&&b)\");\n}else if(!(a||b)){\n\t\tSystem.out.println(\"!(a||b)\");\n}else{\n\t\tSystem.out.println(\"ab\");\n}\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453419671554",
+        "description": "分析如下的java代码，编译运行后的输出结果是（    ）。\npublic static void main(String [] args){\n\tboolean a=true, b=false;\nif(!(a&&b)){\n\t\tSystem.out.println(\"!(a&&b)\");\n}else if(!(a||b)){\n\t\tSystem.out.println(\"!(a||b)\");\n}else{\n\t\tSystem.out.println(\"ab\");\n}\n}",
+        "problemPoolIndex": 15,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2111004380685426690",
+      "number": 16,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "给定Java程序的main( )方法如下所示，该程序编译运行后，输出结果是（ ）。 public static void main(String [] args){ boolean boo=true; if(boo= =false){ System.out.println(\"a\"); }else if(boo){ System.out.println(\"b\"); }else if(!boo){ System.out.println(\"c\"); }else{ System.out.println(\"d\"); } }",
+      "content": "给定Java程序的main( )方法如下所示，该程序编译运行后，输出结果是（    ）。\npublic static void main(String [] args){\nboolean boo=true;\n\tif(boo= =false){\n\t\tSystem.out.println(\"a\");\t\n}else if(boo){\n\t\tSystem.out.println(\"b\");\n\t}else if(!boo){\n\t\tSystem.out.println(\"c\");\n\t}else{\n\t\tSystem.out.println(\"d\");\n}\n}",
+      "title": "给定Java程序的main ____ 方法如下所示，该程序编译运行后，输出结果是 ____ 。",
+      "options": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380685426690",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "a",
+              "b",
+              "c",
+              "d"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "给定Java程序的main ____ 方法如下所示，该程序编译运行后，输出结果是 ____ 。",
+        "content": "给定Java程序的main( )方法如下所示，该程序编译运行后，输出结果是（    ）。\npublic static void main(String [] args){\nboolean boo=true;\n\tif(boo= =false){\n\t\tSystem.out.println(\"a\");\t\n}else if(boo){\n\t\tSystem.out.println(\"b\");\n\t}else if(!boo){\n\t\tSystem.out.println(\"c\");\n\t}else{\n\t\tSystem.out.println(\"d\");\n}\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453419671555",
+        "description": "给定Java程序的main( )方法如下所示，该程序编译运行后，输出结果是（    ）。\npublic static void main(String [] args){\nboolean boo=true;\n\tif(boo= =false){\n\t\tSystem.out.println(\"a\");\t\n}else if(boo){\n\t\tSystem.out.println(\"b\");\n\t}else if(!boo){\n\t\tSystem.out.println(\"c\");\n\t}else{\n\t\tSystem.out.println(\"d\");\n}\n}",
+        "problemPoolIndex": 16,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2111004380685426691",
+      "number": 17,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下（ ）Java代码片段可以正确编译。",
+      "content": "以下（    ）Java代码片段可以正确编译。",
+      "title": "以下 ____ Java代码片段可以正确编译。",
+      "options": [
+        "int i=0; if(i) { System.out.println(\"Hi\"); }",
+        "int b=true; int b2=true; if( b==b2) { System.out.println(\"So true\"); }",
+        "int i=1; int j=2; if(i==1||j==2){ System.out.println(\"ok\"); }",
+        "int i=1; int j=2; if(i==1&|j==2){ System.out.println(\"OK\"); }"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380685426691",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int i=0;\n\tif(i) {\n\t\tSystem.out.println(\"Hi\");\n\t}",
+              "int b=true;\n\tint b2=true;\n\tif( b==b2) {\n\t\tSystem.out.println(\"So true\");\n}",
+              "int i=1;\n\tint j=2;\n\tif(i==1||j==2){\n\t\tSystem.out.println(\"ok\");\n\t}",
+              "int i=1;\nint j=2;\nif(i==1&|j==2){\nSystem.out.println(\"OK\");\n\t}"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下 ____ Java代码片段可以正确编译。",
+        "content": "以下（    ）Java代码片段可以正确编译。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453419671556",
+        "description": "以下（    ）Java代码片段可以正确编译。",
+        "problemPoolIndex": 17,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2111004380689620992",
+      "number": 18,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "给定如下Java代码，编译运行后，输出结果（ ）。 public class Test{ public static void main(String [ ] args){ int output = 10; boolean b1 = false; if((b1 = = true) && ((output += 10) = = 20)){ System.out.println(\"Equal\" + output); }else{ System.out.println(\"Not equal\" + output); } } }",
+      "content": "给定如下Java代码，编译运行后，输出结果（    ）。\npublic class Test{\n\tpublic static void main(String [ ] args){\n\t\tint output = 10;\n\t\tboolean b1 = false;\n\t\tif((b1 = = true) && ((output += 10) = = 20)){\n\t\t\tSystem.out.println(\"Equal\" + output);\n}else{\n\t\t\tSystem.out.println(\"Not equal\" + output);\n}\n}\n}",
+      "title": "给定如下Java代码，编译运行后，输出结果 ____ 。",
+      "options": [
+        "Equal 10",
+        "Equal 20",
+        "Not equal 10",
+        "Not equal 20"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380689620992",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "Equal 10",
+              "Equal 20",
+              "Not equal 10",
+              "Not equal 20"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "给定如下Java代码，编译运行后，输出结果 ____ 。",
+        "content": "给定如下Java代码，编译运行后，输出结果（    ）。\npublic class Test{\n\tpublic static void main(String [ ] args){\n\t\tint output = 10;\n\t\tboolean b1 = false;\n\t\tif((b1 = = true) && ((output += 10) = = 20)){\n\t\t\tSystem.out.println(\"Equal\" + output);\n}else{\n\t\t\tSystem.out.println(\"Not equal\" + output);\n}\n}\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453419671557",
+        "description": "给定如下Java代码，编译运行后，输出结果（    ）。\npublic class Test{\n\tpublic static void main(String [ ] args){\n\t\tint output = 10;\n\t\tboolean b1 = false;\n\t\tif((b1 = = true) && ((output += 10) = = 20)){\n\t\t\tSystem.out.println(\"Equal\" + output);\n}else{\n\t\t\tSystem.out.println(\"Not equal\" + output);\n}\n}\n}",
+        "problemPoolIndex": 18,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2111004380689620993",
+      "number": 19,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，以下程序的输出结果是（ ）。 boolean flag=10>8; if(flag) { System. out. println(\"第一个数字比较大\"); }else { System. out. println(\"第二个数字比较大\"); }",
+      "content": "在Java中，以下程序的输出结果是（    ）。\nboolean flag=10>8;\nif(flag) {\nSystem. out. println(\"第一个数字比较大\");\n}else {\nSystem. out. println(\"第二个数字比较大\");\n}",
+      "title": "在Java中，以下程序的输出结果是 ____ 。",
+      "options": [
+        "第二个数字比较大",
+        "第一个数字比较大",
+        "编译错误",
+        "什么也不输出"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380689620993",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "第二个数字比较大",
+              "第一个数字比较大",
+              "编译错误",
+              "什么也不输出"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，以下程序的输出结果是 ____ 。",
+        "content": "在Java中，以下程序的输出结果是（    ）。\nboolean flag=10>8;\nif(flag) {\nSystem. out. println(\"第一个数字比较大\");\n}else {\nSystem. out. println(\"第二个数字比较大\");\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453419671558",
+        "description": "在Java中，以下程序的输出结果是（    ）。\nboolean flag=10>8;\nif(flag) {\nSystem. out. println(\"第一个数字比较大\");\n}else {\nSystem. out. println(\"第二个数字比较大\");\n}",
+        "problemPoolIndex": 19,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2111004380689620994",
+      "number": 20,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，下列代码段的输出为（ ）。 int score = 80; if( score >= 60) { System. out. print(\"中等\"); }else if( score >= 80) { System. out. print(\"良好\"); }else if( score >= 90) { System. out. print(\"优秀\"); }else{ System. out. print (\"差\"); }",
+      "content": "在Java中，下列代码段的输出为（    ）。\nint score = 80;\nif( score >= 60) {\nSystem. out. print(\"中等\");\n}else if( score >= 80) {\nSystem. out. print(\"良好\");\n}else if( score >= 90) {\nSystem. out. print(\"优秀\");\n}else{\nSystem. out. print (\"差\");\n}",
+      "title": "在Java中，下列代码段的输出为 ____ 。",
+      "options": [
+        "中等良好",
+        "中等",
+        "差",
+        "良好"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2111004380689620994",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "中等良好",
+              "中等",
+              "差",
+              "良好"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，下列代码段的输出为 ____ 。",
+        "content": "在Java中，下列代码段的输出为（    ）。\nint score = 80;\nif( score >= 60) {\nSystem. out. print(\"中等\");\n}else if( score >= 80) {\nSystem. out. print(\"良好\");\n}else if( score >= 90) {\nSystem. out. print(\"优秀\");\n}else{\nSystem. out. print (\"差\");\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111003189616279552",
+        "problemId": "1706969453419671559",
+        "description": "在Java中，下列代码段的输出为（    ）。\nint score = 80;\nif( score >= 60) {\nSystem. out. print(\"中等\");\n}else if( score >= 80) {\nSystem. out. print(\"良好\");\n}else if( score >= 90) {\nSystem. out. print(\"优秀\");\n}else{\nSystem. out. print (\"差\");\n}",
+        "problemPoolIndex": 20,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    }
+  ]
+}

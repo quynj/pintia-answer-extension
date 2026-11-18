@@ -7,7 +7,12 @@ import {
   type QuestionBank
 } from '../common/practice-data.ts'
 import type { PracticeSessionSnapshot } from '../practice/types.ts'
-import { loadQuestionBankCatalog } from './question-bank-catalog.ts'
+import {
+  loadQuestionBankCatalog,
+  LOCAL_IMPORT_CATEGORY,
+  MERGED_BANK_CATEGORY,
+  type BankCategory
+} from './question-bank-catalog.ts'
 
 export type BankEntry = {
   key: string
@@ -15,6 +20,7 @@ export type BankEntry = {
   bankFileName: string
   answerFileName: string
   answers: Map<string, AnswerItem>
+  categories: BankCategory[]
   isMerged: boolean
   isPlatformBank: boolean
   session: PracticeSessionSnapshot | null
@@ -118,6 +124,7 @@ export function useQuestionLibrary(setNotice: SetNotice) {
           bankFileName: '平台题库',
           answerFileName: '平台配套答案',
           answers: entry.answers,
+          categories: entry.categories,
           isMerged: false,
           isPlatformBank: true,
           session: null
@@ -165,6 +172,7 @@ export function useQuestionLibrary(setNotice: SetNotice) {
             bankFileName: file.name,
             answerFileName: '',
             answers: new Map(),
+            categories: [LOCAL_IMPORT_CATEGORY],
             isMerged: false,
             isPlatformBank: false,
             session: null
@@ -266,6 +274,7 @@ export function useQuestionLibrary(setNotice: SetNotice) {
         bankFileName: `合并自 ${selectedEntries.length} 个题库`,
         answerFileName: `合并 ${merged.answers.size} 条答案`,
         answers: merged.answers,
+        categories: [MERGED_BANK_CATEGORY],
         isMerged: true,
         isPlatformBank: false,
         session: null
@@ -279,10 +288,14 @@ export function useQuestionLibrary(setNotice: SetNotice) {
     }
   }
 
-  function toggleAllBanksSelection(): void {
-    mergeSelection.value = mergeSelection.value.length === bankEntries.value.length
-      ? []
-      : bankEntries.value.map((entry) => entry.key)
+  function toggleBanksSelection(bankKeys: readonly string[]): void {
+    const selectedKeys = new Set(mergeSelection.value)
+    const allSelected = bankKeys.length > 0 && bankKeys.every((key) => selectedKeys.has(key))
+    for (const key of bankKeys) {
+      if (allSelected) selectedKeys.delete(key)
+      else selectedKeys.add(key)
+    }
+    mergeSelection.value = [...selectedKeys]
   }
 
   return {
@@ -300,6 +313,6 @@ export function useQuestionLibrary(setNotice: SetNotice) {
     importFiles,
     handleAnswerChange,
     mergeSelectedBanks,
-    toggleAllBanksSelection
+    toggleBanksSelection
   }
 }

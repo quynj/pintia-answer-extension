@@ -32,6 +32,7 @@
 5. 单独导入答案时校验 `problemSetId`（当答案和题库均提供 ID 时必须相同），再按答案 `problemId` 与题目 ID 对应。未匹配答案不会按题号兜底。
 6. 合并至少两份题库。题目按所选题库顺序拼接；仅对非空且重复的题目 ID 去重，保留第一次出现的题目和答案；无 ID 题目不去重。合并题库重新编号，且不关联单一题集 ID。
 7. 用户可以选择任一题库开始练习。切换题库时，当前练习快照保存在该题库条目内存中；切回时恢复。此状态不跨页面刷新保存。
+8. 题库列表可按目录分类和标题筛选；本地导入、合并及无分类题库分别显示对应标签。筛选时保留隐藏题库的合并选择，“全选当前结果”只切换当前可见题库。
 
 ### 3.2 练习与作答
 
@@ -69,7 +70,7 @@
 | `src/components/MarkdownContent.vue`、`src/utils/markdown.ts` | 渲染 Markdown，净化输出并限制图片来源为 HTTPS。 |
 | `src/styles/common.css` | 全局样式、布局及响应式规则。 |
 
-视图层不直接负责题库 JSON 解析。静态目录位于 `public/question-banks/catalog.json`；清单通过 `questionBankUrl` 和 `answerUrl` 引用题库/答案 JSON，可使用相对地址或 HTTPS 地址（本地开发时允许同源 HTTP）。该加载层把数据转换为通用 `QuestionBank` 与 `AnswerItem` 类型，和练习会话逻辑解耦。功能 composable 使用 Vue 响应式状态，不将用户导入内容或作答状态写入 `localStorage`、`sessionStorage`、Cookie 或远端服务。
+视图层不直接负责题库 JSON 解析。静态目录位于 `public/question-banks/catalog.json`；清单通过 `questionBankUrl` 和 `answerUrl` 引用题库/答案 JSON，并可通过 `categories` 与每项的 `categoryIds` 提供分类元数据。数据地址可使用相对地址或 HTTPS 地址（本地开发时允许同源 HTTP）。该加载层把数据转换为通用 `QuestionBank`、`AnswerItem` 和分类标签，和练习会话逻辑解耦。功能 composable 使用 Vue 响应式状态，不将用户导入内容或作答状态写入 `localStorage`、`sessionStorage`、Cookie 或远端服务。
 
 ## 5. 数据模型与文件契约
 
@@ -136,6 +137,27 @@
 - `AnswerItem`：题目 ID、题号、题型、参考答案及可选平台状态。
 - `BankEntry`：题库、答案映射、导入文件名、合并标记和该题库的练习会话快照。
 - `PracticeSessionSnapshot`：当前题组、作答映射、已提交题目、位置、顺序恢复信息、预览模式、题型选择及抽题数量。
+
+### 5.4 题库目录文件
+
+```json
+{
+  "categories": [{ "id": "language.java", "name": "Java" }],
+  "banks": [
+    {
+      "id": "java-course-1",
+      "categoryIds": ["language.java"],
+      "questionBankUrl": "java/questions.json",
+      "answerUrl": "java/answers.json"
+    }
+  ]
+}
+```
+
+- `categories` 和题库项的 `categoryIds` 均可省略，以兼容旧目录；缺少有效分类时显示“未分类”。
+- 分类 `id` 必须唯一，题库引用的分类必须在目录中定义。`id` 用于关联，`name` 用于显示；题库 JSON 本身不增加分类字段。
+- 本地导入和合并题库分别使用“本地导入”和“合并”标签，不写入原题库文件。
+- 标题搜索只筛选当前列表显示；“全选当前结果”不会清除已隐藏题库的选择，执行合并时会合并所有已选题库，并提示隐藏选择数量。
 
 ## 6. 安全、隐私与可靠性约束
 

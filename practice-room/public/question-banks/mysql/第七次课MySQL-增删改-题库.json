@@ -1,0 +1,1450 @@
+{
+  "title": "第七次课MySQL-增删改",
+  "problemSetName": "第七次课MySQL-增删改",
+  "problemSetId": "2111651757834321920",
+  "examId": "2112022102357544960",
+  "source": "https://pintia.cn/problem-sets/2111651757834321920",
+  "extraction": "api",
+  "exportedAt": "2026-11-15T06:24:37.127Z",
+  "summaries": {
+    "MULTIPLE_CHOICE": {
+      "total": 10,
+      "totalScore": 20
+    },
+    "FILL_IN_THE_BLANK": {
+      "total": 1,
+      "totalScore": 6
+    },
+    "SQL_PROGRAMMING": {
+      "total": 10,
+      "totalScore": 74
+    }
+  },
+  "questions": [
+    {
+      "id": "2111651758119534592",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "SQL语言集数据查询、数据操纵、数据定义和数据控制功能于一体，其中INSERT、UPDATE、 DELETE语句是实现哪种功能（ ) 。",
+      "content": "SQL语言集数据查询、数据操纵、数据定义和数据控制功能于一体，其中INSERT、UPDATE、 DELETE语句是实现哪种功能（     ) 。",
+      "title": "SQL语言集数据查询、数据操纵、数据定义和数据控制功能于一体，其中INSERT、UPDATE、 DELETE语句是实现哪种功能（",
+      "options": [
+        "数据定义",
+        "数据查询",
+        "数据操纵",
+        "数据控制"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111651758119534592",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "数据定义",
+              "数据查询",
+              "数据操纵",
+              "数据控制"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "SQL语言集数据查询、数据操纵、数据定义和数据控制功能于一体，其中INSERT、UPDATE、 DELETE语句是实现哪种功能（",
+        "content": "SQL语言集数据查询、数据操纵、数据定义和数据控制功能于一体，其中INSERT、UPDATE、 DELETE语句是实现哪种功能（     ) 。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘益玲",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1623132584580575232",
+        "description": "SQL语言集数据查询、数据操纵、数据定义和数据控制功能于一体，其中INSERT、UPDATE、 DELETE语句是实现哪种功能（     ) 。",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "46"
+      }
+    },
+    {
+      "id": "2111651758119534593",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在SQL中使用UPDATE对表中数据进行修改时,应使用的命令是：",
+      "content": "在SQL中使用UPDATE对表中数据进行修改时,应使用的命令是：",
+      "title": "在SQL中使用UPDATE对表中数据进行修改时,应使用的命令是：",
+      "options": [
+        "WHERE",
+        "FROM",
+        "VALUES",
+        "SET"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111651758119534593",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "WHERE",
+              "FROM",
+              "VALUES",
+              "SET"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在SQL中使用UPDATE对表中数据进行修改时,应使用的命令是：",
+        "content": "在SQL中使用UPDATE对表中数据进行修改时,应使用的命令是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1710474836289372160",
+        "description": "在SQL中使用UPDATE对表中数据进行修改时,应使用的命令是：",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2111651758119534594",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "语句DELETE FROM students的作用是（）。",
+      "content": "语句DELETE FROM students的作用是（）。",
+      "title": "语句DELETE FROM students的作用是 ____ 。",
+      "options": [
+        "删除stduents中的全部记录",
+        "删除基本表students",
+        "删除基本表students中的列数据",
+        "删除基本表students中的部分行"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111651758119534594",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "删除stduents中的全部记录",
+              "删除基本表students",
+              "删除基本表students中的列数据",
+              "删除基本表students中的部分行"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "语句DELETE FROM students的作用是 ____ 。",
+        "content": "语句DELETE FROM students的作用是（）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1780827211587387392",
+        "description": "语句DELETE FROM students的作用是（）。",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2111651758119534595",
+      "number": 4,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "设有Teachers表，该表的定义如下： ``` CREATE TABLE Teachers( Tno CHAR(8) PRIMARY KEY, Tname VARCHAR(10) NOT NULL, Age TINYINT CHECK(Age BETWEEN 25 AND 65) ) ``` 下列插入语句中，不能正确执行的是：",
+      "content": "设有Teachers表，该表的定义如下：\n```\nCREATE TABLE Teachers(\n\t  Tno CHAR(8) PRIMARY KEY,\n      Tname VARCHAR(10) NOT NULL,\n      Age TINYINT CHECK(Age BETWEEN 25 AND 65) )\n\n```\n下列插入语句中，不能正确执行的是：",
+      "title": "设有Teachers表，该表的定义如下：",
+      "options": [
+        "``` INSERT INTO Teachers VALUES('T100','张鸿',NULL) ```",
+        "``` INSERT INTO Teachers(Tno,Tname,Age) VALUES('T100','张鸿',30) ```",
+        "``` INSERT INTO Teachers(Tno,Tname) VALUES('T100','张鸿') ```",
+        "``` INSERT INTO Teachers VALUES('T100','张鸿') ```"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111651758119534595",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "```\nINSERT INTO Teachers VALUES('T100','张鸿',NULL)\n```",
+              "```\nINSERT INTO Teachers(Tno,Tname,Age) VALUES('T100','张鸿',30)\n```",
+              "```\nINSERT INTO Teachers(Tno,Tname) VALUES('T100','张鸿')\n```",
+              "```\nINSERT INTO Teachers VALUES('T100','张鸿')\n```"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "设有Teachers表，该表的定义如下：",
+        "content": "设有Teachers表，该表的定义如下：\n```\nCREATE TABLE Teachers(\n\t  Tno CHAR(8) PRIMARY KEY,\n      Tname VARCHAR(10) NOT NULL,\n      Age TINYINT CHECK(Age BETWEEN 25 AND 65) )\n\n```\n下列插入语句中，不能正确执行的是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1446305285661167616",
+        "description": "设有Teachers表，该表的定义如下：\n```\nCREATE TABLE Teachers(\n\t  Tno CHAR(8) PRIMARY KEY,\n      Tname VARCHAR(10) NOT NULL,\n      Age TINYINT CHECK(Age BETWEEN 25 AND 65) )\n\n```\n下列插入语句中，不能正确执行的是：",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2111651758119534596",
+      "number": 5,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列不属于数据操作的命令是：",
+      "content": "下列不属于数据操作的命令是：",
+      "title": "下列不属于数据操作的命令是：",
+      "options": [
+        "INSERT",
+        "UPDATE",
+        "ALTER",
+        "DELETE"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111651758119534596",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "INSERT",
+              "UPDATE",
+              "ALTER",
+              "DELETE"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列不属于数据操作的命令是：",
+        "content": "下列不属于数据操作的命令是：\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1569933913147772928",
+        "description": "下列不属于数据操作的命令是：\n\n",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2111651758119534597",
+      "number": 6,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下删除记录正确的：",
+      "content": "以下删除记录正确的：",
+      "title": "以下删除记录正确的：",
+      "options": [
+        "`delete from emp where name='dony';`",
+        "`Delete * from emp where name='dony';`",
+        "`Drop from emp where name='dony';`",
+        "`Drop * from emp where name='dony';`"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111651758119534597",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "`delete from emp where name='dony';`",
+              "`Delete * from emp where name='dony';`",
+              "`Drop from emp where name='dony';`",
+              "`Drop * from emp where name='dony';`"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下删除记录正确的：",
+        "content": "以下删除记录正确的：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1710931268314976256",
+        "description": "以下删除记录正确的：",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2111653771679055872",
+      "number": 7,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "若用如下的SQL语句创建一个student表： ``` CREATE TABLE student( NO CHAR(4) NOT NULL， NAME CHAR(8) NOT NULL， SEX CHAR(2)， AGE INT) ``` 可以插入到student表中的是：",
+      "content": "若用如下的SQL语句创建一个student表：\n```\nCREATE TABLE student(\nNO CHAR(4) NOT NULL，\nNAME CHAR(8) NOT NULL，\nSEX CHAR(2)，\nAGE INT)\n```\n\n可以插入到student表中的是：",
+      "title": "若用如下的SQL语句创建一个student表：",
+      "options": [
+        "`('1031', '曾华', 男, 23)`",
+        "`('1031', '曾华', NULL ,NULL)`",
+        "`(NULL, '曾华', '男', '23')`",
+        "`('1031', NULL, '男', 23)`"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111653771679055872",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "`('1031', '曾华',  男,  23)`",
+              "`('1031', '曾华', NULL ,NULL)`",
+              "`(NULL, '曾华',  '男',  '23')`",
+              "`('1031', NULL,  '男',  23)`"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "若用如下的SQL语句创建一个student表：",
+        "content": "若用如下的SQL语句创建一个student表：\n```\nCREATE TABLE student(\nNO CHAR(4) NOT NULL，\nNAME CHAR(8) NOT NULL，\nSEX CHAR(2)，\nAGE INT)\n```\n\n可以插入到student表中的是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1442659581555126272",
+        "description": "若用如下的SQL语句创建一个student表：\n```\nCREATE TABLE student(\nNO CHAR(4) NOT NULL，\nNAME CHAR(8) NOT NULL，\nSEX CHAR(2)，\nAGE INT)\n```\n\n可以插入到student表中的是：",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2111653771679055874",
+      "number": 8,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "语句 `DELETE FROM sc` 表示的含义是：",
+      "content": "语句 `DELETE FROM sc` 表示的含义是：",
+      "title": "语句 DELETE FROM sc 表示的含义是：",
+      "options": [
+        "删除基本表 sc 中的全部记录",
+        "删除基本表sc",
+        "删除基本表 sc 中的重复数据",
+        "删除基本表 sc 中的部分行"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111653771679055874",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "删除基本表 sc 中的全部记录",
+              "删除基本表sc",
+              "删除基本表 sc 中的重复数据",
+              "删除基本表 sc 中的部分行"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "语句 DELETE FROM sc 表示的含义是：",
+        "content": "语句 `DELETE FROM sc` 表示的含义是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1569935237838999552",
+        "description": "语句 `DELETE FROM sc` 表示的含义是：",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2111653771683250176",
+      "number": 9,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "设已有关系模式S（SN，CN，grade) ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。把“张三的化学成绩80分”插入S中，正确的SQL代码是( )。",
+      "content": "设已有关系模式S（SN，CN，grade) ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。把“张三的化学成绩80分”插入S中，正确的SQL代码是(      )。",
+      "title": "设已有关系模式S（SN，CN，grade) ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围",
+      "options": [
+        "ADD INTO S VALUES（’张三’，’化学’，’80’) ;",
+        "INSERT INTO S VALUES（’张三’，’化学’，’80’) ;",
+        "ADD INTO S VALUES（’张三’，’化学’，80) ;",
+        "INSERT INTO S VALUES（’张三’，’化学’，80) ;"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111653771683250176",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "ADD INTO S VALUES（’张三’，’化学’，’80’) ;",
+              "INSERT INTO S VALUES（’张三’，’化学’，’80’) ;",
+              "ADD INTO S VALUES（’张三’，’化学’，80) ;",
+              "INSERT INTO S VALUES（’张三’，’化学’，80) ;"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "设已有关系模式S（SN，CN，grade) ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围",
+        "content": "设已有关系模式S（SN，CN，grade) ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。把“张三的化学成绩80分”插入S中，正确的SQL代码是(      )。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘益玲",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1623132584605741056",
+        "description": "设已有关系模式S（SN，CN，grade) ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。把“张三的化学成绩80分”插入S中，正确的SQL代码是(      )。",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "46"
+      }
+    },
+    {
+      "id": "2111653771683250178",
+      "number": 10,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "设关系数据库中一个表S的结构为：S（SN，CN，grade. ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。若要更正张三的英语成绩为85分，则可用（ ）。",
+      "content": "设关系数据库中一个表S的结构为：S（SN，CN，grade. ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。若要更正张三的英语成绩为85分，则可用（       \t）。",
+      "title": "设关系数据库中一个表S的结构为：S（SN，CN，grade. ，其中SN为学生名，CN为课程名，二者均为字符型；grade",
+      "options": [
+        "UPDATE S SET grade＝85 WHERE SN＝’张三’ AND CN＝’英语’",
+        "UPDATE S SET grade＝’85’ WHERE SN＝’张三’ AND CN＝’英语’",
+        "UPDATE grade＝85 WHERE SN＝’张三’ AND CN＝’英语’",
+        "UPDATE grade＝’85’ WHERE SN＝’张三’ AND CN＝’英语’"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2111653771683250178",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "UPDATE S SET grade＝85 WHERE SN＝’张三’ AND CN＝’英语’",
+              "UPDATE S SET grade＝’85’ WHERE SN＝’张三’ AND CN＝’英语’",
+              "UPDATE grade＝85 WHERE SN＝’张三’ AND CN＝’英语’",
+              "UPDATE grade＝’85’ WHERE SN＝’张三’ AND CN＝’英语’"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "设关系数据库中一个表S的结构为：S（SN，CN，grade. ，其中SN为学生名，CN为课程名，二者均为字符型；grade",
+        "content": "设关系数据库中一个表S的结构为：S（SN，CN，grade. ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。若要更正张三的英语成绩为85分，则可用（       \t）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘益玲",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1623136342966362112",
+        "description": "设关系数据库中一个表S的结构为：S（SN，CN，grade. ，其中SN为学生名，CN为课程名，二者均为字符型；grade为成绩，数值型，取值范围0－100。若要更正张三的英语成绩为85分，则可用（       \t）。",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "46"
+      }
+    },
+    {
+      "id": "2111653287421493248",
+      "number": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "使用update语句把学号为1801102的学生姓名（sname字段）改为“李凯”，出生日期（bday字段）改为“1999-10-11”。 Update students sname='李凯', Where sno=‘1801102' 填空位置：________、________",
+      "content": "使用update语句把学号为1801102的学生姓名（sname字段）改为“李凯”，出生日期（bday字段）改为“1999-10-11”。\n\nUpdate students sname='李凯',\n\nWhere sno=‘1801102'\n\n填空位置：________、________",
+      "title": "使用update语句把学号为1801102的学生姓名（sname字段）改为“李凯”，出生日期（bday字段）改为“1999-10",
+      "options": [],
+      "images": [],
+      "score": 6,
+      "apiData": {
+        "id": "2111653287421493248",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3
+            ],
+            "blankLength": 56,
+            "blanks": [
+              {
+                "index": 87,
+                "multipleLine": false,
+                "length": 3,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 98,
+                "multipleLine": false,
+                "length": 19,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用update语句把学号为1801102的学生姓名（sname字段）改为“李凯”，出生日期（bday字段）改为“1999-10",
+        "content": "使用update语句把学号为1801102的学生姓名（sname字段）改为“李凯”，出生日期（bday字段）改为“1999-10-11”。\n\nUpdate students sname='李凯',\n\nWhere sno=‘1801102'\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1400296331846373376",
+        "description": "使用update语句把学号为1801102的学生姓名（sname字段）改为“李凯”，出生日期（bday字段）改为“1999-10-11”。\n\nUpdate students sname='李凯',\n\nWhere sno=‘1801102'\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2111651758119534598",
+      "number": 1,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "要求为部门表```dept```插入数据\n\n\n### 表结构:\n\n```\nCREATE TABLE dept (  \nDId CHAR(2) NOT NULL,           -- 部门编号 \nDName VARCHAR(20) NOT NULL,     -- 部门名称  \nDAddr VARCHAR(20) NULL,         -- 地址  \nDTele VARCHAR(16) NULL,         -- 电话  \nDEmail VARCHAR(50) NULL,        -- 邮箱  \nPRIMARY KEY (DId)              \n);  \n```\n\n### 插入数据前\n\n```dept```表：\n![image.png](~/ca6105ed-f289-4660-b7c6-51edec1a9d4e.png)\n\n### 插入数据后:\n\n```dept```表：\n![image.png](~/a4e590d8-7be1-4755-a355-fe9880a079f0.png)",
+      "content": "要求为部门表```dept```插入数据\n\n\n### 表结构:\n\n```\nCREATE TABLE dept (  \nDId CHAR(2) NOT NULL,           -- 部门编号 \nDName VARCHAR(20) NOT NULL,     -- 部门名称  \nDAddr VARCHAR(20) NULL,         -- 地址  \nDTele VARCHAR(16) NULL,         -- 电话  \nDEmail VARCHAR(50) NULL,        -- 邮箱  \nPRIMARY KEY (DId)              \n);  \n```\n\n### 插入数据前\n\n```dept```表：\n![image.png](~/ca6105ed-f289-4660-b7c6-51edec1a9d4e.png)\n\n### 插入数据后:\n\n```dept```表：\n![image.png](~/a4e590d8-7be1-4755-a355-fe9880a079f0.png)",
+      "hasStatement": true,
+      "title": "为部门表添加数据",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/ca6105ed-f289-4660-b7c6-51edec1a9d4e.png",
+          "markdownPath": "~/ca6105ed-f289-4660-b7c6-51edec1a9d4e.png",
+          "location": "description",
+          "index": 328
+        },
+        {
+          "url": "https://images.ptausercontent.com/a4e590d8-7be1-4755-a355-fe9880a079f0.png",
+          "markdownPath": "~/a4e590d8-7be1-4755-a355-fe9880a079f0.png",
+          "location": "description",
+          "index": 411
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2111651758119534598",
+        "label": "1",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": " CREATE TABLE dept (  \n    DId CHAR(2) NOT NULL,           -- 部门编号，主键  \n    DName VARCHAR(20) NOT NULL,     -- 部门名称  \n    DAddr VARCHAR(20) NULL,         -- 地址  \n    DTele VARCHAR(16) NULL,         -- 电话  \n    DEmail VARCHAR(50) NULL,        -- 邮箱  \n    PRIMARY KEY (DId)               -- 设置主键  \n);  ",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE dept (  \n    DId CHAR(2) NOT NULL,           -- 部门编号，主键  \n    DName VARCHAR(20) NOT NULL,     -- 部门名称  \n    DAddr VARCHAR(20) NULL,         -- 地址  \n    DTele VARCHAR(16) NULL,         -- 电话  \n    DEmail VARCHAR(50) NULL,        -- 邮箱  \n    PRIMARY KEY (DId)               -- 设置主键  \n);  ",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "INSERT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "为部门表添加数据",
+        "content": "这是一个SQL编程题模板。\n\n请在这里写题目描述。例如：本题目要求编写SQL语句，\n检索出```Student```表中所有符合```id > 50```的记录。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\ncreate table Student (\n  id int,\n  name varchar(32)\n);\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n|id|name|\n|--|----|\n|30|ddd|\n|49|ccc|\n|51|aaa|\n|52|bbb|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|id|name|\n|--|----|\n|51|aaa|\n|52|bbb|\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1842471601506021376",
+        "description": "要求为部门表```dept```插入数据\n\n\n### 表结构:\n\n```\nCREATE TABLE dept (  \nDId CHAR(2) NOT NULL,           -- 部门编号 \nDName VARCHAR(20) NOT NULL,     -- 部门名称  \nDAddr VARCHAR(20) NULL,         -- 地址  \nDTele VARCHAR(16) NULL,         -- 电话  \nDEmail VARCHAR(50) NULL,        -- 邮箱  \nPRIMARY KEY (DId)              \n);  \n```\n\n### 插入数据前\n\n```dept```表：\n![image.png](~/ca6105ed-f289-4660-b7c6-51edec1a9d4e.png)\n\n### 插入数据后:\n\n```dept```表：\n![image.png](~/a4e590d8-7be1-4755-a355-fe9880a079f0.png)\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 1,
+        "examLabel": "1"
+      }
+    },
+    {
+      "id": "2111651758119534599",
+      "number": 2,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "更新部门表```dept```中的数据，将编号为EL的部门邮箱修改为el@163.com\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE dept (  \nDId CHAR(2) NOT NULL,           -- 部门编号  \nDName VARCHAR(20) NOT NULL,     -- 部门名称  \nDAddr VARCHAR(20) NULL,         -- 地址  \nDTele VARCHAR(16) NULL,         -- 电话  \nDEmail VARCHAR(50) NULL,        -- 邮箱  \nPRIMARY KEY (DId)              \n);\n```\n\n### 更新前\n```dept```表：\n![image.png](~/c1d803b9-35b1-4ab9-a646-9214c0d61dc5.png)\n\n### 更新后:\n```dept```表：\n\n![image.png](~/37e256e9-028c-4ffa-a9a4-5c83faf9ec44.png)",
+      "content": "更新部门表```dept```中的数据，将编号为EL的部门邮箱修改为el@163.com\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE dept (  \nDId CHAR(2) NOT NULL,           -- 部门编号  \nDName VARCHAR(20) NOT NULL,     -- 部门名称  \nDAddr VARCHAR(20) NULL,         -- 地址  \nDTele VARCHAR(16) NULL,         -- 电话  \nDEmail VARCHAR(50) NULL,        -- 邮箱  \nPRIMARY KEY (DId)              \n);\n```\n\n### 更新前\n```dept```表：\n![image.png](~/c1d803b9-35b1-4ab9-a646-9214c0d61dc5.png)\n\n### 更新后:\n```dept```表：\n\n![image.png](~/37e256e9-028c-4ffa-a9a4-5c83faf9ec44.png)",
+      "hasStatement": true,
+      "title": "更新部门表中的数据",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/c1d803b9-35b1-4ab9-a646-9214c0d61dc5.png",
+          "markdownPath": "~/c1d803b9-35b1-4ab9-a646-9214c0d61dc5.png",
+          "location": "description",
+          "index": 369
+        },
+        {
+          "url": "https://images.ptausercontent.com/37e256e9-028c-4ffa-a9a4-5c83faf9ec44.png",
+          "markdownPath": "~/37e256e9-028c-4ffa-a9a4-5c83faf9ec44.png",
+          "location": "description",
+          "index": 450
+        }
+      ],
+      "score": 8,
+      "apiData": {
+        "id": "2111651758119534599",
+        "label": "2",
+        "score": 8,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": " CREATE TABLE dept (  \n    DId CHAR(2) NOT NULL,           -- 部门编号，主键  \n    DName VARCHAR(20) NOT NULL,     -- 部门名称  \n    DAddr VARCHAR(20) NULL,         -- 地址  \n    DTele VARCHAR(16) NULL,         -- 电话  \n    DEmail VARCHAR(50) NULL,        -- 邮箱  \n    PRIMARY KEY (DId)               -- 设置主键  \n); ",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": " CREATE TABLE dept (  \n    DId CHAR(2) NOT NULL,           -- 部门编号，主键  \n    DName VARCHAR(20) NOT NULL,     -- 部门名称  \n    DAddr VARCHAR(20) NULL,         -- 地址  \n    DTele VARCHAR(16) NULL,         -- 电话  \n    DEmail VARCHAR(50) NULL,        -- 邮箱  \n    PRIMARY KEY (DId)               -- 设置主键  \n); ",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "UPDATE"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "更新部门表中的数据",
+        "content": "这是一个SQL编程题模板。\n\n请在这里写题目描述。例如：本题目要求编写SQL语句，\n检索出```Student```表中所有符合```id > 50```的记录。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\ncreate table Student (\n  id int,\n  name varchar(32)\n);\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n|id|name|\n|--|----|\n|30|ddd|\n|49|ccc|\n|51|aaa|\n|52|bbb|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|id|name|\n|--|----|\n|51|aaa|\n|52|bbb|\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1842474817455042560",
+        "description": "更新部门表```dept```中的数据，将编号为EL的部门邮箱修改为el@163.com\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE dept (  \nDId CHAR(2) NOT NULL,           -- 部门编号  \nDName VARCHAR(20) NOT NULL,     -- 部门名称  \nDAddr VARCHAR(20) NULL,         -- 地址  \nDTele VARCHAR(16) NULL,         -- 电话  \nDEmail VARCHAR(50) NULL,        -- 邮箱  \nPRIMARY KEY (DId)              \n);\n```\n\n### 更新前\n```dept```表：\n![image.png](~/c1d803b9-35b1-4ab9-a646-9214c0d61dc5.png)\n\n### 更新后:\n```dept```表：\n\n![image.png](~/37e256e9-028c-4ffa-a9a4-5c83faf9ec44.png)\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 2,
+        "examLabel": "2"
+      }
+    },
+    {
+      "id": "2111652751263629312",
+      "number": 3,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "要求编写SQL语句， 删除`Product`表中登记日期为NULL的商品记录。\n\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 删除前查询结果：\n`Product`表\n\n![图1.png](~/fd68a877-21f7-41b1-8776-9625b7efc2e1.png)\n\n\n### 删除后查询结果：\n`Product`表\n\n\n![图2.png](~/66d3486c-bb4d-409e-b2c5-2d1ca1e425a3.png)",
+      "content": "要求编写SQL语句， 删除`Product`表中登记日期为NULL的商品记录。\n\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 删除前查询结果：\n`Product`表\n\n![图1.png](~/fd68a877-21f7-41b1-8776-9625b7efc2e1.png)\n\n\n### 删除后查询结果：\n`Product`表\n\n\n![图2.png](~/66d3486c-bb4d-409e-b2c5-2d1ca1e425a3.png)",
+      "hasStatement": true,
+      "title": "删除Product数据表指定商品记录",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/fd68a877-21f7-41b1-8776-9625b7efc2e1.png",
+          "markdownPath": "~/fd68a877-21f7-41b1-8776-9625b7efc2e1.png",
+          "location": "content",
+          "index": 419
+        },
+        {
+          "url": "https://images.ptausercontent.com/66d3486c-bb4d-409e-b2c5-2d1ca1e425a3.png",
+          "markdownPath": "~/66d3486c-bb4d-409e-b2c5-2d1ca1e425a3.png",
+          "location": "content",
+          "index": 501
+        },
+        {
+          "url": "https://images.ptausercontent.com/fd68a877-21f7-41b1-8776-9625b7efc2e1.png",
+          "markdownPath": "~/fd68a877-21f7-41b1-8776-9625b7efc2e1.png",
+          "location": "description",
+          "index": 419
+        },
+        {
+          "url": "https://images.ptausercontent.com/66d3486c-bb4d-409e-b2c5-2d1ca1e425a3.png",
+          "markdownPath": "~/66d3486c-bb4d-409e-b2c5-2d1ca1e425a3.png",
+          "location": "description",
+          "index": 501
+        }
+      ],
+      "score": 8,
+      "apiData": {
+        "id": "2111652751263629312",
+        "label": "",
+        "score": 8,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n \n",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n \n ",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "DELETE"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "删除Product数据表指定商品记录",
+        "content": "要求编写SQL语句， 删除`Product`表中登记日期为NULL的商品记录。\n\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 删除前查询结果：\n`Product`表\n\n![图1.png](~/fd68a877-21f7-41b1-8776-9625b7efc2e1.png)\n\n\n### 删除后查询结果：\n`Product`表\n\n\n![图2.png](~/66d3486c-bb4d-409e-b2c5-2d1ca1e425a3.png)\n\n\n\n\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1597848539991130112",
+        "description": "要求编写SQL语句， 删除`Product`表中登记日期为NULL的商品记录。\n\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 删除前查询结果：\n`Product`表\n\n![图1.png](~/fd68a877-21f7-41b1-8776-9625b7efc2e1.png)\n\n\n### 删除后查询结果：\n`Product`表\n\n\n![图2.png](~/66d3486c-bb4d-409e-b2c5-2d1ca1e425a3.png)\n\n\n\n\n\n",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 3,
+        "examLabel": "10-3"
+      }
+    },
+    {
+      "id": "2111652751263629313",
+      "number": 4,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "要求编写SQL语句， 删除`Product`表中销售价格大于等于100的商品信息。\n\n\n### 表结构:\n\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 删除前查询结果：\n`Product`表\n\n![图1.png](~/4af9eaea-7a2e-4ee0-adca-6b1383d7c6e3.png)\n\n\n\n### 删除后查询结果：\n`Product`表\n\n![图2.png](~/ed4f36d3-5e44-454e-bc16-b3686f26a004.png)",
+      "content": "要求编写SQL语句， 删除`Product`表中销售价格大于等于100的商品信息。\n\n\n### 表结构:\n\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 删除前查询结果：\n`Product`表\n\n![图1.png](~/4af9eaea-7a2e-4ee0-adca-6b1383d7c6e3.png)\n\n\n\n### 删除后查询结果：\n`Product`表\n\n![图2.png](~/ed4f36d3-5e44-454e-bc16-b3686f26a004.png)",
+      "hasStatement": true,
+      "title": "删除Product数据表指定商品记录",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/4af9eaea-7a2e-4ee0-adca-6b1383d7c6e3.png",
+          "markdownPath": "~/4af9eaea-7a2e-4ee0-adca-6b1383d7c6e3.png",
+          "location": "content",
+          "index": 422
+        },
+        {
+          "url": "https://images.ptausercontent.com/ed4f36d3-5e44-454e-bc16-b3686f26a004.png",
+          "markdownPath": "~/ed4f36d3-5e44-454e-bc16-b3686f26a004.png",
+          "location": "content",
+          "index": 504
+        },
+        {
+          "url": "https://images.ptausercontent.com/4af9eaea-7a2e-4ee0-adca-6b1383d7c6e3.png",
+          "markdownPath": "~/4af9eaea-7a2e-4ee0-adca-6b1383d7c6e3.png",
+          "location": "description",
+          "index": 422
+        },
+        {
+          "url": "https://images.ptausercontent.com/ed4f36d3-5e44-454e-bc16-b3686f26a004.png",
+          "markdownPath": "~/ed4f36d3-5e44-454e-bc16-b3686f26a004.png",
+          "location": "description",
+          "index": 504
+        }
+      ],
+      "score": 8,
+      "apiData": {
+        "id": "2111652751263629313",
+        "label": "",
+        "score": 8,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "DELETE"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "删除Product数据表指定商品记录",
+        "content": "要求编写SQL语句， 删除`Product`表中销售价格大于等于100的商品信息。\n\n\n### 表结构:\n\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 删除前查询结果：\n`Product`表\n\n![图1.png](~/4af9eaea-7a2e-4ee0-adca-6b1383d7c6e3.png)\n\n\n\n### 删除后查询结果：\n`Product`表\n\n![图2.png](~/ed4f36d3-5e44-454e-bc16-b3686f26a004.png)\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1597852668901715968",
+        "description": "要求编写SQL语句， 删除`Product`表中销售价格大于等于100的商品信息。\n\n\n### 表结构:\n\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 删除前查询结果：\n`Product`表\n\n![图1.png](~/4af9eaea-7a2e-4ee0-adca-6b1383d7c6e3.png)\n\n\n\n### 删除后查询结果：\n`Product`表\n\n![图2.png](~/ed4f36d3-5e44-454e-bc16-b3686f26a004.png)\n\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 4,
+        "examLabel": "10-4"
+      }
+    },
+    {
+      "id": "2111653033716432896",
+      "number": 5,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "要求在数据表`my_student`中插入数据\n\n### 表结构:\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n\n### 插入数据前`my_student`表：\n\n![表1.png](~/e723986f-efd4-4210-9a0d-41b7c8c59ed5.png)\n\n\n### 插入数据后`my_student`表:\n\n![表2.png](~/86d395f8-694f-4274-8f1e-da42126ba80f.png)",
+      "content": "要求在数据表`my_student`中插入数据\n\n### 表结构:\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n\n### 插入数据前`my_student`表：\n\n![表1.png](~/e723986f-efd4-4210-9a0d-41b7c8c59ed5.png)\n\n\n### 插入数据后`my_student`表:\n\n![表2.png](~/86d395f8-694f-4274-8f1e-da42126ba80f.png)",
+      "hasStatement": true,
+      "title": "向my_student数据表插入数据",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/e723986f-efd4-4210-9a0d-41b7c8c59ed5.png",
+          "markdownPath": "~/e723986f-efd4-4210-9a0d-41b7c8c59ed5.png",
+          "location": "content",
+          "index": 234
+        },
+        {
+          "url": "https://images.ptausercontent.com/86d395f8-694f-4274-8f1e-da42126ba80f.png",
+          "markdownPath": "~/86d395f8-694f-4274-8f1e-da42126ba80f.png",
+          "location": "content",
+          "index": 315
+        },
+        {
+          "url": "https://images.ptausercontent.com/e723986f-efd4-4210-9a0d-41b7c8c59ed5.png",
+          "markdownPath": "~/e723986f-efd4-4210-9a0d-41b7c8c59ed5.png",
+          "location": "description",
+          "index": 234
+        },
+        {
+          "url": "https://images.ptausercontent.com/86d395f8-694f-4274-8f1e-da42126ba80f.png",
+          "markdownPath": "~/86d395f8-694f-4274-8f1e-da42126ba80f.png",
+          "location": "description",
+          "index": 315
+        }
+      ],
+      "score": 8,
+      "apiData": {
+        "id": "2111653033716432896",
+        "label": "",
+        "score": 8,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "Create table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 8,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "Create table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "INSERT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "向my_student数据表插入数据",
+        "content": "要求在数据表`my_student`中插入数据\n\n### 表结构:\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n\n### 插入数据前`my_student`表：\n\n![表1.png](~/e723986f-efd4-4210-9a0d-41b7c8c59ed5.png)\n\n\n### 插入数据后`my_student`表:\n\n![表2.png](~/86d395f8-694f-4274-8f1e-da42126ba80f.png)\n\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1575115219976515584",
+        "description": "要求在数据表`my_student`中插入数据\n\n### 表结构:\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n\n### 插入数据前`my_student`表：\n\n![表1.png](~/e723986f-efd4-4210-9a0d-41b7c8c59ed5.png)\n\n\n### 插入数据后`my_student`表:\n\n![表2.png](~/86d395f8-694f-4274-8f1e-da42126ba80f.png)\n\n\n",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 5,
+        "examLabel": "10-5"
+      }
+    },
+    {
+      "id": "2111653033716432897",
+      "number": 6,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "修改数据表中数据，将李芳芳的生日修改为1999年11月11日\n\n### 表结构:\n\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n### 修改前表中数据\n\n`my_student`表：\n\n![表2.png](~/8b141469-51e3-4d5f-a2e9-e775854f1f45.png)\n\n\n### 修改后表中数据:\n\n![表3.png](~/bc078424-0e18-4d21-a001-49b326c44499.png)",
+      "content": "修改数据表中数据，将李芳芳的生日修改为1999年11月11日\n\n### 表结构:\n\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n### 修改前表中数据\n\n`my_student`表：\n\n![表2.png](~/8b141469-51e3-4d5f-a2e9-e775854f1f45.png)\n\n\n### 修改后表中数据:\n\n![表3.png](~/bc078424-0e18-4d21-a001-49b326c44499.png)",
+      "hasStatement": true,
+      "title": "更新my_student表中的数据",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/8b141469-51e3-4d5f-a2e9-e775854f1f45.png",
+          "markdownPath": "~/8b141469-51e3-4d5f-a2e9-e775854f1f45.png",
+          "location": "content",
+          "index": 245
+        },
+        {
+          "url": "https://images.ptausercontent.com/bc078424-0e18-4d21-a001-49b326c44499.png",
+          "markdownPath": "~/bc078424-0e18-4d21-a001-49b326c44499.png",
+          "location": "content",
+          "index": 315
+        },
+        {
+          "url": "https://images.ptausercontent.com/8b141469-51e3-4d5f-a2e9-e775854f1f45.png",
+          "markdownPath": "~/8b141469-51e3-4d5f-a2e9-e775854f1f45.png",
+          "location": "description",
+          "index": 245
+        },
+        {
+          "url": "https://images.ptausercontent.com/bc078424-0e18-4d21-a001-49b326c44499.png",
+          "markdownPath": "~/bc078424-0e18-4d21-a001-49b326c44499.png",
+          "location": "description",
+          "index": 315
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2111653033716432897",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "Create table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "Create table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "UPDATE"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "更新my_student表中的数据",
+        "content": "修改数据表中数据，将李芳芳的生日修改为1999年11月11日\n\n### 表结构:\n\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n### 修改前表中数据\n\n`my_student`表：\n\n![表2.png](~/8b141469-51e3-4d5f-a2e9-e775854f1f45.png)\n\n\n### 修改后表中数据:\n\n![表3.png](~/bc078424-0e18-4d21-a001-49b326c44499.png)\n\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1575120115484438528",
+        "description": "修改数据表中数据，将李芳芳的生日修改为1999年11月11日\n\n### 表结构:\n\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n### 修改前表中数据\n\n`my_student`表：\n\n![表2.png](~/8b141469-51e3-4d5f-a2e9-e775854f1f45.png)\n\n\n### 修改后表中数据:\n\n![表3.png](~/bc078424-0e18-4d21-a001-49b326c44499.png)\n\n\n",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 6,
+        "examLabel": "10-6"
+      }
+    },
+    {
+      "id": "2111653033716432898",
+      "number": 7,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "删除my_student表中学号为212254203161的学生信息\n\n\n### 表结构:\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n### 删除数据前\n`my_student`表\n\n![表2.png](~/34e4aef9-5ba6-4418-8591-0e4373df4094.png)\n\n\n### 删除数据后:\n\n![表1.png](~/90020c0f-25f4-4491-8908-bb99e7c2657f.png)",
+      "content": "删除my_student表中学号为212254203161的学生信息\n\n\n### 表结构:\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n### 删除数据前\n`my_student`表\n\n![表2.png](~/34e4aef9-5ba6-4418-8591-0e4373df4094.png)\n\n\n### 删除数据后:\n\n![表1.png](~/90020c0f-25f4-4491-8908-bb99e7c2657f.png)",
+      "hasStatement": true,
+      "title": "删除my_student表中部分记录",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/34e4aef9-5ba6-4418-8591-0e4373df4094.png",
+          "markdownPath": "~/34e4aef9-5ba6-4418-8591-0e4373df4094.png",
+          "location": "content",
+          "index": 245
+        },
+        {
+          "url": "https://images.ptausercontent.com/90020c0f-25f4-4491-8908-bb99e7c2657f.png",
+          "markdownPath": "~/90020c0f-25f4-4491-8908-bb99e7c2657f.png",
+          "location": "content",
+          "index": 313
+        },
+        {
+          "url": "https://images.ptausercontent.com/34e4aef9-5ba6-4418-8591-0e4373df4094.png",
+          "markdownPath": "~/34e4aef9-5ba6-4418-8591-0e4373df4094.png",
+          "location": "description",
+          "index": 245
+        },
+        {
+          "url": "https://images.ptausercontent.com/90020c0f-25f4-4491-8908-bb99e7c2657f.png",
+          "markdownPath": "~/90020c0f-25f4-4491-8908-bb99e7c2657f.png",
+          "location": "description",
+          "index": 313
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2111653033716432898",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "Create table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "Create table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "DELETE"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "删除my_student表中部分记录",
+        "content": "删除my_student表中学号为212254203161的学生信息\n\n\n### 表结构:\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n### 删除数据前\n`my_student`表\n\n![表2.png](~/34e4aef9-5ba6-4418-8591-0e4373df4094.png)\n\n\n### 删除数据后:\n\n![表1.png](~/90020c0f-25f4-4491-8908-bb99e7c2657f.png)\n\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1575122963936768000",
+        "description": "删除my_student表中学号为212254203161的学生信息\n\n\n### 表结构:\n\n```\nCreate table my_student(\nStudentID   char(12) primary key,\nStudentName char(8) not null,\nSex  char(2) not null check(sex in('男','女')),\nBirth  datetime not null\n);\n\n```\n\n### 删除数据前\n`my_student`表\n\n![表2.png](~/34e4aef9-5ba6-4418-8591-0e4373df4094.png)\n\n\n### 删除数据后:\n\n![表1.png](~/90020c0f-25f4-4491-8908-bb99e7c2657f.png)\n\n\n",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 7,
+        "examLabel": "10-7"
+      }
+    },
+    {
+      "id": "2111653033716432899",
+      "number": 8,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "要求在数据表`Product`中插入数据\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 插入数据前`Product`表：\n\n![图1.png](~/3fa55dba-e730-420c-981b-27368a32b0ab.png)\n\n\n### 插入数据后`Product`表：\n\n![图2.png](~/7797fc34-f15b-4731-84c7-00679d70622a.png)",
+      "content": "要求在数据表`Product`中插入数据\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 插入数据前`Product`表：\n\n![图1.png](~/3fa55dba-e730-420c-981b-27368a32b0ab.png)\n\n\n### 插入数据后`Product`表：\n\n![图2.png](~/7797fc34-f15b-4731-84c7-00679d70622a.png)",
+      "hasStatement": true,
+      "title": "向Product数据表插入数据",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/3fa55dba-e730-420c-981b-27368a32b0ab.png",
+          "markdownPath": "~/3fa55dba-e730-420c-981b-27368a32b0ab.png",
+          "location": "content",
+          "index": 396
+        },
+        {
+          "url": "https://images.ptausercontent.com/7797fc34-f15b-4731-84c7-00679d70622a.png",
+          "markdownPath": "~/7797fc34-f15b-4731-84c7-00679d70622a.png",
+          "location": "content",
+          "index": 474
+        },
+        {
+          "url": "https://images.ptausercontent.com/3fa55dba-e730-420c-981b-27368a32b0ab.png",
+          "markdownPath": "~/3fa55dba-e730-420c-981b-27368a32b0ab.png",
+          "location": "description",
+          "index": 396
+        },
+        {
+          "url": "https://images.ptausercontent.com/7797fc34-f15b-4731-84c7-00679d70622a.png",
+          "markdownPath": "~/7797fc34-f15b-4731-84c7-00679d70622a.png",
+          "location": "description",
+          "index": 474
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2111653033716432899",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); ",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 7,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); ",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "INSERT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "向Product数据表插入数据",
+        "content": "要求在数据表`Product`中插入数据\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 插入数据前`Product`表：\n\n![图1.png](~/3fa55dba-e730-420c-981b-27368a32b0ab.png)\n\n\n### 插入数据后`Product`表：\n\n![图2.png](~/7797fc34-f15b-4731-84c7-00679d70622a.png)\n\n\n\n\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1597599608434606080",
+        "description": "要求在数据表`Product`中插入数据\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 插入数据前`Product`表：\n\n![图1.png](~/3fa55dba-e730-420c-981b-27368a32b0ab.png)\n\n\n### 插入数据后`Product`表：\n\n![图2.png](~/7797fc34-f15b-4731-84c7-00679d70622a.png)\n\n\n\n\n\n",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 8,
+        "examLabel": "10-8"
+      }
+    },
+    {
+      "id": "2111653033716432901",
+      "number": 9,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "要求编写SQL语句， 将`Product`表中衣服品类对应的商品销售价格更新为原来的10倍。\n\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 修改前查询结果：\n`Product`表\n\n![图1.png](~/2147acd6-b7e4-472f-a023-258e33d296be.png)\n\n\n###  修改前查询结果：\n`Product`表\n\n![图2.png](~/3fa49772-6ff8-4601-a44d-9fb806b7f503.png)",
+      "content": "要求编写SQL语句， 将`Product`表中衣服品类对应的商品销售价格更新为原来的10倍。\n\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 修改前查询结果：\n`Product`表\n\n![图1.png](~/2147acd6-b7e4-472f-a023-258e33d296be.png)\n\n\n###  修改前查询结果：\n`Product`表\n\n![图2.png](~/3fa49772-6ff8-4601-a44d-9fb806b7f503.png)",
+      "hasStatement": true,
+      "title": "修改Product数据表销售价格数据",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/2147acd6-b7e4-472f-a023-258e33d296be.png",
+          "markdownPath": "~/2147acd6-b7e4-472f-a023-258e33d296be.png",
+          "location": "content",
+          "index": 426
+        },
+        {
+          "url": "https://images.ptausercontent.com/3fa49772-6ff8-4601-a44d-9fb806b7f503.png",
+          "markdownPath": "~/3fa49772-6ff8-4601-a44d-9fb806b7f503.png",
+          "location": "content",
+          "index": 508
+        },
+        {
+          "url": "https://images.ptausercontent.com/2147acd6-b7e4-472f-a023-258e33d296be.png",
+          "markdownPath": "~/2147acd6-b7e4-472f-a023-258e33d296be.png",
+          "location": "description",
+          "index": 426
+        },
+        {
+          "url": "https://images.ptausercontent.com/3fa49772-6ff8-4601-a44d-9fb806b7f503.png",
+          "markdownPath": "~/3fa49772-6ff8-4601-a44d-9fb806b7f503.png",
+          "location": "description",
+          "index": 508
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2111653033716432901",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n ",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id));",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "UPDATE"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "修改Product数据表销售价格数据",
+        "content": "要求编写SQL语句， 将`Product`表中衣服品类对应的商品销售价格更新为原来的10倍。\n\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 修改前查询结果：\n`Product`表\n\n![图1.png](~/2147acd6-b7e4-472f-a023-258e33d296be.png)\n\n\n###  修改前查询结果：\n`Product`表\n\n![图2.png](~/3fa49772-6ff8-4601-a44d-9fb806b7f503.png)\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1597615530612346880",
+        "description": "要求编写SQL语句， 将`Product`表中衣服品类对应的商品销售价格更新为原来的10倍。\n\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 修改前查询结果：\n`Product`表\n\n![图1.png](~/2147acd6-b7e4-472f-a023-258e33d296be.png)\n\n\n###  修改前查询结果：\n`Product`表\n\n![图2.png](~/3fa49772-6ff8-4601-a44d-9fb806b7f503.png)\n\n",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 9,
+        "examLabel": "10-9"
+      }
+    },
+    {
+      "id": "2111653033716432902",
+      "number": 10,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "要求编写SQL语句， 将`Product`表中登记日期为NULL的商品对应的销售价格修改为180。\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 修改前查询结果：\n`Product`表\n![图1.png](~/e3b02604-4d56-43a7-9982-cdfbb3e9b8ed.png)\n\n\n### 修改后查询结果：\n`Product`表\n\n![图2.png](~/7193a949-df88-4279-a8e2-7e909bf33d3f.png)",
+      "content": "要求编写SQL语句， 将`Product`表中登记日期为NULL的商品对应的销售价格修改为180。\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 修改前查询结果：\n`Product`表\n![图1.png](~/e3b02604-4d56-43a7-9982-cdfbb3e9b8ed.png)\n\n\n### 修改后查询结果：\n`Product`表\n\n![图2.png](~/7193a949-df88-4279-a8e2-7e909bf33d3f.png)",
+      "hasStatement": true,
+      "title": "修改Product数据表销售价格数据",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/e3b02604-4d56-43a7-9982-cdfbb3e9b8ed.png",
+          "markdownPath": "~/e3b02604-4d56-43a7-9982-cdfbb3e9b8ed.png",
+          "location": "content",
+          "index": 427
+        },
+        {
+          "url": "https://images.ptausercontent.com/7193a949-df88-4279-a8e2-7e909bf33d3f.png",
+          "markdownPath": "~/7193a949-df88-4279-a8e2-7e909bf33d3f.png",
+          "location": "content",
+          "index": 508
+        },
+        {
+          "url": "https://images.ptausercontent.com/e3b02604-4d56-43a7-9982-cdfbb3e9b8ed.png",
+          "markdownPath": "~/e3b02604-4d56-43a7-9982-cdfbb3e9b8ed.png",
+          "location": "description",
+          "index": 427
+        },
+        {
+          "url": "https://images.ptausercontent.com/7193a949-df88-4279-a8e2-7e909bf33d3f.png",
+          "markdownPath": "~/7193a949-df88-4279-a8e2-7e909bf33d3f.png",
+          "location": "description",
+          "index": 508
+        }
+      ],
+      "score": 7,
+      "apiData": {
+        "id": "2111653033716432902",
+        "label": "",
+        "score": 7,
+        "problemConfig": {
+          "solutionVisible": false,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n ",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 4,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n ",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "MODIFY",
+            "permissions": [
+              "SELECT",
+              "UPDATE"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "修改Product数据表销售价格数据",
+        "content": "要求编写SQL语句， 将`Product`表中登记日期为NULL的商品对应的销售价格修改为180。\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 修改前查询结果：\n`Product`表\n![图1.png](~/e3b02604-4d56-43a7-9982-cdfbb3e9b8ed.png)\n\n\n### 修改后查询结果：\n`Product`表\n\n![图2.png](~/7193a949-df88-4279-a8e2-7e909bf33d3f.png)\n\n\n\n\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2111651757834321920",
+        "problemId": "1597619996048752640",
+        "description": "要求编写SQL语句， 将`Product`表中登记日期为NULL的商品对应的销售价格修改为180。\n\n### 表结构:\n\n```\nCREATE TABLE Product\n(product_id      CHAR(4)      NOT NULL, --商品编号\n product_name    VARCHAR(100) NOT NULL, --商品名称\n product_type    VARCHAR(32)  NOT NULL, --商品种类\n sale_price      INTEGER ,              --销售价格\n purchase_price  INTEGER ,              --进货价格\n regist_date     DATE ,                 --登记日期\n PRIMARY KEY (product_id)); \n\n```\n\n### 修改前查询结果：\n`Product`表\n![图1.png](~/e3b02604-4d56-43a7-9982-cdfbb3e9b8ed.png)\n\n\n### 修改后查询结果：\n`Product`表\n\n![图2.png](~/7193a949-df88-4279-a8e2-7e909bf33d3f.png)\n\n\n\n\n",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 10,
+        "examLabel": "10-10"
+      }
+    }
+  ]
+}

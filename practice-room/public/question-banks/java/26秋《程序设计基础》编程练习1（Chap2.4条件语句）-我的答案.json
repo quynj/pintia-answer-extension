@@ -1,0 +1,26 @@
+{
+  "problemSetId": "2110999196227829760",
+  "answers": [
+    {
+      "problemId": "2110999196236218368",
+      "questionNumber": 1,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        int c = sc.nextInt();\n        int d = sc.nextInt();\n        int res = Math.abs(a - c) + Math.abs(b - d);\n        System.out.println(res);\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2110999196236218369",
+      "questionNumber": 2,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\n\npublic class Main{\n    public static void main(String[] args) {\n        Scanner input = new Scanner(System.in);\n        double x = input.nextDouble();\n        double y;\n        if (x < 5){\n            y = x + 5;\n            System.out.println(String.format(\"y=%.3f\",y));\n        }else if(x >= 5 && x < 10){\n            y = (x*x) + (0.3*x);\n            System.out.println(String.format(\"y=%.3f\",y)); \n        }else if(x >= 10) {\n            y = (5*x) - 10;\n            System.out.println(String.format(\"y=%.3f\",y));\n        }\n        input.close();\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2110999196236218370",
+      "questionNumber": 3,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int limit = sc.nextInt();\n        int speed = sc.nextInt();\n        int delta = speed - limit;\n        if(delta <= 0){\n            System.out.println(\"Congratulations, you are within the speed limit!\");\n        }else if(delta <= 20){\n            System.out.println(\"You are speeding and your fine is 100.\");\n        }else if(delta <= 30){\n            System.out.println(\"You are speeding and your fine is 270.\");\n        }else{\n            System.out.println(\"You are speeding and your fine is 500.\");\n        }\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

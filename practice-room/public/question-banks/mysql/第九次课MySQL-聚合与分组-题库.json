@@ -1,0 +1,1434 @@
+{
+  "title": "第九次课MySQL-聚合与分组",
+  "problemSetName": "第九次课MySQL-聚合与分组",
+  "problemSetId": "2113427752458776576",
+  "examId": "2114552033973084160",
+  "source": "https://pintia.cn/problem-sets/2113427752458776576",
+  "extraction": "api",
+  "exportedAt": "2026-11-15T06:24:14.266Z",
+  "summaries": {
+    "MULTIPLE_CHOICE": {
+      "total": 4,
+      "totalScore": 8
+    },
+    "FILL_IN_THE_BLANK": {
+      "total": 5,
+      "totalScore": 30
+    },
+    "SQL_PROGRAMMING": {
+      "total": 12,
+      "totalScore": 62
+    }
+  },
+  "questions": [
+    {
+      "id": "2113432046322966528",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列聚合函数中不忽略空值 (null) 的是：",
+      "content": "下列聚合函数中不忽略空值 (null) 的是：",
+      "title": "下列聚合函数中不忽略空值 (null) 的是",
+      "options": [
+        "SUM (列名)",
+        "MAX (列名)",
+        "COUNT (*)",
+        "AVG (列名)"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2113432046322966528",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "SUM (列名)",
+              "MAX (列名)",
+              "COUNT (*)",
+              "AVG (列名)"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列聚合函数中不忽略空值 (null) 的是",
+        "content": "下列聚合函数中不忽略空值 (null) 的是：\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1580831762011648000",
+        "description": "下列聚合函数中不忽略空值 (null) 的是：\n\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2113432046322966529",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "从GROUP BY分组的结果集中再次用条件表达式进行筛选的子句是：",
+      "content": "从GROUP BY分组的结果集中再次用条件表达式进行筛选的子句是：",
+      "title": "从GROUP BY分组的结果集中再次用条件表达式进行筛选的子句是：",
+      "options": [
+        "FROM",
+        "ORDER BY",
+        "HAVING",
+        "WHERE"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2113432046322966529",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "FROM",
+              "ORDER BY",
+              "HAVING",
+              "WHERE"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "从GROUP BY分组的结果集中再次用条件表达式进行筛选的子句是：",
+        "content": "从GROUP BY分组的结果集中再次用条件表达式进行筛选的子句是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1710529019994550272",
+        "description": "从GROUP BY分组的结果集中再次用条件表达式进行筛选的子句是：",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2113432046322966530",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下聚合函数求数据总和的是：",
+      "content": "以下聚合函数求数据总和的是：",
+      "title": "以下聚合函数求数据总和的是：",
+      "options": [
+        "MAX",
+        "SUM",
+        "COUNT",
+        "AVG"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2113432046322966530",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "MAX",
+              "SUM",
+              "COUNT",
+              "AVG"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下聚合函数求数据总和的是：",
+        "content": "以下聚合函数求数据总和的是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1710856540338384896",
+        "description": "以下聚合函数求数据总和的是：",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2113432046322966531",
+      "number": 4,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下哪项用来分组：",
+      "content": "以下哪项用来分组：",
+      "title": "以下哪项用来分组：",
+      "options": [
+        "ORDER BY",
+        "ORDERED BY",
+        "GROUP BY",
+        "GROUPED BY"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2113432046322966531",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "ORDER BY",
+              "ORDERED BY",
+              "GROUP BY",
+              "GROUPED BY"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下哪项用来分组：",
+        "content": "以下哪项用来分组：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1710929114514698240",
+        "description": "以下哪项用来分组：",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2113432932558430208",
+      "number": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "统计每个类型的商品的个数，对应的SQL语句是： SELECT class 种类, COUNT( * ) 个数 FROM goods GROUP BY ; 填空位置：________",
+      "content": "统计每个类型的商品的个数，对应的SQL语句是：\n\nSELECT class 种类,  COUNT( * )  个数 FROM  goods GROUP BY  ;\n\n填空位置：________",
+      "title": "统计每个类型的商品的个数，对应的SQL语句是：",
+      "options": [],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2113432932558430208",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3
+            ],
+            "blankLength": 11,
+            "blanks": [
+              {
+                "index": 79,
+                "multipleLine": false,
+                "length": 5,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "统计每个类型的商品的个数，对应的SQL语句是：",
+        "content": "统计每个类型的商品的个数，对应的SQL语句是：\n\nSELECT class 种类,  COUNT( * )  个数 FROM  goods GROUP BY  ;\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1377237450431832064",
+        "description": "统计每个类型的商品的个数，对应的SQL语句是：\n\nSELECT class 种类,  COUNT( * )  个数 FROM  goods GROUP BY  ;\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2113432932558430209",
+      "number": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "在为字段设置别名时，可以使用空格或者关键字。 填空位置：________",
+      "content": "在为字段设置别名时，可以使用空格或者关键字。\n\n填空位置：________",
+      "title": "在为字段设置别名时，可以使用空格或者关键字。",
+      "options": [],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2113432932558430209",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3
+            ],
+            "blankLength": 20,
+            "blanks": [
+              {
+                "index": 21,
+                "multipleLine": false,
+                "length": 2,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在为字段设置别名时，可以使用空格或者关键字。",
+        "content": "在为字段设置别名时，可以使用空格或者关键字。",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1442051915718569984",
+        "description": "在为字段设置别名时，可以使用空格或者关键字。",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2113432932558430210",
+      "number": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "统计每种商品销售量（售出的总的数量），显示商品号和销售量。其中销售表为sale，商品编号字段是gno，商品数量字段是number。 SELECT gno as 商品号, as 销售量 FROM sale GROUP BY ; 填空位置：________、________",
+      "content": "统计每种商品销售量（售出的总的数量），显示商品号和销售量。其中销售表为sale，商品编号字段是gno，商品数量字段是number。\nSELECT gno as 商品号, as 销售量\nFROM sale\nGROUP BY ;\n\n填空位置：________、________",
+      "title": "统计每种商品销售量（售出的总的数量），显示商品号和销售量。其中销售表为sale，商品编号字段是gno，商品数量字段是number",
+      "options": [],
+      "images": [],
+      "score": 6,
+      "apiData": {
+        "id": "2113432932558430210",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3
+            ],
+            "blankLength": 20,
+            "blanks": [
+              {
+                "index": 85,
+                "multipleLine": false,
+                "length": 11,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              },
+              {
+                "index": 111,
+                "multipleLine": false,
+                "length": 3,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 0
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "统计每种商品销售量（售出的总的数量），显示商品号和销售量。其中销售表为sale，商品编号字段是gno，商品数量字段是number",
+        "content": "统计每种商品销售量（售出的总的数量），显示商品号和销售量。其中销售表为sale，商品编号字段是gno，商品数量字段是number。\nSELECT gno as 商品号, as 销售量\nFROM sale\nGROUP BY ;",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1514078375895539712",
+        "description": "统计每种商品销售量（售出的总的数量），显示商品号和销售量。其中销售表为sale，商品编号字段是gno，商品数量字段是number。\nSELECT gno as 商品号, as 销售量\nFROM sale\nGROUP BY ;",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2113432932558430211",
+      "number": 4,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "对分组统计前的数据进行筛选的子句是子句，对分组统计得到结果进行筛选的子句是子句。 填空位置：________、________",
+      "content": "对分组统计前的数据进行筛选的子句是子句，对分组统计得到结果进行筛选的子句是子句。\n\n填空位置：________、________",
+      "title": "数据筛选中不同子句的使用",
+      "options": [],
+      "images": [],
+      "score": 6,
+      "apiData": {
+        "id": "2113432932558430211",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3
+            ],
+            "blankLength": 20,
+            "blanks": [
+              {
+                "index": 17,
+                "multipleLine": false,
+                "length": 5,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 37,
+                "multipleLine": false,
+                "length": 6,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "数据筛选中不同子句的使用",
+        "content": "对分组统计前的数据进行筛选的子句是子句，对分组统计得到结果进行筛选的子句是子句。\n\n\n\n\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1580846598632235008",
+        "description": "对分组统计前的数据进行筛选的子句是子句，对分组统计得到结果进行筛选的子句是子句。\n\n\n\n\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2113443016168566784",
+      "number": 5,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "假设成绩表只有一列，为Grade列。 Grade 列中有三行，其值分别为：78、90和NULL，则 AVG(Grade) 得到的结果是，COUNT(*) 得到的结果是，MIN(Grade) 得到的结果是，SUM(Grade) 得到的结果是。 填空位置：________、________、________、________",
+      "content": "假设成绩表只有一列，为Grade列。 Grade 列中有三行，其值分别为：78、90和NULL，则 AVG(Grade) 得到的结果是，COUNT(*) 得到的结果是，MIN(Grade) 得到的结果是，SUM(Grade) 得到的结果是。\n\n填空位置：________、________、________、________",
+      "title": "设Grade 列中有三个值：78、90和NULL，求对其使用聚合函数的结果",
+      "options": [],
+      "images": [],
+      "score": 12,
+      "apiData": {
+        "id": "2113443016168566784",
+        "label": "",
+        "score": 12,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              3,
+              3,
+              3,
+              3
+            ],
+            "blankLength": 3,
+            "blanks": [
+              {
+                "index": 67,
+                "multipleLine": false,
+                "length": 2,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 83,
+                "multipleLine": false,
+                "length": 1,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 101,
+                "multipleLine": false,
+                "length": 2,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 119,
+                "multipleLine": false,
+                "length": 3,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "设Grade 列中有三个值：78、90和NULL，求对其使用聚合函数的结果",
+        "content": "设 Grade 列中有三个值：78、90和NULL，则 AVG(Grade) 得到的结果是，COUNT(*) 得到的结果是，MIN(Grade) 得到的结果是，SUM(Grade) 得到的结果是。\n\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1580847338054475776",
+        "description": "假设成绩表只有一列，为Grade列。 Grade 列中有三行，其值分别为：78、90和NULL，则 AVG(Grade) 得到的结果是，COUNT(*) 得到的结果是，MIN(Grade) 得到的结果是，SUM(Grade) 得到的结果是。\n\n",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2113427752702042112",
+      "number": 1,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "显示1号课程期末考试成绩的平均分\n\n提示：可使用where子句。\n\n### 表结构:\n\n\n```\n-- 创建选课表  \nCREATE TABLE sc (  \nSCId INT NOT NULL, -- 选课序号，主键  \nCId CHAR(4) NOT NULL, -- 课程编号 \nSId CHAR(9) NOT NULL, -- 学号  \nSCTerm CHAR(12) NULL, -- 开课学年/学期  \nSCScore1 FLOAT NULL ,-- 平时成绩  \nSCScore2 FLOAT NULL, -- 期中成绩  \nSCScore3 FLOAT NULL, -- 期末成绩  \nSCScore FLOAT NULL ,-- 总评成绩  \nPRIMARY KEY (SCId)\n);\n```\n\n### 表样例\n\n```sc```表：\n![image.png](~/b3547b1a-1a09-4244-be59-75d0c8a746ab.png)\n\n### 查询结果输出样例:\n![image.png](~/13d21e8f-d2fe-4b45-a5cd-60c8039e5418.png)",
+      "content": "显示1号课程期末考试成绩的平均分\n\n提示：可使用where子句。\n\n### 表结构:\n\n\n```\n-- 创建选课表  \nCREATE TABLE sc (  \nSCId INT NOT NULL, -- 选课序号，主键  \nCId CHAR(4) NOT NULL, -- 课程编号 \nSId CHAR(9) NOT NULL, -- 学号  \nSCTerm CHAR(12) NULL, -- 开课学年/学期  \nSCScore1 FLOAT NULL ,-- 平时成绩  \nSCScore2 FLOAT NULL, -- 期中成绩  \nSCScore3 FLOAT NULL, -- 期末成绩  \nSCScore FLOAT NULL ,-- 总评成绩  \nPRIMARY KEY (SCId)\n);\n```\n\n### 表样例\n\n```sc```表：\n![image.png](~/b3547b1a-1a09-4244-be59-75d0c8a746ab.png)\n\n### 查询结果输出样例:\n![image.png](~/13d21e8f-d2fe-4b45-a5cd-60c8039e5418.png)",
+      "hasStatement": true,
+      "title": "显示1号课程期末考试成绩的平均分",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/b3547b1a-1a09-4244-be59-75d0c8a746ab.png",
+          "markdownPath": "~/b3547b1a-1a09-4244-be59-75d0c8a746ab.png",
+          "location": "description",
+          "index": 378
+        },
+        {
+          "url": "https://images.ptausercontent.com/13d21e8f-d2fe-4b45-a5cd-60c8039e5418.png",
+          "markdownPath": "~/13d21e8f-d2fe-4b45-a5cd-60c8039e5418.png",
+          "location": "description",
+          "index": 450
+        }
+      ],
+      "score": 5,
+      "apiData": {
+        "id": "2113427752702042112",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "-- 创建选课表  \nCREATE TABLE sc (  \nSCId INT NOT NULL, -- 选课序号，主键  \nCId CHAR(4) NOT NULL, -- 课程编号 \nSId CHAR(9) NOT NULL, -- 学号  \nSCTerm CHAR(12) NULL, -- 开课学年/学期  \nSCScore1 FLOAT NULL ,-- 平时成绩  \nSCScore2 FLOAT NULL, -- 期中成绩  \nSCScore3 FLOAT NULL, -- 期末成绩  \nSCScore FLOAT NULL ,-- 总评成绩  \nPRIMARY KEY (SCId)\n);",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 3,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 2,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "-- 创建选课表  \nCREATE TABLE sc (  \navg_score FLOAT NOT NULL\n);",
+            "dialect": "SQLSERVER",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "显示1号课程期末考试成绩的平均分",
+        "content": "这是一个SQL编程题模板。\n\n请在这里写题目描述。例如：本题目要求编写SQL语句，\n检索出```Student```表中所有符合```id > 50```的记录。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\ncreate table Student (\n  id int,\n  name varchar(32)\n);\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n|id|name|\n|--|----|\n|30|ddd|\n|49|ccc|\n|51|aaa|\n|52|bbb|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|id|name|\n|--|----|\n|51|aaa|\n|52|bbb|\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1842895398663024640",
+        "description": "显示1号课程期末考试成绩的平均分\n\n提示：可使用where子句。\n\n### 表结构:\n\n\n```\n-- 创建选课表  \nCREATE TABLE sc (  \nSCId INT NOT NULL, -- 选课序号，主键  \nCId CHAR(4) NOT NULL, -- 课程编号 \nSId CHAR(9) NOT NULL, -- 学号  \nSCTerm CHAR(12) NULL, -- 开课学年/学期  \nSCScore1 FLOAT NULL ,-- 平时成绩  \nSCScore2 FLOAT NULL, -- 期中成绩  \nSCScore3 FLOAT NULL, -- 期末成绩  \nSCScore FLOAT NULL ,-- 总评成绩  \nPRIMARY KEY (SCId)\n);\n```\n\n### 表样例\n\n```sc```表：\n![image.png](~/b3547b1a-1a09-4244-be59-75d0c8a746ab.png)\n\n### 查询结果输出样例:\n![image.png](~/13d21e8f-d2fe-4b45-a5cd-60c8039e5418.png)\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8",
+        "number": 1,
+        "examLabel": "10-1"
+      }
+    },
+    {
+      "id": "2113427752702042113",
+      "number": 2,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，\n计算``sc```表中“0000001”课程的平均分、最高分和最低分，要求结果中列名分别显示“平均分”、“最高分”、“最低分”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n\tpoint decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```sc```表：\n\n|sno|cno|score|point|\n|----|----|------|------|\n|1711202|0000001|53.0|0.0|\n|1711202|0000027|80.0|1.0|\n|1911201|0000001|84.0|1.0|\n|1911201|0000052|71.0|2.0|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|平均分|最高分|最低分|\n|-------|-------|-------|\n|68.50000|84.0|53.0|",
+      "content": "本题目要求编写SQL语句，\n计算``sc```表中“0000001”课程的平均分、最高分和最低分，要求结果中列名分别显示“平均分”、“最高分”、“最低分”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n\tpoint decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```sc```表：\n\n|sno|cno|score|point|\n|----|----|------|------|\n|1711202|0000001|53.0|0.0|\n|1711202|0000027|80.0|1.0|\n|1911201|0000001|84.0|1.0|\n|1911201|0000052|71.0|2.0|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|平均分|最高分|最低分|\n|-------|-------|-------|\n|68.50000|84.0|53.0|",
+      "hasStatement": true,
+      "title": "计算“0000001”课程的平均分、最高分和最低分",
+      "options": [],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2113427752702042113",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n score decimal(4,1),\n point decimal(2,1),\n PRIMARY KEY (sno,cno)\n);",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE sc (\n 平均分 decimal(8,5),\n 最高分 decimal(4,1),\n 最低分 decimal(4,1)\n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "计算“0000001”课程的平均分、最高分和最低分",
+        "content": "本题目要求编写SQL语句，\n计算``sc```表中“0000001”课程的平均分、最高分和最低分，要求结果中列名分别显示“平均分”、“最高分”、“最低分”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n\tpoint decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```sc```表：\n\n|sno|cno|score|point|\n|----|----|------|------|\n|1711202|0000001|53.0|0.0|\n|1711202|0000027|80.0|1.0|\n|1911201|0000001|84.0|1.0|\n|1911201|0000052|71.0|2.0|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|平均分|最高分|最低分|\n|-------|-------|-------|\n|68.50000|84.0|53.0|",
+        "type": "SQL_PROGRAMMING",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1378679190095454208",
+        "description": "本题目要求编写SQL语句，\n计算``sc```表中“0000001”课程的平均分、最高分和最低分，要求结果中列名分别显示“平均分”、“最高分”、“最低分”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n\tpoint decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```sc```表：\n\n|sno|cno|score|point|\n|----|----|------|------|\n|1711202|0000001|53.0|0.0|\n|1711202|0000027|80.0|1.0|\n|1911201|0000001|84.0|1.0|\n|1911201|0000052|71.0|2.0|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|平均分|最高分|最低分|\n|-------|-------|-------|\n|68.50000|84.0|53.0|",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146",
+        "number": 2,
+        "examLabel": "10-2"
+      }
+    },
+    {
+      "id": "2113427752702042114",
+      "number": 3,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，\n统计```students```表，输出各系学生的人数，要求结果中列名分别显示“系”、“人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE students (\n sno char(7) ,\n  sname char(8) NOT NULL,\n  class char(10),\n  ssex char(2),\n  bday date ,\n  bplace char(10) ,\n  IDNum char(18) ,\n  sdept char(16),\n  phone char(11),\n  PRIMARY KEY (sno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```students```表：\n\n|sno|sname|class|ssex|bday|bplace|IDNum|sdept|phone|\n|----|-------|-----|-----|-----|--------|-------|-------|-------|\n|1311104|李嘉欣|13英语1|女|1994-05-28|山西太原|330204199405281056|人文学院|15900002211|\n|1311105|苏有明|13英语1|男|1995-04-16|内蒙古包头|330204199504162036|人文学院|15900002222|\n|1711101|赵薇|17物流1|女|1999-02-11|安徽合肥|330203199902110925|经管学院|15900001177|\n|1711102|董洁|17物流1|女|1999-02-17|上海|330203199902170017|经管学院|15900001188|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|系|人数|\n|--|-----|\n|人文学院|2|\n|经管学院|2|",
+      "content": "本题目要求编写SQL语句，\n统计```students```表，输出各系学生的人数，要求结果中列名分别显示“系”、“人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE students (\n sno char(7) ,\n  sname char(8) NOT NULL,\n  class char(10),\n  ssex char(2),\n  bday date ,\n  bplace char(10) ,\n  IDNum char(18) ,\n  sdept char(16),\n  phone char(11),\n  PRIMARY KEY (sno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```students```表：\n\n|sno|sname|class|ssex|bday|bplace|IDNum|sdept|phone|\n|----|-------|-----|-----|-----|--------|-------|-------|-------|\n|1311104|李嘉欣|13英语1|女|1994-05-28|山西太原|330204199405281056|人文学院|15900002211|\n|1311105|苏有明|13英语1|男|1995-04-16|内蒙古包头|330204199504162036|人文学院|15900002222|\n|1711101|赵薇|17物流1|女|1999-02-11|安徽合肥|330203199902110925|经管学院|15900001177|\n|1711102|董洁|17物流1|女|1999-02-17|上海|330203199902170017|经管学院|15900001188|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|系|人数|\n|--|-----|\n|人文学院|2|\n|经管学院|2|",
+      "hasStatement": true,
+      "title": "统计输出各系学生的人数",
+      "options": [],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2113427752702042114",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "create table students (\n  sno char(7),\n  sname char(8) not null,\n  class char(10),\n  ssex char(2),\n  bday date,\n  bplace char(10),\n  IDNum char(18),\n  sdept char(16),\n  phone char(11),\n  primary key(sno)\n);",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "create table students (\n  系 char(16),\n  人数 int\n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "统计输出各系学生的人数",
+        "content": "本题目要求编写SQL语句，\n统计```students```表，输出各系学生的人数，要求结果中列名分别显示“系”、“人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE students (\n sno char(7) ,\n  sname char(8) NOT NULL,\n  class char(10),\n  ssex char(2),\n  bday date ,\n  bplace char(10) ,\n  IDNum char(18) ,\n  sdept char(16),\n  phone char(11),\n  PRIMARY KEY (sno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```students```表：\n\n|sno|sname|class|ssex|bday|bplace|IDNum|sdept|phone|\n|----|-------|-----|-----|-----|--------|-------|-------|-------|\n|1311104|李嘉欣|13英语1|女|1994-05-28|山西太原|330204199405281056|人文学院|15900002211|\n|1311105|苏有明|13英语1|男|1995-04-16|内蒙古包头|330204199504162036|人文学院|15900002222|\n|1711101|赵薇|17物流1|女|1999-02-11|安徽合肥|330203199902110925|经管学院|15900001177|\n|1711102|董洁|17物流1|女|1999-02-17|上海|330203199902170017|经管学院|15900001188|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|系|人数|\n|--|-----|\n|人文学院|2|\n|经管学院|2|\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1378911567786909696",
+        "description": "本题目要求编写SQL语句，\n统计```students```表，输出各系学生的人数，要求结果中列名分别显示“系”、“人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE students (\n sno char(7) ,\n  sname char(8) NOT NULL,\n  class char(10),\n  ssex char(2),\n  bday date ,\n  bplace char(10) ,\n  IDNum char(18) ,\n  sdept char(16),\n  phone char(11),\n  PRIMARY KEY (sno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```students```表：\n\n|sno|sname|class|ssex|bday|bplace|IDNum|sdept|phone|\n|----|-------|-----|-----|-----|--------|-------|-------|-------|\n|1311104|李嘉欣|13英语1|女|1994-05-28|山西太原|330204199405281056|人文学院|15900002211|\n|1311105|苏有明|13英语1|男|1995-04-16|内蒙古包头|330204199504162036|人文学院|15900002222|\n|1711101|赵薇|17物流1|女|1999-02-11|安徽合肥|330203199902110925|经管学院|15900001177|\n|1711102|董洁|17物流1|女|1999-02-17|上海|330203199902170017|经管学院|15900001188|\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n|系|人数|\n|--|-----|\n|人文学院|2|\n|经管学院|2|\n",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146",
+        "number": 3,
+        "examLabel": "10-3"
+      }
+    },
+    {
+      "id": "2113427752702042115",
+      "number": 4,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，\\\n统计出`sc`表中不及格人数超过3人的课程号和人数，要求结果中列名分别显示“课程号”、“不及格人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 38\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 44\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n| 1911211 | 0000027 | 51\\.0 | 1\\.0 |\n| 1911211 | 0000052 | 71\\.0 | 2\\.0 |\n| 1911215 | 0000027 | 58\\.0 | 1\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n| 课程号 | 不及格人数 |\n| ----- | ----- |\n| 0000027 | 4 |",
+      "content": "本题目要求编写SQL语句，\\\n统计出`sc`表中不及格人数超过3人的课程号和人数，要求结果中列名分别显示“课程号”、“不及格人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 38\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 44\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n| 1911211 | 0000027 | 51\\.0 | 1\\.0 |\n| 1911211 | 0000052 | 71\\.0 | 2\\.0 |\n| 1911215 | 0000027 | 58\\.0 | 1\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n| 课程号 | 不及格人数 |\n| ----- | ----- |\n| 0000027 | 4 |",
+      "hasStatement": true,
+      "title": "统计不及格人数超过3人的课程号和人数",
+      "options": [],
+      "images": [],
+      "score": 6,
+      "apiData": {
+        "id": "2113427752702042115",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n score decimal(4,1),\n point decimal(2,1),\n PRIMARY KEY (sno,cno)\n) ;",
+            "cases": {
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE sc (\n 课程号 char(7) ,\n 不及格人数 int\n) ;",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "统计不及格人数超过3人的课程号和人数",
+        "content": "本题目要求编写SQL语句，\\\n统计出`sc`表中不及格人数超过3人的课程号和人数，要求结果中列名分别显示“课程号”、“不及格人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 38\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 44\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n| 1911211 | 0000027 | 51\\.0 | 1\\.0 |\n| 1911211 | 0000052 | 71\\.0 | 2\\.0 |\n| 1911215 | 0000027 | 58\\.0 | 1\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n| 课程号 | 不及格人数 |\n| ----- | ----- |\n| 0000027 | 4 |\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1378971267312230400",
+        "description": "本题目要求编写SQL语句，\\\n统计出`sc`表中不及格人数超过3人的课程号和人数，要求结果中列名分别显示“课程号”、“不及格人数”。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n请在这里写定义表结构的SQL语句。例如：\n\n```\nCREATE TABLE sc (\n sno char(7) ,\n cno char(7) ,\n  score decimal(4,1),\n    point decimal(2,1),\n  PRIMARY KEY (sno,cno)\n) ;\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n`sc`表：\n\n| sno | cno | score | point |\n| ----- | ----- | ----- | ----- |\n| 1711202 | 0000011 | 53\\.0 | 0\\.0 |\n| 1711202 | 0000027 | 38\\.0 | 1\\.0 |\n| 1911201 | 0000027 | 44\\.0 | 1\\.0 |\n| 1911201 | 0000052 | 71\\.0 | 2\\.0 |\n| 1911211 | 0000027 | 51\\.0 | 1\\.0 |\n| 1911211 | 0000052 | 71\\.0 | 2\\.0 |\n| 1911215 | 0000027 | 58\\.0 | 1\\.0 |\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n| 课程号 | 不及格人数 |\n| ----- | ----- |\n| 0000027 | 4 |\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146",
+        "number": 4,
+        "examLabel": "10-4"
+      }
+    },
+    {
+      "id": "2113427752702042116",
+      "number": 5,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "本题目要求编写SQL语句，\n检索出```orders```表中每种产品的编号及总销量。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n：\n\n```\nCREATE TABLE `orders` (\n  `OrdNo` int(11),   --订单编号\n  `Sid` varchar(10), --供应商编号\n  `Eid` varchar(10), --职工编号\n  `Pid` varchar(20), --商品编号\n  `Price` decimal(10,2), --价格\n  `QTY` int(11),     --订购数量\n  `ordDate` date    --订单日期\n);\n```\n\n### 表样例\n\n\n```orders```表：\n\n| OrdNo | Sid  | Eid  | Pid  | Price | QTY  | ordDate    |\n| ----- | ---- | ---- | ---- | ----- | ---- | ---------- |\n| 1     | S01  | 0011 | P01  | 11    | 23   | 2022-02-13 |\n| 2     | S02  | 0012 | P01  | 12    | 25   | 2022-02-14 |\n| 3     | S03  | 0012 | P03  | 60    | 55   | 2022-02-14 |\n\n\n### 输出样例:\n\n|Pid|sum_QTY|\n|--|--|\n|P01|48|\n|P03|55|",
+      "content": "本题目要求编写SQL语句，\n检索出```orders```表中每种产品的编号及总销量。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n：\n\n```\nCREATE TABLE `orders` (\n  `OrdNo` int(11),   --订单编号\n  `Sid` varchar(10), --供应商编号\n  `Eid` varchar(10), --职工编号\n  `Pid` varchar(20), --商品编号\n  `Price` decimal(10,2), --价格\n  `QTY` int(11),     --订购数量\n  `ordDate` date    --订单日期\n);\n```\n\n### 表样例\n\n\n```orders```表：\n\n| OrdNo | Sid  | Eid  | Pid  | Price | QTY  | ordDate    |\n| ----- | ---- | ---- | ---- | ----- | ---- | ---------- |\n| 1     | S01  | 0011 | P01  | 11    | 23   | 2022-02-13 |\n| 2     | S02  | 0012 | P01  | 12    | 25   | 2022-02-14 |\n| 3     | S03  | 0012 | P03  | 60    | 55   | 2022-02-14 |\n\n\n### 输出样例:\n\n|Pid|sum_QTY|\n|--|--|\n|P01|48|\n|P03|55|",
+      "hasStatement": true,
+      "title": "查询每种产品的编号及总销量",
+      "options": [],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2113427752702042116",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "CREATE TABLE `orders` (\n  `OrdNo` int(11),\n  `Sid` varchar(10),\n  `Eid` varchar(10),\n  `Pid` varchar(20),\n  `Price` decimal(10,2),\n  `QTY` int(11),\n  `ordDate` date\n);",
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "CREATE TABLE `orders` (\n  `Pid` varchar(20),\n  `sum_QTY` decimal(10,2)\n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询每种产品的编号及总销量",
+        "content": "本题目要求编写SQL语句，\n检索出```orders```表中每种产品的编号及总销量。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n：\n\n```\nCREATE TABLE `orders` (\n  `OrdNo` int(11),   --订单编号\n  `Sid` varchar(10), --供应商编号\n  `Eid` varchar(10), --职工编号\n  `Pid` varchar(20), --商品编号\n  `Price` decimal(10,2), --价格\n  `QTY` int(11),     --订购数量\n  `ordDate` date    --订单日期\n);\n```\n\n### 表样例\n\n\n```orders```表：\n\n| OrdNo | Sid  | Eid  | Pid  | Price | QTY  | ordDate    |\n| ----- | ---- | ---- | ---- | ----- | ---- | ---------- |\n| 1     | S01  | 0011 | P01  | 11    | 23   | 2022-02-13 |\n| 2     | S02  | 0012 | P01  | 12    | 25   | 2022-02-14 |\n| 3     | S03  | 0012 | P03  | 60    | 55   | 2022-02-14 |\n\n\n### 输出样例:\n\n|Pid|sum_QTY|\n|--|--|\n|P01|48|\n|P03|55|",
+        "type": "SQL_PROGRAMMING",
+        "author": "浙大城院数据库课程组",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1504058439126102016",
+        "description": "本题目要求编写SQL语句，\n检索出```orders```表中每种产品的编号及总销量。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n：\n\n```\nCREATE TABLE `orders` (\n  `OrdNo` int(11),   --订单编号\n  `Sid` varchar(10), --供应商编号\n  `Eid` varchar(10), --职工编号\n  `Pid` varchar(20), --商品编号\n  `Price` decimal(10,2), --价格\n  `QTY` int(11),     --订购数量\n  `ordDate` date    --订单日期\n);\n```\n\n### 表样例\n\n\n```orders```表：\n\n| OrdNo | Sid  | Eid  | Pid  | Price | QTY  | ordDate    |\n| ----- | ---- | ---- | ---- | ----- | ---- | ---------- |\n| 1     | S01  | 0011 | P01  | 11    | 23   | 2022-02-13 |\n| 2     | S02  | 0012 | P01  | 12    | 25   | 2022-02-14 |\n| 3     | S03  | 0012 | P03  | 60    | 55   | 2022-02-14 |\n\n\n### 输出样例:\n\n|Pid|sum_QTY|\n|--|--|\n|P01|48|\n|P03|55|",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "2",
+        "number": 5,
+        "examLabel": "10-5"
+      }
+    },
+    {
+      "id": "2113434655775645696",
+      "number": 6,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "题目描述：查询学生表中学生的总人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```Student```表结构：\n\n```\ncreate table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n![image.png](~/4414ad81-72ca-49f5-80dd-83f2766ad9e1.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/27056dce-e5fb-4ac5-9074-4c2a89702aea.png)",
+      "content": "题目描述：查询学生表中学生的总人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```Student```表结构：\n\n```\ncreate table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n![image.png](~/4414ad81-72ca-49f5-80dd-83f2766ad9e1.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/27056dce-e5fb-4ac5-9074-4c2a89702aea.png)",
+      "hasStatement": true,
+      "title": "查询学生表中学生的总人数",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/4414ad81-72ca-49f5-80dd-83f2766ad9e1.png",
+          "markdownPath": "~/4414ad81-72ca-49f5-80dd-83f2766ad9e1.png",
+          "location": "content",
+          "index": 315
+        },
+        {
+          "url": "https://images.ptausercontent.com/27056dce-e5fb-4ac5-9074-4c2a89702aea.png",
+          "markdownPath": "~/27056dce-e5fb-4ac5-9074-4c2a89702aea.png",
+          "location": "content",
+          "index": 400
+        },
+        {
+          "url": "https://images.ptausercontent.com/4414ad81-72ca-49f5-80dd-83f2766ad9e1.png",
+          "markdownPath": "~/4414ad81-72ca-49f5-80dd-83f2766ad9e1.png",
+          "location": "description",
+          "index": 315
+        },
+        {
+          "url": "https://images.ptausercontent.com/27056dce-e5fb-4ac5-9074-4c2a89702aea.png",
+          "markdownPath": "~/27056dce-e5fb-4ac5-9074-4c2a89702aea.png",
+          "location": "description",
+          "index": 400
+        }
+      ],
+      "score": 5,
+      "apiData": {
+        "id": "2113434655775645696",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": " create table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );",
+            "cases": {
+              "test": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": " create table result(\n  总人数 bigint\n  );",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询学生表中学生的总人数",
+        "content": "题目描述：查询学生表中学生的总人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```Student```表结构：\n\n```\ncreate table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n![image.png](~/4414ad81-72ca-49f5-80dd-83f2766ad9e1.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/27056dce-e5fb-4ac5-9074-4c2a89702aea.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "马丰媛",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1766414567901720576",
+        "description": "题目描述：查询学生表中学生的总人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```Student```表结构：\n\n```\ncreate table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n![image.png](~/4414ad81-72ca-49f5-80dd-83f2766ad9e1.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/27056dce-e5fb-4ac5-9074-4c2a89702aea.png)\n",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1317074433044500480",
+        "number": 6,
+        "examLabel": "10-6"
+      }
+    },
+    {
+      "id": "2113434655775645697",
+      "number": 7,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "题目描述：计算C01号课程学生的考试平均成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n\n```SC```表：\n\n![image.png](~/faf97b0d-19e1-4d2e-9197-d87b56ef4c6a.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/337a8519-f3c2-4c06-8221-3b35bf6134c2.png)",
+      "content": "题目描述：计算C01号课程学生的考试平均成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n\n```SC```表：\n\n![image.png](~/faf97b0d-19e1-4d2e-9197-d87b56ef4c6a.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/337a8519-f3c2-4c06-8221-3b35bf6134c2.png)",
+      "hasStatement": true,
+      "title": "计算C01号课程学生的考试平均成绩",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/faf97b0d-19e1-4d2e-9197-d87b56ef4c6a.png",
+          "markdownPath": "~/faf97b0d-19e1-4d2e-9197-d87b56ef4c6a.png",
+          "location": "content",
+          "index": 380
+        },
+        {
+          "url": "https://images.ptausercontent.com/337a8519-f3c2-4c06-8221-3b35bf6134c2.png",
+          "markdownPath": "~/337a8519-f3c2-4c06-8221-3b35bf6134c2.png",
+          "location": "content",
+          "index": 465
+        },
+        {
+          "url": "https://images.ptausercontent.com/faf97b0d-19e1-4d2e-9197-d87b56ef4c6a.png",
+          "markdownPath": "~/faf97b0d-19e1-4d2e-9197-d87b56ef4c6a.png",
+          "location": "description",
+          "index": 380
+        },
+        {
+          "url": "https://images.ptausercontent.com/337a8519-f3c2-4c06-8221-3b35bf6134c2.png",
+          "markdownPath": "~/337a8519-f3c2-4c06-8221-3b35bf6134c2.png",
+          "location": "description",
+          "index": 465
+        }
+      ],
+      "score": 5,
+      "apiData": {
+        "id": "2113434655775645697",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": " create table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );",
+            "cases": {
+              "test": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": " create table  result( \n  平均成绩 float\n  );",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "计算C01号课程学生的考试平均成绩",
+        "content": "题目描述：计算C01号课程学生的考试平均成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n\n```SC```表：\n\n![image.png](~/faf97b0d-19e1-4d2e-9197-d87b56ef4c6a.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/337a8519-f3c2-4c06-8221-3b35bf6134c2.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "马丰媛",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1766418934755168256",
+        "description": "题目描述：计算C01号课程学生的考试平均成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n\n```SC```表：\n\n![image.png](~/faf97b0d-19e1-4d2e-9197-d87b56ef4c6a.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/337a8519-f3c2-4c06-8221-3b35bf6134c2.png)\n",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1317074433044500480",
+        "number": 7,
+        "examLabel": "10-7"
+      }
+    },
+    {
+      "id": "2113434655775645698",
+      "number": 8,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "题目描述：求各个课程号及相应的选课人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/11d296dd-1e32-48dc-b971-379f1044395b.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/1e0d146d-968a-4b6f-8b37-a579a4c5ee3c.png)",
+      "content": "题目描述：求各个课程号及相应的选课人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/11d296dd-1e32-48dc-b971-379f1044395b.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/1e0d146d-968a-4b6f-8b37-a579a4c5ee3c.png)",
+      "hasStatement": true,
+      "title": "求各个课程号及相应的选课人数",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/11d296dd-1e32-48dc-b971-379f1044395b.png",
+          "markdownPath": "~/11d296dd-1e32-48dc-b971-379f1044395b.png",
+          "location": "content",
+          "index": 398
+        },
+        {
+          "url": "https://images.ptausercontent.com/1e0d146d-968a-4b6f-8b37-a579a4c5ee3c.png",
+          "markdownPath": "~/1e0d146d-968a-4b6f-8b37-a579a4c5ee3c.png",
+          "location": "content",
+          "index": 483
+        },
+        {
+          "url": "https://images.ptausercontent.com/11d296dd-1e32-48dc-b971-379f1044395b.png",
+          "markdownPath": "~/11d296dd-1e32-48dc-b971-379f1044395b.png",
+          "location": "description",
+          "index": 398
+        },
+        {
+          "url": "https://images.ptausercontent.com/1e0d146d-968a-4b6f-8b37-a579a4c5ee3c.png",
+          "markdownPath": "~/1e0d146d-968a-4b6f-8b37-a579a4c5ee3c.png",
+          "location": "description",
+          "index": 483
+        }
+      ],
+      "score": 5,
+      "apiData": {
+        "id": "2113434655775645698",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": " create table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8),\n  cno char(10),\n  tno char(15),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );",
+            "cases": {
+              "test": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": " create table  result( \n  cno char(10),\n  人数 bigint\n  );",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "求各个课程号及相应的选课人数",
+        "content": "题目描述：求各个课程号及相应的选课人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/11d296dd-1e32-48dc-b971-379f1044395b.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/1e0d146d-968a-4b6f-8b37-a579a4c5ee3c.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "马丰媛",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1766420189716094976",
+        "description": "题目描述：求各个课程号及相应的选课人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/11d296dd-1e32-48dc-b971-379f1044395b.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/1e0d146d-968a-4b6f-8b37-a579a4c5ee3c.png)\n",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1317074433044500480",
+        "number": 8,
+        "examLabel": "10-8"
+      }
+    },
+    {
+      "id": "2113434655775645699",
+      "number": 9,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "题目描述：统计每个专业的学生人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```Student```表结构的SQL语句：\n\n```\ncreate table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n![image.png](~/bb7b9da3-74d9-4f9b-8414-2968b5a444df.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/93f4a384-3af4-4266-8c9d-ee24da3ed916.png)",
+      "content": "题目描述：统计每个专业的学生人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```Student```表结构的SQL语句：\n\n```\ncreate table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n![image.png](~/bb7b9da3-74d9-4f9b-8414-2968b5a444df.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/93f4a384-3af4-4266-8c9d-ee24da3ed916.png)",
+      "hasStatement": true,
+      "title": "统计每个专业的学生人数",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/bb7b9da3-74d9-4f9b-8414-2968b5a444df.png",
+          "markdownPath": "~/bb7b9da3-74d9-4f9b-8414-2968b5a444df.png",
+          "location": "content",
+          "index": 320
+        },
+        {
+          "url": "https://images.ptausercontent.com/93f4a384-3af4-4266-8c9d-ee24da3ed916.png",
+          "markdownPath": "~/93f4a384-3af4-4266-8c9d-ee24da3ed916.png",
+          "location": "content",
+          "index": 405
+        },
+        {
+          "url": "https://images.ptausercontent.com/bb7b9da3-74d9-4f9b-8414-2968b5a444df.png",
+          "markdownPath": "~/bb7b9da3-74d9-4f9b-8414-2968b5a444df.png",
+          "location": "description",
+          "index": 320
+        },
+        {
+          "url": "https://images.ptausercontent.com/93f4a384-3af4-4266-8c9d-ee24da3ed916.png",
+          "markdownPath": "~/93f4a384-3af4-4266-8c9d-ee24da3ed916.png",
+          "location": "description",
+          "index": 405
+        }
+      ],
+      "score": 5,
+      "apiData": {
+        "id": "2113434655775645699",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": " create table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );",
+            "cases": {
+              "test": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": " create table result(\n  major varchar(20),\n  人数 bigint\n  );",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": true,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "统计每个专业的学生人数",
+        "content": "题目描述：统计每个专业的学生人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```Student```表结构的SQL语句：\n\n```\ncreate table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n![image.png](~/bb7b9da3-74d9-4f9b-8414-2968b5a444df.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/93f4a384-3af4-4266-8c9d-ee24da3ed916.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "马丰媛",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1766425760351612928",
+        "description": "题目描述：统计每个专业的学生人数。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```Student```表结构的SQL语句：\n\n```\ncreate table Student(\n  sno char(8)  primary key,\n  sname varchar(10) not null,\n  gender char(2) check(gender='男' or gender='女'),\n  birthdate  date,\n  major varchar(20)  default '软件工程'\n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```Student```表：\n\n![image.png](~/bb7b9da3-74d9-4f9b-8414-2968b5a444df.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/93f4a384-3af4-4266-8c9d-ee24da3ed916.png)\n",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1317074433044500480",
+        "number": 9,
+        "examLabel": "10-9"
+      }
+    },
+    {
+      "id": "2113434655775645700",
+      "number": 10,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "题目描述：查询选修了3门及3门以上课程的学生学号、平均成绩和修课门数，并用中文显示列名。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/48edb4aa-8608-4c46-b981-4a6f6470f732.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/f1bc0961-116d-4d10-8cd3-7ee25d5bb667.png)",
+      "content": "题目描述：查询选修了3门及3门以上课程的学生学号、平均成绩和修课门数，并用中文显示列名。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/48edb4aa-8608-4c46-b981-4a6f6470f732.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/f1bc0961-116d-4d10-8cd3-7ee25d5bb667.png)",
+      "hasStatement": true,
+      "title": "查询选修了3门及3门以上课程的学生学号、平均成绩和修课门数，并用中文显示列名",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/48edb4aa-8608-4c46-b981-4a6f6470f732.png",
+          "markdownPath": "~/48edb4aa-8608-4c46-b981-4a6f6470f732.png",
+          "location": "content",
+          "index": 422
+        },
+        {
+          "url": "https://images.ptausercontent.com/f1bc0961-116d-4d10-8cd3-7ee25d5bb667.png",
+          "markdownPath": "~/f1bc0961-116d-4d10-8cd3-7ee25d5bb667.png",
+          "location": "content",
+          "index": 507
+        },
+        {
+          "url": "https://images.ptausercontent.com/48edb4aa-8608-4c46-b981-4a6f6470f732.png",
+          "markdownPath": "~/48edb4aa-8608-4c46-b981-4a6f6470f732.png",
+          "location": "description",
+          "index": 422
+        },
+        {
+          "url": "https://images.ptausercontent.com/f1bc0961-116d-4d10-8cd3-7ee25d5bb667.png",
+          "markdownPath": "~/f1bc0961-116d-4d10-8cd3-7ee25d5bb667.png",
+          "location": "description",
+          "index": 507
+        }
+      ],
+      "score": 6,
+      "apiData": {
+        "id": "2113434655775645700",
+        "label": "",
+        "score": 6,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": " create table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8),\n  cno char(10),\n  tno char(15),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );",
+            "cases": {
+              "test": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "  create table  result( \n  学号 char(8),\n  平均成绩 float,\n  修课门数 bigint\n  );",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "查询选修了3门及3门以上课程的学生学号、平均成绩和修课门数，并用中文显示列名",
+        "content": "题目描述：查询选修了3门及3门以上课程的学生学号、平均成绩和修课门数，并用中文显示列名。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/48edb4aa-8608-4c46-b981-4a6f6470f732.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/f1bc0961-116d-4d10-8cd3-7ee25d5bb667.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "马丰媛",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1766429729882836992",
+        "description": "题目描述：查询选修了3门及3门以上课程的学生学号、平均成绩和修课门数，并用中文显示列名。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/48edb4aa-8608-4c46-b981-4a6f6470f732.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/f1bc0961-116d-4d10-8cd3-7ee25d5bb667.png)\n",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1317074433044500480",
+        "number": 10,
+        "examLabel": "10-10"
+      }
+    },
+    {
+      "id": "2113434655775645701",
+      "number": 11,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "题目描述：计算21012101号学生的修课总成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/9daf7f8f-96df-42ee-bda1-8c6e75f15cc1.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/b04c42c2-2654-402d-8240-130020c50c8b.png)",
+      "content": "题目描述：计算21012101号学生的修课总成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/9daf7f8f-96df-42ee-bda1-8c6e75f15cc1.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/b04c42c2-2654-402d-8240-130020c50c8b.png)",
+      "hasStatement": true,
+      "title": "计算21012101号学生的修课总成绩",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/9daf7f8f-96df-42ee-bda1-8c6e75f15cc1.png",
+          "markdownPath": "~/9daf7f8f-96df-42ee-bda1-8c6e75f15cc1.png",
+          "location": "content",
+          "index": 403
+        },
+        {
+          "url": "https://images.ptausercontent.com/b04c42c2-2654-402d-8240-130020c50c8b.png",
+          "markdownPath": "~/b04c42c2-2654-402d-8240-130020c50c8b.png",
+          "location": "content",
+          "index": 488
+        },
+        {
+          "url": "https://images.ptausercontent.com/9daf7f8f-96df-42ee-bda1-8c6e75f15cc1.png",
+          "markdownPath": "~/9daf7f8f-96df-42ee-bda1-8c6e75f15cc1.png",
+          "location": "description",
+          "index": 403
+        },
+        {
+          "url": "https://images.ptausercontent.com/b04c42c2-2654-402d-8240-130020c50c8b.png",
+          "markdownPath": "~/b04c42c2-2654-402d-8240-130020c50c8b.png",
+          "location": "description",
+          "index": 488
+        }
+      ],
+      "score": 5,
+      "apiData": {
+        "id": "2113434655775645701",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": "create table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8),\n  cno char(10),\n  tno char(15),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );",
+            "cases": {
+              "test": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "create table result( \n  sno char(8),\n  总成绩 decimal  \n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "计算21012101号学生的修课总成绩",
+        "content": "题目描述：计算21012101号学生的修课总成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/9daf7f8f-96df-42ee-bda1-8c6e75f15cc1.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/b04c42c2-2654-402d-8240-130020c50c8b.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "马丰媛",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1766431057325551616",
+        "description": "题目描述：计算21012101号学生的修课总成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n请在这里给出上述表结构对应的表样例。例如\n\n```SC```表：\n\n![image.png](~/9daf7f8f-96df-42ee-bda1-8c6e75f15cc1.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/b04c42c2-2654-402d-8240-130020c50c8b.png)\n",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1317074433044500480",
+        "number": 11,
+        "examLabel": "10-11"
+      }
+    },
+    {
+      "id": "2113434655779840000",
+      "number": 12,
+      "type": "SQL_PROGRAMMING",
+      "prompt": "题目描述：计算C01号课程学生的考试平均成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n\n```SC```表：\n\n![image.png](~/7787350e-eabe-40f4-9dd6-50cb53724660.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/b86ffc02-93c2-4d26-9c3a-c2ad516bc832.png)",
+      "content": "题目描述：计算C01号课程学生的考试平均成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n\n```SC```表：\n\n![image.png](~/7787350e-eabe-40f4-9dd6-50cb53724660.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/b86ffc02-93c2-4d26-9c3a-c2ad516bc832.png)",
+      "hasStatement": true,
+      "title": "计算C01号课程学生的考试平均成绩",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/7787350e-eabe-40f4-9dd6-50cb53724660.png",
+          "markdownPath": "~/7787350e-eabe-40f4-9dd6-50cb53724660.png",
+          "location": "content",
+          "index": 380
+        },
+        {
+          "url": "https://images.ptausercontent.com/b86ffc02-93c2-4d26-9c3a-c2ad516bc832.png",
+          "markdownPath": "~/b86ffc02-93c2-4d26-9c3a-c2ad516bc832.png",
+          "location": "content",
+          "index": 465
+        },
+        {
+          "url": "https://images.ptausercontent.com/7787350e-eabe-40f4-9dd6-50cb53724660.png",
+          "markdownPath": "~/7787350e-eabe-40f4-9dd6-50cb53724660.png",
+          "location": "description",
+          "index": 380
+        },
+        {
+          "url": "https://images.ptausercontent.com/b86ffc02-93c2-4d26-9c3a-c2ad516bc832.png",
+          "markdownPath": "~/b86ffc02-93c2-4d26-9c3a-c2ad516bc832.png",
+          "location": "description",
+          "index": 465
+        }
+      ],
+      "score": 5,
+      "apiData": {
+        "id": "2113434655779840000",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "solutionVisible": true,
+          "sqlProgrammingProblemConfig": {
+            "createTableStatements": " create table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8),\n  cno char(10),\n  tno char(15),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );",
+            "cases": {
+              "test": {
+                "hint": "",
+                "showHint": false,
+                "score": 5,
+                "isPublic": false
+              }
+            },
+            "timeLimit": 400,
+            "codeSizeLimit": 16,
+            "resultTableDefinition": "  create table result( \n    平均成绩 float\n);",
+            "dialect": "MYSQL",
+            "ignoreResultSetOrder": false,
+            "showDiff": false,
+            "sqlProblemType": "QUERY",
+            "permissions": [
+              "SELECT"
+            ]
+          },
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "计算C01号课程学生的考试平均成绩",
+        "content": "题目描述：计算C01号课程学生的考试平均成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n\n```SC```表：\n\n![image.png](~/7787350e-eabe-40f4-9dd6-50cb53724660.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/b86ffc02-93c2-4d26-9c3a-c2ad516bc832.png)\n",
+        "type": "SQL_PROGRAMMING",
+        "author": "马丰媛",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2113427752458776576",
+        "problemId": "1766433061988941824",
+        "description": "题目描述：计算C01号课程学生的考试平均成绩。\n\n提示：请使用SELECT语句作答。\n\n### 表结构:\n\n```SC```表结构的SQL语句：\n\n```\ncreate table  SC( \n  scid  int auto_increment  primary key,\n  sno char(8)   references Student(sno),\n  cno char(10)  references Course(cno),\n  tno char(15)  references Teacher(tno),\n  grade int check(grade>=0 and grade<=100),\n  gpoint  decimal(2,1), \n  memo  text(100) \n  );\n```\n\n### 表样例\n\n\n```SC```表：\n\n![image.png](~/7787350e-eabe-40f4-9dd6-50cb53724660.png)\n\n### 输出样例:\n\n请在这里给出输出样例。例如：\n\n![image.png](~/b86ffc02-93c2-4d26-9c3a-c2ad516bc832.png)\n",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1317074433044500480",
+        "number": 12,
+        "examLabel": "10-12"
+      }
+    }
+  ]
+}

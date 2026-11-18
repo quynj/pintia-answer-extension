@@ -1,3 +1,114 @@
 {
-  "banks": []
+  "banks": [
+    {
+      "id": "mysql-2101644573819555840",
+      "questionBankUrl": "mysql/MySQL数据库理论2026.9-题库.json",
+      "answerUrl": "mysql/MySQL数据库理论2026.9-我的答案.json"
+    },
+    {
+      "id": "mysql-2103825342731706368",
+      "questionBankUrl": "mysql/第四次课-表-题库.json",
+      "answerUrl": "mysql/第四次课-表-我的答案.json"
+    },
+    {
+      "id": "mysql-2103830998473838592",
+      "questionBankUrl": "mysql/第五次课-约束-题库.json",
+      "answerUrl": "mysql/第五次课-约束-我的答案.json"
+    },
+    {
+      "id": "mysql-2109131391876833280",
+      "questionBankUrl": "mysql/第六次课-约束二-题库.json",
+      "answerUrl": "mysql/第六次课-约束二-我的答案.json"
+    },
+    {
+      "id": "mysql-2111651757834321920",
+      "questionBankUrl": "mysql/第七次课MySQL-增删改-题库.json",
+      "answerUrl": "mysql/第七次课MySQL-增删改-我的答案.json"
+    },
+    {
+      "id": "mysql-2111788052367753216",
+      "questionBankUrl": "mysql/第八次课MySQL-单表查询-题库.json",
+      "answerUrl": "mysql/第八次课MySQL-单表查询-我的答案.json"
+    },
+    {
+      "id": "mysql-2113427752458776576",
+      "questionBankUrl": "mysql/第九次课MySQL-聚合与分组-题库.json",
+      "answerUrl": "mysql/第九次课MySQL-聚合与分组-我的答案.json"
+    },
+    {
+      "id": "mysql-2116850798953381888",
+      "questionBankUrl": "mysql/第十次课MySQL-排序和限量-题库.json",
+      "answerUrl": "mysql/第十次课MySQL-排序和限量-我的答案.json"
+    },
+    {
+      "id": "mysql-2116883082460942336",
+      "questionBankUrl": "mysql/第十一次课MySQL-连接查询-题库.json",
+      "answerUrl": "mysql/第十一次课MySQL-连接查询-我的答案.json"
+    },
+    {
+      "id": "mysql-2118177986009796608",
+      "questionBankUrl": "mysql/第十二次课MySQL-子查询-题库.json",
+      "answerUrl": "mysql/第十二次课MySQL-子查询-我的答案.json"
+    },
+    {
+      "id": "java-2102669809765126144",
+      "questionBankUrl": "java/26秋《程序设计基础》作业1（Chap1）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》作业1（Chap1）-我的答案.json"
+    },
+    {
+      "id": "java-2102670384661585920",
+      "questionBankUrl": "java/26秋《程序设计基础》作业2（Chap2.1-2.2.2数据类型）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》作业2（Chap2.1-2.2.2数据类型）-我的答案.json"
+    },
+    {
+      "id": "java-2108408249055199232",
+      "questionBankUrl": "java/26秋《程序设计基础》作业3（Chap2.2.3-2.3运算符）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》作业3（Chap2.2.3-2.3运算符）-我的答案.json"
+    },
+    {
+      "id": "java-2111003189616279552",
+      "questionBankUrl": "java/26秋《程序设计基础》作业4（Chap2.4 if条件语句）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》作业4（Chap2.4 if条件语句）-我的答案.json"
+    },
+    {
+      "id": "java-2110999196227829760",
+      "questionBankUrl": "java/26秋《程序设计基础》编程练习1（Chap2.4条件语句）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》编程练习1（Chap2.4条件语句）-我的答案.json"
+    },
+    {
+      "id": "java-2113477447335927808",
+      "questionBankUrl": "java/26秋《程序设计基础》作业5（Chap2.5 switch-while-do while）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》作业5（Chap2.5 switch-while-do while）-我的答案.json"
+    },
+    {
+      "id": "java-2116061869039824896",
+      "questionBankUrl": "java/26秋《程序设计基础》作业6（Chap2.5for+Chap2.6方法）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》作业6（Chap2.5for+Chap2.6方法）-我的答案.json"
+    },
+    {
+      "id": "java-2116068004593549312",
+      "questionBankUrl": "java/26秋《程序设计基础》编程练习2（控制语句）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》编程练习2（控制语句）-我的答案.json"
+    },
+    {
+      "id": "java-2116065122293002240",
+      "questionBankUrl": "java/26秋《程序设计基础》编程练习3（控制语句）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》编程练习3（控制语句）-我的答案.json"
+    },
+    {
+      "id": "java-2116074122480865280",
+      "questionBankUrl": "java/26秋《程序设计基础》编程练习4（方法）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》编程练习4（方法）-我的答案.json"
+    },
+    {
+      "id": "java-2121134919663448064",
+      "questionBankUrl": "java/26秋《程序设计基础》作业7（Chap2.6数组）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》作业7（Chap2.6数组）-我的答案.json"
+    },
+    {
+      "id": "java-2121133349609480192",
+      "questionBankUrl": "java/26秋《程序设计基础》编程练习5（数组）-题库.json",
+      "answerUrl": "java/26秋《程序设计基础》编程练习5（数组）-我的答案.json"
+    }
+  ]
 }

@@ -1,0 +1,33 @@
+{
+  "problemSetId": "2116074122480865280",
+  "answers": [
+    {
+      "problemId": "2116074833226649600",
+      "questionNumber": 1,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main {\n    public static boolean isPerfect(int n) {\n        if (n <= 1) {\n            return false;\n        }\n        int sum = 0;\n        for (int i = 1; i <= n / 2; i++) {\n            if (n % i == 0) {\n                sum += i;\n            }\n        }\n        return sum == n;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int n = sc.nextInt();\n        boolean result = isPerfect(n);\n        if (result) {\n            System.out.println(n + \":Yes\");\n        } else {\n            System.out.println(n + \":No\");\n        }\n        sc.close();\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116074833226649601",
+      "questionNumber": 2,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\npublic class Main {\n    public boolean inCircle(int x, int y, int r) {\n        return x * x + y * y <= r * r;\n    }\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int x = sc.nextInt();\n        int y = sc.nextInt();\n        int r = sc.nextInt();\n\n        Main main = new Main();\n        if (main.inCircle(x, y, r)) {\n            System.out.println(\"yes\");\n        } else {\n            System.out.println(\"no\");\n        }\n        sc.close();\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116074833226649602",
+      "questionNumber": 3,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\nclass Tool {\n    public boolean isDaffodil(int num) {\n        int a = num / 100;\n        int b = num / 10 % 10;\n        int c = num % 10;\n        return a * a * a + b * b * b + c * c * c == num;\n    }\n}\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int num = sc.nextInt();\n        Tool tool = new Tool();\n\n        if (num < 100 || num > 999) {\n            System.out.println(\"error\");\n        } else if (tool.isDaffodil(num)) {\n            System.out.println(\"yes\");\n        } else {\n            System.out.println(\"no\");\n        }\n\n        for (int i = 100; i <= 999; i++) {\n            if (tool.isDaffodil(i)) {\n                System.out.println(i);\n            }\n        }\n        sc.close();\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116074833226649603",
+      "questionNumber": 4,
+      "type": "PROGRAMMING",
+      "answer": "import java.util.Scanner;\nclass Tools {\n    public int getAvg(int a, int b, int c) {\n        return (a + b + c) / 3;\n    }\n\n    public void showAvg(int a, int b, int c) {\n        System.out.println(\"Your average score=\" + getAvg(a, b, c));\n    }\n}\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        int a = sc.nextInt();\n        int b = sc.nextInt();\n        int c = sc.nextInt();\n\n        Tools tools = new Tools();\n        tools.showAvg(a, b, c);\n        sc.close();\n    }\n}",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

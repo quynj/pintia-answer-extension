@@ -1,0 +1,744 @@
+{
+  "title": "第四次课-表",
+  "problemSetName": "第四次课-表",
+  "problemSetId": "2103825342731706368",
+  "examId": "2104415045377966080",
+  "source": "https://pintia.cn/problem-sets/2103825342731706368",
+  "extraction": "api",
+  "exportedAt": "2026-11-15T06:24:41.091Z",
+  "summaries": {
+    "MULTIPLE_CHOICE": {
+      "total": 6,
+      "totalScore": 12
+    },
+    "FILL_IN_THE_BLANK": {
+      "total": 6,
+      "totalScore": 18
+    },
+    "SUBJECTIVE": {
+      "total": 1,
+      "totalScore": 10
+    }
+  },
+  "questions": [
+    {
+      "id": "2103830048933732352",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "这是一个单选题的样例。答案为C，分值为2分。",
+      "content": "这是一个单选题的样例。答案为C，分值为2分。",
+      "title": "使用ALTER TABLE语句修改表结构时，以下哪个关键字用于添加新列？",
+      "options": [
+        "MODIFY",
+        "CHANGE",
+        "DROP",
+        "ADD"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2103830048933732352",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "MODIFY",
+              "CHANGE",
+              "DROP",
+              "ADD"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用ALTER TABLE语句修改表结构时，以下哪个关键字用于添加新列？",
+        "content": "这是一个单选题的样例。答案为C，分值为2分。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1965573677284208640",
+        "description": "使用ALTER TABLE语句修改表结构时，以下哪个关键字用于添加新列？",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2103830590208663552",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "表的每一行叫做记录或（）。 @[](2) A. 元组 B. 域 C. 属性 D. 分量",
+      "content": "表的每一行叫做记录或（）。   @[](2)\n\nA. 元组\nB. 域\nC. 属性\nD. 分量",
+      "title": "表的每一行叫做记录或（）。   ",
+      "options": [
+        "元组",
+        "域",
+        "属性",
+        "分量"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2103830590208663552",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "元组",
+              "域",
+              "属性",
+              "分量"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "表的每一行叫做记录或（）。   ",
+        "content": "表的每一行叫做记录或（）。   @[](2)\n\nA. 元组\nB. 域\nC. 属性\nD. 分量\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "黄淑伟",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1230752225323798528",
+        "description": "表的每一行叫做记录或（）。",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2103830590208663553",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "表的每一列叫做字段或（）。 @[](2) A. 元组 B. 域 C. 属性 D. 分量",
+      "content": "表的每一列叫做字段或（）。   @[](2)\n\nA. 元组\nB. 域\nC. 属性\nD. 分量",
+      "title": "表的每一列叫做字段或（）。   ",
+      "options": [
+        "元组",
+        "域",
+        "属性",
+        "分量"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2103830590208663553",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "元组",
+              "域",
+              "属性",
+              "分量"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "表的每一列叫做字段或（）。   ",
+        "content": "表的每一列叫做字段或（）。   @[](2)\n\nA. 元组\nB. 域\nC. 属性\nD. 分量\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "黄淑伟",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1230752391351128064",
+        "description": "表的每一列叫做字段或（）。",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2103830590208663554",
+      "number": 4,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列SQL语句中，修改表结构的是（ ） 。",
+      "content": "下列SQL语句中，修改表结构的是（　     　） 。",
+      "title": "下列SQL语句中，修改表结构的是 ____  。",
+      "options": [
+        "ALTER",
+        "CREATE",
+        "UPDATE",
+        "INSERT"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2103830590208663554",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "ALTER",
+              "CREATE",
+              "UPDATE",
+              "INSERT"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列SQL语句中，修改表结构的是 ____  。",
+        "content": "下列SQL语句中，修改表结构的是（　     　） 。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘益玲",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1623125552393703424",
+        "description": "下列SQL语句中，修改表结构的是（　     　） 。",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "46"
+      }
+    },
+    {
+      "id": "2103830590208663555",
+      "number": 5,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "选项中删除表的语句是：",
+      "content": "选项中删除表的语句是：",
+      "title": "选项中删除表的语句是：",
+      "options": [
+        "DROP",
+        "ALTER",
+        "UPDATE",
+        "DELETE"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2103830590208663555",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "DROP",
+              "ALTER",
+              "UPDATE",
+              "DELETE"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "选项中删除表的语句是：",
+        "content": "选项中删除表的语句是：",
+        "type": "MULTIPLE_CHOICE",
+        "author": "冰冰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1710476008467320832",
+        "description": "选项中删除表的语句是：",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "8"
+      }
+    },
+    {
+      "id": "2104175581275688960",
+      "number": 6,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "72 在.SQL中，用于指定表结构查看的关键字是（ ）。",
+      "content": "72 在.SQL中，用于指定表结构查看的关键字是（ ）。",
+      "title": "72 在.SQL中，用于指定表结构查看的关键字是 ____ 。",
+      "options": [
+        "SHOW TABLE",
+        "DISPLAY TABLE",
+        "DESCRIBE TABLE",
+        "DESC TABLE"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2104175581275688960",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": true,
+          "answerVisible": true,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "SHOW TABLE",
+              "DISPLAY TABLE",
+              "DESCRIBE TABLE",
+              "DESC TABLE"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "72 在.SQL中，用于指定表结构查看的关键字是 ____ 。",
+        "content": "72 在.SQL中，用于指定表结构查看的关键字是（ ）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "重庆财经-cyz",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1932986574279299072",
+        "description": "72 在.SQL中，用于指定表结构查看的关键字是（ ）。",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1590982498048397312"
+      }
+    },
+    {
+      "id": "2103827582011891712",
+      "number": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "创建course表（不包括约束），请根据图中信息补充SQL语句： ![image.png](~/6bdc321f-a90d-4870-80b6-e332abc75929.png \"image.png\") CREATE TABLE course ( cno CHAR(7) NOT NULL, cname NOT NULL, ccredit NOT NULL, cpno CHAR(7) NULL ); (注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格） 填空位置：________、________",
+      "content": "创建course表（不包括约束），请根据图中信息补充SQL语句：\n\n![image.png](~/6bdc321f-a90d-4870-80b6-e332abc75929.png \"image.png\")\n\nCREATE TABLE course (\n\n    cno CHAR(7) NOT NULL,\n\n    cname  NOT NULL,\n\n    ccredit  NOT NULL,\n\n    cpno CHAR(7) NULL\n\n);\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）\n\n填空位置：________、________",
+      "title": "使用SQL语句创建course表（不包括约束）。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "markdownPath": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "location": "content",
+          "index": 82
+        },
+        {
+          "url": "https://images.ptausercontent.com/6bdc321f-a90d-4870-80b6-e332abc75929.png",
+          "markdownPath": "~/6bdc321f-a90d-4870-80b6-e332abc75929.png",
+          "location": "description",
+          "index": 34
+        }
+      ],
+      "score": 4,
+      "apiData": {
+        "id": "2103827582011891712",
+        "label": "",
+        "score": 4,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2
+            ],
+            "blankLength": 49,
+            "blanks": [
+              {
+                "index": 164,
+                "multipleLine": false,
+                "length": 12,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 188,
+                "multipleLine": false,
+                "length": 16,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用SQL语句创建course表（不包括约束）。",
+        "content": "这是一道填空题模板，选中后，点击上方编辑器中 [添加填空] 按钮即可添加填空，被选中的文字将会被设为填空的默认答案，可在下方设置填空的答案及分数。\n\n添加填空按钮：![add-blank-inline.png](https://static.pintia.cn/assets/problems/add-blank-inline.png)\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1965585266913718272",
+        "description": "创建course表（不包括约束），请根据图中信息补充SQL语句：\n\n![image.png](~/6bdc321f-a90d-4870-80b6-e332abc75929.png \"image.png\")\n\nCREATE TABLE course (\n\n    cno CHAR(7) NOT NULL,\n\n    cname  NOT NULL,\n\n    ccredit  NOT NULL,\n\n    cpno CHAR(7) NULL\n\n);\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2103833447381131264",
+      "number": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "填空题模板使用SQL语句为学生表增加一个名为enrollment、数据类型为DATE的列。 <br> ALTER TABLE students ADD DATE; (注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格） 填空位置：________",
+      "content": "填空题模板使用SQL语句为学生表增加一个名为enrollment、数据类型为DATE的列。\n\n<br>\n\nALTER TABLE students\n\nADD  DATE;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）\n\n填空位置：________",
+      "title": "填空题模板使用SQL语句为学生表增加一个名为enrollment、数据类型为DATE的列",
+      "options": [],
+      "images": [
+        {
+          "url": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "markdownPath": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "location": "content",
+          "index": 82
+        }
+      ],
+      "score": 2,
+      "apiData": {
+        "id": "2103833447381131264",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2
+            ],
+            "blankLength": 93,
+            "blanks": [
+              {
+                "index": 79,
+                "multipleLine": false,
+                "length": 17,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "填空题模板使用SQL语句为学生表增加一个名为enrollment、数据类型为DATE的列",
+        "content": "这是一道填空题模板，选中后，点击上方编辑器中 [添加填空] 按钮即可添加填空，被选中的文字将会被设为填空的默认答案，可在下方设置填空的答案及分数。\n\n添加填空按钮：![add-blank-inline.png](https://static.pintia.cn/assets/problems/add-blank-inline.png)\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1965613880925368320",
+        "description": "填空题模板使用SQL语句为学生表增加一个名为enrollment、数据类型为DATE的列。\n\n<br>\n\nALTER TABLE students\n\nADD  DATE;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2103833447381131265",
+      "number": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "使用SQL语句将students表的sdept字段的长度修改为20，该字段原有设为CHAR(16)。 <br> ALTER TABLE students COLUMN sdept ; (注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格） 填空位置：________、________",
+      "content": "使用SQL语句将students表的sdept字段的长度修改为20，该字段原有设为CHAR(16)。\n\n<br>\n\nALTER TABLE students\n\n COLUMN sdept ;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）\n\n填空位置：________、________",
+      "title": "使用SQL语句将students表的sdept字段的长度修改为20，该字段原有设为CHAR(16)。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "markdownPath": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "location": "content",
+          "index": 82
+        }
+      ],
+      "score": 4,
+      "apiData": {
+        "id": "2103833447381131265",
+        "label": "",
+        "score": 4,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2
+            ],
+            "blankLength": 37,
+            "blanks": [
+              {
+                "index": 80,
+                "multipleLine": false,
+                "length": 6,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 94,
+                "multipleLine": false,
+                "length": 9,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用SQL语句将students表的sdept字段的长度修改为20，该字段原有设为CHAR(16)。",
+        "content": "这是一道填空题模板，选中后，点击上方编辑器中 [添加填空] 按钮即可添加填空，被选中的文字将会被设为填空的默认答案，可在下方设置填空的答案及分数。\n\n添加填空按钮：![add-blank-inline.png](https://static.pintia.cn/assets/problems/add-blank-inline.png)\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1965614522238644224",
+        "description": "使用SQL语句将students表的sdept字段的长度修改为20，该字段原有设为CHAR(16)。\n\n<br>\n\nALTER TABLE students\n\n COLUMN sdept ;\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2103833447381131266",
+      "number": 4,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "使用SQL语句将students表的speciality字段改名为spec。 <br> ALTER TABLE students COLUMN VARCHAR(20); (注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格） 填空位置：________、________",
+      "content": "使用SQL语句将students表的speciality字段改名为spec。\n\n<br>\n\nALTER TABLE students\n\n COLUMN  VARCHAR(20);\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）\n\n填空位置：________、________",
+      "title": "使用SQL语句将students表的speciality字段改名为spec。",
+      "options": [],
+      "images": [
+        {
+          "url": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "markdownPath": "https://static.pintia.cn/assets/problems/add-blank-inline.png",
+          "location": "content",
+          "index": 82
+        }
+      ],
+      "score": 4,
+      "apiData": {
+        "id": "2103833447381131266",
+        "label": "",
+        "score": 4,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2,
+              2
+            ],
+            "blankLength": 31,
+            "blanks": [
+              {
+                "index": 68,
+                "multipleLine": false,
+                "length": 6,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              },
+              {
+                "index": 76,
+                "multipleLine": false,
+                "length": 15,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用SQL语句将students表的speciality字段改名为spec。",
+        "content": "这是一道填空题模板，选中后，点击上方编辑器中 [添加填空] 按钮即可添加填空，被选中的文字将会被设为填空的默认答案，可在下方设置填空的答案及分数。\n\n添加填空按钮：![add-blank-inline.png](https://static.pintia.cn/assets/problems/add-blank-inline.png)\n",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "邵煜",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1965614898677432320",
+        "description": "使用SQL语句将students表的speciality字段改名为spec。\n\n<br>\n\nALTER TABLE students\n\n COLUMN  VARCHAR(20);\n\n(注：英文单词用半角输入，要么都大写，要么都小写，单词间只用一个空格）",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146"
+      }
+    },
+    {
+      "id": "2104176641130160128",
+      "number": 5,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "在MySQL中，小数的表示分为和定点数两种类型。 填空位置：________",
+      "content": "在MySQL中，小数的表示分为和定点数两种类型。\n\n填空位置：________",
+      "title": "在MySQL中，小数的表示分为 和定点数两种类型。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2104176641130160128",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2
+            ],
+            "blankLength": 6,
+            "blanks": [
+              {
+                "index": 15,
+                "multipleLine": false,
+                "length": 6,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在MySQL中，小数的表示分为 和定点数两种类型。",
+        "content": "在MySQL中，小数的表示分为和定点数两种类型。",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "辛勤芳",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PRIVATE",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1732357829230526464",
+        "description": "在MySQL中，小数的表示分为和定点数两种类型。",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "972763327604785152"
+      }
+    },
+    {
+      "id": "2104176641130160129",
+      "number": 6,
+      "type": "FILL_IN_THE_BLANK",
+      "prompt": "类型的字段用于存储固定长度的字符串 填空位置：________",
+      "content": "类型的字段用于存储固定长度的字符串\n\n填空位置：________",
+      "title": "类型的字段用于存储固定长度的字符串",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2104176641130160129",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "fillInTheBlankProblemConfig": {
+            "scores": [
+              2
+            ],
+            "blankLength": 9,
+            "blanks": [
+              {
+                "index": 0,
+                "multipleLine": false,
+                "length": 4,
+                "choices": {},
+                "maxDisplayChoicesPerLine": 1
+              }
+            ]
+          },
+          "solutionVisible": true,
+          "answerVisible": true
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "类型的字段用于存储固定长度的字符串",
+        "content": "类型的字段用于存储固定长度的字符串",
+        "type": "FILL_IN_THE_BLANK",
+        "author": "辛勤芳",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PRIVATE",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1732358304025772032",
+        "description": "类型的字段用于存储固定长度的字符串",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "972763327604785152"
+      }
+    },
+    {
+      "id": "2103828961338122240",
+      "number": 1,
+      "type": "SUBJECTIVE",
+      "prompt": "用Navicat管理工具提供的图形界面创建表。\n\n在JXGL数据库中创建表students表和sc表。表结构要求见图，仅建表，先不添加约束。\n\n\n![表结构1.PNG](~/37b74e7b-a96c-4b63-a872-c73e653ab1a3.PNG)\n\n\n注： 完成效果发来截图上传附件",
+      "content": "用Navicat管理工具提供的图形界面创建表。\n\n在JXGL数据库中创建表students表和sc表。表结构要求见图，仅建表，先不添加约束。\n\n\n![表结构1.PNG](~/37b74e7b-a96c-4b63-a872-c73e653ab1a3.PNG)\n\n\n注： 完成效果发来截图上传附件",
+      "hasStatement": true,
+      "title": "创建表students表和sc表",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/6dee85d8-a405-426b-8180-bc70dc8643d8.PNG",
+          "markdownPath": "~/6dee85d8-a405-426b-8180-bc70dc8643d8.PNG",
+          "location": "content",
+          "index": 72
+        },
+        {
+          "url": "https://images.ptausercontent.com/37b74e7b-a96c-4b63-a872-c73e653ab1a3.PNG",
+          "markdownPath": "~/37b74e7b-a96c-4b63-a872-c73e653ab1a3.PNG",
+          "location": "description",
+          "index": 73
+        }
+      ],
+      "score": 10,
+      "apiData": {
+        "id": "2103828961338122240",
+        "label": "",
+        "score": 10,
+        "problemConfig": {
+          "subjectiveProblemConfig": {
+            "allowFileUpload": true
+          },
+          "solutionVisible": true,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "创建表students表和sc表",
+        "content": "用Navicat管理工具提供的图形界面创建表。\n\n在JXGL数据库中创建表students表和sc表。表结构要求见图，仅建表，先不添加约束。\n\n![表结构1.PNG](~/6dee85d8-a405-426b-8180-bc70dc8643d8.PNG)\n\n注： 完成效果发来截图上传附件\n\n",
+        "type": "SUBJECTIVE",
+        "author": "sy",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2103825342731706368",
+        "problemId": "1373830432612691968",
+        "description": "用Navicat管理工具提供的图形界面创建表。\n\n在JXGL数据库中创建表students表和sc表。表结构要求见图，仅建表，先不添加约束。\n\n\n![表结构1.PNG](~/37b74e7b-a96c-4b63-a872-c73e653ab1a3.PNG)\n\n\n注： 完成效果发来截图上传附件\n\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "146",
+        "number": 1,
+        "examLabel": "8-1"
+      }
+    }
+  ]
+}

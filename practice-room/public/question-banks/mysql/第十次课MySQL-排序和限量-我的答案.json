@@ -1,0 +1,110 @@
+{
+  "problemSetId": "2116850798953381888",
+  "answers": [
+    {
+      "problemId": "2116850799163097088",
+      "questionNumber": 1,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select f_name, f_price from fruits where f_price between 2.00 and 10.20 order by\nf_price desc,f_name ",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116850799163097089",
+      "questionNumber": 2,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select tdept '系别', count(tno) '教师人数' from teachers group by tdept order by count(tno);",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116850799163097090",
+      "questionNumber": 3,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select sno '学号', count(cno) '选课门数', sum(score) '考试总成绩' from sc group by sno order by\ncount(cno);\n",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116850799163097091",
+      "questionNumber": 4,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select StudentID, Grade from Grade where CourseID = 'Dp010004'\n    order by Grade desc, StudentID;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116850799163097092",
+      "questionNumber": 5,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select cno '课程号', count(sno) '选修人数' from sc group by cno \n    order by count(sno) desc  limit 3;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116854209325187072",
+      "questionNumber": 6,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select * from recorder where sale_date between '2010-01-01' and '2010-12-31' order by\nsale_date;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116854209325187073",
+      "questionNumber": 7,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select name, category_id , price from sh_goods order by category_id,price desc;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116854209325187074",
+      "questionNumber": 8,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select dept '院部', count(sno) '总人数' from student group by dept order by count(sno) desc;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116854209325187075",
+      "questionNumber": 9,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select * from Teacher order by TeacherID ;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116854466108866560",
+      "questionNumber": 10,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select cno, cname from course limit 3;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116865355860037632",
+      "questionNumber": 11,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select max(UnitsInStock) 'maxUnitsInStock' from products;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116867942931906561",
+      "questionNumber": 12,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select Eid, EName from employee order by Salary desc limit 1;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116867942931906562",
+      "questionNumber": 13,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select sno, grade from xs_kc where cno = '101' order by grade desc;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116869825301987328",
+      "questionNumber": 14,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select sno, cno, score from sc where score < 60 order by score desc;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116869825301987329",
+      "questionNumber": 15,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select GId, count(SId) 'Num' from student group by GId order by count(SId) desc;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

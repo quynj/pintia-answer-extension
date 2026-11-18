@@ -1,0 +1,75 @@
+{
+  "problemSetId": "2118177986009796608",
+  "answers": [
+    {
+      "problemId": "2118177986219515904",
+      "questionNumber": 1,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select s.sname 'sname', s.sdept 'sdept' from Student s \n    where sdept = (select s1.sdept from Student s1 where s1.sname = '刘晨') and s.sname != '刘晨';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2118177986219515905",
+      "questionNumber": 2,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select sno, sname, class from students where sno not in \n    (select sno from sc);",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2118177986219515906",
+      "questionNumber": 3,
+      "type": "SQL_PROGRAMMING",
+      "answer": "\n\nselect s.sname from students s where s.sno in\n    (select sc.sno from sc where sc.cno = '0000008')\nand\ns.sno in\n    (select sc.sno from sc where sc.cno = '0000007');\n",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2118177986219515907",
+      "questionNumber": 4,
+      "type": "SQL_PROGRAMMING",
+      "answer": "\n\nselect sno, score from sc where score > all (select  avg(score) from sc);",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2118177986219515909",
+      "questionNumber": 5,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select Eid, EName from employee where Wno = 'A01'\nand Salary < any(select Salary from employee where Wno = 'A02');\n\n",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2118178498646024192",
+      "questionNumber": 6,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select id '学号',name '姓名',ps_score 'ps成绩' from tb_student where ps_score > all(select avg(ps_score) from tb_student);",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2118178498650218496",
+      "questionNumber": 7,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select class_name '班级', id '学号', name '姓名', computer_score '计算机基础成绩' from tb_student where \ncomputer_score = (select max(computer_score) from tb_student);",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2118178498650218498",
+      "questionNumber": 8,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select id '学号', name '姓名', html5_score 'html5成绩' from tb_student \n    where name like '%李%' and\n    html5_score > all(select html5_score from tb_student \n                        where html5_score < 60);\n",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2118178498650218499",
+      "questionNumber": 9,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select id '学号', name '姓名', computer_score '计算机基础成绩' from tb_student\n    where class_name = '计网2003班' and \n    computer_score > (select avg(computer_score) from tb_student \n                        where class_name = '计网2004班')\n    order by computer_score desc;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2118177986219515908",
+      "questionNumber": 10,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select  c.cno '课程号', c.cname '课程'  from sc join cou c on sc.cno = c.cno  \n    where sno = 'S001' \nunion\nselect  c.cno '课程号', c.cname '课程'  from sc join cou c on sc.cno = c.cno  \n    where sno = 'S003' order by '课程号';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "title": "26秋《程序设计基础》编程练习1（Chap2.4条件语句）",
+  "problemSetName": "26秋《程序设计基础》编程练习1（Chap2.4条件语句）",
+  "problemSetId": "2110999196227829760",
+  "examId": "2111078575419138048",
+  "source": "https://pintia.cn/problem-sets/2110999196227829760",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:48:42.318Z",
+  "summaries": {
+    "PROGRAMMING": {
+      "total": 3,
+      "totalScore": 100
+    }
+  },
+  "questions": [
+    {
+      "id": "2110999196236218368",
+      "number": 1,
+      "type": "PROGRAMMING",
+      "prompt": "小明来到了古都西安，想去参观大唐西市！\n\n西安的道路可以看做是与x轴或y轴垂直的直线，小明位于(a,b)，而目的地位于(c,d)，问最少几步可以到达。\n\n### 输入格式:\n\n一行中四个整数，a,b,c,d，表示坐标为(a,b)与(c,d)，这里0<=a,b,c,d<=1000\n\n### 输出格式:\n\n输出这两个点的西安距离。\n\n### 输入样例:\n\n```in\n0 0 3 4\n```\n\n### 输出样例:\n\n```out\n7\n```",
+      "content": "小明来到了古都西安，想去参观大唐西市！\n\n西安的道路可以看做是与x轴或y轴垂直的直线，小明位于(a,b)，而目的地位于(c,d)，问最少几步可以到达。\n\n### 输入格式:\n\n一行中四个整数，a,b,c,d，表示坐标为(a,b)与(c,d)，这里0<=a,b,c,d<=1000\n\n### 输出格式:\n\n输出这两个点的西安距离。\n\n### 输入样例:\n\n```in\n0 0 3 4\n```\n\n### 输出样例:\n\n```out\n7\n```",
+      "hasStatement": true,
+      "title": "西安距离",
+      "options": [],
+      "images": [],
+      "score": 30,
+      "apiData": {
+        "id": "2110999196236218368",
+        "label": "",
+        "score": 30,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 200,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 1,
+            "cases": {
+              "0": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              },
+              "1": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              },
+              "2": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              },
+              "3": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              },
+              "4": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "0 0 3 4\n",
+                "output": "7\n"
+              },
+              {
+                "name": "",
+                "input": "0 0 3 4\n",
+                "output": "7\n"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "西安距离",
+        "content": "小明来到了古都西安，想去参观大唐西市！\n\n西安的道路可以看做是与x轴或y轴垂直的直线，小明位于(a,b)，而目的地位于(c,d)，问最少几步可以到达。\n\n### 输入格式:\n\n一行中四个整数，a,b,c,d，表示坐标为(a,b)与(c,d)，这里0<=a,b,c,d<=1000\n\n### 输出格式:\n\n输出这两个点的西安距离。\n\n### 输入样例:\n\n```in\n0 0 3 4\n```\n\n### 输出样例:\n\n```out\n7\n```",
+        "type": "PROGRAMMING",
+        "author": "翁恺",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2110999196227829760",
+        "problemId": "1290575573688696832",
+        "description": "小明来到了古都西安，想去参观大唐西市！\n\n西安的道路可以看做是与x轴或y轴垂直的直线，小明位于(a,b)，而目的地位于(c,d)，问最少几步可以到达。\n\n### 输入格式:\n\n一行中四个整数，a,b,c,d，表示坐标为(a,b)与(c,d)，这里0<=a,b,c,d<=1000\n\n### 输出格式:\n\n输出这两个点的西安距离。\n\n### 输入样例:\n\n```in\n0 0 3 4\n```\n\n### 输出样例:\n\n```out\n7\n```",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1",
+        "number": 1,
+        "examLabel": "7-1"
+      }
+    },
+    {
+      "id": "2110999196236218369",
+      "number": 2,
+      "type": "PROGRAMMING",
+      "prompt": "已知实数x和y的函数关系如下：\n\n![j04.jpg](~/c6f6eed2-a678-4d83-8061-271388efcbf1.jpg)\n\n编程实现，要求输入x的值，计算并输出y的值（输出结果保留小数点后3位）。\n\n### 输入格式:\n\n输入一个实数x。\n\n### 输出格式:\n\n输出实数y的值，保留3位小数。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n0.5\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\ny=5.500\n```",
+      "content": "已知实数x和y的函数关系如下：\n\n![j04.jpg](~/c6f6eed2-a678-4d83-8061-271388efcbf1.jpg)\n\n编程实现，要求输入x的值，计算并输出y的值（输出结果保留小数点后3位）。\n\n### 输入格式:\n\n输入一个实数x。\n\n### 输出格式:\n\n输出实数y的值，保留3位小数。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n0.5\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\ny=5.500\n```",
+      "hasStatement": true,
+      "title": "计算分段函数之值",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/c6f6eed2-a678-4d83-8061-271388efcbf1.jpg",
+          "markdownPath": "~/c6f6eed2-a678-4d83-8061-271388efcbf1.jpg",
+          "location": "content",
+          "index": 17
+        },
+        {
+          "url": "https://images.ptausercontent.com/c6f6eed2-a678-4d83-8061-271388efcbf1.jpg",
+          "markdownPath": "~/c6f6eed2-a678-4d83-8061-271388efcbf1.jpg",
+          "location": "description",
+          "index": 17
+        }
+      ],
+      "score": 30,
+      "apiData": {
+        "id": "2110999196236218369",
+        "label": "",
+        "score": 30,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "Testcase_01": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              },
+              "Testcase_02": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              },
+              "Testcase_03": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              },
+              "Testcase_04": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              },
+              "Testcase_05": {
+                "hint": "",
+                "showHint": false,
+                "score": 6,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "0.5",
+                "output": "y=5.500"
+              },
+              {
+                "name": "",
+                "input": "0.5",
+                "output": "y=5.500"
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "计算分段函数之值",
+        "content": "已知实数x和y的函数关系如下：\n\n![j04.jpg](~/c6f6eed2-a678-4d83-8061-271388efcbf1.jpg)\n\n编程实现，要求输入x的值，计算并输出y的值（输出结果保留小数点后3位）。\n\n### 输入格式:\n\n输入一个实数x。\n\n### 输出格式:\n\n输出实数y的值，保留3位小数。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n0.5\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\ny=5.500\n```\n",
+        "type": "PROGRAMMING",
+        "author": "LFL",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PRIVATE",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2110999196227829760",
+        "problemId": "1478331053333164032",
+        "description": "已知实数x和y的函数关系如下：\n\n![j04.jpg](~/c6f6eed2-a678-4d83-8061-271388efcbf1.jpg)\n\n编程实现，要求输入x的值，计算并输出y的值（输出结果保留小数点后3位）。\n\n### 输入格式:\n\n输入一个实数x。\n\n### 输出格式:\n\n输出实数y的值，保留3位小数。\n\n### 输入样例:\n\n在这里给出一组输入。例如：\n\n```in\n0.5\n```\n\n### 输出样例:\n\n在这里给出相应的输出。例如：\n\n```out\ny=5.500\n```\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "262",
+        "number": 2,
+        "examLabel": "7-2"
+      }
+    },
+    {
+      "id": "2110999196236218370",
+      "number": 3,
+      "type": "PROGRAMMING",
+      "prompt": "许多社区都有“雷达”标志，告诉司机他们的速度是多少，希望他们能够慢下来。\n你将输出一个“雷达”标志的信息，根据司机驾驶车速的情况向他（她）显示信息。\n\n![j06.jpg](~/cf4afe4b-94f3-4487-b971-124586f1d407.jpg)\n\n**在此，郑重地提醒各位小伙伴们：在道路上驾驶机动车一定要遵守交通规则，注意交通安全！道路千万条，安全第一条！！！**\n\n### 输入格式:\n\n在一行内输入2个整数。第一个表示速度的限制，第二个表示司机的开车速度。\n\n### 输出格式:\n\n```\n如果司机没有超速，输出应该是：Congratulations, you are within the speed limit!\n如果司机超速行驶，输出为：You are speeding and your fine is F.（F为上表中描述的罚款数额）\n```\n\n### 输入样例1:\n\n```in\n40 39\n```\n\n### 输出样例1:\n\n```out\nCongratulations, you are within the speed limit!\n```\n### 输入样例2:\n\n```in\n100 131\n```\n\n### 输出样例2:\n\n```out\nYou are speeding and your fine is 500.\n```\n### 输入样例3:\n\n```in\n100 120\n```\n\n### 输出样例3:\n\n```out\nYou are speeding and your fine is 100.\n```",
+      "content": "许多社区都有“雷达”标志，告诉司机他们的速度是多少，希望他们能够慢下来。\n你将输出一个“雷达”标志的信息，根据司机驾驶车速的情况向他（她）显示信息。\n\n![j06.jpg](~/cf4afe4b-94f3-4487-b971-124586f1d407.jpg)\n\n**在此，郑重地提醒各位小伙伴们：在道路上驾驶机动车一定要遵守交通规则，注意交通安全！道路千万条，安全第一条！！！**\n\n### 输入格式:\n\n在一行内输入2个整数。第一个表示速度的限制，第二个表示司机的开车速度。\n\n### 输出格式:\n\n```\n如果司机没有超速，输出应该是：Congratulations, you are within the speed limit!\n如果司机超速行驶，输出为：You are speeding and your fine is F.（F为上表中描述的罚款数额）\n```\n\n### 输入样例1:\n\n```in\n40 39\n```\n\n### 输出样例1:\n\n```out\nCongratulations, you are within the speed limit!\n```\n### 输入样例2:\n\n```in\n100 131\n```\n\n### 输出样例2:\n\n```out\nYou are speeding and your fine is 500.\n```\n### 输入样例3:\n\n```in\n100 120\n```\n\n### 输出样例3:\n\n```out\nYou are speeding and your fine is 100.\n```",
+      "hasStatement": true,
+      "title": "汽车超速罚款",
+      "options": [],
+      "images": [
+        {
+          "url": "https://images.ptausercontent.com/cf4afe4b-94f3-4487-b971-124586f1d407.jpg",
+          "markdownPath": "~/cf4afe4b-94f3-4487-b971-124586f1d407.jpg",
+          "location": "content",
+          "index": 76
+        },
+        {
+          "url": "https://images.ptausercontent.com/cf4afe4b-94f3-4487-b971-124586f1d407.jpg",
+          "markdownPath": "~/cf4afe4b-94f3-4487-b971-124586f1d407.jpg",
+          "location": "description",
+          "index": 76
+        }
+      ],
+      "score": 40,
+      "apiData": {
+        "id": "2110999196236218370",
+        "label": "",
+        "score": 40,
+        "problemConfig": {
+          "programmingProblemConfig": {
+            "timeLimit": 400,
+            "memoryLimit": 65536,
+            "codeSizeLimit": 16,
+            "cases": {
+              "Testcase_01": {
+                "hint": "",
+                "showHint": false,
+                "score": 8,
+                "isPublic": false
+              },
+              "Testcase_02": {
+                "hint": "",
+                "showHint": false,
+                "score": 8,
+                "isPublic": false
+              },
+              "Testcase_03": {
+                "hint": "",
+                "showHint": false,
+                "score": 8,
+                "isPublic": false
+              },
+              "Testcase_04": {
+                "hint": "",
+                "showHint": false,
+                "score": 8,
+                "isPublic": false
+              },
+              "Testcase_05": {
+                "hint": "",
+                "showHint": false,
+                "score": 8,
+                "isPublic": false
+              }
+            },
+            "exampleTestDatas": [
+              {
+                "name": "",
+                "input": "40 39",
+                "output": "Congratulations, you are within the speed limit!"
+              },
+              {
+                "name": "",
+                "input": "100 131",
+                "output": "You are speeding and your fine is 500."
+              },
+              {
+                "name": "",
+                "input": "100 120",
+                "output": "You are speeding and your fine is 100."
+              },
+              {
+                "name": "",
+                "input": "40 39",
+                "output": "Congratulations, you are within the speed limit!"
+              },
+              {
+                "name": "",
+                "input": "100 131",
+                "output": "You are speeding and your fine is 500."
+              },
+              {
+                "name": "",
+                "input": "100 120",
+                "output": "You are speeding and your fine is 100."
+              }
+            ],
+            "testdataDescriptionCode": "",
+            "customizeLimits": [],
+            "stackSizeLimit": 8192,
+            "tools": [],
+            "ignorePresentationError": false,
+            "pathAsStdin": "",
+            "pathAsStdout": ""
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "汽车超速罚款",
+        "content": "许多社区都有“雷达”标志，告诉司机他们的速度是多少，希望他们能够慢下来。\n你将输出一个“雷达”标志的信息，根据司机驾驶车速的情况向他（她）显示信息。\n\n![j06.jpg](~/cf4afe4b-94f3-4487-b971-124586f1d407.jpg)\n\n**在此，郑重地提醒各位小伙伴们：在道路上驾驶机动车一定要遵守交通规则，注意交通安全！道路千万条，安全第一条！！！**\n\n### 输入格式:\n\n在一行内输入2个整数。第一个表示速度的限制，第二个表示司机的开车速度。\n\n### 输出格式:\n\n```\n如果司机没有超速，输出应该是：Congratulations, you are within the speed limit!\n如果司机超速行驶，输出为：You are speeding and your fine is F.（F为上表中描述的罚款数额）\n```\n\n### 输入样例1:\n\n```in\n40 39\n```\n\n### 输出样例1:\n\n```out\nCongratulations, you are within the speed limit!\n```\n### 输入样例2:\n\n```in\n100 131\n```\n\n### 输出样例2:\n\n```out\nYou are speeding and your fine is 500.\n```\n### 输入样例3:\n\n```in\n100 120\n```\n\n### 输出样例3:\n\n```out\nYou are speeding and your fine is 100.\n```\n",
+        "type": "PROGRAMMING",
+        "author": "LFL",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PRIVATE",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2110999196227829760",
+        "problemId": "1478607272603693056",
+        "description": "许多社区都有“雷达”标志，告诉司机他们的速度是多少，希望他们能够慢下来。\n你将输出一个“雷达”标志的信息，根据司机驾驶车速的情况向他（她）显示信息。\n\n![j06.jpg](~/cf4afe4b-94f3-4487-b971-124586f1d407.jpg)\n\n**在此，郑重地提醒各位小伙伴们：在道路上驾驶机动车一定要遵守交通规则，注意交通安全！道路千万条，安全第一条！！！**\n\n### 输入格式:\n\n在一行内输入2个整数。第一个表示速度的限制，第二个表示司机的开车速度。\n\n### 输出格式:\n\n```\n如果司机没有超速，输出应该是：Congratulations, you are within the speed limit!\n如果司机超速行驶，输出为：You are speeding and your fine is F.（F为上表中描述的罚款数额）\n```\n\n### 输入样例1:\n\n```in\n40 39\n```\n\n### 输出样例1:\n\n```out\nCongratulations, you are within the speed limit!\n```\n### 输入样例2:\n\n```in\n100 131\n```\n\n### 输出样例2:\n\n```out\nYou are speeding and your fine is 500.\n```\n### 输入样例3:\n\n```in\n100 120\n```\n\n### 输出样例3:\n\n```out\nYou are speeding and your fine is 100.\n```\n",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "262",
+        "number": 3,
+        "examLabel": "7-3"
+      }
+    }
+  ]
+}

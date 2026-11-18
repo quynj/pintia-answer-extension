@@ -1,0 +1,117 @@
+{
+  "problemSetId": "2116883082460942336",
+  "answers": [
+    {
+      "problemId": "2117128261117825024",
+      "questionNumber": 1,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "交叉"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2117128261117825025",
+      "questionNumber": 2,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "24"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2117128261117825027",
+      "questionNumber": 3,
+      "type": "FILL_IN_THE_BLANK",
+      "answer": [
+        "自然",
+        "别名"
+      ],
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2116883082700013568",
+      "questionNumber": 1,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    sg.id 'gid', sg.name 'gname', sg.category_id 'cid', sgc.name 'cname'\nfrom sh_goods sg \n    join sh_goods_category sgc on sg.category_id = sgc.id;\n    ",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116883082700013569",
+      "questionNumber": 2,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    s.sno 'sno', s.sname 'sname', sc.cno 'cno', sc.score 'score'\nfrom students s left join sc on s.sno = sc.sno;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116883082700013570",
+      "questionNumber": 3,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    e.Eid 'Eid', e.EName 'EName', w.Wno 'Wno', w.City 'City'\nfrom employee e left join warehouse w on e.Wno = w.Wno;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116883082700013571",
+      "questionNumber": 4,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    sc.sno 'sno', sc.score 'score'\nfrom course c left join sc on c.cno = sc.cno\nwhere c.cname like '%数据库%' and sc.score between 80 and 90;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116883082700013572",
+      "questionNumber": 5,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    c.cno '课程号', c.cname '课程名', count(sc.sno) '选课人数', IFNUll(max(sc.grade),0) '最高成绩',\n    IFNUll(min(sc.grade),0) '最低成绩', IFNUll(avg(sc.grade),0) '平均成绩'\nfrom cou c left join sc on c.cno = sc.cno\ngroup by c.cno, c.cname;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116883082700013573",
+      "questionNumber": 6,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    s1.*\nfrom Student s1 \nwhere s1.major = (select s2.major from Student s2 where s2.sname = '李勇');\n\n\n",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116893148983480320",
+      "questionNumber": 7,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    c.CName 'CName', avg(sc.SCScore) 'avg_SCScore'\nfrom course c left join sc on c.CId = sc.CId\nwhere sc.SCScore > 75\ngroup by c.CName;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116894946427289601",
+      "questionNumber": 8,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select d.deptno 'deptno', d.dname 'dname' from dept d left join emp e on d.deptno = e.deptno\ngroup by d.deptno, d.dname\norder by count(e.empno) desc limit 1;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2116895659949707264",
+      "questionNumber": 9,
+      "type": "SQL_PROGRAMMING",
+      "answer": "\n\nselect s.id 'id', s.name 'name' from\n    sh_goods s\n    where s.id not in\n    (\n    select \n        sg.id\n    from sh_goods sg join sh_goods_comment sgc on sg.id = sgc.goods_id\n    );",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2117118588742418432",
+      "questionNumber": 10,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    e.empno '员工编号',\n    e.ename '员工姓名',\n    e1.empno '上司编号',\n    e1.ename '上司姓名'\nfrom emp e left join emp e1 on e.mgr = e1.empno;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2117120452540125184",
+      "questionNumber": 11,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    s.sname 'sname',\n    ROUND(avg(s1.grade)) 'avggrade'\nfrom student s left join score s1 on s.sno = s1.sno\nwhere s.dept = '数计学院' and s.sname = '叶凡';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2117124247517024256",
+      "questionNumber": 12,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select\n    cc.class_name '班级名称',\n    s.student_id '学号',\n    s.name '姓名',\n    s.gender '性别',\n    c.name '课程名称',\n    sc.score '成绩'\nfrom edu_student s\njoin edu_class cc on s.class_id = cc.class_id\njoin edu_score sc on s.student_id = sc.student_id\njoin edu_course c on sc.course_id = c.course_id\nwhere c.name = '数据结构' and s.gender = '女' and sc.score > 85\norder by sc.score desc;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

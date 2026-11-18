@@ -1,0 +1,3021 @@
+{
+  "title": "26秋《程序设计基础》作业6（Chap2.5for+Chap2.6方法）",
+  "problemSetName": "26秋《程序设计基础》作业6（Chap2.5for+Chap2.6方法）",
+  "problemSetId": "2116061869039824896",
+  "examId": "2116488331706306560",
+  "source": "https://pintia.cn/problem-sets/2116061869039824896",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:40:17.310Z",
+  "summaries": {
+    "TRUE_OR_FALSE": {
+      "total": 18,
+      "totalScore": 18
+    },
+    "MULTIPLE_CHOICE": {
+      "total": 47,
+      "totalScore": 82
+    }
+  },
+  "questions": [
+    {
+      "id": "2116061869085962240",
+      "number": 1,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "定义多个同名方法时，可以依靠返回值区别同名方法。 ~@[](1)",
+      "content": "定义多个同名方法时，可以依靠返回值区别同名方法。\n  ~@[](1)",
+      "title": "定义多个同名方法时，可以依靠返回值区别同名方法。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869085962240",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "定义多个同名方法时，可以依靠返回值区别同名方法。",
+        "content": "定义多个同名方法时，可以依靠返回值区别同名方法。\n  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "顾慧",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1146422157681319936",
+        "description": "定义多个同名方法时，可以依靠返回值区别同名方法。\n  ",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "10"
+      }
+    },
+    {
+      "id": "2116061869090156544",
+      "number": 2,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "所谓方法重写，就是在同一个作用域内方法名相同但参数个数或者参数类型不同的方法。",
+      "content": "所谓方法重写，就是在同一个作用域内方法名相同但参数个数或者参数类型不同的方法。",
+      "title": "所谓方法重写，就是在同一个作用域内方法名相同但参数个数或者参数类型不同的方法。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869090156544",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "所谓方法重写，就是在同一个作用域内方法名相同但参数个数或者参数类型不同的方法。",
+        "content": "所谓方法重写，就是在同一个作用域内方法名相同但参数个数或者参数类型不同的方法。",
+        "type": "TRUE_OR_FALSE",
+        "author": "贾园园",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1457996945729298432",
+        "description": "所谓方法重写，就是在同一个作用域内方法名相同但参数个数或者参数类型不同的方法。",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2116061869090156545",
+      "number": 3,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，方法中的形式参数是局部变量。",
+      "content": "Java中，方法中的形式参数是局部变量。",
+      "title": "Java中，方法中的形式参数是局部变量。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869090156545",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，方法中的形式参数是局部变量。",
+        "content": "Java中，方法中的形式参数是局部变量。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1462690208462630912",
+        "description": "Java中，方法中的形式参数是局部变量。",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116061869090156546",
+      "number": 4,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，同一个类中，不能有名称相同的方法。",
+      "content": "Java中，同一个类中，不能有名称相同的方法。",
+      "title": "Java中，同一个类中，不能有名称相同的方法。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869090156546",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，同一个类中，不能有名称相同的方法。",
+        "content": "Java中，同一个类中，不能有名称相同的方法。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1462714767462481920",
+        "description": "Java中，同一个类中，不能有名称相同的方法。",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116061869094350848",
+      "number": 5,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，用void修饰的没有返回值的方法，方法体中不能有return语句。",
+      "content": "Java中，用void修饰的没有返回值的方法，方法体中不能有return语句。",
+      "title": "Java中，用void修饰的没有返回值的方法，方法体中不能有return语句。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869094350848",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，用void修饰的没有返回值的方法，方法体中不能有return语句。",
+        "content": "Java中，用void修饰的没有返回值的方法，方法体中不能有return语句。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1462719323827929088",
+        "description": "Java中，用void修饰的没有返回值的方法，方法体中不能有return语句。",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116061869094350849",
+      "number": 6,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "方法的参数包括形参和实参。形参出现在方法定义的参数列表，实参则出现于方法调用中。",
+      "content": "方法的参数包括形参和实参。形参出现在方法定义的参数列表，实参则出现于方法调用中。",
+      "title": "方法的参数包括形参和实参。形参出现在方法定义的参数列表，实参则出现于方法调用中。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869094350849",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "方法的参数包括形参和实参。形参出现在方法定义的参数列表，实参则出现于方法调用中。",
+        "content": "方法的参数包括形参和实参。形参出现在方法定义的参数列表，实参则出现于方法调用中。",
+        "type": "TRUE_OR_FALSE",
+        "author": "顾慧",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1464866994701168640",
+        "description": "方法的参数包括形参和实参。形参出现在方法定义的参数列表，实参则出现于方法调用中。",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "10"
+      }
+    },
+    {
+      "id": "2116061869094350850",
+      "number": 7,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "方法重载要求方法名相同，不同的参数个数或参数类型，但不要求返回类型一致。",
+      "content": "方法重载要求方法名相同，不同的参数个数或参数类型，但不要求返回类型一致。",
+      "title": "方法重载要求方法名相同，不同的参数个数或参数类型，但不要求返回类型一致。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869094350850",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "方法重载要求方法名相同，不同的参数个数或参数类型，但不要求返回类型一致。",
+        "content": "方法重载要求方法名相同，不同的参数个数或参数类型，但不要求返回类型一致。",
+        "type": "TRUE_OR_FALSE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1528905428791382016",
+        "description": "方法重载要求方法名相同，不同的参数个数或参数类型，但不要求返回类型一致。",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2116061869094350851",
+      "number": 8,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，测试类（主类）中可以有多个main方法。",
+      "content": "Java中，测试类（主类）中可以有多个main方法。",
+      "title": "Java中，测试类（主类）中可以有多个main方法。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869094350851",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，测试类（主类）中可以有多个main方法。",
+        "content": "Java中，测试类（主类）中可以有多个main方法。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1636007909736247297",
+        "description": "Java中，测试类（主类）中可以有多个main方法。",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116062091321163776",
+      "number": 9,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "循环嵌套是指在一个循环语句的循环体中再定义一个循环语句的语法结构。while、do…while、for循环语句都可以进行嵌套，并且它们之间也可以互相嵌套。",
+      "content": "循环嵌套是指在一个循环语句的循环体中再定义一个循环语句的语法结构。while、do…while、for循环语句都可以进行嵌套，并且它们之间也可以互相嵌套。",
+      "title": "循环嵌套是指在一个循环语句的循环体中再定义一个循环语句的语法结构。while、do…while、for循环语句都可以进行嵌套，并",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062091321163776",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "循环嵌套是指在一个循环语句的循环体中再定义一个循环语句的语法结构。while、do…while、for循环语句都可以进行嵌套，并",
+        "content": "循环嵌套是指在一个循环语句的循环体中再定义一个循环语句的语法结构。while、do…while、for循环语句都可以进行嵌套，并且它们之间也可以互相嵌套。",
+        "type": "TRUE_OR_FALSE",
+        "author": "贾园园",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1457570640985915392",
+        "description": "循环嵌套是指在一个循环语句的循环体中再定义一个循环语句的语法结构。while、do…while、for循环语句都可以进行嵌套，并且它们之间也可以互相嵌套。",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2116062091325358080",
+      "number": 10,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，do-while、for和while三种循环可以任意嵌套，且嵌套层数不受限制。",
+      "content": "Java中，do-while、for和while三种循环可以任意嵌套，且嵌套层数不受限制。",
+      "title": "Java中，do-while、for和while三种循环可以任意嵌套，且嵌套层数不受限制。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062091325358080",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，do-while、for和while三种循环可以任意嵌套，且嵌套层数不受限制。",
+        "content": "Java中，do-while、for和while三种循环可以任意嵌套，且嵌套层数不受限制。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1462706636636405760",
+        "description": "Java中，do-while、for和while三种循环可以任意嵌套，且嵌套层数不受限制。",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116062406552465408",
+      "number": 11,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "使用break语句可以跳出一次循环。~@[](1)",
+      "content": "使用break语句可以跳出一次循环。~@[](1)",
+      "title": "使用break语句可以跳出一次循环。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062406552465408",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "使用break语句可以跳出一次循环。",
+        "content": "使用break语句可以跳出一次循环。~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "顾慧",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1170968744126656512",
+        "description": "使用break语句可以跳出一次循环。",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "10"
+      }
+    },
+    {
+      "id": "2116062406552465409",
+      "number": 12,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中break语句可用于循环结构或者switch-case结构，作用是终止当前循环或者分支语句。",
+      "content": "Java中break语句可用于循环结构或者switch-case结构，作用是终止当前循环或者分支语句。",
+      "title": "Java中break语句可用于循环结构或者switch-case结构，作用是终止当前循环或者分支语句。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062406552465409",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中break语句可用于循环结构或者switch-case结构，作用是终止当前循环或者分支语句。",
+        "content": "Java中break语句可用于循环结构或者switch-case结构，作用是终止当前循环或者分支语句。\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1407336905553805312",
+        "description": "Java中break语句可用于循环结构或者switch-case结构，作用是终止当前循环或者分支语句。\n",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2116062406552465410",
+      "number": 13,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中continue语句的作用是结束本次循环，开始下一次循环。",
+      "content": "Java中continue语句的作用是结束本次循环，开始下一次循环。",
+      "title": "Java中continue语句的作用是结束本次循环，开始下一次循环。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062406552465410",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中continue语句的作用是结束本次循环，开始下一次循环。",
+        "content": "Java中continue语句的作用是结束本次循环，开始下一次循环。\n ",
+        "type": "TRUE_OR_FALSE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1407337148089294848",
+        "description": "Java中continue语句的作用是结束本次循环，开始下一次循环。\n ",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2116062406556659712",
+      "number": 14,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，for循环的循环体可以一次都不执行。",
+      "content": "Java中，for循环的循环体可以一次都不执行。",
+      "title": "Java中，for循环的循环体可以一次都不执行。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062406556659712",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，for循环的循环体可以一次都不执行。",
+        "content": "Java中，for循环的循环体可以一次都不执行。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1462706488484261888",
+        "description": "Java中，for循环的循环体可以一次都不执行。",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116062406556659713",
+      "number": 15,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，break语句，只能在循环体中和switch~case语句中使用。",
+      "content": "Java中，break语句，只能在循环体中和switch~case语句中使用。",
+      "title": "Java中，break语句，只能在循环体中和switch~case语句中使用。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062406556659713",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，break语句，只能在循环体中和switch~case语句中使用。",
+        "content": "Java中，break语句，只能在循环体中和switch~case语句中使用。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1630060206405279744",
+        "description": "Java中，break语句，只能在循环体中和switch~case语句中使用。",
+        "problemPoolIndex": 15,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116062406556659714",
+      "number": 16,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，continue语句只能在循环体中使用。",
+      "content": "Java中，continue语句只能在循环体中使用。",
+      "title": "Java中，continue语句只能在循环体中使用。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062406556659714",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，continue语句只能在循环体中使用。",
+        "content": "Java中，continue语句只能在循环体中使用。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1630060577580208128",
+        "description": "Java中，continue语句只能在循环体中使用。",
+        "problemPoolIndex": 16,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116062406560854016",
+      "number": 17,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "当break语句出现在嵌套循环中的内层循环时,它只能跳出内层循环 .",
+      "content": "当break语句出现在嵌套循环中的内层循环时,它只能跳出内层循环\n.",
+      "title": "当break语句出现在嵌套循环中的内层循环时,它只能跳出内层循环",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062406560854016",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "当break语句出现在嵌套循环中的内层循环时,它只能跳出内层循环",
+        "content": "当break语句出现在嵌套循环中的内层循环时,它只能跳出内层循环\n.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1862424113166610435",
+        "description": "当break语句出现在嵌套循环中的内层循环时,它只能跳出内层循环\n.\n\n",
+        "problemPoolIndex": 17,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062406560854017",
+      "number": 18,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "continue语句用在循环语句中,它的作用是终止本次循环,执行下一次循环 .",
+      "content": "continue语句用在循环语句中,它的作用是终止本次循环,执行下一次循环\n.",
+      "title": "continue语句用在循环语句中,它的作用是终止本次循环,执行下一次循环",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062406560854017",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "continue语句用在循环语句中,它的作用是终止本次循环,执行下一次循环",
+        "content": "continue语句用在循环语句中,它的作用是终止本次循环,执行下一次循环\n.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1862424113187581954",
+        "description": "continue语句用在循环语句中,它的作用是终止本次循环,执行下一次循环\n.\n\n",
+        "problemPoolIndex": 18,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116061869094350852",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "关于return语句，下列正确的说法是（）。@[](1) A. 不能在主函数中出现且在其他函数中均可出现 B. 必须在每个函数中出现 C. 可以在同一个函数中出现多次 D. 只能在除主函数之外的函数中出现一次",
+      "content": "关于return语句，下列正确的说法是（）。@[](1)\n\nA. 不能在主函数中出现且在其他函数中均可出现\nB. 必须在每个函数中出现\nC. 可以在同一个函数中出现多次\nD. 只能在除主函数之外的函数中出现一次",
+      "title": "关于return语句，下列正确的说法是（）。",
+      "options": [
+        "不能在主函数中出现且在其他函数中均可出现",
+        "必须在每个函数中出现",
+        "可以在同一个函数中出现多次",
+        "只能在除主函数之外的函数中出现一次"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869094350852",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "不能在主函数中出现且在其他函数中均可出现",
+              "必须在每个函数中出现",
+              "可以在同一个函数中出现多次",
+              "只能在除主函数之外的函数中出现一次"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "关于return语句，下列正确的说法是（）。",
+        "content": "关于return语句，下列正确的说法是（）。@[](1)\n\nA. 不能在主函数中出现且在其他函数中均可出现\nB. 必须在每个函数中出现\nC. 可以在同一个函数中出现多次\nD. 只能在除主函数之外的函数中出现一次\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘永福",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1211671286202712064",
+        "description": "关于return语句，下列正确的说法是（）。",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116061869098545152",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java，以下关于函数调用值传递说法正确的是（）。@[](1) A. 实参和与其对应的形参各占用独立的存储单元 B. 实参和与其对应的形参共占用一个存储单元 C. 只有当实参和与其对应的形参同名时才共占用存储单元 D. 形参是虚拟的,不占用存储单元",
+      "content": "在Java，以下关于函数调用值传递说法正确的是（）。@[](1)\nA. 实参和与其对应的形参各占用独立的存储单元\nB. 实参和与其对应的形参共占用一个存储单元\nC. 只有当实参和与其对应的形参同名时才共占用存储单元\nD. 形参是虚拟的,不占用存储单元",
+      "title": "在Java，以下关于函数调用值传递说法正确的是（）。",
+      "options": [
+        "实参和与其对应的形参各占用独立的存储单元",
+        "实参和与其对应的形参共占用一个存储单元",
+        "只有当实参和与其对应的形参同名时才共占用存储单元",
+        "形参是虚拟的,不占用存储单元"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869098545152",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "实参和与其对应的形参各占用独立的存储单元",
+              "实参和与其对应的形参共占用一个存储单元",
+              "只有当实参和与其对应的形参同名时才共占用存储单元",
+              "形参是虚拟的,不占用存储单元"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java，以下关于函数调用值传递说法正确的是（）。",
+        "content": "在Java，以下关于函数调用值传递说法正确的是（）。@[](1)\nA. 实参和与其对应的形参各占用独立的存储单元\nB. 实参和与其对应的形参共占用一个存储单元\nC. 只有当实参和与其对应的形参同名时才共占用存储单元\nD. 形参是虚拟的,不占用存储单元\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘永福",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1211675582860312576",
+        "description": "在Java，以下关于函数调用值传递说法正确的是（）。",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116061869098545153",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "假设有如下程序： ``` public class Demo { public static void main(String args[]) { System.out.println(inc(10) + inc(8) + inc(-10)) ; } public static int inc(int temp) { if (temp > 0) { return temp * 2 ; } return -1 ; } } ``` 最终执行结果是什么？@[](2) A. 35.0 B. 8.0 C. 28.0 D. 12.0",
+      "content": "假设有如下程序：\n```\npublic class Demo {\n      public static void main(String args[]) {\n             System.out.println(inc(10) + inc(8) + inc(-10)) ;\n       }\n      public static int inc(int temp) {\n           if (temp > 0) {  \n                 return temp * 2 ; \n\t\t\t     }\n           return -1 ;\n     }\n}\n```\n最终执行结果是什么？@[](2)\n\nA. 35.0\nB. 8.0\nC. 28.0\nD. 12.0",
+      "title": "假设有如下程序：",
+      "options": [
+        "35.0",
+        "8.0",
+        "28.0",
+        "12.0"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869098545153",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "35.0",
+              "8.0",
+              "28.0",
+              "12.0"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "假设有如下程序：",
+        "content": "假设有如下程序：\n```\npublic class Demo {\n      public static void main(String args[]) {\n             System.out.println(inc(10) + inc(8) + inc(-10)) ;\n       }\n      public static int inc(int temp) {\n           if (temp > 0) {  \n                 return temp * 2 ; \n\t\t\t     }\n           return -1 ;\n     }\n}\n```\n最终执行结果是什么？@[](2)\n\nA. 35.0\nB. 8.0\nC. 28.0\nD. 12.0\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1227524878508380160",
+        "description": "假设有如下程序：\n```\npublic class Demo {\n      public static void main(String args[]) {\n             System.out.println(inc(10) + inc(8) + inc(-10)) ;\n       }\n      public static int inc(int temp) {\n           if (temp > 0) {\n                 return temp * 2 ;\n\t\t\t     }\n           return -1 ;\n     }\n}\n```\n最终执行结果是什么？",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2116061869102739456",
+      "number": 4,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "现在有一个方法：public static int info(int x,double y)，下面那个方法是对本方法的正确重载？@[](2) A. public static int infos(int x,int y)； B. public static void info(int x,double y)； C. public static int info(int x,int y)； D. public static void infos(int x,int y)；",
+      "content": "现在有一个方法：public static int info(int x,double y)，下面那个方法是对本方法的正确重载？@[](2)\n\nA. public static int infos(int x,int y)；\nB. public static void info(int x,double y)；\nC. public static int info(int x,int y)；\nD. public static void infos(int x,int y)；",
+      "title": "现在有一个方法：public static int info(int x,double y)，下面那个方法是对本方法的正确重载？",
+      "options": [
+        "public static int infos(int x,int y)；",
+        "public static void info(int x,double y)；",
+        "public static int info(int x,int y)；",
+        "public static void infos(int x,int y)；"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869102739456",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "public static int infos(int x,int y)；",
+              "public static void info(int x,double y)；",
+              "public static int info(int x,int y)；",
+              "public static void infos(int x,int y)；"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "现在有一个方法：public static int info(int x,double y)，下面那个方法是对本方法的正确重载？",
+        "content": "现在有一个方法：public static int info(int x,double y)，下面那个方法是对本方法的正确重载？@[](2)\n\nA. public static int infos(int x,int y)；\nB. public static void info(int x,double y)；\nC. public static int info(int x,int y)；\nD. public static void infos(int x,int y)；\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1227525438636707840",
+        "description": "现在有一个方法：public static int info(int x,double y)，下面那个方法是对本方法的正确重载？",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2116061869102739457",
+      "number": 5,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析如下代码： @[](2) ``` public class Test { public static void main(String[] args) { System.out.println(max(1, 2)); } public static double max(int num1, double num2) { System.out.println(\"max(int, double) is invoked\"); if (num1 > num2) return num1; else return num2; } public static double max(double num1, int num2) { System.out.println(\"max(double, int) is invoked\"); if (num1 > num2) return num1; else return num2; } } ``` A. 程序运行并输出 ``` max(int, double) is invoked 2 ``` B. 程序运行并输出 ``` max(double, int) is invoked 2 ``` C. 程序运行并输出 ``` max(int, double) is invoked 2.0 ``` D. 程序编译错误，因为编译器无法判断该调用哪个max方法。",
+      "content": "分析如下代码：   @[](2)\n```\npublic class Test {\n       public static void main(String[] args) {\n             System.out.println(max(1, 2));\n       }\n       public static double max(int num1, double num2) {\n            System.out.println(\"max(int, double) is invoked\");\n            if (num1 > num2)\n                     return num1;\n            else\n                     return num2;\n        }\n        public static double max(double num1, int num2) {\n            System.out.println(\"max(double, int) is invoked\");\n            if (num1 > num2)\n                   return num1;\n             else\n                   return num2;\n       }\n}\n```\nA. 程序运行并输出\n```\nmax(int, double) is invoked\n2\n```\nB.  程序运行并输出\n```\nmax(double, int) is invoked\n2\n```\nC. 程序运行并输出\n```\nmax(int, double) is invoked\n2.0\n```\nD. 程序编译错误，因为编译器无法判断该调用哪个max方法。",
+      "title": "分析如下代码：   ",
+      "options": [
+        "程序运行并输出 ``` max(int, double) is invoked 2 ```",
+        "程序运行并输出 ``` max(double, int) is invoked 2 ```",
+        "程序运行并输出 ``` max(int, double) is invoked 2.0 ```",
+        "程序编译错误，因为编译器无法判断该调用哪个max方法。"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869102739457",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "程序运行并输出\n```\nmax(int, double) is invoked\n2\n```",
+              "程序运行并输出\n```\nmax(double, int) is invoked\n2\n```",
+              "程序运行并输出\n```\nmax(int, double) is invoked\n2.0\n```",
+              "程序编译错误，因为编译器无法判断该调用哪个max方法。"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析如下代码：   ",
+        "content": "分析如下代码：   @[](2)\n```\npublic class Test {\n       public static void main(String[] args) {\n             System.out.println(max(1, 2));\n       }\n       public static double max(int num1, double num2) {\n            System.out.println(\"max(int, double) is invoked\");\n            if (num1 > num2)\n                     return num1;\n            else\n                     return num2;\n        }\n        public static double max(double num1, int num2) {\n            System.out.println(\"max(double, int) is invoked\");\n            if (num1 > num2)\n                   return num1;\n             else\n                   return num2;\n       }\n}\n```\nA. 程序运行并输出\n```\nmax(int, double) is invoked\n2\n```\nB.  程序运行并输出\n```\nmax(double, int) is invoked\n2\n```\nC. 程序运行并输出\n```\nmax(int, double) is invoked\n2.0\n```\nD. 程序编译错误，因为编译器无法判断该调用哪个max方法。\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1238718541776429056",
+        "description": "分析如下代码：\n```\npublic class Test {\n       public static void main(String[] args) {\n             System.out.println(max(1, 2));\n       }\n       public static double max(int num1, double num2) {\n            System.out.println(\"max(int, double) is invoked\");\n            if (num1 > num2)\n                     return num1;\n            else\n                     return num2;\n        }\n        public static double max(double num1, int num2) {\n            System.out.println(\"max(double, int) is invoked\");\n            if (num1 > num2)\n                   return num1;\n             else\n                   return num2;\n       }\n}\n```",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2116061869102739458",
+      "number": 6,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析如下代码： @[](2) ``` public class Test { public static void main(String[] args) { System.out.println(xMethod(5, 500L)); } public static int xMethod(int n, long l) { System.out.println(\"int, long\"); return n; } public static long xMethod(long n, long l) { System.out.println(\"long, long\"); return n; } } ``` A. 程序无法编译，因为编译器无法区分应调用哪个xmethod。 B. 程序运行正确但输出的不是5。 C. 程序输出 ``` int, long 5 ``` D. 程序输出 ``` long, long 5 ```",
+      "content": "分析如下代码：   @[](2)\n```\npublic class Test {\n   public static void main(String[] args) {\n      System.out.println(xMethod(5, 500L));\n   }\n   public static int xMethod(int n, long l) {\n      System.out.println(\"int, long\");\n      return n;\n   }\n   public static long xMethod(long n, long l) {\n      System.out.println(\"long, long\");\n      return n;\n   }\n}\n```\n\nA. 程序无法编译，因为编译器无法区分应调用哪个xmethod。\nB. 程序运行正确但输出的不是5。\nC. 程序输出\n```\nint, long\n5\n```\nD. 程序输出\n```\nlong, long\n5\n```",
+      "title": "分析如下代码：   ",
+      "options": [
+        "程序无法编译，因为编译器无法区分应调用哪个xmethod。",
+        "程序运行正确但输出的不是5。",
+        "程序输出 ``` int, long 5 ```",
+        "程序输出 ``` long, long 5 ```"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869102739458",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "程序无法编译，因为编译器无法区分应调用哪个xmethod。",
+              "程序运行正确但输出的不是5。",
+              "程序输出\n```\nint, long\n5\n```",
+              "程序输出\n```\nlong, long\n5\n```"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析如下代码：   ",
+        "content": "分析如下代码：   @[](2)\n```\npublic class Test {\n   public static void main(String[] args) {\n      System.out.println(xMethod(5, 500L));\n   }\n   public static int xMethod(int n, long l) {\n      System.out.println(\"int, long\");\n      return n;\n   }\n   public static long xMethod(long n, long l) {\n      System.out.println(\"long, long\");\n      return n;\n   }\n}\n```\n\nA. 程序无法编译，因为编译器无法区分应调用哪个xmethod。\nB. 程序运行正确但输出的不是5。\nC. 程序输出\n```\nint, long\n5\n```\nD. 程序输出\n```\nlong, long\n5\n```\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1238720534532202496",
+        "description": "分析如下代码：\n```\npublic class Test {\n   public static void main(String[] args) {\n      System.out.println(xMethod(5, 500L));\n   }\n   public static int xMethod(int n, long l) {\n      System.out.println(\"int, long\");\n      return n;\n   }\n   public static long xMethod(long n, long l) {\n      System.out.println(\"long, long\");\n      return n;\n   }\n}\n```",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2116061869106933760",
+      "number": 7,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列方法定义中，不正确的是( )。 @[](2) A. public int x( ){ ... } B. public static int x( double y ){ ... } C. void x( double d ) { ... } D. public static x( double a ){ ... }",
+      "content": "下列方法定义中，不正确的是(   )。   @[](2)\n\nA. public int x( ){ ... } \nB. public static int x( double y ){ ... }\nC. void x( double d ) { ... }\nD. public static x( double a ){ ... }",
+      "title": "下列方法定义中，不正确的是(   )。   ",
+      "options": [
+        "public int x( ){ ... }",
+        "public static int x( double y ){ ... }",
+        "void x( double d ) { ... }",
+        "public static x( double a ){ ... }"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869106933760",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "public int x( ){ ... } ",
+              "public static int x( double y ){ ... }",
+              "void x( double d ) { ... }",
+              "public static x( double a ){ ... }"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列方法定义中，不正确的是(   )。   ",
+        "content": "下列方法定义中，不正确的是(   )。   @[](2)\n\nA. public int x( ){ ... } \nB. public static int x( double y ){ ... }\nC. void x( double d ) { ... }\nD. public static x( double a ){ ... }\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1249169881682558976",
+        "description": "下列方法定义中，不正确的是(   )。   \n\n",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2116061869106933761",
+      "number": 8,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "JAVA中，void 的含义：（ ）。",
+      "content": "JAVA中，void 的含义：（      ）。",
+      "title": "JAVA中，void 的含义：（      ）。",
+      "options": [
+        "方法体为空",
+        "定义的方法没有形参",
+        "定义的方法没有返回值",
+        "方法的返回值不能参加算术运算"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869106933761",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "方法体为空\n",
+              "定义的方法没有形参\n",
+              "定义的方法没有返回值\n",
+              "方法的返回值不能参加算术运算\n"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "JAVA中，void 的含义：（      ）。",
+        "content": "JAVA中，void 的含义：（      ）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1424184447795982336",
+        "description": "JAVA中，void 的含义：（      ）。",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2116061869106933762",
+      "number": 9,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，下列关于方法的描述中，正确的是？",
+      "content": "在Java中，下列关于方法的描述中，正确的是？",
+      "title": "在Java中，下列关于方法的描述中，正确的是？",
+      "options": [
+        "方法是对一段可执行代码的封装",
+        "当方法没有返回值时,返回值类型可以不写",
+        "当方法没有返回值时,不能有return语句",
+        "方法必须要有参数"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869106933762",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "方法是对一段可执行代码的封装",
+              "当方法没有返回值时,返回值类型可以不写",
+              "当方法没有返回值时,不能有return语句",
+              "方法必须要有参数"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，下列关于方法的描述中，正确的是？",
+        "content": "在Java中，下列关于方法的描述中，正确的是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1600822537184100352",
+        "description": "在Java中，下列关于方法的描述中，正确的是？",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116061869111128064",
+      "number": 10,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，下列方法不能重载方法int getValue(int x){}的是？",
+      "content": "在Java中，下列方法不能重载方法int getValue(int x){}的是？",
+      "title": "在Java中，下列方法不能重载方法int getValue(int x){}的是？",
+      "options": [
+        "void getValue(int x){ }",
+        "int getValue(float x){ }",
+        "int getValue(){ }",
+        "void getValue(int x, int y){ }"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869111128064",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "void getValue(int x){ }",
+              "int getValue(float x){ }",
+              "int getValue(){ }",
+              "void getValue(int x, int y){ }"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，下列方法不能重载方法int getValue(int x){}的是？",
+        "content": "在Java中，下列方法不能重载方法int getValue(int x){}的是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1600840318227070976",
+        "description": "在Java中，下列方法不能重载方法int getValue(int x){}的是？",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116061869115322368",
+      "number": 11,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中某个类A中存在一个方法:void getSort(int x)，以下不能作为这个方法的重载的声明的是？",
+      "content": "Java中某个类A中存在一个方法:void getSort(int x)，以下不能作为这个方法的重载的声明的是？",
+      "title": "Java中某个类A中存在一个方法:void getSort(int x)，以下不能作为这个方法的重载的声明的是？",
+      "options": [
+        "void getSort(float x)",
+        "int getSort(int y)",
+        "void getSort(int x,int y)",
+        "void getSort(float x,int y)"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869115322368",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "void getSort(float x)",
+              "int getSort(int y)",
+              "void getSort(int x,int y)",
+              "void getSort(float x,int y)"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中某个类A中存在一个方法:void getSort(int x)，以下不能作为这个方法的重载的声明的是？",
+        "content": "Java中某个类A中存在一个方法:void getSort(int x)，以下不能作为这个方法的重载的声明的是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1600842187078889472",
+        "description": "Java中某个类A中存在一个方法:void getSort(int x)，以下不能作为这个方法的重载的声明的是？",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116061869115322369",
+      "number": 12,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，若一个类中对某个方法进行了重载，能够区分这些重载方法的手段是？",
+      "content": "在Java中，若一个类中对某个方法进行了重载，能够区分这些重载方法的手段是？",
+      "title": "在Java中，若一个类中对某个方法进行了重载，能够区分这些重载方法的手段是？",
+      "options": [
+        "它们返回值类型的不同",
+        "它们名称的不同",
+        "它们参数列表的不同",
+        "它们修饰符的不同"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116061869115322369",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "它们返回值类型的不同",
+              "它们名称的不同",
+              "它们参数列表的不同",
+              "它们修饰符的不同"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，若一个类中对某个方法进行了重载，能够区分这些重载方法的手段是？",
+        "content": "在Java中，若一个类中对某个方法进行了重载，能够区分这些重载方法的手段是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1600843768943857664",
+        "description": "在Java中，若一个类中对某个方法进行了重载，能够区分这些重载方法的手段是？",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116062520830480384",
+      "number": 13,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "假设有如下程序： ``` public class Demo { public static void main(String args[]) { String str = \"\" ; for (int x = 0 ; x < 5 ; x ++) { str += x ; } System.out.println(str) ; } } ``` 最终的执行结果是什么？@[](2) A. 01234 B. 10.0 C. 14.0 D. 25.0",
+      "content": "假设有如下程序：\n```\npublic class Demo {\n      public static void main(String args[]) {\n            String str = \"\" ;\n            for (int x = 0 ; x < 5 ; x ++) {\n                   str += x ;\n            }\n          System.out.println(str) ;\n      }\n}\n```\n最终的执行结果是什么？@[](2)\n\nA. 01234\nB. 10.0\nC. 14.0\nD. 25.0",
+      "title": "假设有如下程序：",
+      "options": [
+        "01234",
+        "10.0",
+        "14.0",
+        "25.0"
+      ],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2116062520830480384",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "01234",
+              "10.0",
+              "14.0",
+              "25.0"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "假设有如下程序：",
+        "content": "假设有如下程序：\n```\npublic class Demo {\n      public static void main(String args[]) {\n            String str = \"\" ;\n            for (int x = 0 ; x < 5 ; x ++) {\n                   str += x ;\n            }\n          System.out.println(str) ;\n      }\n}\n```\n最终的执行结果是什么？@[](2)\n\nA. 01234\nB. 10.0\nC. 14.0\nD. 25.0\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1227512605094072320",
+        "description": "假设有如下程序：\n```\npublic class Demo {\n      public static void main(String args[]) {\n            String str = \"\" ;\n            for (int x = 0 ; x < 5 ; x ++) {\n                   str += x ;\n            }\n          System.out.println(str) ;\n      }\n}\n```\n最终的执行结果是什么？",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2116062520830480385",
+      "number": 14,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "y输出是（ ）。 @[](2) ``` int y = 0; for (int i = 0; i<10; ++i) { y += i; } System.out.println(y); ``` A. 45 B. 12 C. 11 D. 10",
+      "content": "y输出是（   ）。   @[](2)\n```\nint y = 0;\nfor (int i = 0; i<10; ++i) {\n    y += i;\n}\nSystem.out.println(y);\n```\nA. 45\nB. 12\nC. 11\nD. 10",
+      "title": "y输出是（   ）。   ",
+      "options": [
+        "45",
+        "12",
+        "11",
+        "10"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520830480385",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "45",
+              "12",
+              "11",
+              "10"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "y输出是（   ）。   ",
+        "content": "y输出是（   ）。   @[](2)\n```\nint y = 0;\nfor (int i = 0; i<10; ++i) {\n    y += i;\n}\nSystem.out.println(y);\n```\nA. 45\nB. 12\nC. 11\nD. 10\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1238712131533545472",
+        "description": "y输出是（   ）。\n```\nint y = 0;\nfor (int i = 0; i<10; ++i) {\n    y += i;\n}\nSystem.out.println(y);\n```",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2116062520830480386",
+      "number": 15,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "如下循环结束后i的值是（ ）@[](2) ``` int y = 0; for (int i = 0; i<10; ++i) { y += i; } ``` A. 9 B. 10 C. 不确定 D. 11",
+      "content": "如下循环结束后i的值是（   ）@[](2)\n```\nint y = 0;\nfor (int i = 0; i<10; ++i) {\n     y += i;\n}\n```\nA. 9\nB. 10\nC. 不确定\nD. 11",
+      "title": "如下循环结束后i的值是（   ）",
+      "options": [
+        "9",
+        "10",
+        "不确定",
+        "11"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520830480386",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "9",
+              "10",
+              "不确定",
+              "11"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "如下循环结束后i的值是（   ）",
+        "content": "如下循环结束后i的值是（   ）@[](2)\n```\nint y = 0;\nfor (int i = 0; i<10; ++i) {\n     y += i;\n}\n```\nA. 9\nB. 10\nC. 不确定\nD. 11\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1238713658570579968",
+        "description": "如下循环结束后i的值是（   ）\n```\nint y = 0;\nfor (int i = 0; i<10; ++i) {\n     y += i;\n}\n```",
+        "problemPoolIndex": 15,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2116062520830480387",
+      "number": 16,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中，以下程序运行后，for循环执行的次数是 ``` public class Main() { public static void main(String[] args) { int i; for(i = 1; i < 189; i++) { if(i == 3) break; else continue; } } } ```",
+      "content": "Java中，以下程序运行后，for循环执行的次数是\n```\npublic class Main() {\n\tpublic static void main(String[] args) {\n\t\tint i;\n\t\tfor(i = 1; i < 189; i++) {\n\t\t\tif(i == 3) break;\n\t\t\telse continue;\n\t\t}\n\t}\n}\n```",
+      "title": "Java中，以下程序运行后，for循环执行的次数是",
+      "options": [
+        "2",
+        "3",
+        "188",
+        "189"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520830480387",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "2",
+              "3",
+              "188",
+              "189"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，以下程序运行后，for循环执行的次数是",
+        "content": "Java中，以下程序运行后，for循环执行的次数是\n```\npublic class Main() {\n\tpublic static void main(String[] args) {\n\t\tint i;\n\t\tfor(i = 1; i < 189; i++) {\n\t\t\tif(i == 3) break;\n\t\t\telse continue;\n\t\t}\n\t}\n}\n```\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1462686366440845312",
+        "description": "Java中，以下程序运行后，for循环执行的次数是\n```\npublic class Main() {\n\tpublic static void main(String[] args) {\n\t\tint i;\n\t\tfor(i = 1; i < 189; i++) {\n\t\t\tif(i == 3) break;\n\t\t\telse continue;\n\t\t}\n\t}\n}\n```\n",
+        "problemPoolIndex": 16,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116062520830480388",
+      "number": 17,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "现有如下方法： ```java /** Precondition: data is sorted in increasing order. */ public static int binarySearch(int[] data, int target) { int start = 0; int end = data.length - 1; while (start <= end) { int mid = (start + end) / 2; /* Calculate midpoint */ if (target < data[mid]) { end = mid - 1; } else if (target > data[mid]) { start = mid + 1; } else { return mid; } } return -1; } ``` 假设调用`binarySearch`方法的数组包含2000个按递增顺序排序的元素。请问`/* Calculate middpoint */`所在的语句（第8行）可以执行的最大次数是多少？",
+      "content": "现有如下方法：\n```java\n/** Precondition: data is sorted in increasing order. */ \npublic static int binarySearch(int[] data, int target) \n{ \n  int start = 0; \n  int end = data.length - 1; \n  while (start <= end) \n  { \n    int mid = (start + end) / 2; /* Calculate midpoint */ \n    if (target < data[mid]) \n    { \n      end = mid - 1; \n    } \n    else if (target > data[mid]) \n    { \n      start = mid + 1; \n    } \n    else \n    { \n      return mid; \n    } \n  } \n  return -1; \n}\n```\n假设调用`binarySearch`方法的数组包含2000个按递增顺序排序的元素。请问`/* Calculate middpoint */`所在的语句（第8行）可以执行的最大次数是多少？",
+      "title": "函数使用",
+      "options": [
+        "2000",
+        "1000",
+        "20",
+        "11",
+        "1"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520830480388",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "2000",
+              "1000",
+              "20",
+              "11",
+              "1"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "函数使用",
+        "content": "现有如下方法：\n```java\n/** Precondition: data is sorted in increasing order. */ \npublic static int binarySearch(int[] data, int target) \n{ \n  int start = 0; \n  int end = data.length - 1; \n  while (start <= end) \n  { \n    int mid = (start + end) / 2; /* Calculate midpoint */ \n    if (target < data[mid]) \n    { \n      end = mid - 1; \n    } \n    else if (target > data[mid]) \n    { \n      start = mid + 1; \n    } \n    else \n    { \n      return mid; \n    } \n  } \n  return -1; \n}\n```\n假设调用`binarySearch`方法的数组包含2000个按递增顺序排序的元素。请问`/* Calculate middpoint */`所在的语句（第8行）可以执行的最大次数是多少？\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "Ma",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1582769472171491328",
+        "description": "现有如下方法：\n```java\n/** Precondition: data is sorted in increasing order. */ \npublic static int binarySearch(int[] data, int target) \n{ \n  int start = 0; \n  int end = data.length - 1; \n  while (start <= end) \n  { \n    int mid = (start + end) / 2; /* Calculate midpoint */ \n    if (target < data[mid]) \n    { \n      end = mid - 1; \n    } \n    else if (target > data[mid]) \n    { \n      start = mid + 1; \n    } \n    else \n    { \n      return mid; \n    } \n  } \n  return -1; \n}\n```\n假设调用`binarySearch`方法的数组包含2000个按递增顺序排序的元素。请问`/* Calculate middpoint */`所在的语句（第8行）可以执行的最大次数是多少？\n\n",
+        "problemPoolIndex": 17,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "153"
+      }
+    },
+    {
+      "id": "2116062520834674688",
+      "number": 18,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列Java程序执行的输出结果是？ ``` public class Test { public static void main(String[] args){ int y = 0; int i = 6; for (int j = 1; j < 6; j++) { if (i % j == 0) y += j; } System.out.print(y); } } ```",
+      "content": "下列Java程序执行的输出结果是？\n```\npublic class Test {\n    public static void main(String[] args){\n        int y = 0;\n        int i = 6;\n        for (int j = 1; j < 6; j++) {\n           if (i % j == 0)\n           y += j;\n        }\n        System.out.print(y);\n    }\n}\n\n\n```",
+      "title": "下列Java程序执行的输出结果是？",
+      "options": [
+        "3",
+        "6",
+        "9",
+        "12"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674688",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "3",
+              "6",
+              "9",
+              "12"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列Java程序执行的输出结果是？",
+        "content": "下列Java程序执行的输出结果是？\n```\npublic class Test {\n    public static void main(String[] args){\n        int y = 0;\n        int i = 6;\n        for (int j = 1; j < 6; j++) {\n           if (i % j == 0)\n           y += j;\n        }\n        System.out.print(y);\n    }\n}\n\n\n```\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1600830449419812864",
+        "description": "下列Java程序执行的输出结果是？\n```\npublic class Test {\n    public static void main(String[] args){\n        int y = 0;\n        int i = 6;\n        for (int j = 1; j < 6; j++) {\n           if (i % j == 0)\n           y += j;\n        }\n        System.out.print(y);\n    }\n}\n\n\n```\n",
+        "problemPoolIndex": 18,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116062520834674689",
+      "number": 19,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中有关for循环的描述正确的是？",
+      "content": "Java中有关for循环的描述正确的是？",
+      "title": "Java中有关for循环的描述正确的是？",
+      "options": [
+        "for循环体语句中，可以包含多条语句，但要用大括号括起来",
+        "for循环只能用于循环次数已经确定的情况",
+        "在for循环中,不能使用break语句跳出循环",
+        "for循环是先执行循环体语句，后进行条件判断"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2116062520834674689",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "for循环体语句中，可以包含多条语句，但要用大括号括起来",
+              "for循环只能用于循环次数已经确定的情况",
+              "在for循环中,不能使用break语句跳出循环",
+              "for循环是先执行循环体语句，后进行条件判断"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中有关for循环的描述正确的是？",
+        "content": "Java中有关for循环的描述正确的是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1601070503731908608",
+        "description": "Java中有关for循环的描述正确的是？",
+        "problemPoolIndex": 19,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116062520834674690",
+      "number": 20,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "阅读下面的Java代码，运行结果是（ ）。 public class Test { public static void main(String[] args) { int i = 0; while (i < 6) { System.out.print(i); if (i % 2 == 1) { i++; continue; } if (i % 4 == 0) { continue; } i++; } } }",
+      "content": "阅读下面的Java代码，运行结果是（    ）。\npublic class Test {\n    public static void main(String[] args) {\n        int i = 0;\n        while (i < 6) {\n            System.out.print(i);\n            if (i % 2 == 1) {\n                i++;\n                continue;\n            }\n            if (i % 4 == 0) {\n                continue;\n            }\n            i++;\n        }\n    }\n}",
+      "title": "阅读下面的Java代码，运行结果是 ____ 。",
+      "options": [
+        "0123",
+        "0124",
+        "0125",
+        "死循环"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674690",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0123",
+              "0124",
+              "0125",
+              "死循环"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "阅读下面的Java代码，运行结果是 ____ 。",
+        "content": "阅读下面的Java代码，运行结果是（    ）。\npublic class Test {\n    public static void main(String[] args) {\n        int i = 0;\n        while (i < 6) {\n            System.out.print(i);\n            if (i % 2 == 1) {\n                i++;\n                continue;\n            }\n            if (i % 4 == 0) {\n                continue;\n            }\n            i++;\n        }\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233378631680",
+        "description": "阅读下面的Java代码，运行结果是（    ）。\npublic class Test {\n    public static void main(String[] args) {\n        int i = 0;\n        while (i < 6) {\n            System.out.print(i);\n            if (i % 2 == 1) {\n                i++;\n                continue;\n            }\n            if (i % 4 == 0) {\n                continue;\n            }\n            i++;\n        }\n    }\n}",
+        "problemPoolIndex": 20,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520834674691",
+      "number": 21,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，以下（ ）关键字用于终止循环，使程序跳到循环块外的下一条语句。",
+      "content": "在Java中，以下（    ）关键字用于终止循环，使程序跳到循环块外的下一条语句。",
+      "title": "在Java中，以下 ____ 关键字用于终止循环，使程序跳到循环块外的下一条语句。",
+      "options": [
+        "break",
+        "exit",
+        "return",
+        "continue"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674691",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "break",
+              "exit",
+              "return",
+              "continue"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，以下 ____ 关键字用于终止循环，使程序跳到循环块外的下一条语句。",
+        "content": "在Java中，以下（    ）关键字用于终止循环，使程序跳到循环块外的下一条语句。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233391214592",
+        "description": "在Java中，以下（    ）关键字用于终止循环，使程序跳到循环块外的下一条语句。",
+        "problemPoolIndex": 21,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520834674692",
+      "number": 22,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，给定代码片段如下所示，则编译运行后，输出结果是（ ）。 for (int i = 0; i < 10; i++) { if (i == 10 - i) { break; } if (i % 3 != 0) { continue; } System.out.print(i + \"\"); }",
+      "content": "在Java中，给定代码片段如下所示，则编译运行后，输出结果是（    ）。\nfor (int i = 0; i < 10; i++) {\n    if (i == 10 - i) {\n        break;\n    }\n    if (i % 3 != 0) {\n        continue;\n    }\n    System.out.print(i + \"\");\n}",
+      "title": "在Java中，给定代码片段如下所示，则编译运行后，输出结果是 ____ 。",
+      "options": [
+        "0",
+        "0 3",
+        "0 3 6",
+        "0 3 6 9"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674692",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0",
+              "0 3",
+              "0 3 6",
+              "0 3 6 9"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，给定代码片段如下所示，则编译运行后，输出结果是 ____ 。",
+        "content": "在Java中，给定代码片段如下所示，则编译运行后，输出结果是（    ）。\nfor (int i = 0; i < 10; i++) {\n    if (i == 10 - i) {\n        break;\n    }\n    if (i % 3 != 0) {\n        continue;\n    }\n    System.out.print(i + \"\");\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233395408896",
+        "description": "在Java中，给定代码片段如下所示，则编译运行后，输出结果是（    ）。\nfor (int i = 0; i < 10; i++) {\n    if (i == 10 - i) {\n        break;\n    }\n    if (i % 3 != 0) {\n        continue;\n    }\n    System.out.print(i + \"\");\n}",
+        "problemPoolIndex": 22,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520834674693",
+      "number": 23,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "某Java类的main( )方法如下所示，则编译运行该类的输出结果是（ ）。 public static void main(String[] args) { for (int i = 0; i < 10; i++) { if (i % 2 != 0) continue; System.out.print(i); } }",
+      "content": "某Java类的main(  )方法如下所示，则编译运行该类的输出结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 0; i < 10; i++) {\n        if (i % 2 != 0)\n            continue;\n        System.out.print(i);\n    }\n}",
+      "title": "某Java类的main ____ 方法如下所示，则编译运行该类的输出结果是 ____ 。",
+      "options": [
+        "13579",
+        "02468",
+        "97561",
+        "86420"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674693",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "13579",
+              "02468",
+              "97561",
+              "86420"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "某Java类的main ____ 方法如下所示，则编译运行该类的输出结果是 ____ 。",
+        "content": " 某Java类的main(  )方法如下所示，则编译运行该类的输出结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 0; i < 10; i++) {\n        if (i % 2 != 0)\n            continue;\n        System.out.print(i);\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233395408897",
+        "description": " 某Java类的main(  )方法如下所示，则编译运行该类的输出结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 0; i < 10; i++) {\n        if (i % 2 != 0)\n            continue;\n        System.out.print(i);\n    }\n}",
+        "problemPoolIndex": 23,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520834674694",
+      "number": 24,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "某Java类的main( )方法如下所示，则编译运行该类的输出结果是（ ）。 public static void main(String[] args) { for (int i = 0; i < 10; i++) { if (i % 2 != 0) { break; } System.out.println(i); } }",
+      "content": "某Java类的main(  )方法如下所示，则编译运行该类的输出结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 0; i < 10; i++) {\n        if (i % 2 != 0) {\n            break;\n        }\n        System.out.println(i);\n    }\n}",
+      "title": "某Java类的main ____ 方法如下所示，则编译运行该类的输出结果是 ____ 。",
+      "options": [
+        "13579",
+        "02468",
+        "0123456789",
+        "0"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674694",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "13579",
+              "02468",
+              "0123456789",
+              "0"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "某Java类的main ____ 方法如下所示，则编译运行该类的输出结果是 ____ 。",
+        "content": "某Java类的main(  )方法如下所示，则编译运行该类的输出结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 0; i < 10; i++) {\n        if (i % 2 != 0) {\n            break;\n        }\n        System.out.println(i);\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233395408898",
+        "description": "某Java类的main(  )方法如下所示，则编译运行该类的输出结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 0; i < 10; i++) {\n        if (i % 2 != 0) {\n            break;\n        }\n        System.out.println(i);\n    }\n}",
+        "problemPoolIndex": 24,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520834674695",
+      "number": 25,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析以下使用for循环的Java代码，其最后的运行结果是（ ）。 public class HelloStudent { public static void main(String[] arge) { int i = 2; for (; i < 5; i++) { System.out.print(\"这是第\" + (i - 1) + \"名！\"); } } }",
+      "content": "分析以下使用for循环的Java代码，其最后的运行结果是（    ）。\npublic class HelloStudent {\n    public static void main(String[] arge) {\n        int i = 2;\n        for (; i < 5; i++) {\n            System.out.print(\"这是第\" + (i - 1) + \"名！\");\n        }\n    }\n}",
+      "title": "分析以下使用for循环的Java代码，其最后的运行结果是 ____ 。",
+      "options": [
+        "这是第1名！这是第2名！",
+        "这是第1名！这是第2名！这是第3名！",
+        "这是第2名！这是第3名！这是第4名！",
+        "存在错误，缺少for循环的第一个表达式"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674695",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "这是第1名！这是第2名！",
+              "这是第1名！这是第2名！这是第3名！",
+              "这是第2名！这是第3名！这是第4名！",
+              "存在错误，缺少for循环的第一个表达式"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析以下使用for循环的Java代码，其最后的运行结果是 ____ 。",
+        "content": "分析以下使用for循环的Java代码，其最后的运行结果是（    ）。\npublic class HelloStudent {\n    public static void main(String[] arge) {\n        int i = 2;\n        for (; i < 5; i++) {\n            System.out.print(\"这是第\" + (i - 1) + \"名！\");\n        }\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233399603200",
+        "description": "分析以下使用for循环的Java代码，其最后的运行结果是（    ）。\npublic class HelloStudent {\n    public static void main(String[] arge) {\n        int i = 2;\n        for (; i < 5; i++) {\n            System.out.print(\"这是第\" + (i - 1) + \"名！\");\n        }\n    }\n}",
+        "problemPoolIndex": 25,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520834674696",
+      "number": 26,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java应用程序开发过程中，程序调试是查找和修改程序中错误的必要手段。以下步骤中（ ）不是程序调试的步骤。",
+      "content": "在Java应用程序开发过程中，程序调试是查找和修改程序中错误的必要手段。以下步骤中（    ）不是程序调试的步骤。",
+      "title": "在Java应用程序开发过程中，程序调试是查找和修改程序中错误的必要手段。以下步骤中 ____ 不是程序调试的步骤。",
+      "options": [
+        "设置断点",
+        "观察变量",
+        "编译代码",
+        "单步运行"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674696",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "设置断点",
+              "观察变量",
+              "编译代码",
+              "单步运行"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java应用程序开发过程中，程序调试是查找和修改程序中错误的必要手段。以下步骤中 ____ 不是程序调试的步骤。",
+        "content": "在Java应用程序开发过程中，程序调试是查找和修改程序中错误的必要手段。以下步骤中（    ）不是程序调试的步骤。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233399603201",
+        "description": "在Java应用程序开发过程中，程序调试是查找和修改程序中错误的必要手段。以下步骤中（    ）不是程序调试的步骤。",
+        "problemPoolIndex": 26,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520834674697",
+      "number": 27,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析以下使用for循环的Java代码，其最后的运行结果是（ ）。 public class HelloStudent { public static void main(String[] args) { int i = 0; for (; i < 5; i++) { System.out.print(\"这是第\" + (i + 1) + \"名！\"); if (i == 3) continue; } } }",
+      "content": "分析以下使用for循环的Java代码，其最后的运行结果是（    ）。\npublic class HelloStudent {\n    public static void main(String[] args) {\n        int i = 0;\n        for (; i < 5; i++) {\n            System.out.print(\"这是第\" + (i + 1) + \"名！\");\n            if (i == 3)\n                continue;\n        }\n    }\n}",
+      "title": "分析以下使用for循环的Java代码，其最后的运行结果是 ____ 。",
+      "options": [
+        "这是第1名！这是第2名！这是第3名！",
+        "这是第1名！这是第2名！这是第3名！这是第4名！",
+        "这是第1名！这是第2名！这是第4名！这是第5名！",
+        "这是第1名！这是第2名！这是第3名！这是第4名！这是第5名！"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674697",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "这是第1名！这是第2名！这是第3名！",
+              "这是第1名！这是第2名！这是第3名！这是第4名！",
+              "这是第1名！这是第2名！这是第4名！这是第5名！",
+              "这是第1名！这是第2名！这是第3名！这是第4名！这是第5名！"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析以下使用for循环的Java代码，其最后的运行结果是 ____ 。",
+        "content": "分析以下使用for循环的Java代码，其最后的运行结果是（    ）。\npublic class HelloStudent {\n    public static void main(String[] args) {\n        int i = 0;\n        for (; i < 5; i++) {\n            System.out.print(\"这是第\" + (i + 1) + \"名！\");\n            if (i == 3)\n                continue;\n        }\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233403797504",
+        "description": "分析以下使用for循环的Java代码，其最后的运行结果是（    ）。\npublic class HelloStudent {\n    public static void main(String[] args) {\n        int i = 0;\n        for (; i < 5; i++) {\n            System.out.print(\"这是第\" + (i + 1) + \"名！\");\n            if (i == 3)\n                continue;\n        }\n    }\n}",
+        "problemPoolIndex": 27,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520834674698",
+      "number": 28,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "给定如下Java代码，编译运行时，结果是（ ）。 public class Test { public static void main(String[] args) { for (int i = 0; i < 3; i++) { System.out.print(i); } System.out.print(i); } }",
+      "content": "给定如下Java代码，编译运行时，结果是（    ）。\npublic class Test {\n    public static void main(String[] args) {\n        for (int i = 0; i < 3; i++) {\n            System.out.print(i);\n        }\n        System.out.print(i);\n    }\n}",
+      "title": "给定如下Java代码，编译运行时，结果是 ____ 。",
+      "options": [
+        "编译时报错",
+        "正确运行，输出012",
+        "正确运行，输出123",
+        "正确运行，输出0123"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674698",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "编译时报错",
+              "正确运行，输出012",
+              "正确运行，输出123",
+              "正确运行，输出0123"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "给定如下Java代码，编译运行时，结果是 ____ 。",
+        "content": "给定如下Java代码，编译运行时，结果是（    ）。\npublic class Test {\n    public static void main(String[] args) {\n        for (int i = 0; i < 3; i++) {\n            System.out.print(i);\n        }\n        System.out.print(i);\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233403797505",
+        "description": "给定如下Java代码，编译运行时，结果是（    ）。\npublic class Test {\n    public static void main(String[] args) {\n        for (int i = 0; i < 3; i++) {\n            System.out.print(i);\n        }\n        System.out.print(i);\n    }\n}",
+        "problemPoolIndex": 28,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520834674699",
+      "number": 29,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "现有如下一段Java代码，该代码的运行结果是（ ）。 public static void main(String[] args) { for (int i = 1; i <= 3; i++) { switch (i) { case 1: System.out.print(i); break; default: System.out.print(i * 2); break; } } }",
+      "content": "现有如下一段Java代码，该代码的运行结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 1; i <= 3; i++) {\n        switch (i) {\n            case 1:\n                System.out.print(i);\n                break;\n            default:\n                System.out.print(i * 2);\n                break;\n        }\n    }\n}",
+      "title": "现有如下一段Java代码，该代码的运行结果是 ____ 。",
+      "options": [
+        "146",
+        "有编译错误",
+        "246",
+        "123"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520834674699",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "146",
+              "有编译错误",
+              "246",
+              "123"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "现有如下一段Java代码，该代码的运行结果是 ____ 。",
+        "content": "现有如下一段Java代码，该代码的运行结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 1; i <= 3; i++) {\n        switch (i) {\n            case 1:\n                System.out.print(i);\n                break;\n            default:\n                System.out.print(i * 2);\n                break;\n        }\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724592233403797506",
+        "description": "现有如下一段Java代码，该代码的运行结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 1; i <= 3; i++) {\n        switch (i) {\n            case 1:\n                System.out.print(i);\n                break;\n            default:\n                System.out.print(i * 2);\n                break;\n        }\n    }\n}",
+        "problemPoolIndex": 29,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520838868992",
+      "number": 30,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "有如下程序段: int total = 0; for ( int i = 0; i < 4; i++ ){ if ( i == 1) continue; if ( i == 2) break; total += i; } 则执行完该程序段后total的值为():",
+      "content": "有如下程序段:\nint total = 0;\nfor ( int i = 0; i < 4; i++ ){\nif ( i == 1) continue;\nif ( i == 2) break;\ntotal += i;\n}\n则执行完该程序段后total的值为():",
+      "title": "有如下程序段:",
+      "options": [
+        "0",
+        "1",
+        "3",
+        "6"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520838868992",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0",
+              "1",
+              "3",
+              "6"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "有如下程序段:",
+        "content": "有如下程序段:\nint total = 0;\nfor ( int i = 0; i < 4; i++ ){\nif ( i == 1) continue;\nif ( i == 2) break;\ntotal += i;\n}\n则执行完该程序段后total的值为():",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1862426423762550784",
+        "description": "有如下程序段:\nint total = 0;\nfor ( int i = 0; i < 4; i++ ){\nif ( i == 1) continue;\nif ( i == 2) break;\ntotal += i;\n}\n则执行完该程序段后total的值为():",
+        "problemPoolIndex": 30,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062520838868993",
+      "number": 31,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "for(i nt x=0,y =0;!x&&y <=5;y ++)语句执行循环的次数是( ).",
+      "content": "for(i nt x=0,y =0;!x&&y <=5;y ++)语句执行循环的次数是(  ).",
+      "title": "for(i nt x=0,y =0;!x&&y <=5;y ++)语句执行循环的次数是 ____ .",
+      "options": [
+        "0",
+        "5",
+        "6",
+        "无穷"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062520838868993",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0",
+              "5",
+              "6",
+              "无穷"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "for(i nt x=0,y =0;!x&&y <=5;y ++)语句执行循环的次数是 ____ .",
+        "content": "for(i nt x=0,y =0;!x&&y <=5;y ++)语句执行循环的次数是(  ).",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1862426423787716608",
+        "description": "for(i nt x=0,y =0;!x&&y <=5;y ++)语句执行循环的次数是(  ).",
+        "problemPoolIndex": 31,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062574668566528",
+      "number": 32,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中，以下循环嵌套程序代码执行完毕后，i--;执行的次数是 ``` public class HelloWorld { public static void main(String[] args) { int i=5,j=0,k; while(i) { k=i+j; for(j=10;j>0;j--) i--; } } } ```",
+      "content": "Java中，以下循环嵌套程序代码执行完毕后，i--;执行的次数是\n```\npublic class HelloWorld {\npublic static void main(String[] args) {\nint i=5,j=0,k;\nwhile(i)\n{\nk=i+j;\nfor(j=10;j>0;j--)\ni--;\n}\n}\n}\n\n\n```",
+      "title": "Java中，以下循环嵌套程序代码执行完毕后，i--;执行的次数是（while循环条件必须是Boolean类型）",
+      "options": [
+        "0",
+        "5",
+        "10",
+        "语法错误"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062574668566528",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0",
+              "5",
+              "10",
+              "语法错误"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，以下循环嵌套程序代码执行完毕后，i--;执行的次数是（while循环条件必须是Boolean类型）",
+        "content": "Java中，以下循环嵌套程序代码执行完毕后，i--;执行的次数是\n```\npublic class HelloWorld {\npublic static void main(String[] args) {\nint i=5,j=0,k;\nwhile(i)\n{\nk=i+j;\nfor(j=10;j>0;j--)\ni--;\n}\n}\n}\n\n\n```\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1462625320385495040",
+        "description": "Java中，以下循环嵌套程序代码执行完毕后，i--;执行的次数是\n```\npublic class HelloWorld {\npublic static void main(String[] args) {\nint i=5,j=0,k;\nwhile(i)\n{\nk=i+j;\nfor(j=10;j>0;j--)\ni--;\n}\n}\n}\n\n\n```\n",
+        "problemPoolIndex": 32,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2116062574668566529",
+      "number": 33,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析下面的Java代码，编译运行结果是（ ）。 public class Test { public static void main(String[] args) { boolean b = true; int val = 0; while (b) { for (int i = 0; i < 9; i++) { val++; if (val > 7) { continue; } System.out.print(val); } break; } System.out.println(\"Final\"); } }",
+      "content": "分析下面的Java代码，编译运行结果是（    ）。\npublic class Test {\n    public static void main(String[] args) {\n        boolean b = true;\n        int val = 0;\n        while (b) {\n            for (int i = 0; i < 9; i++) {\n                val++;\n                if (val > 7) {\n                    continue;\n                }\n                System.out.print(val);\n            }\n            break;\n        }\n        System.out.println(\"Final\");\n    }\n}",
+      "title": "分析下面的Java代码，编译运行结果是 ____ 。",
+      "options": [
+        "程序编译出错",
+        "输出：1234567Final",
+        "输出：1234567",
+        "输出：12345678Final"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062574668566529",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "程序编译出错",
+              "输出：1234567Final",
+              "输出：1234567",
+              "输出：12345678Final"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析下面的Java代码，编译运行结果是 ____ 。",
+        "content": "分析下面的Java代码，编译运行结果是（    ）。\npublic class Test {\n    public static void main(String[] args) {\n        boolean b = true;\n        int val = 0;\n        while (b) {\n            for (int i = 0; i < 9; i++) {\n                val++;\n                if (val > 7) {\n                    continue;\n                }\n                System.out.print(val);\n            }\n            break;\n        }\n        System.out.println(\"Final\");\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724593912694075392",
+        "description": "分析下面的Java代码，编译运行结果是（    ）。\npublic class Test {\n    public static void main(String[] args) {\n        boolean b = true;\n        int val = 0;\n        while (b) {\n            for (int i = 0; i < 9; i++) {\n                val++;\n                if (val > 7) {\n                    continue;\n                }\n                System.out.print(val);\n            }\n            break;\n        }\n        System.out.println(\"Final\");\n    }\n}",
+        "problemPoolIndex": 33,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062574672760832",
+      "number": 34,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "如下的Java代码输出的结果是（ ）。 public static void main(String[] args) { for (int i = 0; i < 3; i++) { for (int j = 1; j < i; j++) { System.out.print(i); System.out.print(j); } } }",
+      "content": "如下的Java代码输出的结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 0; i < 3; i++) {\n        for (int j = 1; j < i; j++) {\n            System.out.print(i);\n            System.out.print(j);\n        }\n    }\n}",
+      "title": "如下的Java代码输出的结果是 ____ 。",
+      "options": [
+        "021",
+        "012",
+        "21",
+        "321"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062574672760832",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "021",
+              "012",
+              "21",
+              "321"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "如下的Java代码输出的结果是 ____ 。",
+        "content": "如下的Java代码输出的结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 0; i < 3; i++) {\n        for (int j = 1; j < i; j++) {\n            System.out.print(i);\n            System.out.print(j);\n        }\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724593912706658304",
+        "description": "如下的Java代码输出的结果是（    ）。\npublic static void main(String[] args) {\n    for (int i = 0; i < 3; i++) {\n        for (int j = 1; j < i; j++) {\n            System.out.print(i);\n            System.out.print(j);\n        }\n    }\n}",
+        "problemPoolIndex": 34,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062574672760833",
+      "number": 35,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "绘制流程图时，下面（ ）代表判断和分支。",
+      "content": "绘制流程图时，下面（    ）代表判断和分支。",
+      "title": "绘制流程图时，下面 ____ 代表判断和分支。",
+      "options": [
+        "矩形",
+        "椭圆形",
+        "菱形",
+        "圆形"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062574672760833",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "矩形",
+              "椭圆形",
+              "菱形",
+              "圆形"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "绘制流程图时，下面 ____ 代表判断和分支。",
+        "content": " 绘制流程图时，下面（    ）代表判断和分支。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724593912706658305",
+        "description": " 绘制流程图时，下面（    ）代表判断和分支。",
+        "problemPoolIndex": 35,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062574672760834",
+      "number": 36,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java程序流程图的绘制采用（ ）。",
+      "content": "Java程序流程图的绘制采用（    ）。",
+      "title": "Java程序流程图的绘制采用 ____ 。",
+      "options": [
+        "自下而上的方法",
+        "自顶向下的方法",
+        "由细到粗的方法",
+        "都可以"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062574672760834",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "自下而上的方法",
+              "自顶向下的方法",
+              "由细到粗的方法",
+              "都可以"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java程序流程图的绘制采用 ____ 。",
+        "content": "Java程序流程图的绘制采用（    ）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724593912710852608",
+        "description": "Java程序流程图的绘制采用（    ）。",
+        "problemPoolIndex": 36,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062574672760835",
+      "number": 37,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，执行以下代码可得到的结果是（ ）。 for (int i = 0; i < 3; i++) { for (int j = 0; j < i; j++) { System.out.print(j); } System.out.println(); }",
+      "content": "在Java中，执行以下代码可得到的结果是（    ）。\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < i; j++) {\n        System.out.print(j);\n    }\n    System.out.println();\n}",
+      "title": "在Java中，执行以下代码可得到的结果是 ____ 。",
+      "options": [
+        "//第一行空白 0 01 012",
+        "//第一行空白 0 01",
+        "0 01",
+        "0 01 012"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062574672760835",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "//第一行空白\n0\n01\n012",
+              "//第一行空白\n0\n01",
+              "0\n01",
+              "0\n01\n012"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，执行以下代码可得到的结果是 ____ 。",
+        "content": "在Java中，执行以下代码可得到的结果是（    ）。\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < i; j++) {\n        System.out.print(j);\n    }\n    System.out.println();\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724593912710852609",
+        "description": "在Java中，执行以下代码可得到的结果是（    ）。\nfor (int i = 0; i < 3; i++) {\n    for (int j = 0; j < i; j++) {\n        System.out.print(j);\n    }\n    System.out.println();\n}",
+        "problemPoolIndex": 37,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062574676955136",
+      "number": 38,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，如下代码段的输出结果为（ ）。 public static void main(String args[]) { int i = 3; do { for (int j = 3; j < 4; ++j) { System.out.println(\"j is \" + j); } i++; } while (i > 3 && i < 5); }",
+      "content": "在Java中，如下代码段的输出结果为（    ）。\npublic static void main(String args[]) {\n    int i = 3;\n    do {\n        for (int j = 3; j < 4; ++j) {\n            System.out.println(\"j is \" + j);\n\n        }\n        i++;\n    } while (i > 3 && i < 5);\n}",
+      "title": "在Java中，如下代码段的输出结果为 ____ 。",
+      "options": [
+        "j is 3 j is 4 j is 3 j is 4",
+        "j is 3 j is 3",
+        "什么都不输出",
+        "j is 3"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062574676955136",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "j is 3\nj is 4\nj is 3\nj is 4",
+              "j is 3\nj is 3",
+              "什么都不输出",
+              "j is 3"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，如下代码段的输出结果为 ____ 。",
+        "content": "在Java中，如下代码段的输出结果为（    ）。\npublic static void main(String args[]) {\n    int i = 3;\n    do {\n        for (int j = 3; j < 4; ++j) {\n            System.out.println(\"j is \" + j);\n\n        }\n        i++;\n    } while (i > 3 && i < 5);\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724593912719241216",
+        "description": "在Java中，如下代码段的输出结果为（    ）。\npublic static void main(String args[]) {\n    int i = 3;\n    do {\n        for (int j = 3; j < 4; ++j) {\n            System.out.println(\"j is \" + j);\n\n        }\n        i++;\n    } while (i > 3 && i < 5);\n}",
+        "problemPoolIndex": 38,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062574676955137",
+      "number": 39,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，下列对于双重循环说法错误的是（ ）。",
+      "content": "在Java中，下列对于双重循环说法错误的是（    ）。",
+      "title": "在Java中，下列对于双重循环说法错误的是 ____ 。",
+      "options": [
+        "外层循环循环一次内层循环一周",
+        "双重循环就是循环里面嵌套一个循环",
+        "不是只有相同的循环才能相互嵌套",
+        "不管是在内层循环还是外层循环只要添加一个break就会把所有循环全部停止"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062574676955137",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "外层循环循环一次内层循环一周",
+              "双重循环就是循环里面嵌套一个循环",
+              "不是只有相同的循环才能相互嵌套",
+              "不管是在内层循环还是外层循环只要添加一个break就会把所有循环全部停止"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，下列对于双重循环说法错误的是 ____ 。",
+        "content": " 在Java中，下列对于双重循环说法错误的是（    ）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1724593912719241217",
+        "description": " 在Java中，下列对于双重循环说法错误的是（    ）。",
+        "problemPoolIndex": 39,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062574676955138",
+      "number": 40,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列语句中,可以作为无限循环语句的是( ).",
+      "content": "下列语句中,可以作为无限循环语句的是(  ).",
+      "title": "下列语句中,可以作为无限循环语句的是 ____ .",
+      "options": [
+        "for(;;){}",
+        "for(i nt i =0;i <10000;i ++){}",
+        "while(false){}",
+        "do {}while(false)"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062574676955138",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "for(;;){}",
+              "for(i nt i =0;i <10000;i ++){}",
+              "while(false){}",
+              "do {}while(false)"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列语句中,可以作为无限循环语句的是 ____ .",
+        "content": "下列语句中,可以作为无限循环语句的是(  ).",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1862438470889975809",
+        "description": "下列语句中,可以作为无限循环语句的是(  ).",
+        "problemPoolIndex": 40,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2116062672945299456",
+      "number": 41,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在JAVA中，给定代码片段如下所示，则编译运行后，输出结果是（）。@[](2) ``` for (int i = 0; i < 10; i++) { if (i == 10 - i) { break; } if (i % 3 != 0) { continue; } System.out.print(i + \" \"); } ``` A. 0 B. 0 3 C. 0 3 6 D. 0 3 6 9",
+      "content": "在JAVA中，给定代码片段如下所示，则编译运行后，输出结果是（）。@[](2)\n```\nfor (int i = 0; i < 10; i++) {\n    if (i == 10 - i) {\n        break;\n    }\n    \n    if (i % 3 != 0) {\n        continue;\n    }\n    System.out.print(i + \" \");\n}\n```\n\nA. 0\nB. 0 3\nC. 0 3 6\nD. 0 3 6 9",
+      "title": "在JAVA中，给定代码片段如下所示，则编译运行后，输出结果是（）。",
+      "options": [
+        "0",
+        "0 3",
+        "0 3 6",
+        "0 3 6 9"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062672945299456",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0",
+              "0 3",
+              "0 3 6",
+              "0 3 6 9"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在JAVA中，给定代码片段如下所示，则编译运行后，输出结果是（）。",
+        "content": "在JAVA中，给定代码片段如下所示，则编译运行后，输出结果是（）。@[](2)\n```\nfor (int i = 0; i < 10; i++) {\n    if (i == 10 - i) {\n        break;\n    }\n    \n    if (i % 3 != 0) {\n        continue;\n    }\n    System.out.print(i + \" \");\n}\n```\n\nA. 0\nB. 0 3\nC. 0 3 6\nD. 0 3 6 9\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "gwl",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1236600829365223424",
+        "description": "在JAVA中，给定代码片段如下所示，则编译运行后，输出结果是（）。\n```\nfor (int i = 0; i < 10; i++) {\n    if (i == 10 - i) {\n        break;\n    }\n\n    if (i % 3 != 0) {\n        continue;\n    }\n    System.out.print(i + \" \");\n}\n```",
+        "problemPoolIndex": 41,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "920672097645928448"
+      }
+    },
+    {
+      "id": "2116062672949493760",
+      "number": 42,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列选项中不属于本段代码输出结果的是（ ） public class Main{ public static void main(String args[]) { one: two: for(int i=0; i<3; i++) { three: for(int j=10; j<30; j+=10) { System.out.println(i+j); if(i>0) break one; } } } } @[](2) A. 10 B. 20 C. 11 D. 21",
+      "content": "下列选项中不属于本段代码输出结果的是（      ）\n\n\tpublic class Main{\n\t\tpublic static void main(String args[]) {\n\t\t  one:\n\t\t  two:\n\t\t  for(int i=0; i<3; i++) {\n\t\t      three:\n\t\t      for(int j=10; j<30; j+=10) {\n\t\t         System.out.println(i+j);\n\t\t\t\t if(i>0)\n\t\t\t\t    break one;\n\t\t      }\n\t\t  }\n\t\t}\n\t}\n@[](2)\n\nA. 10\nB. 20\nC. 11\nD. 21",
+      "title": "下列选项中不属于本段代码输出结果的是（      ）",
+      "options": [
+        "10",
+        "20",
+        "11",
+        "21"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062672949493760",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "10",
+              "20",
+              "11",
+              "21"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列选项中不属于本段代码输出结果的是（      ）",
+        "content": "下列选项中不属于本段代码输出结果的是（      ）\n\n\tpublic class Main{\n\t\tpublic static void main(String args[]) {\n\t\t  one:\n\t\t  two:\n\t\t  for(int i=0; i<3; i++) {\n\t\t      three:\n\t\t      for(int j=10; j<30; j+=10) {\n\t\t         System.out.println(i+j);\n\t\t\t\t if(i>0)\n\t\t\t\t    break one;\n\t\t      }\n\t\t  }\n\t\t}\n\t}\n@[](2)\n\nA. 10\nB. 20\nC. 11\nD. 21",
+        "type": "MULTIPLE_CHOICE",
+        "author": "李妙妍",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1318708938993946624",
+        "description": "下列选项中不属于本段代码输出结果的是（      ）\n\n\tpublic class Main{\n\t\tpublic static void main(String args[]) {\n\t\t  one:\n\t\t  two:\n\t\t  for(int i=0; i<3; i++) {\n\t\t      three:\n\t\t      for(int j=10; j<30; j+=10) {\n\t\t         System.out.println(i+j);\n\t\t\t\t if(i>0)\n\t\t\t\t    break one;\n\t\t      }\n\t\t  }\n\t\t}\n\t}",
+        "problemPoolIndex": 42,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2116062672949493761",
+      "number": 43,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面Java程序输出的结果是？ ``` public class A { public static void main(String[] args) { for (int cnt = 0; cnt < 10; cnt++) { if (cnt == 5) break; System.out.print(cnt); } } } ```",
+      "content": "下面Java程序输出的结果是？\n```\npublic class A {\n     public static void main(String[] args) {\n          for (int cnt = 0; cnt < 10; cnt++) {\n              if (cnt == 5)\n                  break;\n              System.out.print(cnt);\n          }\n    }\n}\n```",
+      "title": "下面Java程序输出的结果是",
+      "options": [
+        "0 1 2 3 4",
+        "6 7 8 9",
+        "0 1 2 3 4 5 6 7 8 9",
+        "5"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062672949493761",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0 1 2 3 4",
+              "6 7 8 9",
+              "0 1 2 3 4 5 6 7 8 9",
+              "5"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面Java程序输出的结果是",
+        "content": "下面Java程序输出的结果是？\n```\npublic class A {\n     public static void main(String[] args) {\n          for (int cnt = 0; cnt < 10; cnt++) {\n              if (cnt == 5)\n                  break;\n              System.out.print(cnt);\n          }\n    }\n}\n```\n\n\n\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1600828609974255616",
+        "description": "下面Java程序输出的结果是？\n```\npublic class A {\n     public static void main(String[] args) {\n          for (int cnt = 0; cnt < 10; cnt++) {\n              if (cnt == 5)\n                  break;\n              System.out.print(cnt);\n          }\n    }\n}\n```\n\n\n\n\n",
+        "problemPoolIndex": 43,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116062672949493762",
+      "number": 44,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列Java程序执行后之后，将会输出? ``` public class A { public static void main(String[] args){ int j = 0; for (int i = 3; i >= 0; i--) { j += i; System.out.print(j); } } } ```",
+      "content": "下列Java程序执行后之后，将会输出?\n```\npublic class A {\n   public static void main(String[] args){\n      int j = 0;\n      for (int i = 3; i >= 0; i--) {\n          j += i;\n         System.out.print(j);\n      }\n   }\n}\n\n```",
+      "title": "下列Java程序执行后之后，将会输出?",
+      "options": [
+        "3566",
+        "3522",
+        "6753",
+        "3255"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062672949493762",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "3566",
+              "3522",
+              "6753",
+              "3255"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列Java程序执行后之后，将会输出?",
+        "content": "下列Java程序执行后之后，将会输出?\n```\npublic class A {\n   public static void main(String[] args){\n      int j = 0;\n      for (int i = 3; i >= 0; i--) {\n          j += i;\n         System.out.print(j);\n      }\n   }\n}\n\n```",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1600829310985031680",
+        "description": "下列Java程序执行后之后，将会输出?\n```\npublic class A {\n   public static void main(String[] args){\n      int j = 0;\n      for (int i = 3; i >= 0; i--) {\n          j += i;\n         System.out.print(j);\n      }\n   }\n}\n\n```",
+        "problemPoolIndex": 44,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116062672949493763",
+      "number": 45,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，执行下面的程序段，执行结果是？ ``` for(int i=0;;){ System.out.println(\"这是 \"+i); break； } ```",
+      "content": "在Java中，执行下面的程序段，执行结果是？\n```\nfor(int i=0;;){\n\tSystem.out.println(\"这是 \"+i);\nbreak；\n}\n```",
+      "title": "在Java中，执行下面的程序段，执行结果是？",
+      "options": [
+        "语法错误，缺少for循环表达式2和表达式3",
+        "死循环",
+        "程序什么都不输出",
+        "输出:这是0"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062672949493763",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "语法错误，缺少for循环表达式2和表达式3",
+              "死循环",
+              "程序什么都不输出",
+              "输出:这是0"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，执行下面的程序段，执行结果是？",
+        "content": "在Java中，执行下面的程序段，执行结果是？\n```\nfor(int i=0;;){\n\tSystem.out.println(\"这是 \"+i);\nbreak；\n}\n```",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1601099280591605760",
+        "description": "在Java中，执行下面的程序段，执行结果是？\n```\nfor(int i=0;;){\n\tSystem.out.println(\"这是 \"+i);\nbreak；\n}\n```",
+        "problemPoolIndex": 45,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116062672953688064",
+      "number": 46,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，下面程序代码段的输出结果是？ ``` int i=0,s=0; do{ if (i%2 = = 0 ){ i++; continue; } i++; s = s + i; } while (i<7); System.out.println(s); ```",
+      "content": "在Java中，下面程序代码段的输出结果是？\n```\nint i=0,s=0;\ndo{\n\tif (i%2 = = 0 ){\n\t\ti++;\n\t\tcontinue;\n\t}\ni++;\ns = s + i;\n} while (i<7);\nSystem.out.println(s);\n```",
+      "title": "Java程序阅读",
+      "options": [
+        "12",
+        "16",
+        "21",
+        "28"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062672953688064",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "12",
+              "16",
+              "21",
+              "28"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java程序阅读",
+        "content": "在Java中，下面程序代码段的输出结果是？\n```\nint i=0,s=0;\ndo{\n\tif (i%2 = = 0 ){\n\t\ti++;\n\t\tcontinue;\n\t}\ni++;\ns = s + i;\n} while (i<7);\nSystem.out.println(s);\n```\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1601099904091672576",
+        "description": "在Java中，下面程序代码段的输出结果是？\n```\nint i=0,s=0;\ndo{\n\tif (i%2 = = 0 ){\n\t\ti++;\n\t\tcontinue;\n\t}\ni++;\ns = s + i;\n} while (i<7);\nSystem.out.println(s);\n```\n\n",
+        "problemPoolIndex": 46,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2116062672953688065",
+      "number": 47,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "关于循环语句，下列说法正确的是（）。",
+      "content": "关于循环语句，下列说法正确的是（）。",
+      "title": "关于循环语句，下列说法正确的是 ____ 。",
+      "options": [
+        "while 循环和 do…while 循环除了格式不同外，功能完全相同",
+        "for 循环语句多用于处理确定次数的循环",
+        "do…while 语句首先计算循环条件，当条件满足时，才去执行循环体中的语句",
+        "while 语句中的循环体至少执行一次"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2116062672953688065",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "while 循环和 do…while 循环除了格式不同外，功能完全相同",
+              "for 循环语句多用于处理确定次数的循环",
+              "do…while 语句首先计算循环条件，当条件满足时，才去执行循环体中的语句",
+              "while 语句中的循环体至少执行一次"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "关于循环语句，下列说法正确的是 ____ 。",
+        "content": "关于循环语句，下列说法正确的是（）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "余霖",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2116061869039824896",
+        "problemId": "1734849592491491328",
+        "description": "关于循环语句，下列说法正确的是（）。",
+        "problemPoolIndex": 47,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "207"
+      }
+    }
+  ]
+}

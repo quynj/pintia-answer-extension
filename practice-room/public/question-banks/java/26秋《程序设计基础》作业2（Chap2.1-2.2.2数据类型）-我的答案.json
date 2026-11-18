@@ -1,0 +1,361 @@
+{
+  "problemSetId": "2102670384661585920",
+  "answers": [
+    {
+      "problemId": "2102670384690946048",
+      "questionNumber": 1,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946049",
+      "questionNumber": 2,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946050",
+      "questionNumber": 3,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946051",
+      "questionNumber": 4,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946052",
+      "questionNumber": 5,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946053",
+      "questionNumber": 6,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946054",
+      "questionNumber": 7,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946055",
+      "questionNumber": 8,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946056",
+      "questionNumber": 9,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946057",
+      "questionNumber": 10,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946058",
+      "questionNumber": 11,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946059",
+      "questionNumber": 12,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946060",
+      "questionNumber": 13,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946061",
+      "questionNumber": 14,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946062",
+      "questionNumber": 15,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946063",
+      "questionNumber": 16,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946064",
+      "questionNumber": 17,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946065",
+      "questionNumber": 18,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946066",
+      "questionNumber": 19,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946067",
+      "questionNumber": 20,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946068",
+      "questionNumber": 21,
+      "type": "TRUE_OR_FALSE",
+      "answer": false,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946069",
+      "questionNumber": 22,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384690946070",
+      "questionNumber": 23,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140352",
+      "questionNumber": 24,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140353",
+      "questionNumber": 25,
+      "type": "TRUE_OR_FALSE",
+      "answer": true,
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140354",
+      "questionNumber": 1,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140355",
+      "questionNumber": 2,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140356",
+      "questionNumber": 3,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140357",
+      "questionNumber": 4,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140358",
+      "questionNumber": 5,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140359",
+      "questionNumber": 6,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140360",
+      "questionNumber": 7,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140361",
+      "questionNumber": 8,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140362",
+      "questionNumber": 9,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140363",
+      "questionNumber": 10,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140364",
+      "questionNumber": 11,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140365",
+      "questionNumber": 12,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140366",
+      "questionNumber": 13,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140367",
+      "questionNumber": 14,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140368",
+      "questionNumber": 15,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140369",
+      "questionNumber": 16,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140370",
+      "questionNumber": 17,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140371",
+      "questionNumber": 18,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140372",
+      "questionNumber": 19,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_WRONG_ANSWER"
+    },
+    {
+      "problemId": "2102670384695140373",
+      "questionNumber": 20,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140374",
+      "questionNumber": 21,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140375",
+      "questionNumber": 22,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140376",
+      "questionNumber": 23,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140377",
+      "questionNumber": 1,
+      "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+      "answer": [
+        "A",
+        "D"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2102670384695140378",
+      "questionNumber": 2,
+      "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+      "answer": [
+        "D",
+        "C"
+      ],
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

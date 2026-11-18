@@ -1,0 +1,2640 @@
+{
+  "title": "26秋《程序设计基础》作业7（Chap2.6数组）",
+  "problemSetName": "26秋《程序设计基础》作业7（Chap2.6数组）",
+  "problemSetId": "2121134919663448064",
+  "examId": "2121261968050544640",
+  "source": "https://pintia.cn/problem-sets/2121134919663448064",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:39:49.590Z",
+  "summaries": {
+    "TRUE_OR_FALSE": {
+      "total": 13,
+      "totalScore": 13
+    },
+    "MULTIPLE_CHOICE": {
+      "total": 43,
+      "totalScore": 87
+    }
+  },
+  "questions": [
+    {
+      "id": "2121134919713779712",
+      "number": 1,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "数组中有length()这个方法，如array.length()表示数组array中元素的个数 ~@[](1)",
+      "content": "数组中有length()这个方法，如array.length()表示数组array中元素的个数  ~@[](1)",
+      "title": "数组中有length()这个方法，如array.length()表示数组array中元素的个数",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919713779712",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "数组中有length()这个方法，如array.length()表示数组array中元素的个数",
+        "content": "数组中有length()这个方法，如array.length()表示数组array中元素的个数  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "强彦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "3125",
+        "description": "数组中有length()这个方法，如array.length()表示数组array中元素的个数  ",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "97"
+      }
+    },
+    {
+      "id": "2121134919713779713",
+      "number": 2,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java语言中的数组元素下标总是从0开始，下标可以是整数或整型表达式。 ~@[](1)",
+      "content": "Java语言中的数组元素下标总是从0开始，下标可以是整数或整型表达式。  ~@[](1)",
+      "title": "Java语言中的数组元素下标总是从0开始，下标可以是整数或整型表达式。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919713779713",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言中的数组元素下标总是从0开始，下标可以是整数或整型表达式。",
+        "content": "Java语言中的数组元素下标总是从0开始，下标可以是整数或整型表达式。  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "强彦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "3127",
+        "description": "Java语言中的数组元素下标总是从0开始，下标可以是整数或整型表达式。  ",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "97"
+      }
+    },
+    {
+      "id": "2121134919713779714",
+      "number": 3,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "数组a的下标取值，取值范围为：从0到a.length。",
+      "content": "数组a的下标取值，取值范围为：从0到a.length。",
+      "title": "数组a的下标取值，取值范围为：从0到a.length。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919713779714",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "数组a的下标取值，取值范围为：从0到a.length。",
+        "content": "数组a的下标取值，取值范围为：从0到a.length。\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1407343874196963328",
+        "description": "数组a的下标取值，取值范围为：从0到a.length。\n",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919713779715",
+      "number": 4,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "一个数组可以存放许多不同类型的数值。 ~@[](1)",
+      "content": "一个数组可以存放许多不同类型的数值。  ~@[](1)",
+      "title": "一个数组可以存放许多不同类型的数值。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919713779715",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "一个数组可以存放许多不同类型的数值。",
+        "content": "一个数组可以存放许多不同类型的数值。  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "强彦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "3123",
+        "description": "一个数组可以存放许多不同类型的数值。  ",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "97"
+      }
+    },
+    {
+      "id": "2121134919713779716",
+      "number": 5,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，int [] arr = new int[5];语句是数组动态初始化。",
+      "content": "Java中，int [] arr = new int[5];语句是数组动态初始化。",
+      "title": "Java中，int [] arr = new int[5];语句是数组动态初始化。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919713779716",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，int [] arr = new int[5];语句是数组动态初始化。",
+        "content": "Java中，int [] arr = new int[5];语句是数组动态初始化。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1462719979577896960",
+        "description": "Java中，int [] arr = new int[5];语句是数组动态初始化。",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2121134919713779717",
+      "number": 6,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，语句int [] arr = new int[]{1,2,3};是数组静态初始化。",
+      "content": "Java中，语句int [] arr = new int[]{1,2,3};是数组静态初始化。",
+      "title": "Java中，语句int [] arr = new int[]{1,2,3};是数组静态初始化。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919713779717",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，语句int [] arr = new int[]{1,2,3};是数组静态初始化。",
+        "content": "Java中，语句int [] arr = new int[]{1,2,3};是数组静态初始化。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1462720198667468800",
+        "description": "Java中，语句int [] arr = new int[]{1,2,3};是数组静态初始化。",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2121134919713779718",
+      "number": 7,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，int[] arr = new int[5]{1,2,3,4,5};语句定义数组正确。",
+      "content": "Java中，int[] arr = new int[5]{1,2,3,4,5};语句定义数组正确。",
+      "title": "Java中，int[] arr = new int[5]{1,2,3,4,5};语句定义数组正确。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919713779718",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，int[] arr = new int[5]{1,2,3,4,5};语句定义数组正确。",
+        "content": "Java中，int[] arr = new int[5]{1,2,3,4,5};语句定义数组正确。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1462720811869782016",
+        "description": "Java中，int[] arr = new int[5]{1,2,3,4,5};语句定义数组正确。",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2121134919717974016",
+      "number": 8,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java定义二维数组时，第二维元素个数可以不相等。",
+      "content": "Java定义二维数组时，第二维元素个数可以不相等。",
+      "title": "Java定义二维数组时，第二维元素个数可以不相等。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919717974016",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java定义二维数组时，第二维元素个数可以不相等。",
+        "content": "Java定义二维数组时，第二维元素个数可以不相等。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1462721030918045696",
+        "description": "Java定义二维数组时，第二维元素个数可以不相等。",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2121134919717974017",
+      "number": 9,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，int[][] a = {{1,2},{3,4},{5,6}};中，a[0][1]和a[1][0]两个元素的内存地址是连续的。",
+      "content": "Java中，int[][] a = {{1,2},{3,4},{5,6}};中，a[0][1]和a[1][0]两个元素的内存地址是连续的。",
+      "title": "Java中，int[][] a = {{1,2},{3,4},{5,6}};中，a[0][1]和a[1][0]两个元素的内存地址",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919717974017",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，int[][] a = {{1,2},{3,4},{5,6}};中，a[0][1]和a[1][0]两个元素的内存地址",
+        "content": "Java中，int[][] a = {{1,2},{3,4},{5,6}};中，a[0][1]和a[1][0]两个元素的内存地址是连续的。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1462721189143867392",
+        "description": "Java中，int[][] a = {{1,2},{3,4},{5,6}};中，a[0][1]和a[1][0]两个元素的内存地址是连续的。",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2121134919717974018",
+      "number": 10,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，以下两条语句声明、初始化数组正确。 ``` int[] arr; arr = {1, 2, 3}; ```",
+      "content": "Java中，以下两条语句声明、初始化数组正确。\n```\nint[] arr;\narr = {1, 2, 3};\n```",
+      "title": "Java中，以下两条语句声明、初始化数组正确（数组静态初始化必须在一条语句中完成）",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919717974018",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，以下两条语句声明、初始化数组正确（数组静态初始化必须在一条语句中完成）",
+        "content": "Java中，以下两条语句声明、初始化数组正确。\n```\nint[] arr;\narr = {1, 2, 3};\n```",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1630840145983385600",
+        "description": "Java中，以下两条语句声明、初始化数组正确。\n```\nint[] arr;\narr = {1, 2, 3};\n```",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2121134919717974019",
+      "number": 11,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "求数组的最值时,只能求数组中的最大值,不能求最小值.",
+      "content": "求数组的最值时,只能求数组中的最大值,不能求最小值.",
+      "title": "求数组的最值时,只能求数组中的最大值,不能求最小值.",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919717974019",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "求数组的最值时,只能求数组中的最大值,不能求最小值.",
+        "content": "求数组的最值时,只能求数组中的最大值,不能求最小值.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1862424113099501571",
+        "description": "求数组的最值时,只能求数组中的最大值,不能求最小值.\n\n",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2121134919717974020",
+      "number": 12,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中二维数组既可以表示m行n列的规则数据，也可以表示多行数据，每一行的列数不相同的不规则数组。",
+      "content": "Java中二维数组既可以表示m行n列的规则数据，也可以表示多行数据，每一行的列数不相同的不规则数组。",
+      "title": "Java中二维数组既可以表示m行n列的规则数据，也可以表示多行数据，每一行的列数不相同的不规则数组。",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919717974020",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中二维数组既可以表示m行n列的规则数据，也可以表示多行数据，每一行的列数不相同的不规则数组。",
+        "content": "Java中二维数组既可以表示m行n列的规则数据，也可以表示多行数据，每一行的列数不相同的不规则数组。\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1407346647374299136",
+        "description": "Java中二维数组既可以表示m行n列的规则数据，也可以表示多行数据，每一行的列数不相同的不规则数组。\n",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919717974021",
+      "number": 13,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在Java中，二维数组实际是由多个一维数组组成的数组。",
+      "content": "在Java中，二维数组实际是由多个一维数组组成的数组。",
+      "title": "Java二维数组",
+      "options": [],
+      "images": [],
+      "score": 1,
+      "apiData": {
+        "id": "2121134919717974021",
+        "label": "",
+        "score": 1,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java二维数组",
+        "content": "在Java中，二维数组实际是由多个一维数组组成的数组。",
+        "type": "TRUE_OR_FALSE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1684938944141529088",
+        "description": "在Java中，二维数组实际是由多个一维数组组成的数组。",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919717974022",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "执行完以下代码int [ ] x = new int[10]；后，以下哪项说明是正确的（ ） @[](2) A. x[9]为0 B. x[9]未定义 C. x[10]为0 D. x[0]为空",
+      "content": "执行完以下代码int [ ]  x = new int[10]；后，以下哪项说明是正确的（   ）  @[](2)\nA. x[9]为0          \nB. x[9]未定义      \nC. x[10]为0       \nD. x[0]为空",
+      "title": "执行完以下代码int [ ]  x = new int[10]；后，以下哪项说明是正确的（   ）",
+      "options": [
+        "x[9]为0",
+        "x[9]未定义",
+        "x[10]为0",
+        "x[0]为空"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974022",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "x[9]为0",
+              "x[9]未定义",
+              "x[10]为0",
+              "x[0]为空"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "执行完以下代码int [ ]  x = new int[10]；后，以下哪项说明是正确的（   ）",
+        "content": "执行完以下代码int [ ]  x = new int[10]；后，以下哪项说明是正确的（   ）  @[](2)\nA. x[9]为0          \nB. x[9]未定义      \nC. x[10]为0       \nD. x[0]为空",
+        "type": "MULTIPLE_CHOICE",
+        "author": "王从银",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "2751",
+        "description": "执行完以下代码int [ ]  x = new int[10]；后，以下哪项说明是正确的（   ）",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "36"
+      }
+    },
+    {
+      "id": "2121134919717974023",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "定义了一维int型数组a[10]后，下面错误的引用是( ) 。 @[](2) A. a[0]=1 B. a[10]=2 C. a[0]=5*2 D. a[1]=a[2]*a[0]",
+      "content": "定义了一维int型数组a[10]后，下面错误的引用是(　) 。  @[](2)\n\nA. a[0]=1\nB. a[10]=2\t\t \nC. a[0]=5*2\nD.  a[1]=a[2]*a[0]",
+      "title": "定义了一维int型数组a[10]后，下面错误的引用是(　) 。",
+      "options": [
+        "a[0]=1",
+        "a[10]=2",
+        "a[0]=5*2",
+        "a[1]=a[2]*a[0]"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974023",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "a[0]=1",
+              "a[10]=2",
+              "a[0]=5*2",
+              "a[1]=a[2]*a[0]"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "定义了一维int型数组a[10]后，下面错误的引用是(　) 。",
+        "content": "定义了一维int型数组a[10]后，下面错误的引用是(　) 。  @[](2)\n\nA. a[0]=1\nB. a[10]=2\t\t \nC. a[0]=5*2\nD.  a[1]=a[2]*a[0]",
+        "type": "MULTIPLE_CHOICE",
+        "author": "强彦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "3128",
+        "description": "定义了一维int型数组a[10]后，下面错误的引用是(　) 。",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "97"
+      }
+    },
+    {
+      "id": "2121134919717974024",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面程序段的运行结果是（ ）。 @[](1) ``` int x=30; int num[]=new int[x]; x=60; System.out.println(num.length); ``` A. 60 B. 20 C. 30 D. 50",
+      "content": "下面程序段的运行结果是（ ）。   @[](1)\n```\n\t    int x=30;\n\t    int num[]=new int[x];\n\t    x=60;\n\t    System.out.println(num.length);\n```\nA. 60\nB. 20\nC. 30\nD. 50",
+      "title": "下面程序段的运行结果是（ ）。   ",
+      "options": [
+        "60",
+        "20",
+        "30",
+        "50"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974024",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "60",
+              "20",
+              "30",
+              "50"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面程序段的运行结果是（ ）。   ",
+        "content": "下面程序段的运行结果是（ ）。   @[](1)\n```\n\t    int x=30;\n\t    int num[]=new int[x];\n\t    x=60;\n\t    System.out.println(num.length);\n```\nA. 60\nB. 20\nC. 30\nD. 50\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘永福",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1211635894233538560",
+        "description": "下面程序段的运行结果是（ ）。\n```\n\t    int x=30;\n\t    int num[]=new int[x];\n\t    x=60;\n\t    System.out.println(num.length);\n```",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2121134919717974025",
+      "number": 4,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下数组定义正确的是（ ）。 @[](2) A. int[] scores = int[30]; B. int[] score = new int[30]; C. int[] primes = new{2,3,5,7,11}; D. int primes = {2,3,4,5,7,11};",
+      "content": "以下数组定义正确的是（  ）。   @[](2)\n\nA. int[] scores = int[30];\nB. int[] score = new int[30];\t    \nC. int[] primes = new{2,3,5,7,11};\nD.  int primes = {2,3,4,5,7,11};",
+      "title": "以下数组定义正确的是（  ）。   ",
+      "options": [
+        "int[] scores = int[30];",
+        "int[] score = new int[30];",
+        "int[] primes = new{2,3,5,7,11};",
+        "int primes = {2,3,4,5,7,11};"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974025",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int[] scores = int[30];",
+              "int[] score = new int[30];",
+              "int[] primes = new{2,3,5,7,11};",
+              "int primes = {2,3,4,5,7,11};"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下数组定义正确的是（  ）。   ",
+        "content": "以下数组定义正确的是（  ）。   @[](2)\n\nA. int[] scores = int[30];\nB. int[] score = new int[30];\t    \nC. int[] primes = new{2,3,5,7,11};\nD.  int primes = {2,3,4,5,7,11};\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1236826116409556992",
+        "description": "以下数组定义正确的是（  ）。",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974026",
+      "number": 5,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "已定义了一个数组：int[] scores = new int[30]; 如下访问正确的是：（ ） @[](2) A. int len = scores.length; B. int len = scores.length(); C. int len = scores.size; D. int len = scores.size();",
+      "content": "已定义了一个数组：int[] scores = new int[30]; 如下访问正确的是：（   ）   @[](2)\n\nA. int len = scores.length;\nB. int len = scores.length();\nC. int len = scores.size;\nD. int len = scores.size();",
+      "title": "已定义了一个数组：int[] scores = new int[30]; 如下访问正确的是：（   ）   ",
+      "options": [
+        "int len = scores.length;",
+        "int len = scores.length();",
+        "int len = scores.size;",
+        "int len = scores.size();"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974026",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int len = scores.length;",
+              "int len = scores.length();",
+              "int len = scores.size;",
+              "int len = scores.size();"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "已定义了一个数组：int[] scores = new int[30]; 如下访问正确的是：（   ）   ",
+        "content": "已定义了一个数组：int[] scores = new int[30]; 如下访问正确的是：（   ）   @[](2)\n\nA. int len = scores.length;\nB. int len = scores.length();\nC. int len = scores.size;\nD. int len = scores.size();\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1236827309181534208",
+        "description": "已定义了一个数组：int[] scores = new int[30]; 如下访问正确的是：（   ）",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974027",
+      "number": 6,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "已定义数组：int[] scores = {100,80,50,70,60}; 以下访问不正确的是（ ） @[](2) A. int x = scores[scores.length-1];; B. int x = scores[5];; C. int x = scores[1]; D. int x = scores[0];",
+      "content": "已定义数组：int[] scores = {100,80,50,70,60}; 以下访问不正确的是（   ）   @[](2)\n\nA.  int x = scores[scores.length-1];;\nB.  int x = scores[5];;\nC.  int x = scores[1];\nD.  int x = scores[0];",
+      "title": "已定义数组：int[] scores = {100,80,50,70,60}; 以下访问不正确的是（   ）   ",
+      "options": [
+        "int x = scores[scores.length-1];;",
+        "int x = scores[5];;",
+        "int x = scores[1];",
+        "int x = scores[0];"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974027",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int x = scores[scores.length-1];;",
+              "int x = scores[5];;",
+              "int x = scores[1];",
+              "int x = scores[0];"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "已定义数组：int[] scores = {100,80,50,70,60}; 以下访问不正确的是（   ）   ",
+        "content": "已定义数组：int[] scores = {100,80,50,70,60}; 以下访问不正确的是（   ）   @[](2)\n\nA.  int x = scores[scores.length-1];;\nB.  int x = scores[5];;\nC.  int x = scores[1];\nD.  int x = scores[0];\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1236831790510145536",
+        "description": "已定义数组：int[] scores = {100,80,50,70,60}; 以下访问不正确的是（   ）",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974028",
+      "number": 7,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列代码的执行结果是（ ）。 @[](2) ``` public class Main { public static void main(String[] args) { int s = 0; int myArray[] = {10,20,30,40,50,60,70,80,90,100}; for (int i=0; i<myArray.length;i++) if (i%2==1) { s += myArray[i]; } System.out.println(s); } } ``` A. 200 B. 250 C. 300 D. 350",
+      "content": "下列代码的执行结果是（   ）。   @[](2)\n```\npublic class Main {\n\t  public static void main(String[] args) {\n\t     int s = 0;\n\t     int myArray[] = {10,20,30,40,50,60,70,80,90,100};\n\t     for (int i=0; i<myArray.length;i++) \n\t    \t if (i%2==1) {\n\t    \t\t s += myArray[i];\n\t    \t }\n\t     System.out.println(s);\n\t  }\n}\n```\n\nA. 200\nB. 250\nC. 300\nD. 350",
+      "title": "下列代码的执行结果是（   ）。   ",
+      "options": [
+        "200",
+        "250",
+        "300",
+        "350"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2121134919717974028",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "200",
+              "250",
+              "300",
+              "350"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列代码的执行结果是（   ）。   ",
+        "content": "下列代码的执行结果是（   ）。   @[](2)\n```\npublic class Main {\n\t  public static void main(String[] args) {\n\t     int s = 0;\n\t     int myArray[] = {10,20,30,40,50,60,70,80,90,100};\n\t     for (int i=0; i<myArray.length;i++) \n\t    \t if (i%2==1) {\n\t    \t\t s += myArray[i];\n\t    \t }\n\t     System.out.println(s);\n\t  }\n}\n```\n\nA. 200\nB. 250\nC. 300\nD. 350\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1236836031907790848",
+        "description": "下列代码的执行结果是（   ）。\n```\npublic class Main {\n\t  public static void main(String[] args) {\n\t     int s = 0;\n\t     int myArray[] = {10,20,30,40,50,60,70,80,90,100};\n\t     for (int i=0; i<myArray.length;i++)\n\t    \t if (i%2==1) {\n\t    \t\t s += myArray[i];\n\t    \t }\n\t     System.out.println(s);\n\t  }\n}\n```",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974029",
+      "number": 8,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "对下面的代码，（ ）是对的。 @[](2) ``` public class Main { int arr[] = new int[10]; public static void main(String[] args) { System.out.println(arr[1]); } } ``` A. 输出0 B. 输出null C. 编译时正确而运行时出错 D. 编译时出错",
+      "content": "对下面的代码，（  ）是对的。   @[](2)\n```\npublic class Main {\n\t  int arr[] = new int[10];\n\t  public static void main(String[] args) {     \n\t     System.out.println(arr[1]);\n\t  }\n}\n```\n\nA. 输出0\nB. 输出null\nC. 编译时正确而运行时出错\nD. 编译时出错",
+      "title": "对下面的代码，（  ）是对的。   ",
+      "options": [
+        "输出0",
+        "输出null",
+        "编译时正确而运行时出错",
+        "编译时出错"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974029",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "输出0",
+              "输出null",
+              "编译时正确而运行时出错",
+              "编译时出错"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "对下面的代码，（  ）是对的。   ",
+        "content": "对下面的代码，（  ）是对的。   @[](2)\n```\npublic class Main {\n\t  int arr[] = new int[10];\n\t  public static void main(String[] args) {     \n\t     System.out.println(arr[1]);\n\t  }\n}\n```\n\nA. 输出0\nB. 输出null\nC. 编译时正确而运行时出错\nD. 编译时出错\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1236855862816178176",
+        "description": "对下面的代码，（  ）是对的。\n```\npublic class Main {\n\t  int arr[] = new int[10];\n\t  public static void main(String[] args) {\n\t     System.out.println(arr[1]);\n\t  }\n}\n```",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974030",
+      "number": 9,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "定义数组 double[] list = new double[5]，有（ ）个元素？ @[](2) A. 5 B. 4 C. 6 D. 0",
+      "content": "定义数组 double[] list = new double[5]，有（    ）个元素？   @[](2)\n\nA. 5\nB. 4\nC. 6\nD. 0",
+      "title": "定义数组 double[] list = new double[5]，有（    ）个元素？   ",
+      "options": [
+        "5",
+        "4",
+        "6",
+        "0"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974030",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "5",
+              "4",
+              "6",
+              "0"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "定义数组 double[] list = new double[5]，有（    ）个元素？   ",
+        "content": "定义数组 double[] list = new double[5]，有（    ）个元素？   @[](2)\n\nA. 5\nB. 4\nC. 6\nD. 0\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1238723466208092160",
+        "description": "定义数组 double[] list = new double[5]，有（    ）个元素？",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974031",
+      "number": 10,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "声明了一个数组 double[] list = {3.4, 2.0, 3.5, 5.5}, list[1] 是（ ）。 @[](2) A. 3.4 B. 2.0 C. 3.5 D. 不确定",
+      "content": "声明了一个数组 double[] list = {3.4, 2.0, 3.5, 5.5}, list[1] 是（   ）。 @[](2)\n\nA. 3.4\nB. 2.0\nC. 3.5\nD. 不确定",
+      "title": "声明了一个数组 double[] list = {3.4, 2.0, 3.5, 5.5}, list[1] 是（   ）。 ",
+      "options": [
+        "3.4",
+        "2.0",
+        "3.5",
+        "不确定"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974031",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "3.4",
+              "2.0",
+              "3.5",
+              "不确定"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "声明了一个数组 double[] list = {3.4, 2.0, 3.5, 5.5}, list[1] 是（   ）。 ",
+        "content": "声明了一个数组 double[] list = {3.4, 2.0, 3.5, 5.5}, list[1] 是（   ）。 @[](2)\n\nA. 3.4\nB. 2.0\nC. 3.5\nD. 不确定\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1238724121467428864",
+        "description": "声明了一个数组 double[] list = {3.4, 2.0, 3.5, 5.5}, list[1] 是（   ）。",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974032",
+      "number": 11,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "如下代码运行后，list2的输出是（ ）。@[](2) ``` class Test { public static void main(String[] args) { int[] list1 = {1, 2, 3}; int[] list2 = {1, 2, 3}; list2 = list1; list1[0] = 0; list1[1] = 1; list2[2] = 2; for (int i = 0; i < list2.length; i++) System.out.print(list2[i] + \" \"); } } ``` A. 1 2 3 B. 1 1 1 C. 0 1 2 D. 0 1 3",
+      "content": "如下代码运行后，list2的输出是（    ）。@[](2)\n```\nclass Test {\n      public static void main(String[] args) {\n      int[] list1 = {1, 2, 3};\n      int[] list2 = {1, 2, 3};\n      list2 = list1;\n      list1[0] = 0;  list1[1] = 1;  list2[2] = 2;\n      for (int i = 0; i < list2.length; i++)\n            System.out.print(list2[i] + \" \");\n      }\n}\n```\n\nA. 1 2 3\nB. 1 1 1\nC. 0 1 2\nD. 0 1 3",
+      "title": "如下代码运行后，list2的输出是（    ）。",
+      "options": [
+        "1 2 3",
+        "1 1 1",
+        "0 1 2",
+        "0 1 3"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974032",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "1 2 3",
+              "1 1 1",
+              "0 1 2",
+              "0 1 3"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "如下代码运行后，list2的输出是（    ）。",
+        "content": "如下代码运行后，list2的输出是（    ）。@[](2)\n```\nclass Test {\n      public static void main(String[] args) {\n      int[] list1 = {1, 2, 3};\n      int[] list2 = {1, 2, 3};\n      list2 = list1;\n      list1[0] = 0;  list1[1] = 1;  list2[2] = 2;\n      for (int i = 0; i < list2.length; i++)\n            System.out.print(list2[i] + \" \");\n      }\n}\n```\n\nA. 1 2 3\nB. 1 1 1\nC. 0 1 2\nD. 0 1 3\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1238725077206704128",
+        "description": "如下代码运行后，list2的输出是（    ）。\n```\nclass Test {\n      public static void main(String[] args) {\n      int[] list1 = {1, 2, 3};\n      int[] list2 = {1, 2, 3};\n      list2 = list1;\n      list1[0] = 0;  list1[1] = 1;  list2[2] = 2;\n      for (int i = 0; i < list2.length; i++)\n            System.out.print(list2[i] + \" \");\n      }\n}\n```",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974033",
+      "number": 12,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列代码的输出是（ ）。 @[](2) ``` double[] myList = {1, 5, 5, 5, 5, 1}; double max = myList[0]; int indexOfMax = 0; for (int i = 1; i < myList.length; i++) { if (myList[i] >= max) { max = myList[i]; indexOfMax = i; } } System.out.println(indexOfMax); ``` A. 0 B. 1 C. 4 D. 5",
+      "content": "下列代码的输出是（    ）。   @[](2)\n```\ndouble[] myList = {1, 5, 5, 5, 5, 1};\ndouble max = myList[0];\nint indexOfMax = 0;\nfor (int i = 1; i < myList.length; i++) {\n      if (myList[i] >= max) {\n           max = myList[i];\n           indexOfMax = i;\n     }\n}\nSystem.out.println(indexOfMax);\n```\nA. 0\nB. 1\nC. 4\nD. 5",
+      "title": "下列代码的输出是（    ）。   ",
+      "options": [
+        "0",
+        "1",
+        "4",
+        "5"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974033",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0",
+              "1",
+              "4",
+              "5"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列代码的输出是（    ）。   ",
+        "content": "下列代码的输出是（    ）。   @[](2)\n```\ndouble[] myList = {1, 5, 5, 5, 5, 1};\ndouble max = myList[0];\nint indexOfMax = 0;\nfor (int i = 1; i < myList.length; i++) {\n      if (myList[i] >= max) {\n           max = myList[i];\n           indexOfMax = i;\n     }\n}\nSystem.out.println(indexOfMax);\n```\nA. 0\nB. 1\nC. 4\nD. 5\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1238725895397974016",
+        "description": "下列代码的输出是（    ）。\n```\ndouble[] myList = {1, 5, 5, 5, 5, 1};\ndouble max = myList[0];\nint indexOfMax = 0;\nfor (int i = 1; i < myList.length; i++) {\n      if (myList[i] >= max) {\n           max = myList[i];\n           indexOfMax = i;\n     }\n}\nSystem.out.println(indexOfMax);\n```",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974034",
+      "number": 13,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下语句不能通过编译的是( )。 @[](2) A. int[] a={1,2,3,4}; B. int b[]; C. int c[]=new int[3]; D. int d=new int[];",
+      "content": "以下语句不能通过编译的是(  )。   @[](2)\n\nA.  int[] a={1,2,3,4};\t\nB.  int b[];\nC.  int c[]=new int[3];\nD.  int d=new int[];",
+      "title": "以下语句不能通过编译的是(  )。   ",
+      "options": [
+        "int[] a={1,2,3,4};",
+        "int b[];",
+        "int c[]=new int[3];",
+        "int d=new int[];"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974034",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int[] a={1,2,3,4};\t",
+              "int b[];",
+              "int c[]=new int[3];",
+              "int d=new int[];"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下语句不能通过编译的是(  )。   ",
+        "content": "以下语句不能通过编译的是(  )。   @[](2)\n\nA.  int[] a={1,2,3,4};\t\nB.  int b[];\nC.  int c[]=new int[3];\nD.  int d=new int[];\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1249168183500910592",
+        "description": "以下语句不能通过编译的是(  )。   \n\n",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919717974035",
+      "number": 14,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "如下语句执行结果是：（ ）。 ``` int[] intArr=new int[10]; System.out.println(intArr[0]); ```",
+      "content": "如下语句执行结果是：（      ）。\n```\nint[] intArr=new int[10];\nSystem.out.println(intArr[0]);\n```",
+      "title": "如下语句执行结果是：（      ）。",
+      "options": [
+        "编译错误",
+        "会报运行错误",
+        "0",
+        "null"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974035",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "编译错误\n",
+              "会报运行错误\n",
+              "0",
+              "null"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "如下语句执行结果是：（      ）。",
+        "content": "如下语句执行结果是：（      ）。\n```\nint[] intArr=new int[10];\nSystem.out.println(intArr[0]);\n```",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1407345204286296064",
+        "description": "如下语句执行结果是：（      ）。\n```\nint[] intArr=new int[10];\nSystem.out.println(intArr[0]);\n```",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919717974036",
+      "number": 15,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "如下语句执行结果是：（ ）。 ``` int[] intArr=new int[10]; System.out.println(intArr[10]); ```",
+      "content": "如下语句执行结果是：（     ）。\n```\nint[] intArr=new int[10];\t\nSystem.out.println(intArr[10]);\t\n```",
+      "title": "如下语句执行结果是：（     ）。",
+      "options": [
+        "编译错误",
+        "会报运行错误",
+        "0",
+        "null"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919717974036",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "编译错误\n",
+              "会报运行错误\n",
+              "0",
+              "null\n"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "如下语句执行结果是：（     ）。",
+        "content": "如下语句执行结果是：（     ）。\n```\nint[] intArr=new int[10];\t\nSystem.out.println(intArr[10]);\t\n```",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1407345845440184320",
+        "description": "如下语句执行结果是：（     ）。\n```\nint[] intArr=new int[10];\t\nSystem.out.println(intArr[10]);\t\n```",
+        "problemPoolIndex": 15,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919722168320",
+      "number": 16,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "关于一维数组的定义形式，哪个是错误的？",
+      "content": "关于一维数组的定义形式，哪个是错误的？",
+      "title": "关于一维数组的定义形式，哪个是错误的？",
+      "options": [
+        "int intArr=new int[10];",
+        "int intArr[]=new int[10];",
+        "int intArr[]={1,2,3,4,5};",
+        "int intArr[]=new int[]{1,2,3,4,5};"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168320",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int intArr=new int[10];",
+              "int intArr[]=new int[10];",
+              "int intArr[]={1,2,3,4,5};\n",
+              "int intArr[]=new int[]{1,2,3,4,5};",
+              "int intArr[]={1,2,3,4,5};"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "关于一维数组的定义形式，哪个是错误的？",
+        "content": "关于一维数组的定义形式，哪个是错误的？\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1407347201051787264",
+        "description": "关于一维数组的定义形式，哪个是错误的？\n",
+        "problemPoolIndex": 16,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919722168321",
+      "number": 17,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "设有数组的定义int[] a = new int[3]，则下面对数组元素的引用错误的是（ ）。",
+      "content": "设有数组的定义int[] a = new int[3]，则下面对数组元素的引用错误的是（    ）。",
+      "title": "设有数组的定义int[] a = new int[3]，则下面对数组元素的引用错误的是（    ）。",
+      "options": [
+        "a[0]=8;",
+        "a[a.length-1]=90;",
+        "a[3]=9;",
+        "``` int i=1; a[i]=0; ```"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168321",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "a[0]=8;\n",
+              "a[a.length-1]=90;\n",
+              "a[3]=9;\n",
+              "```\nint i=1;\na[i]=0;\n```\n"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "设有数组的定义int[] a = new int[3]，则下面对数组元素的引用错误的是（    ）。",
+        "content": "设有数组的定义int[] a = new int[3]，则下面对数组元素的引用错误的是（    ）。\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1407347592191643648",
+        "description": "设有数组的定义int[] a = new int[3]，则下面对数组元素的引用错误的是（    ）。\n",
+        "problemPoolIndex": 17,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919722168322",
+      "number": 18,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "数组的定义为：`int[] arr=new int[10];` 如何获得数组的长度？",
+      "content": "数组的定义为：`int[] arr=new int[10];`\n如何获得数组的长度？",
+      "title": "数组的定义为：`int[] arr=new int[10];`",
+      "options": [
+        "arr.length()",
+        "arr.size()",
+        "arr.length",
+        "arr.size"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168322",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "arr.length()\n",
+              "arr.size()",
+              "arr.length\n",
+              "arr.size"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "数组的定义为：`int[] arr=new int[10];`",
+        "content": "数组的定义为：`int[] arr=new int[10];`\n如何获得数组的长度？\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1407349464818180096",
+        "description": "数组的定义为：`int[] arr=new int[10];`\n如何获得数组的长度？\n",
+        "problemPoolIndex": 18,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919722168323",
+      "number": 19,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "执行完以下代码`int[ ] x = new int[25]；`后，以下哪项说明是正确的（ ）。",
+      "content": "执行完以下代码`int[ ] x = new int[25]；`后，以下哪项说明是正确的（      ）。",
+      "title": "执行完以下代码`int[ ] x = new int[25]；`后，以下哪项说明是正确的（      ）。",
+      "options": [
+        "x[24]为0",
+        "x[25]为0",
+        "x[0]为空",
+        "x[24]未定义"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168323",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "x[24]为0\n",
+              "x[25]为0",
+              "x[0]为空\n",
+              "x[24]未定义"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "执行完以下代码`int[ ] x = new int[25]；`后，以下哪项说明是正确的（      ）。",
+        "content": "执行完以下代码`int[ ] x = new int[25]；`后，以下哪项说明是正确的（      ）。\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1407349934471176192",
+        "description": "执行完以下代码`int[ ] x = new int[25]；`后，以下哪项说明是正确的（      ）。\n",
+        "problemPoolIndex": 19,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919722168324",
+      "number": 20,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面那些语句会发生编译错误？",
+      "content": "下面那些语句会发生编译错误？",
+      "title": "下面那些语句会发生编译错误？",
+      "options": [
+        "int []a;",
+        "int d[] = null;",
+        "int []b = new int[5];",
+        "int c[] = new int[];"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168324",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              " int []a;\n",
+              "int d[] = null;",
+              " int []b = new int[5];",
+              " int c[] = new int[];"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面那些语句会发生编译错误？",
+        "content": "下面那些语句会发生编译错误？\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1534699739013562368",
+        "description": "下面那些语句会发生编译错误？\n\n",
+        "problemPoolIndex": 20,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919722168325",
+      "number": 21,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，为了定义3个整型数组a1，a2，a3，下面声明正确的语句是？",
+      "content": "在Java中，为了定义3个整型数组a1，a2，a3，下面声明正确的语句是？",
+      "title": "在Java中，为了定义3个整型数组a1，a2，a3，下面声明正确的语句是？",
+      "options": [
+        "``` int Array[] a1,a2; int a3[]={1,2,3,4,5}; ```",
+        "``` int[] a1,a2; int a3[]={1,2,3,4,5}; ```",
+        "``` int a1,a2[]; int a3={1,2,3,4,5}; ```",
+        "``` int[] a1,a2; int a3=(1,2,3,4,5); ```"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168325",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "```\nint Array[] a1,a2;\nint a3[]={1,2,3,4,5};\n\n```",
+              "```\nint[] a1,a2;\nint a3[]={1,2,3,4,5};\n\n```",
+              "```\nint a1,a2[];\nint a3={1,2,3,4,5};\n\n```",
+              "```\nint[] a1,a2;\nint a3=(1,2,3,4,5);\n\n```"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，为了定义3个整型数组a1，a2，a3，下面声明正确的语句是？",
+        "content": "在Java中，为了定义3个整型数组a1，a2，a3，下面声明正确的语句是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1600832830488461312",
+        "description": "在Java中，为了定义3个整型数组a1，a2，a3，下面声明正确的语句是？",
+        "problemPoolIndex": 21,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919722168326",
+      "number": 22,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中有定义语句int a[]={11,22,33};则以下语句叙述错误的是？",
+      "content": "在Java中有定义语句int a[]={11,22,33};则以下语句叙述错误的是？",
+      "title": "在Java中有定义语句int a[]={11,22,33};则以下语句叙述错误的是？",
+      "options": [
+        "定义了一个名为a的一维数组",
+        "a数组有三个元素",
+        "a数组的下标为1，2，3",
+        "数组中的每个元素为整型"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168326",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "定义了一个名为a的一维数组",
+              "a数组有三个元素",
+              "a数组的下标为1，2，3",
+              "数组中的每个元素为整型"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中有定义语句int a[]={11,22,33};则以下语句叙述错误的是？",
+        "content": "在Java中有定义语句int a[]={11,22,33};则以下语句叙述错误的是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1600833726945443840",
+        "description": "在Java中有定义语句int a[]={11,22,33};则以下语句叙述错误的是？",
+        "problemPoolIndex": 22,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919722168327",
+      "number": 23,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列语句会造成数组new int[10]越界是（ ）。 @[](2) A. a[0] += 9; B. a[9]=10; C. a[9] D. for(int i=0;i<=10;i++) a[i]++;",
+      "content": "下列语句会造成数组new int[10]越界是（ ）。   @[](2)\n\nA. a[0] += 9; \nB. a[9]=10;\t\t\nC. a[9]\nD. for(int i=0;i<=10;i++)  a[i]++;",
+      "title": "下列语句会造成数组new int[10]越界是（ ）。",
+      "options": [
+        "a[0] += 9;",
+        "a[9]=10;",
+        "a[9]",
+        "for(int i=0;i<=10;i++) a[i]++;"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168327",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "a[0] += 9;",
+              "a[9]=10;",
+              "a[9]",
+              "for(int i=0;i<=10;i++)  a[i]++;"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列语句会造成数组new int[10]越界是（ ）。",
+        "content": "下列语句会造成数组new int[10]越界是（ ）。   @[](2)\n\nA. a[0] += 9; \nB. a[9]=10;\t\t\nC. a[9]\nD. for(int i=0;i<=10;i++)  a[i]++;",
+        "type": "MULTIPLE_CHOICE",
+        "author": "强彦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "3137",
+        "description": "下列语句会造成数组new int[10]越界是（ ）。",
+        "problemPoolIndex": 23,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "97"
+      }
+    },
+    {
+      "id": "2121134919722168328",
+      "number": 24,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面（ ）不是创建数组的正确语句。 @[](2) A. float f[ ][ ] = new float[6][6]; B. float f[ ] = new float[6]; C. float f[ ][ ] = new float[ ][6]; D. float[ ][ ] f = new float[6][ ];",
+      "content": "下面（  ）不是创建数组的正确语句。   @[](2)\n\nA. float f[ ][ ] = new float[6][6];\nB. float f[ ] = new float[6];\nC. float f[ ][ ] = new float[ ][6];\nD. float[ ][ ] f = new float[6][ ];",
+      "title": "下面（  ）不是创建数组的正确语句。   ",
+      "options": [
+        "float f[ ][ ] = new float[6][6];",
+        "float f[ ] = new float[6];",
+        "float f[ ][ ] = new float[ ][6];",
+        "float[ ][ ] f = new float[6][ ];"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168328",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "float f[ ][ ] = new float[6][6];",
+              "float f[ ] = new float[6];",
+              "float f[ ][ ] = new float[ ][6];",
+              "float[ ][ ] f = new float[6][ ];"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面（  ）不是创建数组的正确语句。   ",
+        "content": "下面（  ）不是创建数组的正确语句。   @[](2)\n\nA. float f[ ][ ] = new float[6][6];\nB. float f[ ] = new float[6];\nC. float f[ ][ ] = new float[ ][6];\nD. float[ ][ ] f = new float[6][ ];\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1235105347715379200",
+        "description": "下面（  ）不是创建数组的正确语句。",
+        "problemPoolIndex": 24,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919722168329",
+      "number": 25,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "对于“boolean boo[] = new boolean[3]；”，下列哪个叙述是正确的？ @[](2) A. boo[0]、boo[1]、boo[2]的值都是0 B. boo[0]、boo[1]、boo[2]的值不确定 C. boo[0]、boo[1]、boo[2]的值都是false D. boo[0]、boo[1]、boo[2]的值都是true",
+      "content": "对于“boolean boo[] = new boolean[3]；”，下列哪个叙述是正确的？   @[](2)\n\nA. boo[0]、boo[1]、boo[2]的值都是0\nB. boo[0]、boo[1]、boo[2]的值不确定\nC. boo[0]、boo[1]、boo[2]的值都是false\nD. boo[0]、boo[1]、boo[2]的值都是true",
+      "title": "对于“boolean boo[] = new boolean[3]；”，下列哪个叙述是正确的？   ",
+      "options": [
+        "boo[0]、boo[1]、boo[2]的值都是0",
+        "boo[0]、boo[1]、boo[2]的值不确定",
+        "boo[0]、boo[1]、boo[2]的值都是false",
+        "boo[0]、boo[1]、boo[2]的值都是true"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168329",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "boo[0]、boo[1]、boo[2]的值都是0",
+              "boo[0]、boo[1]、boo[2]的值不确定",
+              "boo[0]、boo[1]、boo[2]的值都是false",
+              "boo[0]、boo[1]、boo[2]的值都是true"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "对于“boolean boo[] = new boolean[3]；”，下列哪个叙述是正确的？   ",
+        "content": "对于“boolean boo[] = new boolean[3]；”，下列哪个叙述是正确的？   @[](2)\n\nA. boo[0]、boo[1]、boo[2]的值都是0\nB. boo[0]、boo[1]、boo[2]的值不确定\nC. boo[0]、boo[1]、boo[2]的值都是false\nD. boo[0]、boo[1]、boo[2]的值都是true\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "殷伟凤",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1248213421196722176",
+        "description": "对于“boolean boo[] = new boolean[3]；”，下列哪个叙述是正确的？   \n\n",
+        "problemPoolIndex": 25,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "17"
+      }
+    },
+    {
+      "id": "2121134919722168330",
+      "number": 26,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面的Java程序的输出结果是？ ``` public class Test { public static void main(String[] args){ int index=1; Boolean[] test=new Boolean[3]; Boolean bb=test[index]; System.out.println(bb); } } ```",
+      "content": "下面的Java程序的输出结果是？\n```\npublic class Test {\n   public static void main(String[] args){\n      int index=1;\n      Boolean[] test=new Boolean[3];\n      Boolean bb=test[index];\n      System.out.println(bb);\n   }\n}\n\n```",
+      "title": "下面的Java程序的输出结果是？",
+      "options": [
+        "0",
+        "null",
+        "true",
+        "false"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168330",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0",
+              "null",
+              "true",
+              "false"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面的Java程序的输出结果是？",
+        "content": "下面的Java程序的输出结果是？\n```\npublic class Test {\n   public static void main(String[] args){\n      int index=1;\n      Boolean[] test=new Boolean[3];\n      Boolean bb=test[index];\n      System.out.println(bb);\n   }\n}\n\n```\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1600837420403388416",
+        "description": "下面的Java程序的输出结果是？\n```\npublic class Test {\n   public static void main(String[] args){\n      int index=1;\n      Boolean[] test=new Boolean[3];\n      Boolean bb=test[index];\n      System.out.println(bb);\n   }\n}\n\n```\n",
+        "problemPoolIndex": 26,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919722168331",
+      "number": 27,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "给定如下Java代码片段，编译运行时，结果是（ ）。 int [ ] a = {1, 2, 3, 4, 5}; for (int count = 0; count < 5; count++) System.out.print(a[count++]);",
+      "content": "给定如下Java代码片段，编译运行时，结果是（    ）。\nint [ ] a = {1, 2, 3, 4, 5};\nfor (int count = 0; count < 5; count++)\n    System.out.print(a[count++]);",
+      "title": "给定如下Java代码片段，编译运行时，结果是 ____ 。",
+      "options": [
+        "运行时出现异常",
+        "输出：12345",
+        "输出：135",
+        "输出：24"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168331",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "运行时出现异常",
+              "输出：12345",
+              "输出：135",
+              "输出：24"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "给定如下Java代码片段，编译运行时，结果是 ____ 。",
+        "content": "给定如下Java代码片段，编译运行时，结果是（    ）。\nint [ ] a = {1, 2, 3, 4, 5};\nfor (int count = 0; count < 5; count++)\n    System.out.print(a[count++]);",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1727242648943484928",
+        "description": "给定如下Java代码片段，编译运行时，结果是（    ）。\nint [ ] a = {1, 2, 3, 4, 5};\nfor (int count = 0; count < 5; count++)\n    System.out.print(a[count++]);",
+        "problemPoolIndex": 27,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2121134919722168332",
+      "number": 28,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析如下所示的JAVA代码，编译运行后的输出结果是（ ）。 public static void main(String arg[]) { char [ ] ch = {'a', 'b', 'c'}; for (int i = 0; i < ch.length; i++) { System.out.print(ch[i]); i++; } }",
+      "content": "分析如下所示的JAVA代码，编译运行后的输出结果是（    ）。\npublic static void main(String arg[]) {\n    char [ ] ch = {'a', 'b', 'c'};\n    for (int i = 0; i < ch.length; i++) {\n        System.out.print(ch[i]);\n        i++;\n    }\n}",
+      "title": "分析如下所示的JAVA代码，编译运行后的输出结果是 ____ 。",
+      "options": [
+        "abc",
+        "979899",
+        "ac",
+        "编译出错"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168332",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "abc",
+              "979899",
+              "ac",
+              "编译出错"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析如下所示的JAVA代码，编译运行后的输出结果是 ____ 。",
+        "content": "分析如下所示的JAVA代码，编译运行后的输出结果是（    ）。\npublic static void main(String arg[]) {\n    char [ ] ch = {'a', 'b', 'c'};\n    for (int i = 0; i < ch.length; i++) {\n        System.out.print(ch[i]);\n        i++;\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1727242648943484930",
+        "description": "分析如下所示的JAVA代码，编译运行后的输出结果是（    ）。\npublic static void main(String arg[]) {\n    char [ ] ch = {'a', 'b', 'c'};\n    for (int i = 0; i < ch.length; i++) {\n        System.out.print(ch[i]);\n        i++;\n    }\n}",
+        "problemPoolIndex": 28,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2121134919722168333",
+      "number": 29,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java语言中的数组是一个变量，用于保存一组相同数据类型的元素，以下数组声明错误的是（ ）。",
+      "content": "Java语言中的数组是一个变量，用于保存一组相同数据类型的元素，以下数组声明错误的是（    ）。",
+      "title": "Java语言中的数组是一个变量，用于保存一组相同数据类型的元素，以下数组声明错误的是 ____ 。",
+      "options": [
+        "int [ ] ABC",
+        "double ABC [ ]",
+        "String [ ] name",
+        "char ABC [ 10 ]"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168333",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int [ ] ABC",
+              "double ABC [ ]",
+              "String [ ] name",
+              "char ABC [ 10 ]"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言中的数组是一个变量，用于保存一组相同数据类型的元素，以下数组声明错误的是 ____ 。",
+        "content": "Java语言中的数组是一个变量，用于保存一组相同数据类型的元素，以下数组声明错误的是（    ）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1727242648947679233",
+        "description": "Java语言中的数组是一个变量，用于保存一组相同数据类型的元素，以下数组声明错误的是（    ）。",
+        "problemPoolIndex": 29,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2121134919722168334",
+      "number": 30,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析如下所示的Java代码片段，编译运行后的输出结果是（ ）。 public static void main(String arg[]) { int[] numbers = {1, 2, 3, 5, 8, 13}; int i = 0; do { if (numbers[i] % 2 != 0) { i++; continue; } else { System.out.print(numbers[i]); i++; } } while (i < numbers.length); }",
+      "content": "分析如下所示的Java代码片段，编译运行后的输出结果是（    ）。\npublic static void main(String arg[]) {\n    int[] numbers = {1, 2, 3, 5, 8, 13};\n    int i = 0;\n    do {\n        if (numbers[i] % 2 != 0) {\n            i++;\n            continue;\n        } else {\n            System.out.print(numbers[i]);\n            i++;\n        }\n    } while (i < numbers.length);\n}",
+      "title": "分析如下所示的Java代码片段，编译运行后的输出结果是 ____ 。",
+      "options": [
+        "13513",
+        "28",
+        "313",
+        "38"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168334",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "13513",
+              "28",
+              "313",
+              "38"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析如下所示的Java代码片段，编译运行后的输出结果是 ____ 。",
+        "content": "分析如下所示的Java代码片段，编译运行后的输出结果是（    ）。\npublic static void main(String arg[]) {\n    int[] numbers = {1, 2, 3, 5, 8, 13};\n    int i = 0;\n    do {\n        if (numbers[i] % 2 != 0) {\n            i++;\n            continue;\n        } else {\n            System.out.print(numbers[i]);\n            i++;\n        }\n    } while (i < numbers.length);\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1727242648947679235",
+        "description": "分析如下所示的Java代码片段，编译运行后的输出结果是（    ）。\npublic static void main(String arg[]) {\n    int[] numbers = {1, 2, 3, 5, 8, 13};\n    int i = 0;\n    do {\n        if (numbers[i] % 2 != 0) {\n            i++;\n            continue;\n        } else {\n            System.out.print(numbers[i]);\n            i++;\n        }\n    } while (i < numbers.length);\n}",
+        "problemPoolIndex": 30,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2121134919722168335",
+      "number": 31,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析以下Java代码，其最终在控制台的输出结果是（ ）。 public class TestJava { public static void main(String arg[]) { int[] myArray = {1, 3, 5, 7, 9}; for (int i = 0; i < myArray.length; i++) { System.out.print(\"这是第\" + myArray[i] + \"名！\"); } } }",
+      "content": "分析以下Java代码，其最终在控制台的输出结果是（    ）。\npublic class TestJava {\n    public static void main(String arg[]) {\n        int[] myArray = {1, 3, 5, 7, 9};\n        for (int i = 0; i < myArray.length; i++) {\n            System.out.print(\"这是第\" + myArray[i] + \"名！\");\n        }\n    }\n}",
+      "title": "分析以下Java代码，其最终在控制台的输出结果是 ____ 。",
+      "options": [
+        "这是第1名！这是第3名！这是第5名！这是第7名！这是第9名！",
+        "这是第1名！这是第2名！这是第3名！这是第4名！这是第5名！",
+        "这是第1名！这是第2名！这是第3名！这是第4名！",
+        "这是第1名！这是第3名！这是第5名！这是第7名！"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168335",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "这是第1名！这是第3名！这是第5名！这是第7名！这是第9名！",
+              "这是第1名！这是第2名！这是第3名！这是第4名！这是第5名！",
+              "这是第1名！这是第2名！这是第3名！这是第4名！",
+              "这是第1名！这是第3名！这是第5名！这是第7名！"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析以下Java代码，其最终在控制台的输出结果是 ____ 。",
+        "content": "分析以下Java代码，其最终在控制台的输出结果是（    ）。\npublic class TestJava {\n    public static void main(String arg[]) {\n        int[] myArray = {1, 3, 5, 7, 9};\n        for (int i = 0; i < myArray.length; i++) {\n            System.out.print(\"这是第\" + myArray[i] + \"名！\");\n        }\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1727242648947679236",
+        "description": "分析以下Java代码，其最终在控制台的输出结果是（    ）。\npublic class TestJava {\n    public static void main(String arg[]) {\n        int[] myArray = {1, 3, 5, 7, 9};\n        for (int i = 0; i < myArray.length; i++) {\n            System.out.print(\"这是第\" + myArray[i] + \"名！\");\n        }\n    }\n}",
+        "problemPoolIndex": 31,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2121134919722168336",
+      "number": 32,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "分析以下Java代码，其最终在控制台的输出结果是（ ）。 public class TestJava { public static void main(String arg[]) { String[] myArray = {\"九寨沟\", \"黄山\", \"长城\", \"历史博物馆\"}; for (int i = 1; i < myArray.length; i++) { System.out.print(\"第\" + i + \"站游览\" + myArray[i] + \"！\"); } } }",
+      "content": "分析以下Java代码，其最终在控制台的输出结果是（    ）。\npublic class TestJava {\n    public static void main(String arg[]) {\n        String[] myArray = {\"九寨沟\", \"黄山\", \"长城\", \"历史博物馆\"};\n        for (int i = 1; i < myArray.length; i++) {\n            System.out.print(\"第\" + i + \"站游览\" + myArray[i] + \"！\");\n        }\n    }\n}",
+      "title": "分析以下Java代码，其最终在控制台的输出结果是 ____ 。",
+      "options": [
+        "第0站游览九寨沟！第1站游览黄山！第2站游览长城！第3站游览历史博物馆！",
+        "第1站游览九寨沟！第2站游览黄山！第3站游览长城！第4站游览历史博物馆！",
+        "第1站游览黄山！第2站游览长城！第3站游览历史博物馆！",
+        "第1站游览九寨沟！第2站游览黄山！第3站游览长城！"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168336",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "第0站游览九寨沟！第1站游览黄山！第2站游览长城！第3站游览历史博物馆！",
+              "第1站游览九寨沟！第2站游览黄山！第3站游览长城！第4站游览历史博物馆！",
+              "第1站游览黄山！第2站游览长城！第3站游览历史博物馆！",
+              "第1站游览九寨沟！第2站游览黄山！第3站游览长城！"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "分析以下Java代码，其最终在控制台的输出结果是 ____ 。",
+        "content": "分析以下Java代码，其最终在控制台的输出结果是（    ）。\npublic class TestJava {\n    public static void main(String arg[]) {\n        String[] myArray = {\"九寨沟\", \"黄山\", \"长城\", \"历史博物馆\"};\n        for (int i = 1; i < myArray.length; i++) {\n            System.out.print(\"第\" + i + \"站游览\" + myArray[i] + \"！\");\n        }\n    }\n}",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1727242648951873536",
+        "description": "分析以下Java代码，其最终在控制台的输出结果是（    ）。\npublic class TestJava {\n    public static void main(String arg[]) {\n        String[] myArray = {\"九寨沟\", \"黄山\", \"长城\", \"历史博物馆\"};\n        for (int i = 1; i < myArray.length; i++) {\n            System.out.print(\"第\" + i + \"站游览\" + myArray[i] + \"！\");\n        }\n    }\n}",
+        "problemPoolIndex": 32,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2121134919722168337",
+      "number": 33,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "定义了int型二维数组a[6][7]后，数组元素a[3][4]前的数组元素个数为( ) @[](2) A. 24 B. 25 C. 18 D. 17",
+      "content": "定义了int型二维数组a[6][7]后，数组元素a[3][4]前的数组元素个数为( )   @[](2)\n\nA. 24\nB. 25\nC. 18\nD. 17",
+      "title": "定义了int型二维数组a[6][7]后，数组元素a[3][4]前的数组元素个数为( )",
+      "options": [
+        "24",
+        "25",
+        "18",
+        "17"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168337",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "24",
+              "25",
+              "18",
+              "17"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "定义了int型二维数组a[6][7]后，数组元素a[3][4]前的数组元素个数为( )",
+        "content": "定义了int型二维数组a[6][7]后，数组元素a[3][4]前的数组元素个数为( )   @[](2)\n\nA. 24\nB. 25\nC. 18\nD. 17",
+        "type": "MULTIPLE_CHOICE",
+        "author": "强彦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "3129",
+        "description": "定义了int型二维数组a[6][7]后，数组元素a[3][4]前的数组元素个数为( )",
+        "problemPoolIndex": 33,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "97"
+      }
+    },
+    {
+      "id": "2121134919722168338",
+      "number": 34,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "若int a[][]={{123,345,334},{1,2},{3,4}}; 则 a[2][1]=（ ）。",
+      "content": "若int a[][]={{123,345,334},{1,2},{3,4}};  则 a[2][1]=（    ）。",
+      "title": "若int a[][]={{123,345,334},{1,2},{3,4}};  则 a[2][1]=（    ）。",
+      "options": [
+        "1",
+        "3",
+        "2",
+        "4"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168338",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "1",
+              "3",
+              "2",
+              "4"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "若int a[][]={{123,345,334},{1,2},{3,4}};  则 a[2][1]=（    ）。",
+        "content": "若int a[][]={{123,345,334},{1,2},{3,4}};  则 a[2][1]=（    ）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1406817383625183232",
+        "description": "若int a[][]={{123,345,334},{1,2},{3,4}};  则 a[2][1]=（    ）。",
+        "problemPoolIndex": 34,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919722168339",
+      "number": 35,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下哪个选项可以正确创建一个长度为3的二维数组？（ ）",
+      "content": "以下哪个选项可以正确创建一个长度为3的二维数组？（     ）",
+      "title": "以下哪个选项可以正确创建一个长度为3的二维数组？（     ）",
+      "options": [
+        "new int[2][3]",
+        "new int[3][]",
+        "new int[][3]",
+        "以上答案都不对"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919722168339",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "new int[2][3]\n",
+              "new int[3][]",
+              "new int[][3]",
+              "以上答案都不对"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下哪个选项可以正确创建一个长度为3的二维数组？（     ）",
+        "content": "以下哪个选项可以正确创建一个长度为3的二维数组？（     ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1406817861838753792",
+        "description": "以下哪个选项可以正确创建一个长度为3的二维数组？（     ）",
+        "problemPoolIndex": 35,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2121134919726362624",
+      "number": 36,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，下列选项中关于二维数组的定义，格式错误的是？",
+      "content": "在Java中，下列选项中关于二维数组的定义，格式错误的是？",
+      "title": "在Java中，下列选项中关于二维数组的定义，格式错误的是？",
+      "options": [
+        "int [][]arr = new int[3][4]",
+        "int [][]arr = new int[3][]",
+        "int[][] arr = new int[][4]",
+        "int [][]arr = {{1,2},{3,4,5},{6}}"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919726362624",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int [][]arr = new int[3][4]",
+              "int [][]arr = new int[3][]",
+              "int[][] arr = new int[][4]",
+              "int [][]arr = {{1,2},{3,4,5},{6}}"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，下列选项中关于二维数组的定义，格式错误的是？",
+        "content": "在Java中，下列选项中关于二维数组的定义，格式错误的是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1600814437525868544",
+        "description": "在Java中，下列选项中关于二维数组的定义，格式错误的是？",
+        "problemPoolIndex": 36,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919726362625",
+      "number": 37,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中下面哪一个不是创建二维数组的正确语句？",
+      "content": "Java中下面哪一个不是创建二维数组的正确语句？",
+      "title": "Java中下面哪一个不是创建二维数组的正确语句？",
+      "options": [
+        "float f[][]=new float[6][6];",
+        "float[]f[]=new float[6][6];",
+        "float f[][]=new float[][6];",
+        "float[][]f=new float[6][];"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919726362625",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "float f[][]=new float[6][6];",
+              "float[]f[]=new float[6][6];",
+              " float f[][]=new float[][6];",
+              "float[][]f=new float[6][];"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中下面哪一个不是创建二维数组的正确语句？",
+        "content": "Java中下面哪一个不是创建二维数组的正确语句？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1600836685355806720",
+        "description": "Java中下面哪一个不是创建二维数组的正确语句？",
+        "problemPoolIndex": 37,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919726362626",
+      "number": 38,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java应用程序的main方法中有以下语句序列，则运行后输出的结果是？ ``` int b[][]={{1}, {2,2}, {2,2,2}}; int sum=1; for(int i=0;i<b.length;i++) { for(int j=0;j<b[i].length;j++) { sum*=b[i][j]; } } System.out.println(\"sum=\"+sum); ```",
+      "content": "Java应用程序的main方法中有以下语句序列，则运行后输出的结果是？\n```\nint b[][]={{1}, {2,2}, {2,2,2}};\nint sum=1;\nfor(int i=0;i<b.length;i++) {\n\tfor(int j=0;j<b[i].length;j++) {\n\t\tsum*=b[i][j];\n\t}\n}\nSystem.out.println(\"sum=\"+sum);\n```",
+      "title": "Java应用程序的main方法中有以下语句序列，则运行后输出的结果是？",
+      "options": [
+        "32",
+        "11",
+        "2",
+        "3"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919726362626",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "32",
+              "11",
+              "2",
+              "3"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java应用程序的main方法中有以下语句序列，则运行后输出的结果是？",
+        "content": "Java应用程序的main方法中有以下语句序列，则运行后输出的结果是？\n```\nint b[][]={{1}, {2,2}, {2,2,2}};\nint sum=1;\nfor(int i=0;i<b.length;i++) {\n\tfor(int j=0;j<b[i].length;j++) {\n\t\tsum*=b[i][j];\n\t}\n}\nSystem.out.println(\"sum=\"+sum);\n```",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1601137066883403776",
+        "description": "Java应用程序的main方法中有以下语句序列，则运行后输出的结果是？\n```\nint b[][]={{1}, {2,2}, {2,2,2}};\nint sum=1;\nfor(int i=0;i<b.length;i++) {\n\tfor(int j=0;j<b[i].length;j++) {\n\t\tsum*=b[i][j];\n\t}\n}\nSystem.out.println(\"sum=\"+sum);\n```",
+        "problemPoolIndex": 38,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919726362627",
+      "number": 39,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "当访问无效的数组下标时，会发生（ ）。 @[](2) A. 中止程序 B. 抛出异常 C. 系统崩溃 D. 直接跳过",
+      "content": "当访问无效的数组下标时，会发生（ ）。   @[](2)\n\nA. 中止程序\nB. 抛出异常\nC. 系统崩溃\nD. 直接跳过",
+      "title": "当访问无效的数组下标时，会发生（ ）。",
+      "options": [
+        "中止程序",
+        "抛出异常",
+        "系统崩溃",
+        "直接跳过"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919726362627",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "中止程序",
+              "抛出异常",
+              "系统崩溃",
+              "直接跳过"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "当访问无效的数组下标时，会发生（ ）。",
+        "content": "当访问无效的数组下标时，会发生（ ）。   @[](2)\n\nA. 中止程序\nB. 抛出异常\nC. 系统崩溃\nD. 直接跳过",
+        "type": "MULTIPLE_CHOICE",
+        "author": "强彦",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "3133",
+        "description": "当访问无效的数组下标时，会发生（ ）。",
+        "problemPoolIndex": 39,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "97"
+      }
+    },
+    {
+      "id": "2121134919726362628",
+      "number": 40,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，设有数组定义：int MyintArray[]={10,20,30,40,50,60,70};则执行下面几个语句后输出的结果是？ ``` int s=0; for(int i=0;i<MyIntArray.length;i++) s+=MyIntArray[i]; System.out.println(s); ```",
+      "content": "在Java中，设有数组定义：int MyintArray[]={10,20,30,40,50,60,70};则执行下面几个语句后输出的结果是？\n```\nint s=0;\nfor(int i=0;i<MyIntArray.length;i++)\ns+=MyIntArray[i];\nSystem.out.println(s);\n\n```",
+      "title": "在Java中，设有数组定义：int MyintArray[]={10,20,30,40,50,60,70};则执行下面几个语句后",
+      "options": [
+        "250",
+        "260",
+        "280",
+        "290"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919726362628",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "250",
+              "260",
+              "280",
+              "290"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，设有数组定义：int MyintArray[]={10,20,30,40,50,60,70};则执行下面几个语句后",
+        "content": "在Java中，设有数组定义：int MyintArray[]={10,20,30,40,50,60,70};则执行下面几个语句后输出的结果是？\n```\nint s=0;\nfor(int i=0;i<MyIntArray.length;i++)\ns+=MyIntArray[i];\nSystem.out.println(s);\n\n```\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1600838042343194624",
+        "description": "在Java中，设有数组定义：int MyintArray[]={10,20,30,40,50,60,70};则执行下面几个语句后输出的结果是？\n```\nint s=0;\nfor(int i=0;i<MyIntArray.length;i++)\ns+=MyIntArray[i];\nSystem.out.println(s);\n\n```\n",
+        "problemPoolIndex": 40,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919726362629",
+      "number": 41,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面Java程序的运行结果是？ ``` import java.io.*; public class Test{ public static void main(String args[]){ int i; int a[]={11,22,33,44,55,66,77,88,99}; for(i=0;i<=a.length/2;i++) System.out.print(a[i]+a[a.length-i-1]+\" \"); System.out.println(); } } ```",
+      "content": "下面Java程序的运行结果是？\n\n```\nimport java.io.*;\npublic class Test{\n\tpublic static void main(String args[]){\n\t\tint i;\n\t\tint a[]={11,22,33,44,55,66,77,88,99};\n\t\tfor(i=0;i<=a.length/2;i++)\n\t\t\tSystem.out.print(a[i]+a[a.length-i-1]+\" \");\n\t\tSystem.out.println();\n\t}\n}\n\n\n```",
+      "title": "下面Java程序的运行结果是？",
+      "options": [
+        "110 110",
+        "110 110 110",
+        "110",
+        "110 110 110 110 110"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919726362629",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "110 110",
+              "110 110 110",
+              "110",
+              "110 110 110 110 110"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面Java程序的运行结果是？",
+        "content": "下面Java程序的运行结果是？\n\n```\nimport java.io.*;\npublic class Test{\n\tpublic static void main(String args[]){\n\t\tint i;\n\t\tint a[]={11,22,33,44,55,66,77,88,99};\n\t\tfor(i=0;i<=a.length/2;i++)\n\t\t\tSystem.out.print(a[i]+a[a.length-i-1]+\" \");\n\t\tSystem.out.println();\n\t}\n}\n\n\n```",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1600839194933710848",
+        "description": "下面Java程序的运行结果是？\n\n```\nimport java.io.*;\npublic class Test{\n\tpublic static void main(String args[]){\n\t\tint i;\n\t\tint a[]={11,22,33,44,55,66,77,88,99};\n\t\tfor(i=0;i<=a.length/2;i++)\n\t\t\tSystem.out.print(a[i]+a[a.length-i-1]+\" \");\n\t\tSystem.out.println();\n\t}\n}\n\n\n```",
+        "problemPoolIndex": 41,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919726362630",
+      "number": 42,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，设score是一个整型数组，有5个元素，已经正确初始化并赋值，则以下程序代码段的功能是？ ``` temp = score[0]; for (int index = 1;index < 5;index++) { if (score[index] < temp) { temp = score[index]; } } ```",
+      "content": "在Java中，设score是一个整型数组，有5个元素，已经正确初始化并赋值，则以下程序代码段的功能是？\n```\ntemp = score[0];\nfor (int index = 1;index < 5;index++) {\n\tif (score[index] < temp) {\n\t\ttemp = score[index];\n\t}\n}\n\n\n```",
+      "title": "Java程序阅读",
+      "options": [
+        "求该数组中的最大数",
+        "求该数组中的最小数",
+        "找到该数组的最后一个元素",
+        "编译出错"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919726362630",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "求该数组中的最大数",
+              "求该数组中的最小数",
+              "找到该数组的最后一个元素",
+              "编译出错"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java程序阅读",
+        "content": "在Java中，设score是一个整型数组，有5个元素，已经正确初始化并赋值，则以下程序代码段的功能是？\n```\ntemp = score[0];\nfor (int index = 1;index < 5;index++) {\n\tif (score[index] < temp) {\n\t\ttemp = score[index];\n\t}\n}\n\n\n```\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1601098466309427200",
+        "description": "在Java中，设score是一个整型数组，有5个元素，已经正确初始化并赋值，则以下程序代码段的功能是？\n```\ntemp = score[0];\nfor (int index = 1;index < 5;index++) {\n\tif (score[index] < temp) {\n\t\ttemp = score[index];\n\t}\n}\n\n\n```\n",
+        "problemPoolIndex": 42,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2121134919726362631",
+      "number": 43,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中，以下代码输出的结果是 ``` public class Main { public static void main(String[] args) { int[] arr = new int[]{1,2,3,4,5}; arr = null; System.out.println(arr[1]); } } ```",
+      "content": "Java中，以下代码输出的结果是\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint[] arr = new int[]{1,2,3,4,5};\n\t\tarr = null;\n\t\tSystem.out.println(arr[1]);\n\t}\n}\n```",
+      "title": "Java中，以下代码输出的结果是（数组空指针异常）",
+      "options": [
+        "1",
+        "2",
+        "运行报错，空指针异常",
+        "下标越界异常"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2121134919726362631",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "1",
+              "2",
+              "运行报错，空指针异常",
+              "下标越界异常"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，以下代码输出的结果是（数组空指针异常）",
+        "content": "Java中，以下代码输出的结果是\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint[] arr = new int[]{1,2,3,4,5};\n\t\tarr = null;\n\t\tSystem.out.println(arr[1]);\n\t}\n}\n```",
+        "type": "MULTIPLE_CHOICE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2121134919663448064",
+        "problemId": "1630361959352856576",
+        "description": "Java中，以下代码输出的结果是\n```\npublic class Main {\n\tpublic static void main(String[] args) {\n\t\tint[] arr = new int[]{1,2,3,4,5};\n\t\tarr = null;\n\t\tSystem.out.println(arr[1]);\n\t}\n}\n```",
+        "problemPoolIndex": 43,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    }
+  ]
+}

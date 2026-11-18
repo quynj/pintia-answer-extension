@@ -1,0 +1,2177 @@
+{
+  "title": "26秋《程序设计基础》作业2（Chap2.1-2.2.2数据类型）",
+  "problemSetName": "26秋《程序设计基础》作业2（Chap2.1-2.2.2数据类型）",
+  "problemSetId": "2102670384661585920",
+  "examId": "2102935911376207872",
+  "source": "https://pintia.cn/problem-sets/2102670384661585920",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:53:50.306Z",
+  "summaries": {
+    "TRUE_OR_FALSE": {
+      "total": 25,
+      "totalScore": 50
+    },
+    "MULTIPLE_CHOICE": {
+      "total": 23,
+      "totalScore": 46
+    },
+    "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER": {
+      "total": 2,
+      "totalScore": 4
+    }
+  },
+  "questions": [
+    {
+      "id": "2102670384690946048",
+      "number": 1,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "java语言中不用区分字母的大写小写。 ~@[](1)",
+      "content": "java语言中不用区分字母的大写小写。  ~@[](1)",
+      "title": "java语言中不用区分字母的大写小写。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946048",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "java语言中不用区分字母的大写小写。",
+        "content": "java语言中不用区分字母的大写小写。  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "王从银",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "2524",
+        "description": "java语言中不用区分字母的大写小写。  ",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "36"
+      }
+    },
+    {
+      "id": "2102670384690946049",
+      "number": 2,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java语言中，变量名可以用汉字表示。 ~@[](1)",
+      "content": "Java语言中，变量名可以用汉字表示。  ~@[](1)",
+      "title": "Java语言中，变量名可以用汉字表示。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946049",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言中，变量名可以用汉字表示。",
+        "content": "Java语言中，变量名可以用汉字表示。  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "王从银",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "2566",
+        "description": "Java语言中，变量名可以用汉字表示。  ",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "36"
+      }
+    },
+    {
+      "id": "2102670384690946050",
+      "number": 3,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "字节码文件是与平台无关的二进制码，执行时由解释器解释成本地机器码。 ~@[](1)",
+      "content": "字节码文件是与平台无关的二进制码，执行时由解释器解释成本地机器码。  ~@[](1)",
+      "title": "字节码文件是与平台无关的二进制码，执行时由解释器解释成本地机器码。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946050",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "字节码文件是与平台无关的二进制码，执行时由解释器解释成本地机器码。",
+        "content": "字节码文件是与平台无关的二进制码，执行时由解释器解释成本地机器码。  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "王从银",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "2586",
+        "description": "字节码文件是与平台无关的二进制码，执行时由解释器解释成本地机器码。  ",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "36"
+      }
+    },
+    {
+      "id": "2102670384690946051",
+      "number": 4,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "goto是Java中未使用到的关键字。 ~@[](1)",
+      "content": "goto是Java中未使用到的关键字。  ~@[](1)",
+      "title": "goto是Java中未使用到的关键字。  ",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946051",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "goto是Java中未使用到的关键字。  ",
+        "content": "goto是Java中未使用到的关键字。  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "顾慧",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1170968263413280768",
+        "description": "goto是Java中未使用到的关键字。  ",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "10"
+      }
+    },
+    {
+      "id": "2102670384690946052",
+      "number": 5,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "变量的内容可以修改，常量的内容不可修改。 ~@[](1)",
+      "content": "变量的内容可以修改，常量的内容不可修改。  ~@[](1)",
+      "title": "变量的内容可以修改，常量的内容不可修改。  ",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946052",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "变量的内容可以修改，常量的内容不可修改。  ",
+        "content": "变量的内容可以修改，常量的内容不可修改。  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "顾慧",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1170968379725524992",
+        "description": "变量的内容可以修改，常量的内容不可修改。  ",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "10"
+      }
+    },
+    {
+      "id": "2102670384690946053",
+      "number": 6,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "字符$不能作Java标识符的第一个字符。 ~@[](5)",
+      "content": "字符$不能作Java标识符的第一个字符。  ~@[](5)",
+      "title": "字符$不能作Java标识符的第一个字符。  ",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946053",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "字符$不能作Java标识符的第一个字符。  ",
+        "content": "字符$不能作Java标识符的第一个字符。  ~@[](5)",
+        "type": "TRUE_OR_FALSE",
+        "author": "顾慧",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1170968537703985152",
+        "description": "字符$不能作Java标识符的第一个字符。  ",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "10"
+      }
+    },
+    {
+      "id": "2102670384690946054",
+      "number": 7,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在如下代码中，两个变量str和i都是基本数据类型的变量。 ``` String str=\"sdutcs”; int i =100; ```",
+      "content": "在如下代码中，两个变量str和i都是基本数据类型的变量。\n```\nString str=\"sdutcs”; \nint i =100;\n```",
+      "title": "在如下代码中，两个变量str和i都是基本数据类型的变量。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946054",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在如下代码中，两个变量str和i都是基本数据类型的变量。",
+        "content": "在如下代码中，两个变量str和i都是基本数据类型的变量。\n```\nString str=\"sdutcs”; \nint i =100;\n```\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1407977737252798464",
+        "description": "在如下代码中，两个变量str和i都是基本数据类型的变量。\n```\nString str=\"sdutcs”; \nint i =100;\n```\n",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102670384690946055",
+      "number": 8,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在java程序中，只能使用英文的分号;，否则编译器会报告错误信息。",
+      "content": "在java程序中，只能使用英文的分号;，否则编译器会报告错误信息。",
+      "title": "在java程序中，只能使用英文的分号;，否则编译器会报告错误信息。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946055",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在java程序中，只能使用英文的分号;，否则编译器会报告错误信息。",
+        "content": "在java程序中，只能使用英文的分号;，否则编译器会报告错误信息。",
+        "type": "TRUE_OR_FALSE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457710717426794496",
+        "description": "在java程序中，只能使用英文的分号;，否则编译器会报告错误信息。",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384690946056",
+      "number": 9,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java语言在定义类时，可以将class写成Class。",
+      "content": "Java语言在定义类时，可以将class写成Class。",
+      "title": "Java语言在定义类时，可以将class写成Class。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946056",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言在定义类时，可以将class写成Class。",
+        "content": "Java语言在定义类时，可以将class写成Class。",
+        "type": "TRUE_OR_FALSE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457710924763889664",
+        "description": "Java语言在定义类时，可以将class写成Class。",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384690946057",
+      "number": 10,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "标识符可以为关键字。",
+      "content": "标识符可以为关键字。",
+      "title": "标识符可以为关键字。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946057",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "标识符可以为关键字。",
+        "content": "标识符可以为关键字。",
+        "type": "TRUE_OR_FALSE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457711382937747456",
+        "description": "标识符可以为关键字。",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384690946058",
+      "number": 11,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在为double类型的变量赋值时，后面可以加字母D或d，也可以不添加。",
+      "content": "在为double类型的变量赋值时，后面可以加字母D或d，也可以不添加。",
+      "title": "在为double类型的变量赋值时，后面可以加字母D或d，也可以不添加。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946058",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在为double类型的变量赋值时，后面可以加字母D或d，也可以不添加。",
+        "content": "在为double类型的变量赋值时，后面可以加字母D或d，也可以不添加。",
+        "type": "TRUE_OR_FALSE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457711607923671040",
+        "description": "在为double类型的变量赋值时，后面可以加字母D或d，也可以不添加。",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384690946059",
+      "number": 12,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "浮点数常量指的是数学中的小数。",
+      "content": "浮点数常量指的是数学中的小数。",
+      "title": "浮点数常量指的是数学中的小数。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946059",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "浮点数常量指的是数学中的小数。",
+        "content": "浮点数常量指的是数学中的小数。",
+        "type": "TRUE_OR_FALSE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457712627517095936",
+        "description": "浮点数常量指的是数学中的小数。",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384690946060",
+      "number": 13,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在Java中，小数会被默认是double类型的值。",
+      "content": "在Java中，小数会被默认是double类型的值。",
+      "title": "在Java中，小数会被默认是double类型的值。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946060",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，小数会被默认是double类型的值。",
+        "content": "在Java中，小数会被默认是double类型的值。",
+        "type": "TRUE_OR_FALSE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457712832301359104",
+        "description": "在Java中，小数会被默认是double类型的值。",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384690946061",
+      "number": 14,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "JAVA中常量名所有字母都大写，单词之间用下划线连接。",
+      "content": "JAVA中常量名所有字母都大写，单词之间用下划线连接。",
+      "title": "JAVA中常量名所有字母都大写，单词之间用下划线连接。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946061",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "JAVA中常量名所有字母都大写，单词之间用下划线连接。",
+        "content": "JAVA中常量名所有字母都大写，单词之间用下划线连接。",
+        "type": "TRUE_OR_FALSE",
+        "author": "贾园园",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457997904728416256",
+        "description": "JAVA中常量名所有字母都大写，单词之间用下划线连接。",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384690946062",
+      "number": 15,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在给变量起名时，computer和Computer是一样的。",
+      "content": "在给变量起名时，computer和Computer是一样的。",
+      "title": "在给变量起名时，computer和Computer是一样的。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946062",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在给变量起名时，computer和Computer是一样的。",
+        "content": "在给变量起名时，computer和Computer是一样的。",
+        "type": "TRUE_OR_FALSE",
+        "author": "贾园园",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457998263978942464",
+        "description": "在给变量起名时，computer和Computer是一样的。",
+        "problemPoolIndex": 15,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384690946063",
+      "number": 16,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在Java中：long类型占8个Byte，float类型占4个Byte，所以long类型表示的范围大于float类型。",
+      "content": "在Java中：long类型占8个Byte，float类型占4个Byte，所以long类型表示的范围大于float类型。",
+      "title": "在Java中：long类型占8个Byte，float类型占4个Byte，所以long类型表示的范围大于float类型。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946063",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中：long类型占8个Byte，float类型占4个Byte，所以long类型表示的范围大于float类型。",
+        "content": "在Java中：long类型占8个Byte，float类型占4个Byte，所以long类型表示的范围大于float类型。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1462692994801692672",
+        "description": "在Java中：long类型占8个Byte，float类型占4个Byte，所以long类型表示的范围大于float类型。",
+        "problemPoolIndex": 16,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2102670384690946064",
+      "number": 17,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中，main是合法标识符。",
+      "content": "Java中，main是合法标识符。",
+      "title": "Java中，main是合法标识符。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946064",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，main是合法标识符。",
+        "content": "Java中，main是合法标识符。",
+        "type": "TRUE_OR_FALSE",
+        "author": "吕行军",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1635906488361762816",
+        "description": "Java中，main是合法标识符。",
+        "problemPoolIndex": 17,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2102670384690946065",
+      "number": 18,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java语言中，0xC5表示的是一个十六进制整数。",
+      "content": "Java语言中，0xC5表示的是一个十六进制整数。",
+      "title": "Java语言中，0xC5表示的是一个十六进制整数。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946065",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言中，0xC5表示的是一个十六进制整数。",
+        "content": "Java语言中，0xC5表示的是一个十六进制整数。",
+        "type": "TRUE_OR_FALSE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1685044963152695296",
+        "description": "Java语言中，0xC5表示的是一个十六进制整数。",
+        "problemPoolIndex": 18,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2102670384690946066",
+      "number": 19,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "字符串常量既可以用双引号引起来,也可以用单引号引起来.",
+      "content": "字符串常量既可以用双引号引起来,也可以用单引号引起来.",
+      "title": "字符串常量既可以用双引号引起来,也可以用单引号引起来.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946066",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "字符串常量既可以用双引号引起来,也可以用单引号引起来.",
+        "content": "字符串常量既可以用双引号引起来,也可以用单引号引起来.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862424113099501568",
+        "description": "字符串常量既可以用双引号引起来,也可以用单引号引起来.\n\n",
+        "problemPoolIndex": 19,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384690946067",
+      "number": 20,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "字符类型变量所占存储空间为2个字节.",
+      "content": "字符类型变量所占存储空间为2个字节.",
+      "title": "字符类型变量所占存储空间为2个字节.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946067",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "字符类型变量所占存储空间为2个字节.",
+        "content": "字符类型变量所占存储空间为2个字节.\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862424113141444609",
+        "description": "字符类型变量所占存储空间为2个字节.\n",
+        "problemPoolIndex": 20,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384690946068",
+      "number": 21,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "常量就是程序中常常变化的数据.",
+      "content": "常量就是程序中常常变化的数据.",
+      "title": "常量就是程序中常常变化的数据.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946068",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "常量就是程序中常常变化的数据.",
+        "content": "常量就是程序中常常变化的数据.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862424113154027521",
+        "description": "常量就是程序中常常变化的数据.\n\n",
+        "problemPoolIndex": 21,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384690946069",
+      "number": 22,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java中null常量只有一个值,它代表对象的引用为空.",
+      "content": "Java中null常量只有一个值,它代表对象的引用为空.",
+      "title": "Java中null常量只有一个值,它代表对象的引用为空.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946069",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中null常量只有一个值,它代表对象的引用为空.",
+        "content": "Java中null常量只有一个值,它代表对象的引用为空.\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862424113162416128",
+        "description": "Java中null常量只有一个值,它代表对象的引用为空.\n",
+        "problemPoolIndex": 22,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384690946070",
+      "number": 23,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "关键字是编程语言里事先定义好并赋予了特殊含义的单词.",
+      "content": "关键字是编程语言里事先定义好并赋予了特殊含义的单词.",
+      "title": "关键字是编程语言里事先定义好并赋予了特殊含义的单词.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384690946070",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "关键字是编程语言里事先定义好并赋予了特殊含义的单词.",
+        "content": "关键字是编程语言里事先定义好并赋予了特殊含义的单词.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862424113166610432",
+        "description": "关键字是编程语言里事先定义好并赋予了特殊含义的单词.\n\n",
+        "problemPoolIndex": 23,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384695140352",
+      "number": 24,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "字符串一旦初始化就不可以被改变.",
+      "content": "字符串一旦初始化就不可以被改变.",
+      "title": "字符串一旦初始化就不可以被改变.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140352",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "字符串一旦初始化就不可以被改变.",
+        "content": "字符串一旦初始化就不可以被改变.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862424113174999040",
+        "description": "字符串一旦初始化就不可以被改变.\n\n",
+        "problemPoolIndex": 24,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384695140353",
+      "number": 25,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在程序中,应该尽量使用有意义的英文单词来定义标识符 .",
+      "content": "在程序中,应该尽量使用有意义的英文单词来定义标识符\n.",
+      "title": "在程序中,应该尽量使用有意义的英文单词来定义标识符",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140353",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在程序中,应该尽量使用有意义的英文单词来定义标识符",
+        "content": "在程序中,应该尽量使用有意义的英文单词来定义标识符\n.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862424113174999044",
+        "description": "在程序中,应该尽量使用有意义的英文单词来定义标识符\n.\n\n",
+        "problemPoolIndex": 25,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384695140354",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列不可作为java语言标识符的是（）。@[](1) A. a2 B. $2 C. _2 D. 22",
+      "content": "下列不可作为java语言标识符的是（）。@[](1)\nA. a2                \nB. $2                    \nC.  _2                    \nD. 22",
+      "title": "下列不可作为java语言标识符的是（）。",
+      "options": [
+        "a2",
+        "$2",
+        "_2",
+        "22"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140354",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "a2",
+              "$2",
+              "_2",
+              "22"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列不可作为java语言标识符的是（）。",
+        "content": "下列不可作为java语言标识符的是（）。@[](1)\nA. a2                \nB. $2                    \nC.  _2                    \nD. 22",
+        "type": "MULTIPLE_CHOICE",
+        "author": "王从银",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "2720",
+        "description": "下列不可作为java语言标识符的是（）。",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "36"
+      }
+    },
+    {
+      "id": "2102670384695140355",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，负责对字节代码解释执行的是（ ）。 @[](1) A. 应用服务器 B. 虚拟机 C. 垃圾回收器 D. 编译器",
+      "content": "在Java中，负责对字节代码解释执行的是（  ）。   @[](1)\nA. 应用服务器\nB. 虚拟机\nC. 垃圾回收器\nD. 编译器",
+      "title": "在Java中，负责对字节代码解释执行的是（  ）。",
+      "options": [
+        "应用服务器",
+        "虚拟机",
+        "垃圾回收器",
+        "编译器"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140355",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "应用服务器",
+              "虚拟机",
+              "垃圾回收器",
+              "编译器"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，负责对字节代码解释执行的是（  ）。",
+        "content": "在Java中，负责对字节代码解释执行的是（  ）。   @[](1)\nA. 应用服务器\nB. 虚拟机\nC. 垃圾回收器\nD. 编译器",
+        "type": "MULTIPLE_CHOICE",
+        "author": "王从银",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "2780",
+        "description": "在Java中，负责对字节代码解释执行的是（  ）。",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "36"
+      }
+    },
+    {
+      "id": "2102670384695140356",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列标识符（名字）命名原则中，符合规范的是___。 @[](2) A. 类名的首字母小写 B. 变量和方法名的首字母大写 C. 接口名的首字母小写 D. 常量完全大写",
+      "content": "下列标识符（名字）命名原则中，符合规范的是___。 @[](2)\nA. 类名的首字母小写 \nB. 变量和方法名的首字母大写\nC. 接口名的首字母小写 \nD. 常量完全大写",
+      "title": "下列标识符（名字）命名原则中，符合规范的是___。 ",
+      "options": [
+        "类名的首字母小写",
+        "变量和方法名的首字母大写",
+        "接口名的首字母小写",
+        "常量完全大写"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140356",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "类名的首字母小写",
+              "变量和方法名的首字母大写",
+              "接口名的首字母小写",
+              "常量完全大写"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列标识符（名字）命名原则中，符合规范的是___。 ",
+        "content": "下列标识符（名字）命名原则中，符合规范的是___。 @[](2)\nA. 类名的首字母小写 \nB. 变量和方法名的首字母大写\nC. 接口名的首字母小写 \nD. 常量完全大写\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "gwl",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1236587079341998080",
+        "description": "下列标识符（名字）命名原则中，符合规范的是___。",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "920672097645928448"
+      }
+    },
+    {
+      "id": "2102670384695140357",
+      "number": 4,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列（ ）是合法标识符。",
+      "content": "下列（       ）是合法标识符。",
+      "title": "下列（       ）是合法标识符。",
+      "options": [
+        "rwkj@163",
+        "Java程序设计",
+        "8a",
+        "e-mail"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140357",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "rwkj@163",
+              "Java程序设计\n",
+              "8a",
+              "e-mail"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列（       ）是合法标识符。",
+        "content": "下列（       ）是合法标识符。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1406811324880699392",
+        "description": "下列（       ）是合法标识符。",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102670384695140358",
+      "number": 5,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面哪些元素不能作为Java标识符的首字符？（ ）",
+      "content": "下面哪些元素不能作为Java标识符的首字符？（   ）",
+      "title": "下面哪些元素不能作为Java标识符的首字符？（   ）",
+      "options": [
+        "字母",
+        "数字",
+        "下划线_",
+        "$"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140358",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "字母",
+              "数字\n",
+              "下划线_",
+              "$"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面哪些元素不能作为Java标识符的首字符？（   ）",
+        "content": "下面哪些元素不能作为Java标识符的首字符？（   ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1406811790927646720",
+        "description": "下面哪些元素不能作为Java标识符的首字符？（   ）",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102670384695140359",
+      "number": 6,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下标识符中，不合法的是（ ）",
+      "content": "以下标识符中，不合法的是（ ）",
+      "title": "以下标识符中，不合法的是（ ）",
+      "options": [
+        "user",
+        "$inner",
+        "class",
+        "login_1"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140359",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "user",
+              "$inner",
+              "class",
+              "login_1"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下标识符中，不合法的是（ ）",
+        "content": "以下标识符中，不合法的是（ ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457700802970378240",
+        "description": "以下标识符中，不合法的是（ ）",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384695140360",
+      "number": 7,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列选项中，不属于Java中关键字的是（）",
+      "content": "下列选项中，不属于Java中关键字的是（）",
+      "title": "下列选项中，不属于Java中关键字的是（）",
+      "options": [
+        "if",
+        "float",
+        "Final",
+        "try"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140360",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "if",
+              "float",
+              "Final",
+              "try"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列选项中，不属于Java中关键字的是（）",
+        "content": "下列选项中，不属于Java中关键字的是（）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457701119602581504",
+        "description": "下列选项中，不属于Java中关键字的是（）",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384695140361",
+      "number": 8,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列选项中，属于布尔常量的是（）",
+      "content": "下列选项中，属于布尔常量的是（）",
+      "title": "下列选项中，属于布尔常量的是（）",
+      "options": [
+        "198",
+        "2e3f",
+        "true",
+        "null"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140361",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "198",
+              "2e3f",
+              "true",
+              "null"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列选项中，属于布尔常量的是（）",
+        "content": "下列选项中，属于布尔常量的是（）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457701382801915904",
+        "description": "下列选项中，属于布尔常量的是（）",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384695140362",
+      "number": 9,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下关于变量的定义，正确的是 （ ）",
+      "content": "以下关于变量的定义，正确的是 （ ）",
+      "title": "以下关于变量的定义，正确的是 （ ）",
+      "options": [
+        "int a=10;",
+        "b=2；",
+        "int =20；",
+        "int a；b=a+10；"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140362",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "int a=10;",
+              "b=2；",
+              "int =20；",
+              "int a；b=a+10；"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下关于变量的定义，正确的是 （ ）",
+        "content": "以下关于变量的定义，正确的是 （ ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457701712340729856",
+        "description": "以下关于变量的定义，正确的是 （ ）",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384695140363",
+      "number": 10,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列选项中，哪一个不能通过编译（ ）",
+      "content": "下列选项中，哪一个不能通过编译（ ）",
+      "title": "下列选项中，哪一个不能通过编译（ ）",
+      "options": [
+        "byte a=1;",
+        "short b=100;",
+        "int c='a';",
+        "long d=8888888888888888;"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140363",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "byte a=1;",
+              "short b=100;",
+              "int c='a';",
+              "long d=8888888888888888;"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列选项中，哪一个不能通过编译（ ）",
+        "content": "下列选项中，哪一个不能通过编译（ ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457702023813939200",
+        "description": "下列选项中，哪一个不能通过编译（ ）",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384695140364",
+      "number": 11,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列浮点数的定义中，正确的是（ ）",
+      "content": "下列浮点数的定义中，正确的是（ ）",
+      "title": "下列浮点数的定义中，正确的是（ ）",
+      "options": [
+        "float f = 1F;",
+        "float f = 1.0;",
+        "float f = '1';",
+        "float f = \"1\";"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140364",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "float f = 1F;",
+              "float f = 1.0;",
+              "float f = '1';",
+              "float f = \"1\";"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列浮点数的定义中，正确的是（ ）",
+        "content": "下列浮点数的定义中，正确的是（ ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1457702277749014528",
+        "description": "下列浮点数的定义中，正确的是（ ）",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102670384695140365",
+      "number": 12,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，声明一个float类型的变量，并赋值为20，以下语句中正确的是？",
+      "content": "在Java中，声明一个float类型的变量，并赋值为20，以下语句中正确的是？",
+      "title": "在Java中，声明一个float类型的变量，并赋值为20，以下语句中正确的是？",
+      "options": [
+        "float f=20;",
+        "float f=20.0;",
+        "float f=20.0f;",
+        "float f=20.0d"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140365",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "float f=20;",
+              "float f=20.0;",
+              "float f=20.0f;",
+              "float f=20.0d"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，声明一个float类型的变量，并赋值为20，以下语句中正确的是？",
+        "content": "在Java中，声明一个float类型的变量，并赋值为20，以下语句中正确的是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1600823091423625216",
+        "description": "在Java中，声明一个float类型的变量，并赋值为20，以下语句中正确的是？",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2102670384695140366",
+      "number": 13,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列关于Java语言变量的描述，错误的是？",
+      "content": "下列关于Java语言变量的描述，错误的是？",
+      "title": "下列关于Java语言变量的描述，错误的是？",
+      "options": [
+        "在Java程序中要使用一个变量，必须先对其进行声明。",
+        "类变量可以使用对象名进行调用。",
+        "变量不可以在其作用域之外使用。",
+        "成员变量必须写在成员方法之前。"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140366",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "在Java程序中要使用一个变量，必须先对其进行声明。",
+              "类变量可以使用对象名进行调用。",
+              "变量不可以在其作用域之外使用。",
+              "成员变量必须写在成员方法之前。"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列关于Java语言变量的描述，错误的是？",
+        "content": "下列关于Java语言变量的描述，错误的是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1600841535351160832",
+        "description": "下列关于Java语言变量的描述，错误的是？",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2102670384695140367",
+      "number": 14,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中变量命名规范说法正确的是？",
+      "content": "Java中变量命名规范说法正确的是？",
+      "title": "Java中变量命名规范说法正确的是？",
+      "options": [
+        "变量名由字母、下划线、数字、$符号随意组成;",
+        "变量名不能以数字作为开头;",
+        "A和a在java中是同一个变量名;",
+        "不同类型的变量,可以起相同的名字;"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140367",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "变量名由字母、下划线、数字、$符号随意组成;",
+              "变量名不能以数字作为开头;",
+              "A和a在java中是同一个变量名;",
+              "不同类型的变量,可以起相同的名字;"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中变量命名规范说法正确的是？",
+        "content": "Java中变量命名规范说法正确的是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1601063551761117184",
+        "description": "Java中变量命名规范说法正确的是？",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2102670384695140368",
+      "number": 15,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，为一个boolean类型变量赋值时，可以使用以下哪种方式？",
+      "content": "在Java中，为一个boolean类型变量赋值时，可以使用以下哪种方式？",
+      "title": "在Java中，为一个boolean类型变量赋值时，可以使用以下哪种方式？",
+      "options": [
+        "`boolean = 1;`",
+        "`boolean a = (9 >= 10);`",
+        "`boolean a=\"真\";`",
+        "`boolean a = = false;`"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140368",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "`boolean = 1;`",
+              "`boolean a = (9 >= 10);`",
+              "`boolean a=\"真\";`",
+              "`boolean a = = false;`"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，为一个boolean类型变量赋值时，可以使用以下哪种方式？",
+        "content": "在Java中，为一个boolean类型变量赋值时，可以使用以下哪种方式？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1601066671480242176",
+        "description": "在Java中，为一个boolean类型变量赋值时，可以使用以下哪种方式？",
+        "problemPoolIndex": 15,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2102670384695140369",
+      "number": 16,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中十进制数16的16进制表示方式是？",
+      "content": "Java中十进制数16的16进制表示方式是？",
+      "title": "Java中十进制数16的16进制表示方式是？",
+      "options": [
+        "0x10",
+        "0x16",
+        "0xA",
+        "16"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140369",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0x10",
+              "0x16",
+              "0xA",
+              "16"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中十进制数16的16进制表示方式是？",
+        "content": "Java中十进制数16的16进制表示方式是？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1601119063299063808",
+        "description": "Java中十进制数16的16进制表示方式是？",
+        "problemPoolIndex": 16,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2102670384695140370",
+      "number": 17,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java中，下面哪个是short型变量的取值范围？",
+      "content": "Java中，下面哪个是short型变量的取值范围？",
+      "title": "Java中，下面哪个是short型变量的取值范围？",
+      "options": [
+        "$$-2^7-2^7-1$$",
+        "$$0-2^{16}$$",
+        "$$-2^{15}-2^{15}-1$$",
+        "$$-2^{31}-2^{31}-1$$"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140370",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "$$-2^7-2^7-1$$",
+              "$$0-2^{16}$$",
+              "$$-2^{15}-2^{15}-1$$",
+              "$$-2^{31}-2^{31}-1$$"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java中，下面哪个是short型变量的取值范围？",
+        "content": "Java中，下面哪个是short型变量的取值范围？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1601149691759423488",
+        "description": "Java中，下面哪个是short型变量的取值范围？",
+        "problemPoolIndex": 17,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2102670384695140371",
+      "number": 18,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下哪些是Java语言的关键字 （ ） 。",
+      "content": "以下哪些是Java语言的关键字 （    ） 。",
+      "title": "以下哪些是Java语言的关键字 ____ 。",
+      "options": [
+        "number",
+        "SUM",
+        "string",
+        "double"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140371",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "number",
+              "SUM",
+              "string",
+              "double"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下哪些是Java语言的关键字 ____ 。",
+        "content": "以下哪些是Java语言的关键字 （    ） 。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1704307699027918848",
+        "description": "以下哪些是Java语言的关键字 （    ） 。",
+        "problemPoolIndex": 18,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384695140372",
+      "number": 19,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列整数的定义中,错误的是( ).",
+      "content": "下列整数的定义中,错误的是(  ).",
+      "title": "下列整数的定义中,错误的是 ____ .",
+      "options": [
+        "i nt f =314.;",
+        "i nt a=012;",
+        "i nt i =189;",
+        "i nt d =0x123;"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140372",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "i nt f =314.;",
+              "i nt a=012;",
+              "i nt i =189;",
+              "i nt d =0x123;"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列整数的定义中,错误的是 ____ .",
+        "content": "下列整数的定义中,错误的是(  ).",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862426423791910912",
+        "description": "下列整数的定义中,错误的是(  ).",
+        "problemPoolIndex": 19,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384695140373",
+      "number": 20,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列各项中代表八进制整数的是( ).",
+      "content": "下列各项中代表八进制整数的是(  ).",
+      "title": "下列各项中代表八进制整数的是 ____ .",
+      "options": [
+        "0XA6",
+        "0144",
+        "1840",
+        "-1E3"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140373",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0XA6",
+              "0144",
+              "1840",
+              "-1E3"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列各项中代表八进制整数的是 ____ .",
+        "content": "下列各项中代表八进制整数的是(  ).",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862426423804493824",
+        "description": "下列各项中代表八进制整数的是(  ).",
+        "problemPoolIndex": 20,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384695140374",
+      "number": 21,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列属于合法的Java标识符是().",
+      "content": "下列属于合法的Java标识符是().",
+      "title": "下列属于合法的Java标识符是 ____ .",
+      "options": [
+        "\"ABC\"",
+        "&5678",
+        "+rriwo",
+        "saler"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140374",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "\"ABC\"",
+              "&5678",
+              "+rriwo",
+              "saler"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列属于合法的Java标识符是 ____ .",
+        "content": "下列属于合法的Java标识符是().",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862438470869004291",
+        "description": "下列属于合法的Java标识符是().",
+        "problemPoolIndex": 21,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384695140375",
+      "number": 22,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列代表十六进制整数的是().",
+      "content": "下列代表十六进制整数的是().",
+      "title": "下列代表十六进制整数的是 ____ .",
+      "options": [
+        "0123",
+        "1900",
+        "fa00",
+        "0xa2"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140375",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "0123",
+              "1900",
+              "fa00",
+              "0xa2"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列代表十六进制整数的是 ____ .",
+        "content": "下列代表十六进制整数的是().",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862438470873198592",
+        "description": "下列代表十六进制整数的是().",
+        "problemPoolIndex": 22,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384695140376",
+      "number": 23,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下列变量名的定义中,符合Java 命名约定的是( ).",
+      "content": "下列变量名的定义中,符合Java 命名约定的是(  ).",
+      "title": "下列变量名的定义中,符合Java 命名约定的是 ____ .",
+      "options": [
+        "fieldname",
+        "super",
+        "Intnum",
+        "$number"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140376",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "fieldname",
+              "super",
+              "Intnum",
+              "$number"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下列变量名的定义中,符合Java 命名约定的是 ____ .",
+        "content": "下列变量名的定义中,符合Java 命名约定的是(  ).",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1862438470902558723",
+        "description": "下列变量名的定义中,符合Java 命名约定的是(  ).",
+        "problemPoolIndex": 23,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102670384695140377",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+      "prompt": "以下选项中，哪些属于合法的标识符？（ ）",
+      "content": "以下选项中，哪些属于合法的标识符？（     ）",
+      "title": "以下选项中，哪些属于合法的标识符？（     ）",
+      "options": [
+        "Hello_World",
+        "class",
+        "123username",
+        "username123"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140377",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "multipleChoiceMoreThanOneAnswerProblemConfig": {
+            "optionsCount": 4,
+            "choices": [
+              "Hello_World",
+              "class\n",
+              "123username",
+              "username123"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下选项中，哪些属于合法的标识符？（     ）",
+        "content": "以下选项中，哪些属于合法的标识符？（     ）\n\n",
+        "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1406812278779736064",
+        "description": "以下选项中，哪些属于合法的标识符？（     ）\n\n",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102670384695140378",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+      "prompt": "在Java中，下列赋值语句哪些是正确的：",
+      "content": "在Java中，下列赋值语句哪些是正确的：",
+      "title": "在Java中，下列赋值语句哪些是正确的：",
+      "options": [
+        "byte b=340;",
+        "Boolean b=1;",
+        "long l=-2;",
+        "double d=0.9239d;"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102670384695140378",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "multipleChoiceMoreThanOneAnswerProblemConfig": {
+            "optionsCount": 4,
+            "choices": [
+              "byte b=340;",
+              " Boolean b=1;",
+              "long l=-2;",
+              "double d=0.9239d;"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，下列赋值语句哪些是正确的：",
+        "content": "在Java中，下列赋值语句哪些是正确的：\n",
+        "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102670384661585920",
+        "problemId": "1475289942602088448",
+        "description": "在Java中，下列赋值语句哪些是正确的：\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    }
+  ]
+}

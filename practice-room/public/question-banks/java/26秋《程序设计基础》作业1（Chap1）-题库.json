@@ -1,0 +1,1754 @@
+{
+  "title": "26秋《程序设计基础》作业1（Chap1）",
+  "problemSetName": "26秋《程序设计基础》作业1（Chap1）",
+  "problemSetId": "2102669809765126144",
+  "examId": "2102699302919720960",
+  "source": "https://pintia.cn/problem-sets/2102669809765126144",
+  "extraction": "api",
+  "exportedAt": "2026-11-16T12:53:51.590Z",
+  "summaries": {
+    "TRUE_OR_FALSE": {
+      "total": 16,
+      "totalScore": 32
+    },
+    "MULTIPLE_CHOICE": {
+      "total": 20,
+      "totalScore": 53
+    },
+    "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER": {
+      "total": 3,
+      "totalScore": 15
+    }
+  },
+  "questions": [
+    {
+      "id": "2102669809786097664",
+      "number": 1,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在一个编辑器中编写好的Java应用程序，是扩展名为.class的文件。 ~@[](1)",
+      "content": "在一个编辑器中编写好的Java应用程序，是扩展名为.class的文件。  ~@[](1)",
+      "title": "在一个编辑器中编写好的Java应用程序，是扩展名为.class的文件。  ",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097664",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在一个编辑器中编写好的Java应用程序，是扩展名为.class的文件。  ",
+        "content": "在一个编辑器中编写好的Java应用程序，是扩展名为.class的文件。  ~@[](1)",
+        "type": "TRUE_OR_FALSE",
+        "author": "郑健",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1102457089341366272",
+        "description": "在一个编辑器中编写好的Java应用程序，是扩展名为.class的文件。  ",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "85"
+      }
+    },
+    {
+      "id": "2102669809786097665",
+      "number": 2,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "编译Java程序需要使用java命令。",
+      "content": "编译Java程序需要使用java命令。",
+      "title": "编译Java程序需要使用java命令。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097665",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "编译Java程序需要使用java命令。",
+        "content": "编译Java程序需要使用java命令。",
+        "type": "TRUE_OR_FALSE",
+        "author": "贾园园",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1457569859197075456",
+        "description": "编译Java程序需要使用java命令。",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102669809786097666",
+      "number": 3,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "JDK中，存放可执行程序的目录是bin。",
+      "content": "JDK中，存放可执行程序的目录是bin。",
+      "title": "JDK中，存放可执行程序的目录是bin。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097666",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "JDK中，存放可执行程序的目录是bin。",
+        "content": "JDK中，存放可执行程序的目录是bin。",
+        "type": "TRUE_OR_FALSE",
+        "author": "贾园园",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1457570343865679872",
+        "description": "JDK中，存放可执行程序的目录是bin。",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102669809786097667",
+      "number": 4,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java是一种高级计算机语言,具有简单性、安全性、面向对象等特征.",
+      "content": "Java是一种高级计算机语言,具有简单性、安全性、面向对象等特征.",
+      "title": "Java是一种高级计算机语言,具有简单性、安全性、面向对象等特征.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097667",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java是一种高级计算机语言,具有简单性、安全性、面向对象等特征.",
+        "content": "Java是一种高级计算机语言,具有简单性、安全性、面向对象等特征.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113040781312",
+        "description": "Java是一种高级计算机语言,具有简单性、安全性、面向对象等特征.\n\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097668",
+      "number": 5,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java语言有三种技术平台,分别是JavaSE、JavaME、JavaEE.",
+      "content": "Java语言有三种技术平台,分别是JavaSE、JavaME、JavaEE.",
+      "title": "Java语言有三种技术平台,分别是JavaSE、JavaME、JavaEE.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097668",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言有三种技术平台,分别是JavaSE、JavaME、JavaEE.",
+        "content": "Java语言有三种技术平台,分别是JavaSE、JavaME、JavaEE.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113099501569",
+        "description": "Java语言有三种技术平台,分别是JavaSE、JavaME、JavaEE.\n\n",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097669",
+      "number": 6,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java语言具体跨平台的特性.",
+      "content": "Java语言具体跨平台的特性.",
+      "title": "Java语言具体跨平台的特性.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097669",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言具体跨平台的特性.",
+        "content": "Java语言具体跨平台的特性.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113124667393",
+        "description": "Java语言具体跨平台的特性.\n\n",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097670",
+      "number": 7,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "配置classpath环境变量的目的是为了可以查找到java文件.",
+      "content": "配置classpath环境变量的目的是为了可以查找到java文件.",
+      "title": "配置classpath环境变量的目的是为了可以查找到java文件.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097670",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "配置classpath环境变量的目的是为了可以查找到java文件.",
+        "content": "配置classpath环境变量的目的是为了可以查找到java文件.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113028198400",
+        "description": "配置classpath环境变量的目的是为了可以查找到java文件.\n\n",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097671",
+      "number": 8,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "JDK安装的时候不可以修改安装目录.",
+      "content": "JDK安装的时候不可以修改安装目录.",
+      "title": "JDK安装的时候不可以修改安装目录.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097671",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "JDK安装的时候不可以修改安装目录.",
+        "content": "JDK安装的时候不可以修改安装目录.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113103695872",
+        "description": "JDK安装的时候不可以修改安装目录.\n\n",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097672",
+      "number": 9,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在不同的操作系统中可以使用同一个JDK.",
+      "content": "在不同的操作系统中可以使用同一个JDK.",
+      "title": "在不同的操作系统中可以使用同一个JDK.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097672",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在不同的操作系统中可以使用同一个JDK.",
+        "content": "在不同的操作系统中可以使用同一个JDK.\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113107890179",
+        "description": "在不同的操作系统中可以使用同一个JDK.\n",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097673",
+      "number": 10,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "在命令行窗口中,编译Demo.java文件可以输入javac Demo.",
+      "content": "在命令行窗口中,编译Demo.java文件可以输入javac Demo.",
+      "title": "在命令行窗口中,编译Demo.java文件可以输入javac Demo.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097673",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在命令行窗口中,编译Demo.java文件可以输入javac Demo.",
+        "content": "在命令行窗口中,编译Demo.java文件可以输入javac Demo.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113112084480",
+        "description": "在命令行窗口中,编译Demo.java文件可以输入javac Demo.\n\n",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097674",
+      "number": 11,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "JDK安装成功后,可以将bin目录的路径配置在环境变量path中.",
+      "content": "JDK安装成功后,可以将bin目录的路径配置在环境变量path中.",
+      "title": "JDK安装成功后,可以将bin目录的路径配置在环境变量path中.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097674",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "JDK安装成功后,可以将bin目录的路径配置在环境变量path中.",
+        "content": "JDK安装成功后,可以将bin目录的路径配置在环境变量path中.\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113128861698",
+        "description": "JDK安装成功后,可以将bin目录的路径配置在环境变量path中.\n",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097675",
+      "number": 12,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "javac.exe命令文件存放在JDK安装目录的lib目录下.",
+      "content": "javac.exe命令文件存放在JDK安装目录的lib目录下.",
+      "title": "javac.exe命令文件存放在JDK安装目录的lib目录下.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097675",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "javac.exe命令文件存放在JDK安装目录的lib目录下.",
+        "content": "javac.exe命令文件存放在JDK安装目录的lib目录下.\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113162416129",
+        "description": "javac.exe命令文件存放在JDK安装目录的lib目录下.\n",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097676",
+      "number": 13,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "Java配置环境变量path的目的是为了可以查找到.class文件.",
+      "content": "Java配置环境变量path的目的是为了可以查找到.class文件.",
+      "title": "Java配置环境变量path的目的是为了可以查找到.class文件.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097676",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java配置环境变量path的目的是为了可以查找到.class文件.",
+        "content": "Java配置环境变量path的目的是为了可以查找到.class文件.\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113170804738",
+        "description": "Java配置环境变量path的目的是为了可以查找到.class文件.\n",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097677",
+      "number": 14,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "编译.java文件和解析.class文件的命令都是java.exe.",
+      "content": "编译.java文件和解析.class文件的命令都是java.exe.",
+      "title": "编译.java文件和解析.class文件的命令都是java.exe.",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097677",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "编译.java文件和解析.class文件的命令都是java.exe.",
+        "content": "编译.java文件和解析.class文件的命令都是java.exe.\n\n",
+        "type": "TRUE_OR_FALSE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862424113191776257",
+        "description": "编译.java文件和解析.class文件的命令都是java.exe.\n\n",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097678",
+      "number": 15,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "这是一个判断题的样例。答案为T，分值为5分。",
+      "content": "这是一个判断题的样例。答案为T，分值为5分。",
+      "title": "JAVA中多行注释是以\"/*\"符号开头,以\"*/\"符号结尾。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097678",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "JAVA中多行注释是以\"/*\"符号开头,以\"*/\"符号结尾。",
+        "content": "这是一个判断题的样例。答案为T，分值为5分。",
+        "type": "TRUE_OR_FALSE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1968253621048737792",
+        "description": "JAVA中多行注释是以\"/\\*\"符号开头,以\"\\*/\"符号结尾。",
+        "problemPoolIndex": 15,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102669809786097679",
+      "number": 16,
+      "type": "TRUE_OR_FALSE",
+      "prompt": "这是一个判断题的样例。答案为T，分值为5分。",
+      "content": "这是一个判断题的样例。答案为T，分值为5分。",
+      "title": "JAVA中多行注释是用\"//\"符号表示的。",
+      "options": [],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097679",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "JAVA中多行注释是用\"//\"符号表示的。",
+        "content": "这是一个判断题的样例。答案为T，分值为5分。",
+        "type": "TRUE_OR_FALSE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1968253820601139200",
+        "description": "JAVA中多行注释是用\"//\"符号表示的。",
+        "problemPoolIndex": 16,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102669809786097680",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在windows平台上安装配置JDK时，下列的说法错误的是_____。 @[](1) A. 设置path的作用是指定命令搜索路径 B. 设置CLASSPATH的作用是指定类搜索路径 C. javac的功能是编译并执行 java代码项 D. 假设JDK的安装位置是：c:\\java，那么应在path中加入下面的数据项：c:\\java\\bin",
+      "content": "在windows平台上安装配置JDK时，下列的说法错误的是_____。   @[](1)\n\nA. 设置path的作用是指定命令搜索路径\nB. 设置CLASSPATH的作用是指定类搜索路径\nC. javac的功能是编译并执行 java代码项\nD. 假设JDK的安装位置是：c:\\java，那么应在path中加入下面的数据项：c:\\java\\bin",
+      "title": "在windows平台上安装配置JDK时，下列的说法错误的是_____。   ",
+      "options": [
+        "设置path的作用是指定命令搜索路径",
+        "设置CLASSPATH的作用是指定类搜索路径",
+        "javac的功能是编译并执行 java代码项",
+        "假设JDK的安装位置是：c:\\java，那么应在path中加入下面的数据项：c:\\java\\bin"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097680",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "设置path的作用是指定命令搜索路径",
+              "设置CLASSPATH的作用是指定类搜索路径",
+              "javac的功能是编译并执行 java代码项",
+              "假设JDK的安装位置是：c:\\java，那么应在path中加入下面的数据项：c:\\java\\bin"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在windows平台上安装配置JDK时，下列的说法错误的是_____。   ",
+        "content": "在windows平台上安装配置JDK时，下列的说法错误的是_____。   @[](1)\n\nA. 设置path的作用是指定命令搜索路径\nB. 设置CLASSPATH的作用是指定类搜索路径\nC. javac的功能是编译并执行 java代码项\nD. 假设JDK的安装位置是：c:\\java，那么应在path中加入下面的数据项：c:\\java\\bin\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "孙晨霞",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1077902029313421312",
+        "description": "在windows平台上安装配置JDK时，下列的说法错误的是_____。",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2102669809786097681",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "一个计算机上安装JDK后，该计算机不包含的是（）。 @[](2) A. JRE B. JVM C. Eclipse D. javac.exe",
+      "content": "一个计算机上安装JDK后，该计算机不包含的是（）。   @[](2)\n\nA. JRE\nB. JVM\nC. Eclipse\nD. javac.exe",
+      "title": "一个计算机上安装JDK后，该计算机不包含的是（）。   ",
+      "options": [
+        "JRE",
+        "JVM",
+        "Eclipse",
+        "javac.exe"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097681",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "JRE",
+              "JVM",
+              "Eclipse",
+              "javac.exe"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "一个计算机上安装JDK后，该计算机不包含的是（）。   ",
+        "content": "一个计算机上安装JDK后，该计算机不包含的是（）。   @[](2)\n\nA. JRE\nB. JVM\nC. Eclipse\nD. javac.exe\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "张峰",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1078266766531624960",
+        "description": "一个计算机上安装JDK后，该计算机不包含的是（）。",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "153"
+      }
+    },
+    {
+      "id": "2102669809786097682",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "关于Java语言的描述，错误的是（）。 @[](1) A. 每一个.java文件编译后对应一个.class文件。 B. .java文件编译后，每一个class对应一个.class文件 C. Java源代码编译后产生的.class是字节码文件 D. .class文件在JVM上运行",
+      "content": "关于Java语言的描述，错误的是（）。   @[](1)\n\nA. 每一个.java文件编译后对应一个.class文件。\nB. .java文件编译后，每一个class对应一个.class文件\nC. Java源代码编译后产生的.class是字节码文件\nD. .class文件在JVM上运行",
+      "title": "关于Java语言的描述，错误的是（）。   ",
+      "options": [
+        "每一个.java文件编译后对应一个.class文件。",
+        ".java文件编译后，每一个class对应一个.class文件",
+        "Java源代码编译后产生的.class是字节码文件",
+        ".class文件在JVM上运行"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097682",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "每一个.java文件编译后对应一个.class文件。",
+              ".java文件编译后，每一个class对应一个.class文件",
+              "Java源代码编译后产生的.class是字节码文件",
+              ".class文件在JVM上运行"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "关于Java语言的描述，错误的是（）。   ",
+        "content": "关于Java语言的描述，错误的是（）。   @[](1)\n\nA. 每一个.java文件编译后对应一个.class文件。\nB. .java文件编译后，每一个class对应一个.class文件\nC. Java源代码编译后产生的.class是字节码文件\nD. .class文件在JVM上运行\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘永福",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1142443693710204928",
+        "description": "关于Java语言的描述，错误的是（）。",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "75"
+      }
+    },
+    {
+      "id": "2102669809786097683",
+      "number": 4,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在windows中如果jdk的安装路径为d:\\jdk,若想在命令窗口中任何当前路径下,都可以直接使用javac和java命令,需要将环境变量path设置为以下哪个选项？",
+      "content": "在windows中如果jdk的安装路径为d:\\jdk,若想在命令窗口中任何当前路径下,都可以直接使用javac和java命令,需要将环境变量path设置为以下哪个选项？",
+      "title": "JDK中环境变量设置",
+      "options": [
+        "d:\\jdk",
+        "d:\\jre\\bin",
+        "d:\\jdk\\bin",
+        "d:\\jre"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097683",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "d:\\jdk",
+              "d:\\jre\\bin",
+              "d:\\jdk\\bin",
+              "d:\\jre"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "JDK中环境变量设置",
+        "content": "在windows中如果jdk的安装路径为d:\\jdk,若想在命令窗口中任何当前路径下,都可以直接使用javac和java命令,需要将环境变量path设置为以下哪个选项？\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "马俊",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1600751551310983168",
+        "description": "在windows中如果jdk的安装路径为d:\\jdk,若想在命令窗口中任何当前路径下,都可以直接使用javac和java命令,需要将环境变量path设置为以下哪个选项？\n\n",
+        "problemPoolIndex": 4,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "205"
+      }
+    },
+    {
+      "id": "2102669809786097684",
+      "number": 5,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java语言中的运行机制是什么？ @[](2) A. 编译型 B. 解释型 C. 半编译半解释型 D. 编译和解释型",
+      "content": "Java语言中的运行机制是什么？\n@[](2)\n\nA. 编译型\nB. 解释型\nC. 半编译半解释型\nD. 编译和解释型",
+      "title": "Java语言中的运行机制是什么？",
+      "options": [
+        "编译型",
+        "解释型",
+        "半编译半解释型",
+        "编译和解释型"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097684",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "编译型",
+              "解释型",
+              "半编译半解释型",
+              "编译和解释型"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言中的运行机制是什么？",
+        "content": "Java语言中的运行机制是什么？\n@[](2)\n\nA. 编译型\nB. 解释型\nC. 半编译半解释型\nD. 编译和解释型",
+        "type": "MULTIPLE_CHOICE",
+        "author": "李妙妍",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1308257522017566720",
+        "description": "Java语言中的运行机制是什么？",
+        "problemPoolIndex": 5,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2102669809786097685",
+      "number": 6,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "哪一种类型的代码被JVM解释成本地代码？ @[](2) A. 源代码 B. 处理器代码 C. 字节码 D. .exe可执行代码",
+      "content": "哪一种类型的代码被JVM解释成本地代码？\n@[](2)\n\nA. 源代码\nB. 处理器代码\nC. 字节码\nD. .exe可执行代码",
+      "title": "哪一种类型的代码被JVM解释成本地代码？",
+      "options": [
+        "源代码",
+        "处理器代码",
+        "字节码",
+        ".exe可执行代码"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097685",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "源代码",
+              "处理器代码",
+              "字节码",
+              ".exe可执行代码"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "哪一种类型的代码被JVM解释成本地代码？",
+        "content": "哪一种类型的代码被JVM解释成本地代码？\n@[](2)\n\nA. 源代码\nB. 处理器代码\nC. 字节码\nD. .exe可执行代码",
+        "type": "MULTIPLE_CHOICE",
+        "author": "李妙妍",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1308259016284504064",
+        "description": "哪一种类型的代码被JVM解释成本地代码？",
+        "problemPoolIndex": 6,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2102669809786097686",
+      "number": 7,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "编译Java源文件和解释执行Java字节码文件的指令分别是什么？ @[](2) A. javac.exe和javadoc.exe B. java.exe和jdb.exe C. jad.exe和java.exe D. javac.exe和java.exe",
+      "content": "编译Java源文件和解释执行Java字节码文件的指令分别是什么？\n@[](2)\n\nA. javac.exe和javadoc.exe\nB. java.exe和jdb.exe\nC. jad.exe和java.exe\nD. javac.exe和java.exe",
+      "title": "编译Java源文件和解释执行Java字节码文件的指令分别是什么？",
+      "options": [
+        "javac.exe和javadoc.exe",
+        "java.exe和jdb.exe",
+        "jad.exe和java.exe",
+        "javac.exe和java.exe"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097686",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "javac.exe和javadoc.exe",
+              "java.exe和jdb.exe",
+              "jad.exe和java.exe",
+              "javac.exe和java.exe"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "编译Java源文件和解释执行Java字节码文件的指令分别是什么？",
+        "content": "编译Java源文件和解释执行Java字节码文件的指令分别是什么？\n@[](2)\n\nA. javac.exe和javadoc.exe\nB. java.exe和jdb.exe\nC. jad.exe和java.exe\nD. javac.exe和java.exe",
+        "type": "MULTIPLE_CHOICE",
+        "author": "李妙妍",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1308259467025383424",
+        "description": "编译Java源文件和解释执行Java字节码文件的指令分别是什么？",
+        "problemPoolIndex": 7,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "263"
+      }
+    },
+    {
+      "id": "2102669809786097687",
+      "number": 8,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面哪种类型的文件可以在Java虚拟机中运行？",
+      "content": "下面哪种类型的文件可以在Java虚拟机中运行？",
+      "title": "下面哪种类型的文件可以在Java虚拟机中运行？",
+      "options": [
+        ".java",
+        ".jre",
+        ".exe",
+        ".class"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097687",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              ".java\n",
+              ".jre",
+              ".exe",
+              ".class"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面哪种类型的文件可以在Java虚拟机中运行？",
+        "content": "下面哪种类型的文件可以在Java虚拟机中运行？",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1406567303482621952",
+        "description": "下面哪种类型的文件可以在Java虚拟机中运行？",
+        "problemPoolIndex": 8,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102669809786097688",
+      "number": 9,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "对JDK描述错误的是（ ）。",
+      "content": "对JDK描述错误的是（     ）。",
+      "title": "对JDK描述错误的是（     ）。",
+      "options": [
+        "运行Java程序只要有JRE环境就可以，不一定需要全部JDK的功能",
+        "JDK中包括JVM、核心类库、Java开发工具（java，javac）等",
+        "JDK本身也是平台无关的，不同的操作系统安装的JDK是一样的",
+        "JDK的全称是 Java Development Kit"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097688",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "运行Java程序只要有JRE环境就可以，不一定需要全部JDK的功能\n",
+              "JDK中包括JVM、核心类库、Java开发工具（java，javac）等",
+              "JDK本身也是平台无关的，不同的操作系统安装的JDK是一样的\t",
+              "JDK的全称是 Java Development Kit"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "对JDK描述错误的是（     ）。",
+        "content": "对JDK描述错误的是（     ）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1406597096513445888",
+        "description": "对JDK描述错误的是（     ）。",
+        "problemPoolIndex": 9,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102669809786097689",
+      "number": 10,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "下面不属于Java语言特点的是：( )。",
+      "content": "下面不属于Java语言特点的是：(     )。",
+      "title": "下面不属于Java语言特点的是：(     )。",
+      "options": [
+        "平台无关",
+        "面向对象",
+        "支持指针类型",
+        "垃圾回收机制"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097689",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "平台无关",
+              "面向对象",
+              "支持指针类型",
+              "垃圾回收机制"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "下面不属于Java语言特点的是：(     )。",
+        "content": "下面不属于Java语言特点的是：(     )。\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1406597509345886208",
+        "description": "下面不属于Java语言特点的是：(     )。\n\n",
+        "problemPoolIndex": 10,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102669809786097690",
+      "number": 11,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "如果JDK的安装路径为d:\\jdk，若想在DOS命令窗口中任何当前路径下，都可以直接使用javac和java命令，需要将环境变量path设置为以下哪个选项？（ ）",
+      "content": "如果JDK的安装路径为d:\\jdk，若想在DOS命令窗口中任何当前路径下，都可以直接使用javac和java命令，需要将环境变量path设置为以下哪个选项？（     ）",
+      "title": "如果JDK的安装路径为d:\\jdk，若想在DOS命令窗口中任何当前路径下，都可以直接使用javac和java命令，需要将环境变量",
+      "options": [
+        "d:\\jdk;",
+        "d:\\jdk\\bin;",
+        "d:\\jre\\bin;",
+        "d:\\jre;"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097690",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "d:\\jdk;\n",
+              "d:\\jdk\\bin;",
+              "d:\\jre\\bin;",
+              "d:\\jre;"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "如果JDK的安装路径为d:\\jdk，若想在DOS命令窗口中任何当前路径下，都可以直接使用javac和java命令，需要将环境变量",
+        "content": "如果JDK的安装路径为d:\\jdk，若想在DOS命令窗口中任何当前路径下，都可以直接使用javac和java命令，需要将环境变量path设置为以下哪个选项？（     ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1406612137689923584",
+        "description": "如果JDK的安装路径为d:\\jdk，若想在DOS命令窗口中任何当前路径下，都可以直接使用javac和java命令，需要将环境变量path设置为以下哪个选项？（     ）",
+        "problemPoolIndex": 11,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102669809786097691",
+      "number": 12,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "正确配置path环境变量的方式是：（ ）。",
+      "content": "正确配置path环境变量的方式是：（    ）。",
+      "title": "正确配置path环境变量的方式是：（    ）。",
+      "options": [
+        "在系统环境变量path原有的字符串基础上，加上分号“;”，然后再加上JDK安装路径下的bin目录",
+        "新建系统环境变量path，其值为：分号“;”，然后再连上JDK安装路径下的bin目录",
+        "在系统环境变量path原有的字符串基础上，加上分号“;”，然后再加上JDK安装路径下的lib目录",
+        "新建系统环境变量path，其值为：分号“;”，然后再连上JDK安装路径下的lib目录"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097691",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "在系统环境变量path原有的字符串基础上，加上分号“;”，然后再加上JDK安装路径下的bin目录\n",
+              "新建系统环境变量path，其值为：分号“;”，然后再连上JDK安装路径下的bin目录\n",
+              "在系统环境变量path原有的字符串基础上，加上分号“;”，然后再加上JDK安装路径下的lib目录\n",
+              "新建系统环境变量path，其值为：分号“;”，然后再连上JDK安装路径下的lib目录"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "正确配置path环境变量的方式是：（    ）。",
+        "content": "正确配置path环境变量的方式是：（    ）。\n\n",
+        "type": "MULTIPLE_CHOICE",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1406613318198734848",
+        "description": "正确配置path环境变量的方式是：（    ）。\n\n",
+        "problemPoolIndex": 12,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102669809786097692",
+      "number": 13,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java属于以下哪种语言（ ）",
+      "content": "Java属于以下哪种语言（ ）",
+      "title": "Java属于以下哪种语言（ ）",
+      "options": [
+        "机器语言",
+        "汇编语言",
+        "高级语言",
+        "以上都不对"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097692",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "机器语言",
+              "汇编语言",
+              "高级语言",
+              "以上都不对"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java属于以下哪种语言（ ）",
+        "content": "Java属于以下哪种语言（ ）",
+        "type": "MULTIPLE_CHOICE",
+        "author": "刘生智",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "REVIEWED",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1457699321970024448",
+        "description": "Java属于以下哪种语言（ ）",
+        "problemPoolIndex": 13,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1353694861766860800"
+      }
+    },
+    {
+      "id": "2102669809786097693",
+      "number": 14,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java源文件和编译后的文件扩展名分别为（ ）。",
+      "content": "Java源文件和编译后的文件扩展名分别为（   ）。",
+      "title": "Java源文件和编译后的文件扩展名分别为",
+      "options": [
+        ".class和 .java",
+        ".java和 .class",
+        ".class和 .class",
+        ".java和 .java"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097693",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              " .class和 .java",
+              ".java和 .class",
+              ".class和 .class",
+              ".java和 .java"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java源文件和编译后的文件扩展名分别为",
+        "content": "Java源文件和编译后的文件扩展名分别为（   ）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "吴光生",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1610679755010228224",
+        "description": "Java源文件和编译后的文件扩展名分别为（   ）。",
+        "problemPoolIndex": 14,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "974911818648657920"
+      }
+    },
+    {
+      "id": "2102669809786097694",
+      "number": 15,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java语言是下列()公司创建的产品。",
+      "content": "Java语言是下列()公司创建的产品。",
+      "title": "Java语言是下列 ____ 公司创建的产品。",
+      "options": [
+        "华为",
+        "sun公司",
+        "苹果公司",
+        "微软公司"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097694",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "华为",
+              "sun公司",
+              "苹果公司",
+              "微软公司"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言是下列 ____ 公司创建的产品。",
+        "content": "Java语言是下列()公司创建的产品。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1704311675383312384",
+        "description": "Java语言是下列()公司创建的产品。",
+        "problemPoolIndex": 15,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097695",
+      "number": 16,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "在Java中，下列描述错误的是( )",
+      "content": "在Java中，下列描述错误的是( )",
+      "title": "在Java中，下列描述错误的是 ____",
+      "options": [
+        "Java是一种面向对象的编程语言",
+        "Java有多线程机制",
+        "Java能够实现一次编写,处处运行",
+        "Java语言不支持Linux平台"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097695",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "Java是一种面向对象的编程语言",
+              "Java有多线程机制",
+              "Java能够实现一次编写,处处运行",
+              "Java语言不支持Linux平台"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "在Java中，下列描述错误的是 ____",
+        "content": "在Java中，下列描述错误的是( )",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1704311675387506688",
+        "description": "在Java中，下列描述错误的是( )",
+        "problemPoolIndex": 16,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097696",
+      "number": 17,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java技术的核心是( )，提供基础的java开发环境、执行环境与应用程序接口。",
+      "content": "Java技术的核心是( )，提供基础的java开发环境、执行环境与应用程序接口。",
+      "title": "Java技术的核心是 ____ ，提供基础的java开发环境、执行环境与应用程序接口。",
+      "options": [
+        "Java EE",
+        "以上都不是.",
+        "Java ME",
+        "Java SE"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097696",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "Java EE",
+              "以上都不是.",
+              "Java ME",
+              "Java SE"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java技术的核心是 ____ ，提供基础的java开发环境、执行环境与应用程序接口。",
+        "content": "Java技术的核心是( )，提供基础的java开发环境、执行环境与应用程序接口。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1704311675387506692",
+        "description": "Java技术的核心是( )，提供基础的java开发环境、执行环境与应用程序接口。",
+        "problemPoolIndex": 17,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097697",
+      "number": 18,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "为使Java 程序独立于平台,Java 虚拟机把字节码与各个操作系统及硬件( ).",
+      "content": "为使Java 程序独立于平台,Java 虚拟机把字节码与各个操作系统及硬件(  ).",
+      "title": "为使Java 程序独立于平台,Java 虚拟机把字节码与各个操作系统及硬件 ____ .",
+      "options": [
+        "分开",
+        "结合",
+        "联系",
+        "融合"
+      ],
+      "images": [],
+      "score": 2,
+      "apiData": {
+        "id": "2102669809786097697",
+        "label": "",
+        "score": 2,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "分开",
+              "结合",
+              "联系",
+              "融合"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "为使Java 程序独立于平台,Java 虚拟机把字节码与各个操作系统及硬件 ____ .",
+        "content": "为使Java 程序独立于平台,Java 虚拟机把字节码与各个操作系统及硬件(  ).",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862438470906753026",
+        "description": "为使Java 程序独立于平台,Java 虚拟机把字节码与各个操作系统及硬件(  ).",
+        "problemPoolIndex": 18,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097698",
+      "number": 19,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "以下关于JVM 的叙述正确的是（）。",
+      "content": "以下关于JVM 的叙述正确的是（）。",
+      "title": "以下关于JVM 的叙述正确的是 ____ 。",
+      "options": [
+        "JVM支持Java 程序运行，不能够直接运行 Java 字节码文件",
+        "JVM 支持Java 程序运行，能够直接运行 Java 源文件",
+        "JVM运行于操作系统之上，与操作系统无关",
+        "JVM运行于操作系统之上，依赖于操作系统"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097698",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "JVM支持Java 程序运行，不能够直接运行 Java 字节码文件",
+              "JVM 支持Java 程序运行，能够直接运行 Java 源文件",
+              "JVM运行于操作系统之上，与操作系统无关",
+              "JVM运行于操作系统之上，依赖于操作系统"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下关于JVM 的叙述正确的是 ____ 。",
+        "content": "以下关于JVM 的叙述正确的是（）。",
+        "type": "MULTIPLE_CHOICE",
+        "author": "余霖",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1734846559690493952",
+        "description": "以下关于JVM 的叙述正确的是（）。",
+        "problemPoolIndex": 19,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "207"
+      }
+    },
+    {
+      "id": "2102669809786097699",
+      "number": 20,
+      "type": "MULTIPLE_CHOICE",
+      "prompt": "Java语言与C++语言相比，最突出的特点是",
+      "content": "Java语言与C++语言相比，最突出的特点是",
+      "title": "Java语言与C++语言相比，最突出的特点是",
+      "options": [
+        "面向对象",
+        "有类库",
+        "高性能",
+        "跨平台"
+      ],
+      "images": [],
+      "score": 3,
+      "apiData": {
+        "id": "2102669809786097699",
+        "label": "",
+        "score": 3,
+        "problemConfig": {
+          "solutionVisible": false,
+          "answerVisible": false,
+          "multipleChoiceProblemConfig": {
+            "choices": [
+              "面向对象",
+              "有类库",
+              "高性能",
+              "跨平台"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          }
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "Java语言与C++语言相比，最突出的特点是",
+        "content": "Java语言与C++语言相比，最突出的特点是",
+        "type": "MULTIPLE_CHOICE",
+        "author": "任丹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1862438470843838464",
+        "description": "Java语言与C++语言相比，最突出的特点是",
+        "problemPoolIndex": 20,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "1037012045755973632"
+      }
+    },
+    {
+      "id": "2102669809786097700",
+      "number": 1,
+      "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+      "prompt": "以下选项中，哪些属于JDK工具？",
+      "content": "以下选项中，哪些属于JDK工具？",
+      "title": "以下选项中，哪些属于JDK工具？",
+      "options": [
+        "Java编译器",
+        "Java运行工具",
+        "Java文档生成工具",
+        "Java打包工具"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2102669809786097700",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "multipleChoiceMoreThanOneAnswerProblemConfig": {
+            "optionsCount": 4,
+            "choices": [
+              "Java编译器",
+              "Java运行工具",
+              "Java文档生成工具",
+              "Java打包工具"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "以下选项中，哪些属于JDK工具？",
+        "content": "以下选项中，哪些属于JDK工具？",
+        "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1367338941208072192",
+        "description": "以下选项中，哪些属于JDK工具？",
+        "problemPoolIndex": 1,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102669809786097701",
+      "number": 2,
+      "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+      "prompt": "关于Java语言的描述，哪些是正确的?",
+      "content": "关于Java语言的描述，哪些是正确的?",
+      "title": "关于Java语言的描述，哪些是正确的?",
+      "options": [
+        "Java语言的特点之一是：一次编译、处处运行",
+        "代码是开源的，工具是免费的",
+        "开发的程序与平台无关",
+        "应用包括：桌面应用程序开发、 WEB程序开发、移动软件开发、嵌入式软件开发"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2102669809786097701",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "multipleChoiceMoreThanOneAnswerProblemConfig": {
+            "optionsCount": 4,
+            "choices": [
+              "Java语言的特点之一是：一次编译、处处运行\n\n",
+              "代码是开源的，工具是免费的\n",
+              "开发的程序与平台无关\n",
+              "应用包括：桌面应用程序开发、 WEB程序开发、移动软件开发、嵌入式软件开发"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "关于Java语言的描述，哪些是正确的?",
+        "content": "关于Java语言的描述，哪些是正确的?\n",
+        "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1407936500617482240",
+        "description": "关于Java语言的描述，哪些是正确的?\n",
+        "problemPoolIndex": 2,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    },
+    {
+      "id": "2102669809786097702",
+      "number": 3,
+      "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+      "prompt": "关于Java语言的特点，哪些是正确的？",
+      "content": "关于Java语言的特点，哪些是正确的？",
+      "title": "关于Java语言的特点，哪些是正确的？",
+      "options": [
+        "和C. C++语言很相似，支持指针的概念和goto语句",
+        "完全的、彻底的面向对象",
+        "与平台无关，开发的程序移植性好，一次编写、处处运行",
+        "支持多线程编程"
+      ],
+      "images": [],
+      "score": 5,
+      "apiData": {
+        "id": "2102669809786097702",
+        "label": "",
+        "score": 5,
+        "problemConfig": {
+          "multipleChoiceMoreThanOneAnswerProblemConfig": {
+            "optionsCount": 4,
+            "choices": [
+              "和C. C++语言很相似，支持指针的概念和goto语句\n",
+              "完全的、彻底的面向对象\n",
+              "与平台无关，开发的程序移植性好，一次编写、处处运行\n",
+              "支持多线程编程\n"
+            ],
+            "maxDisplayChoicesPerLine": 1
+          },
+          "solutionVisible": false,
+          "answerVisible": false
+        },
+        "deadline": "1970-01-01T00:00:00Z",
+        "title": "关于Java语言的特点，哪些是正确的？",
+        "content": "关于Java语言的特点，哪些是正确的？",
+        "type": "MULTIPLE_CHOICE_MORE_THAN_ONE_ANSWER",
+        "author": "周雪芹",
+        "difficulty": 0,
+        "compiler": "NO_COMPILER",
+        "problemStatus": "PENDING_REVIEW",
+        "lastSubmissionId": "0",
+        "solution": "",
+        "problemSetId": "2102669809765126144",
+        "problemId": "1424157738753261568",
+        "description": "关于Java语言的特点，哪些是正确的？",
+        "problemPoolIndex": 3,
+        "indexInProblemPool": 1,
+        "authorOrganizationId": "77"
+      }
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "problemSetId": "2111788052367753216",
+  "answers": [
+    {
+      "problemId": "2111788052619411458",
+      "questionNumber": 1,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111788052619411459",
+      "questionNumber": 2,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2112049801549529088",
+      "questionNumber": 3,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "A",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2112049801549529089",
+      "questionNumber": 4,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2112049801549529090",
+      "questionNumber": 5,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2112049801549529091",
+      "questionNumber": 6,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2112049801549529092",
+      "questionNumber": 7,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2112049801549529093",
+      "questionNumber": 8,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "B",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2112049801549529094",
+      "questionNumber": 9,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "D",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2112052416299614208",
+      "questionNumber": 10,
+      "type": "MULTIPLE_CHOICE",
+      "answer": "C",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111788052619411460",
+      "questionNumber": 1,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select DId, DTele from dept where DTele = '87464789';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111788052619411461",
+      "questionNumber": 2,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select DId, DName from dept ; ",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111788052619411462",
+      "questionNumber": 3,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select * from teacher where DId = 'CS';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111788052619411463",
+      "questionNumber": 4,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select * from teacher where TId like '02%';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111788052619411464",
+      "questionNumber": 5,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select * from students where phone is null;",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111788783502065664",
+      "questionNumber": 6,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select ename, deptno,sal from emp\n    where sal > 1500 and\nename like 'J%';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111788783502065665",
+      "questionNumber": 7,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select * from teacher where DId in ('CS','IT');",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111789326169505792",
+      "questionNumber": 8,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select sname, birthdate from student where major = '计算机科学' and gender = '女';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2111789326169505793",
+      "questionNumber": 9,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select cno, ccredit from kc where cname = '计算机基础';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    },
+    {
+      "problemId": "2112053103448244224",
+      "questionNumber": 10,
+      "type": "SQL_PROGRAMMING",
+      "answer": "select sname, sno, ssex from xs where sname like '王%';",
+      "problemStatus": "PROBLEM_ACCEPTED"
+    }
+  ]
+}

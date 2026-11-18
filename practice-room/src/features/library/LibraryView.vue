@@ -12,6 +12,7 @@ const emit = defineEmits<{
 const {
   bankEntries,
   activeBankKey,
+  isPlatformBankLoading,
   mergeSelection,
   handleAnswerChange,
   mergeSelectedBanks,
@@ -70,8 +71,8 @@ function handleBankChange(event: Event): void {
 
     <p v-if="bankEntries.length === 0" class="library-empty">
       <span class="empty-mark" aria-hidden="true">＋</span>
-      <strong>从第一份题库开始</strong>
-      <span>同时多选题库和答案文件，系统会自动配对；也可以导入后逐个配对或合并题库。</span>
+      <strong>{{ isPlatformBankLoading ? '正在载入本平台题库' : '从第一份题库开始' }}</strong>
+      <span>{{ isPlatformBankLoading ? '正在读取题库目录与配套答案。' : '平台题库会自动载入；也可以导入自己的题库和答案，或合并多份题库。' }}</span>
     </p>
 
     <div v-else class="bank-grid">
@@ -83,7 +84,7 @@ function handleBankChange(event: Event): void {
       >
         <div class="bank-card-top">
           <span class="bank-index">{{ String(index + 1).padStart(2, '0') }}</span>
-          <span class="bank-identity">{{ entry.bank.problemSetId ? `ID ${entry.bank.problemSetId}` : 'LOCAL BANK' }}</span>
+          <span class="bank-identity">{{ entry.isPlatformBank ? 'PLATFORM BANK' : entry.bank.problemSetId ? `ID ${entry.bank.problemSetId}` : 'LOCAL BANK' }}</span>
           <span v-if="entry.key === activeBankKey" class="active-bank-tag">最近练习</span>
           <label class="bank-select">
             <input v-model="mergeSelection" type="checkbox" :value="entry.key">

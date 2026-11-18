@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import LibraryView from './features/library/LibraryView.vue'
 import { useQuestionLibrary } from './features/library/useQuestionLibrary'
 import PracticeView from './features/practice/PracticeView.vue'
@@ -16,6 +16,14 @@ function setNotice(message: string, isError = false): void {
 
 const library = useQuestionLibrary(setNotice)
 const practice = usePracticeSession(library.bank, library.answerMap, setNotice)
+
+onMounted(() => {
+  const catalogUrl = new URL(
+    `${import.meta.env.BASE_URL}question-banks/catalog.json`,
+    window.location.href
+  ).href
+  void library.loadPlatformBanks(catalogUrl)
+})
 
 function selectBank(key: string): void {
   if (library.activeBankKey.value === key) return

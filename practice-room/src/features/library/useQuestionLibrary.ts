@@ -7,6 +7,7 @@ import {
   type QuestionBank
 } from '../common/practice-data.ts'
 import type { PracticeSessionSnapshot } from '../practice/types.ts'
+import { loadQuestionBankCatalog } from './question-bank-catalog.ts'
 
 export type BankEntry = {
   key: string
@@ -15,6 +16,7 @@ export type BankEntry = {
   answerFileName: string
   answers: Map<string, AnswerItem>
   isMerged: boolean
+  isPlatformBank: boolean
   session: PracticeSessionSnapshot | null
 }
 
@@ -29,6 +31,7 @@ type SetNotice = (message: string, isError?: boolean) => void
 export function useQuestionLibrary(setNotice: SetNotice) {
   const bankEntries = shallowRef<BankEntry[]>([])
   const activeBankKey = ref<string | null>(null)
+  const isPlatformBankLoading = ref(false)
   const activeBankEntry = computed(() => bankEntries.value.find((entry) => entry.key === activeBankKey.value) ?? null)
   const bank = computed(() => activeBankEntry.value?.bank ?? null)
   const answerMap = computed(() => activeBankEntry.value?.answers ?? new Map<string, AnswerItem>())
@@ -100,6 +103,47 @@ export function useQuestionLibrary(setNotice: SetNotice) {
       : entry)
   }
 
+  async function loadPlatformBanks(catalogUrl: string, fetcher: typeof fetch = fetch): Promise<void> {
+    isPlatformBankLoading.value = true
+    try {
+      const { banks, failures } = await loadQuestionBankCatalog(catalogUrl, fetcher)
+      const existingKeys = new Set(
+        bankEntries.value.filter((entry) => entry.isPlatformBank).map((entry) => entry.key)
+      )
+      const newEntries: BankEntry[] = banks
+        .filter((entry) => !existingKeys.has(`platform-${entry.id}`))
+        .map((entry) => ({
+          key: `platform-${entry.id}`,
+          bank: entry.bank,
+          bankFileName: '平台题库',
+          answerFileName: '平台配套答案',
+          answers: entry.answers,
+          isMerged: false,
+          isPlatformBank: true,
+          session: null
+        }))
+
+      bankEntries.value = [
+        ...bankEntries.value.filter((entry) => entry.isPlatformBank),
+        ...newEntries,
+        ...bankEntries.value.filter((entry) => !entry.isPlatformBank)
+      ]
+
+      const messages = [
+        newEntries.length ? `已载入本平台题库 ${newEntries.length} 份，配套答案按题目 ID 关联。` : '',
+        failures.length ? `部分平台题库载入失败：${failures.join('；')}` : ''
+      ].filter(Boolean)
+      if (messages.length > 0) setNotice(messages.join(' '), failures.length > 0)
+    } catch (error) {
+      setNotice(
+        `本平台题库目录读取失败：${error instanceof Error ? error.message : '未知错误。'}`,
+        true
+      )
+    } finally {
+      isPlatformBankLoading.value = false
+    }
+  }
+
   async function importFiles(files: readonly File[]): Promise<string | null> {
     if (files.length === 0) return null
 
@@ -122,6 +166,7 @@ export function useQuestionLibrary(setNotice: SetNotice) {
             answerFileName: '',
             answers: new Map(),
             isMerged: false,
+            isPlatformBank: false,
             session: null
           })
         } else if (Array.isArray(json.answers)) {
@@ -222,6 +267,7 @@ export function useQuestionLibrary(setNotice: SetNotice) {
         answerFileName: `合并 ${merged.answers.size} 条答案`,
         answers: merged.answers,
         isMerged: true,
+        isPlatformBank: false,
         session: null
       }]
       mergeSelection.value = []
@@ -243,12 +289,14 @@ export function useQuestionLibrary(setNotice: SetNotice) {
     bankEntries,
     activeBankKey,
     activeBankEntry,
+    isPlatformBankLoading,
     bank,
     answerMap,
     mergeSelection,
     matchedAnswerCount,
     selectBank,
     updateSession,
+    loadPlatformBanks,
     importFiles,
     handleAnswerChange,
     mergeSelectedBanks,

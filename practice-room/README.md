@@ -1,6 +1,6 @@
 # 题间 · 个人刷题室
 
-基于 Vue 3、TypeScript 和 Vite 的独立静态刷题页。只支持当前仓库导出的题库 JSON 和答案 JSON。
+基于 Vue 3、TypeScript 和 Vite 的独立静态刷题页。支持本平台目录中的题库与配套答案 JSON，也支持导入当前仓库导出的题库 JSON 和答案 JSON。
 
 ## 代码结构
 
@@ -13,7 +13,9 @@
 - `src/styles/common.css`：应用共用的设计变量、布局和响应式样式。
 - `tests/`：数据解析、题库管理和练习会话测试。
 
-题库页通过组件事件把文件交给题库功能层处理，不直接解析数据。当前项目没有后端 API，题库、答案和练习状态均在当前标签页内存中管理。更完整的系统规格与开发约定见 [SDD](./docs/SDD.md) 和 [AGENTS.md](./AGENTS.md)；可供扩展导出与刷题室复用的题干清洗规范见[仓库文档](../docs/pintia-question-cleaning-rules.md)。
+题库页通过组件事件把文件交给题库功能层处理，不直接解析数据。平台题库目录位于 [`public/question-banks/`](./public/question-banks/)；`catalog.json` 登记题库 JSON 和配套答案 JSON 的地址。
+
+当前项目没有后端 API，题库、答案和练习状态均在当前标签页内存中管理。目录载入层与练习逻辑分离，未来数据源可以提供兼容的清单和 JSON 格式。更完整的系统规格与开发约定见 [SDD](./docs/SDD.md) 和 [AGENTS.md](./AGENTS.md)；可供扩展导出与刷题室复用的题干清洗规范见[仓库文档](../docs/pintia-question-cleaning-rules.md)。
 
 ## 本地开发
 
@@ -38,7 +40,7 @@ npm run build
 
 ## 使用范围
 
-- 一次可多选导入题库和答案 JSON，优先按 `problemSetId` 自动配对，缺少 ID 时按文件名匹配；也可分别导入答案，或勾选多个题库合并为一套。合并时按 `problemId` 去重，重复项保留首次出现的题目和答案。
+- 本平台题库会从 `public/question-banks/catalog.json` 自动载入，并按题目 ID 关联配套答案。也可多选导入题库和答案 JSON，优先按 `problemSetId` 自动配对，缺少 ID 时按文件名匹配；也可分别导入答案，或勾选多个题库合并为一套。合并时按 `problemId` 去重，重复项保留首次出现的题目和答案。
 - 题库管理与刷题页面分离。刷题页支持单题作答或在全题总览中直接逐题作答、提交和查看答案；点击完成进度会弹出题号状态窗口，重做本题集会清空当前题组的作答记录并保留题组。
 - 随机组题的抽题数默认等于勾选题型的题目数量之和，调整题型后会同步更新；也可打乱当前题组。
 - 题干按 `content`、`apiData.description`、`prompt`、`title` 的顺序清洗选择；已知平台样例/模板题干会跳过，SQL 模板前缀会在正文有效时剥离。支持 Markdown、代码块和 HTTPS 图片。

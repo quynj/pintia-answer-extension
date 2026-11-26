@@ -155,6 +155,48 @@ test('converts existing fill-in labels without duplicating configured blank posi
   assert.equal(bank.questions[0].text, '填写：\n\uE0000\uE001 \uE0001\uE001____')
 })
 
+test('places programming blanks inside code and counts each platform marker once', () => {
+  const bank = parseQuestionBank({
+    questions: [{
+      type: 'FILL_IN_THE_BLANK_FOR_PROGRAMMING',
+      content: '完成代码：\n\n```java\nint total = @@[](3);\nif (@@[](4)) total++;\n```',
+      apiData: {
+        problemConfig: {
+          fillInTheBlankForProgrammingProblemConfig: {
+            blanks: [{ index: 33 }, { index: 48 }]
+          }
+        }
+      }
+    }]
+  })
+
+  assert.equal(bank.questions[0].blankCount, 2)
+  assert.equal(
+    bank.questions[0].text,
+    '完成代码：\n\n```java\nint total = \uE0000\uE001;\nif (\uE0001\uE001) total++;\n```'
+  )
+})
+
+test('inserts programming blanks from their dedicated config when markers are absent', () => {
+  const content = '```java\nint result = ;\n```'
+  const bank = parseQuestionBank({
+    questions: [{
+      type: 'FILL_IN_THE_BLANK_FOR_PROGRAMMING',
+      content,
+      apiData: {
+        problemConfig: {
+          fillInTheBlankForProgrammingProblemConfig: {
+            blanks: [{ index: content.indexOf(';') }]
+          }
+        }
+      }
+    }]
+  })
+
+  assert.equal(bank.questions[0].blankCount, 1)
+  assert.equal(bank.questions[0].text, '```java\nint result = \uE0000\uE001;\n```')
+})
+
 test('resolves Pintia image placeholders to their HTTPS sources', () => {
   const bank = parseQuestionBank({
     questions: [{

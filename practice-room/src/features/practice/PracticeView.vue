@@ -45,7 +45,6 @@ const {
   answerRequiresSubmit,
   canSubmitQuestion,
   isCodeQuestion,
-  hasCompletedQuestion,
   questionProgressStatus,
   questionAnswer,
   questionKey,
@@ -60,8 +59,11 @@ const {
   isOptionSelected,
   toggleOption,
   setBlankResponse,
+  setBlankResponseValue,
   setTextResponse,
   submitPracticeAnswer,
+  isAnswerVisible,
+  toggleAnswerVisibility,
   redoActiveSet,
   answerLines
 } = props.model
@@ -187,7 +189,14 @@ function reviewFromProgress(index: number): void {
             >Pintia 查看 <span aria-hidden="true">↗</span></a>
             <span class="score-pill">分值 <strong>{{ question.score === null ? '未提供' : `${question.score} 分` }}</strong></span>
           </div>
-          <div class="question-text"><MarkdownContent :content="question.text" /></div>
+          <div class="question-text">
+            <MarkdownContent
+              :content="question.text"
+              :interactive-blanks="question.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'"
+              :blank-values="responseLines(responseFor(question))"
+              @blank-input="(index, value) => setBlankResponseValue(question, index, value)"
+            />
+          </div>
           <div v-if="question.imageUrls.length" class="question-images">
             <img
               v-for="(url, imageIndex) in question.imageUrls"
@@ -242,7 +251,7 @@ function reviewFromProgress(index: number): void {
               </label>
             </div>
             <div
-              v-else-if="question.type === 'FILL_IN_THE_BLANK' || question.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'"
+              v-else-if="question.type === 'FILL_IN_THE_BLANK'"
               class="blank-fields"
             >
               <label v-for="blankIndex in blankCountFor(question)" :key="blankIndex" class="response-field">
@@ -256,6 +265,9 @@ function reviewFromProgress(index: number): void {
                 >
               </label>
             </div>
+            <p v-else-if="question.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'" class="inline-blank-note">
+              请直接在题干代码空位中作答。
+            </p>
             <label v-else class="response-field long-response">
               <span>{{ isCodeQuestion(question) ? '编写代码' : '写下你的答案' }}</span>
               <textarea
@@ -278,7 +290,7 @@ function reviewFromProgress(index: number): void {
             </div>
 
           </section>
-          <div v-if="hasCompletedQuestion(question)" class="answer-panel overview-answer">
+          <div v-if="isAnswerVisible(question)" class="answer-panel overview-answer">
             <div class="answer-heading"><span>REFERENCE ANSWER</span><span>{{ questionAnswer(question)?.problemStatus ? statusNames[questionAnswer(question)?.problemStatus ?? ''] ?? questionAnswer(question)?.problemStatus : '' }}</span></div>
             <div class="answer-text">
               <template v-if="questionAnswer(question)">
@@ -287,7 +299,15 @@ function reviewFromProgress(index: number): void {
               <span v-else>尚未导入这道题的答案。</span>
             </div>
           </div>
-          <button class="review-question-button" type="button" @click="reviewQuestion(index)">单题专注 <span aria-hidden="true">↗</span></button>
+          <div class="overview-card-actions">
+            <button
+              class="answer-toggle-link"
+              type="button"
+              :aria-expanded="isAnswerVisible(question)"
+              @click="toggleAnswerVisibility(question)"
+            >{{ isAnswerVisible(question) ? '隐藏答案' : '显示答案' }}</button>
+            <button class="review-question-button" type="button" @click="reviewQuestion(index)">单题专注 <span aria-hidden="true">↗</span></button>
+          </div>
         </article>
       </section>
 
@@ -318,6 +338,9 @@ function reviewFromProgress(index: number): void {
           <MarkdownContent
             v-if="currentQuestion"
             :content="currentQuestion.text"
+            :interactive-blanks="currentQuestion.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'"
+            :blank-values="currentPracticeAnswers"
+            @blank-input="(index, value) => setBlankResponseValue(currentQuestion, index, value)"
           />
           <span v-else>从左侧导入题库 JSON，开始一轮专注练习。</span>
         </div>
@@ -367,7 +390,7 @@ function reviewFromProgress(index: number): void {
           </div>
 
           <div
-            v-else-if="currentQuestion.type === 'FILL_IN_THE_BLANK' || currentQuestion.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'"
+            v-else-if="currentQuestion.type === 'FILL_IN_THE_BLANK'"
             class="blank-fields"
           >
             <label v-for="index in currentBlankCount" :key="index" class="response-field">
@@ -381,6 +404,9 @@ function reviewFromProgress(index: number): void {
               >
             </label>
           </div>
+          <p v-else-if="currentQuestion.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'" class="inline-blank-note">
+            请直接在题干代码空位中作答。
+          </p>
 
           <label v-else class="response-field long-response">
             <span>{{ currentQuestion.type === 'PROGRAMMING' || currentQuestion.type === 'SQL_PROGRAMMING' ? '编写代码' : '写下你的答案' }}</span>
@@ -419,7 +445,7 @@ function reviewFromProgress(index: number): void {
 
         </section>
 
-        <section v-if="currentQuestion && hasCompletedQuestion(currentQuestion)" class="answer-panel" aria-label="参考答案">
+        <section v-if="currentQuestion && isAnswerVisible(currentQuestion)" class="answer-panel" aria-label="参考答案">
           <div class="answer-heading">
             <span>REFERENCE ANSWER</span>
             <span>{{ currentAnswer?.problemStatus ? statusNames[currentAnswer.problemStatus] ?? currentAnswer.problemStatus : '' }}</span>
@@ -431,6 +457,13 @@ function reviewFromProgress(index: number): void {
             <span v-else>尚未导入这道题的答案。</span>
           </div>
         </section>
+        <button
+          v-if="currentQuestion"
+          class="answer-toggle-link answer-toggle-single"
+          type="button"
+          :aria-expanded="isAnswerVisible(currentQuestion)"
+          @click="toggleAnswerVisibility(currentQuestion)"
+        >{{ isAnswerVisible(currentQuestion) ? '隐藏答案' : '显示答案' }}</button>
 
       </article>
 

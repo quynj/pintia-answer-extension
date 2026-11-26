@@ -18,6 +18,7 @@ export function usePracticeSession(
   const activeQuestions = ref<PracticeQuestion[]>([])
   const practiceResponses = shallowRef(new Map<string, PracticeResponse>())
   const submittedQuestions = shallowRef(new Set<string>())
+  const visibleAnswers = shallowRef(new Set<string>())
   const position = ref(0)
   const restoreOrder = shallowRef<PracticeQuestion[] | null>(null)
   const previewMode = ref<'single' | 'all'>('single')
@@ -155,11 +156,8 @@ export function usePracticeSession(
   function blankCountFor(question: PracticeQuestion | null): number {
     if (!question) return 1
     const answer = questionAnswer(question)
-    return Math.max(
-      question.blankCount,
-      Array.isArray(answer?.answer) ? answer.answer.length : 0,
-      1
-    )
+    return question.blankCount
+      || (Array.isArray(answer?.answer) && answer.answer.length > 0 ? answer.answer.length : 1)
   }
 
   function answerRequiresSubmit(question: PracticeQuestion | null): boolean {
@@ -261,6 +259,7 @@ export function usePracticeSession(
       activeQuestions: activeQuestions.value,
       practiceResponses: practiceResponses.value,
       submittedQuestions: submittedQuestions.value,
+      visibleAnswers: visibleAnswers.value,
       position: position.value,
       restoreOrder: restoreOrder.value,
       previewMode: previewMode.value,
@@ -275,6 +274,7 @@ export function usePracticeSession(
       activeQuestions.value = session.activeQuestions
       practiceResponses.value = session.practiceResponses
       submittedQuestions.value = session.submittedQuestions
+      visibleAnswers.value = session.visibleAnswers
       position.value = session.position
       restoreOrder.value = session.restoreOrder
       previewMode.value = session.previewMode
@@ -284,6 +284,7 @@ export function usePracticeSession(
       activeQuestions.value = [...selectedBank.questions]
       practiceResponses.value = new Map()
       submittedQuestions.value = new Set()
+      visibleAnswers.value = new Set()
       position.value = 0
       restoreOrder.value = null
       selectedTypes.value = [...new Set(selectedBank.questions.map((question) => question.type))]
@@ -382,9 +383,14 @@ export function usePracticeSession(
   function setBlankResponse(question: PracticeQuestion, index: number, event: Event): void {
     const input = event.target
     if (!(input instanceof HTMLInputElement)) return
+    setBlankResponseValue(question, index, input.value)
+  }
+
+  function setBlankResponseValue(question: PracticeQuestion, index: number, value: string): void {
+    if (!Number.isInteger(index) || index < 0 || index >= blankCountFor(question)) return
     const existingAnswers = responseLines(responseFor(question))
     const responses = Array.from({ length: blankCountFor(question) }, (_, item) => existingAnswers[item] ?? '')
-    responses[index] = input.value
+    responses[index] = value
     setPracticeResponse(question, responses)
   }
 
@@ -400,6 +406,18 @@ export function usePracticeSession(
     const updated = new Set(submittedQuestions.value)
     updated.add(key)
     submittedQuestions.value = updated
+  }
+
+  function isAnswerVisible(question: PracticeQuestion): boolean {
+    return visibleAnswers.value.has(questionKey(question))
+  }
+
+  function toggleAnswerVisibility(question: PracticeQuestion): void {
+    const key = questionKey(question)
+    const updated = new Set(visibleAnswers.value)
+    if (updated.has(key)) updated.delete(key)
+    else updated.add(key)
+    visibleAnswers.value = updated
   }
 
   function redoActiveSet(): void {
@@ -427,6 +445,7 @@ export function usePracticeSession(
     bank,
     activeQuestions,
     submittedQuestions,
+    visibleAnswers,
     position,
     previewMode,
     selectedTypes,
@@ -475,8 +494,11 @@ export function usePracticeSession(
     isOptionSelected,
     toggleOption,
     setBlankResponse,
+    setBlankResponseValue,
     setTextResponse,
     submitPracticeAnswer,
+    isAnswerVisible,
+    toggleAnswerVisibility,
     redoActiveSet,
     answerLines
   }

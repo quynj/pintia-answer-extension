@@ -59,7 +59,7 @@ jobs:
             found { print }
             END { if (!found) exit 1 }
           ' CHANGELOG.md)
-          if ! grep -Fxq '### 中文' <<< "$release_section" || ! grep -Fxq '### English' <<< "$release_section"; then
+          if ! grep -Fxq '### 更新日志' <<< "$release_section" || ! grep -Fxq '### Change Log' <<< "$release_section"; then
             echo "::error::CHANGELOG.md must provide Chinese and English notes for v$manifest_version"
             exit 1
           fi
@@ -113,7 +113,7 @@ jobs:
             found { print }
             END { if (!found) exit 1 }
           ' CHANGELOG.md)
-          if ! grep -Fxq '### 中文' <<< "$release_section" || ! grep -Fxq '### English' <<< "$release_section"; then
+          if ! grep -Fxq '### 更新日志' <<< "$release_section" || ! grep -Fxq '### Change Log' <<< "$release_section"; then
             echo "::error::CHANGELOG.md must provide Chinese and English notes for $release_tag"
             exit 1
           fi

@@ -572,8 +572,11 @@ type InternalAnswerRunResult = Record<string, unknown> & { success: boolean; ski
 
   const SaveManager = {
     async save() {
-      const button = document.querySelector<HTMLButtonElement>('button[data-e2e="problem-set-bottom-submit-btn"]');
-      if (!button) return { success: false, reason: 'save button not found' };
+      const markedButton = document.querySelector<HTMLButtonElement>('button[data-e2e="problem-set-bottom-submit-btn"]');
+      const textButtons = [...document.querySelectorAll<HTMLButtonElement>('button')]
+        .filter((candidate) => candidate.textContent?.trim() === '保存');
+      const button = markedButton || (textButtons.length === 1 ? textButtons[0] : null);
+      if (!button) return { success: false, reason: 'save button not found or ambiguous' };
       try {
         const previousAlerts = new Set([...document.querySelectorAll('[role="alert"]')]
           .map((alert) => alert.textContent.trim()));

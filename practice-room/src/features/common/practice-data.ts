@@ -159,9 +159,10 @@ function inlineBlankPositions(value: unknown, textLength: number): number[] {
     : isRecord(value.problemConfig)
       ? value.problemConfig
       : null
-  const fillInConfig = isRecord(problemConfig?.fillInTheBlankProblemConfig)
-    ? problemConfig.fillInTheBlankProblemConfig
-    : null
+  const fillInConfig = [
+    problemConfig?.fillInTheBlankProblemConfig,
+    problemConfig?.fillInTheBlankForProgrammingProblemConfig
+  ].find(isRecord)
   if (!Array.isArray(fillInConfig?.blanks)) return []
 
   return fillInConfig.blanks.flatMap((blank) => {
@@ -220,23 +221,37 @@ export function parseQuestionBank(input: unknown): QuestionBank {
     const stem = questionStem(value)
     let text = stem.text
     const rawContent = nonEmptyString(value.content) ?? ''
-    const blankPositions = value.type === 'FILL_IN_THE_BLANK' || value.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
+    const isFillBlank = value.type === 'FILL_IN_THE_BLANK' || value.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
+    const isProgrammingFillBlank = value.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING'
+    const blankPositions = isFillBlank
       ? inlineBlankPositions(value, rawContent.length)
       : []
     const visibleBlankCount = [...text.matchAll(/[【[]填空\d+[】\]]/gu)].length
     const explicitBlankCount = [...text.matchAll(/@\[\]\((\d+)\)/g)]
       .reduce((count, match) => count + Number(match[1]), 0)
-    const blankCount = visibleBlankCount || blankPositions.length || explicitBlankCount || (text.match(/_{2,}/g) ?? []).length
-    if (visibleBlankCount > 0) {
+    const programmingBlankMarkers = isProgrammingFillBlank
+      ? [...text.matchAll(/@@\s*\[\s*\]\s*\(\s*\d+\s*\)/g)]
+      : []
+    let blankCount = programmingBlankMarkers.length
+      || visibleBlankCount
+      || blankPositions.length
+      || explicitBlankCount
+      || (text.match(/_{2,}/g) ?? []).length
+    if (programmingBlankMarkers.length > 0) {
+      let blankIndex = 0
+      text = text.replace(/@@\s*\[\s*\]\s*\(\s*\d+\s*\)/g, () => `\uE000${blankIndex++}\uE001`)
+      blankCount = programmingBlankMarkers.length
+    } else if (visibleBlankCount > 0) {
       let blankIndex = 0
       text = text.replace(/[【[]填空\d+[】\]]/gu, () => `\uE000${blankIndex++}\uE001`)
     } else if (blankPositions.length > 0 && stem.fromContent) {
       text = insertInlineBlankMarkers(rawContent, blankPositions)
+      blankCount = blankPositions.length
       if (text !== rawContent && /^这是一个SQL编程题模板/u.test(text)) {
         text = text.replace(/^这是一个SQL编程题模板[。.]?\s*/u, '')
       }
     }
-    text = text.replace(/@\[\]\(\d+\)/g, '')
+    text = text.replace(/@@?\s*\[\s*\]\s*\(\s*\d+\s*\)/g, '')
     if (value.type === 'FILL_IN_THE_BLANK' || value.type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING') {
       const withoutBlankHint = text.replace(
         /(?:\r?\n\s*)*填空位置[：:]\s*(?:_{2,}(?:\s*[、,，/]\s*_{2,})*)\s*$/u,

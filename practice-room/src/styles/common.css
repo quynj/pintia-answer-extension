@@ -241,8 +241,10 @@ select:disabled, .count-field:has(input:disabled) { opacity: .5; }
 .overview-workbench { margin-top: 7px; }
 .overview-workbench .option-list { margin-top: 5px; }
 .overview-answer { margin-top: 14px; }
-.review-question-button { display: block; margin: 13px 0 0 auto; padding: 6px 0 3px 8px; border: 0; background: transparent; color: var(--forest); cursor: pointer; font-size: 9px; }
-.review-question-button:hover { color: var(--accent); }
+.overview-card-actions { display: flex; align-items: center; justify-content: flex-end; gap: 14px; margin-top: 13px; }
+.answer-toggle-link, .review-question-button { padding: 6px 0 3px 8px; border: 0; background: transparent; color: var(--forest); cursor: pointer; font-size: 9px; }
+.answer-toggle-link:hover, .review-question-button:hover { color: var(--accent); }
+.answer-toggle-single { display: block; margin: 13px 0 0 auto; }
 .review-question-button span { padding-left: 4px; color: var(--accent); }
 .icon-button { min-height: 33px; padding: 0 10px; border: 1px solid var(--line-dark); background: transparent; cursor: pointer; font-size: 10px; transition: border-color .2s, color .2s; }
 .icon-button:not(:disabled):hover { border-color: var(--forest); color: var(--forest); }
@@ -274,6 +276,9 @@ select:disabled, .count-field:has(input:disabled) { opacity: .5; }
 .markdown-content th { background: #f2efe7; }
 .question-text .markdown-content { font: inherit; letter-spacing: inherit; }
 .inline-blank { display: inline-block; min-width: 3.2em; height: .9em; margin: 0 .12em; border-bottom: 1px solid currentColor; vertical-align: baseline; }
+.inline-blank-input { width: 10ch; min-width: 4ch; height: 1.65em; margin: 0 .2ch; padding: 0 .25em; border: 0; border-bottom: 1px solid #d5bc75; outline: 0; background: #37443d; color: #fffdf8; font: inherit; vertical-align: baseline; }
+.inline-blank-input:focus { border-bottom-color: #fffdf8; background: #44564c; }
+.inline-blank-note { margin: 0 0 12px; color: var(--muted); font-size: 10px; }
 .option-list { margin: 0; padding: 0; }
 .option-choice { min-height: 48px; display: flex; align-items: flex-start; gap: 12px; padding: 12px 10px; border-top: 1px solid #eeebe4; color: #4d554d; cursor: pointer; font-size: 11px; line-height: 1.7; transition: background .18s, border-color .18s; }
 .option-choice:hover, .option-selected { background: #f4f4ed; }

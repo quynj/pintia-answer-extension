@@ -1,36 +1,48 @@
 # 更新日志
 
+## v1.9.0
+
+### 更新日志
+
+- 刷题室支持 LaTeX 公式、程序填空题题干内作答，并可独立显示或隐藏参考答案；改进练习状态恢复与填空数量处理。
+- 扩展支持程序填空题及最近作答记录提取；进度检查可查看截止时间并直接打开题集，同时改善保存按钮兼容性和批量导出间隔。
+
+### Change Log
+
+- Added LaTeX rendering, inline answers for programming fill-in-the-blank questions, and independent reference-answer visibility to the practice room. Improved practice-state restoration and blank-count handling.
+- Added extraction of programming fill-in-the-blank questions and recent submissions to the extension. Progress checks now show deadlines and link to problem sets; save-button compatibility and batch-export delay were also improved.
+
 ## v1.8.1
 
-### 中文
+### 更新日志
 
 - 修复作业 Markdown 导出中的题干清洗，减少格式噪声并改进导出内容的可读性。
 
-### English
+### Change Log
 
 - Fixed question-stem cleaning in review Markdown exports to reduce formatting noise and improve readability.
 
 ## v1.8.0
 
-### 中文
+### 更新日志
 
 - 「我的答案 JSON」导出新增按题目 ID 关联的平台评测状态，可用于复习时查看已判定正确、错误或尚未判定的作答；该可选字段不影响答案校验和回填。
 - 题库转复习 Markdown skill 可根据答案 JSON 中的平台状态呈现评测结果，并附带独立的数据格式说明，方便单独安装使用。
 
-### English
+### Change Log
 
 - Added optional platform grading status to “My Answers JSON” exports, matched by question ID. It distinguishes accepted, incorrect, and not-yet-graded submissions for review without affecting answer validation or filling.
 - Updated the review Markdown skill to display platform status from answer JSON and include a standalone data-format reference for independent installation.
 
 ## v1.7.0
 
-### 中文
+### 更新日志
 
 - 助手面板新增“活跃题目集答题进度”检查，可按设置间隔自动检查并缓存当前题目集的完成状态，支持手动刷新和最近结果查看。
 - 进度检查会汇总未完成、已过期和暂不可用的题目集，并在助手面板中直接展示结果与失败原因，方便快速定位待补做内容。
 - 支持在设置中调整进度检查间隔，避免频繁请求影响使用体验。
 
-### English
+### Change Log
 
 - Added an “active problem-set progress” check to the assistant panel. It can automatically check and cache completion status at a configured interval, with support for manual refresh and recent result review.
 - Progress checks summarize incomplete, expired, and temporarily unavailable problem sets and display the results and failure reasons directly in the assistant panel for faster follow-up.
@@ -38,25 +50,25 @@
 
 ## v1.6.1
 
-### 中文
+### 更新日志
 
 - 项目新增 GPL-3.0-only 许可证；分发本项目或其衍生版本时，须按许可证提供对应源代码。
 - 构建后的扩展包现在包含许可证文件。
 
-### English
+### Change Log
 
 - Added the GPL-3.0-only license. Distributions of this project or derivative works must provide the corresponding source code under the license terms.
 - The built extension package now includes the license file.
 
 ## v1.6.0
 
-### 中文
+### 更新日志
 
 - AI 生成答案校验通过后，会按已选「回填题型」自动回填并保存；手动回填也会保存。
 - 新增题库转复习 Markdown skill，可将导出的题库 JSON 整理成复习题库；答案 JSON 可选。
 - Markdown 作答导出支持展示各题型可关联的最近提交，编程和 SQL 编程作答以代码块显示。
 
-### English
+### Change Log
 
 - Validated AI-generated answers are now automatically filled and saved for the selected question types. Manual answer filling also saves changes.
 - Added a review Markdown skill that turns exported question-bank JSON into a study/review bank; answer JSON is optional.
@@ -64,13 +76,13 @@
 
 ## v1.5.0
 
-### 中文
+### 更新日志
 
 - 新增「我的答案 JSON」导出，可将平台返回且符合答案格式的最近作答直接用于答题页；无可用答案或格式不兼容的题目会略过，不推断标准答案。
 - 列表型题目改为逐题加载，已加载题目可立即用于提示词和 AI 生成；题目详情在扩展会话中缓存 10 分钟，手动重新检测会强制刷新。
 - 编程题页面新增当前题代码输入框，可将粘贴的代码直接回填到唯一匹配的当前题目。
 
-### English
+### Change Log
 
 - Added a “My Answers JSON” export containing the latest platform-submitted answers that match the answer format. Answers can be pasted into the answering panel; unavailable or incompatible answers are skipped, and no correct answers are inferred.
 - List-based questions now load incrementally, so loaded questions can be used in prompts and AI generation immediately. Question details are cached for 10 minutes per extension session; manual re-detection forces a refresh.

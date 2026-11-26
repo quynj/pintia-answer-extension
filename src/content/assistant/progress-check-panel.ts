@@ -1,4 +1,5 @@
 import type { PintiaProblemSet, PintiaProblemSetProgress } from '../../shared/types';
+import { parsePintiaTimestamp } from '../extraction/progress-check';
 
 interface ProgressCheckPanelDependencies {
   loadProblemSets: (panel: HTMLElement) => Promise<PintiaProblemSet[]>;
@@ -57,6 +58,9 @@ function isProgressResult(value: unknown): value is PintiaProblemSetProgress {
   if (typeof result.problemSetId !== 'string'
     || typeof result.problemSetName !== 'string'
     || typeof result.state !== 'string') return false;
+  if ('deadline' in result
+    && result.deadline !== null
+    && (typeof result.deadline !== 'number' || !Number.isFinite(result.deadline))) return false;
   if (result.state === 'complete' || result.state === 'incomplete') {
     return typeof result.completed === 'number'
       && typeof result.total === 'number'
@@ -111,7 +115,10 @@ export function createProgressCheckPanel({
 
   function rowForResult(result: PintiaProblemSetProgress): HTMLLIElement {
     const item = document.createElement('li');
-    const name = document.createElement('strong');
+    const name = document.createElement('a');
+    name.href = new URL(`/problem-sets/${encodeURIComponent(result.problemSetId)}`, window.location.origin).href;
+    name.target = '_blank';
+    name.rel = 'noopener noreferrer';
     name.textContent = result.problemSetName || '未命名题目集';
     const detail = document.createElement('span');
     if (result.state === 'complete') {
@@ -123,7 +130,15 @@ export function createProgressCheckPanel({
     } else {
       detail.textContent = `进度暂不可用${result.reason ? ` · ${result.reason}` : ''}`;
     }
-    item.append(name, detail);
+    const deadline = document.createElement('time');
+    const deadlineDate = typeof result.deadline === 'number' ? new Date(result.deadline) : null;
+    if (deadlineDate && Number.isFinite(deadlineDate.getTime())) {
+      deadline.dateTime = deadlineDate.toISOString();
+      deadline.textContent = `截止：${deadlineDate.toLocaleString()}`;
+    } else {
+      deadline.textContent = '截止时间未知';
+    }
+    item.append(name, detail, deadline);
     return item;
   }
 
@@ -217,6 +232,7 @@ export function createProgressCheckPanel({
       completed: null,
       total: null,
       percentage: null,
+      deadline: parsePintiaTimestamp(problemSet.endAt),
       reason
     };
   }

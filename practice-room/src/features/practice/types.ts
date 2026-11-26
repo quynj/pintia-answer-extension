@@ -15,6 +15,7 @@ export type PracticeSessionSnapshot = {
   activeQuestions: PracticeQuestion[]
   practiceResponses: Map<string, PracticeResponse>
   submittedQuestions: Set<string>
+  visibleAnswers: Set<string>
   position: number
   restoreOrder: PracticeQuestion[] | null
   previewMode: 'single' | 'all'

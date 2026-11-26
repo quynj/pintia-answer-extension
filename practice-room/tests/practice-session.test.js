@@ -76,6 +76,60 @@ test('defaults the requested count to the selected question types', () => {
   assert.equal(session.requestedCount.value, 0)
 })
 
+test('shows answers independently of completion and restores their visibility', () => {
+  const item = question('answer-visibility', '填空题', 'FILL_IN_THE_BLANK')
+  const activeBank = ref(bank('答案显隐题库', item))
+  const session = usePracticeSession(
+    computed(() => activeBank.value),
+    computed(() => new Map([
+      ['answer-visibility', {
+        problemId: 'answer-visibility',
+        questionNumber: 1,
+        type: 'FILL_IN_THE_BLANK',
+        answer: ['参考答案']
+      }]
+    ])),
+    () => {}
+  )
+  session.restoreSession(null, activeBank.value)
+
+  assert.equal(session.hasCompletedQuestion(item), false)
+  assert.equal(session.isAnswerVisible(item), false)
+
+  session.toggleAnswerVisibility(item)
+  assert.equal(session.isAnswerVisible(item), true)
+  const snapshot = session.captureSession()
+
+  session.restoreSession(null, activeBank.value)
+  assert.equal(session.isAnswerVisible(item), false)
+  session.restoreSession(snapshot, activeBank.value)
+  assert.equal(session.isAnswerVisible(item), true)
+
+  session.toggleAnswerVisibility(item)
+  assert.equal(session.isAnswerVisible(item), false)
+})
+
+test('does not add blank inputs beyond the question blank count', () => {
+  const item = { ...question('two-blanks', '填空题', 'FILL_IN_THE_BLANK'), blankCount: 2 }
+  const activeBank = ref(bank('填空题库', item))
+  const answers = ref(new Map([
+    ['two-blanks', {
+      problemId: 'two-blanks',
+      questionNumber: 1,
+      type: 'FILL_IN_THE_BLANK',
+      answer: ['答案一', '答案二', '多余答案']
+    }]
+  ]))
+  const session = usePracticeSession(
+    computed(() => activeBank.value),
+    computed(() => answers.value),
+    () => {}
+  )
+  session.restoreSession(null, activeBank.value)
+
+  assert.equal(session.blankCountFor(item), 2)
+})
+
 test('redo clears only the current set responses and completion state', () => {
   const writtenQuestion = question('written', '主观题')
   const choiceQuestion = question('choice', '单选题', 'SINGLE_CHOICE')

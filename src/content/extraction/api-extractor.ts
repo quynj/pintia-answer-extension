@@ -512,6 +512,33 @@ type FetchQuestionOptions = {
 
   async function fetchQuestionsForType(type: string, options: FetchQuestionOptions = {}): Promise<PintiaQuestion[]> {
     const requestDelayMs = options.requestDelayMs || 0;
+    if (type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING') {
+      const collectionUrl = withExamId(typedUrl(options.collectionUrl, type), options.examId);
+      if (collectionUrl) {
+        try {
+          const questions = await fetchExamUrl(collectionUrl, options.expectedTotal || 0, requestDelayMs);
+          if (questions.length) {
+            questions.forEach((question) => options.onQuestion?.(question));
+            return questions;
+          }
+        } catch (error) {
+          console.warn('程序填空题目集合接口读取失败，将尝试列表接口：', error);
+        }
+      }
+
+      const listUrl = withExamId(problemListUrl(options.collectionUrl, options.listUrl, type), options.examId);
+      if (!listUrl) return [];
+      const list = await fetchExamProblemList(listUrl, requestDelayMs);
+      return fetchListedQuestions(
+        listUrl,
+        list,
+        options.detailRequestDelayMs || 0,
+        options.onProgress,
+        options.typeProgress,
+        options.forceRefresh,
+        options.onQuestion
+      );
+    }
     if (isListBackedProblemType(type)) {
       const listUrl = withExamId(problemListUrl(options.collectionUrl, options.listUrl, type), options.examId);
       if (!listUrl) return [];
@@ -649,7 +676,16 @@ type FetchQuestionOptions = {
       questions.push(...typeQuestions);
 
       if (!includeSubmissions) continue;
-      if (isListBackedProblemType(type)) {
+      if (type === 'FILL_IN_THE_BLANK_FOR_PROGRAMMING') {
+        const response = requiredResponse(
+          await fetchResponse(reviewSubmissionUrl(examId, problemSetId, type)),
+          `${type}作答记录`
+        );
+        const result = await responseData(response);
+        for (const [id, submission] of submissionResults(result.data || {}).entries()) {
+          submissions.set(id, submission);
+        }
+      } else if (isListBackedProblemType(type)) {
         for (const [index, question] of typeQuestions.entries()) {
           const problemSetProblemId = String(question.id || question.problemId || '');
           if (!problemSetProblemId) {
@@ -710,7 +746,8 @@ type FetchQuestionOptions = {
     problemSet: PintiaProblemSet,
     state: PintiaProblemSetProgress['state'],
     reason?: string,
-    progress?: { completed: number; total: number; percentage: number }
+    progress?: { completed: number; total: number; percentage: number },
+    deadline: number | null = null
   ): PintiaProblemSetProgress {
     return {
       problemSetId: String(problemSet.id),
@@ -719,6 +756,7 @@ type FetchQuestionOptions = {
       completed: progress?.completed ?? null,
       total: progress?.total ?? null,
       percentage: progress?.percentage ?? null,
+      deadline,
       ...(reason ? { reason } : {})
     };
   }
@@ -736,7 +774,7 @@ type FetchQuestionOptions = {
     const deadline = progressDeadlineFromExamResponse(metadataResult.data, problemSet.endAt);
     const serverNow = serverTimeFromResponse(metadataResult.data, metadataResponse.headers.get('date'));
     if (deadline === null) {
-      return progressResult(problemSet, 'unavailable', '无法确定题目集截止时间。');
+      return progressResult(problemSet, 'unavailable', '无法确定题目集截止时间。', undefined, deadline);
     }
     if (serverNow !== null && isPastProgressDeadline(deadline, serverNow)) {
       return progressResult(problemSet, 'expired');
@@ -748,7 +786,7 @@ type FetchQuestionOptions = {
         && String(candidate).trim());
     const examId = examIdValue === undefined ? '' : String(examIdValue).trim();
     if (!examId) {
-      return progressResult(problemSet, 'unavailable', '题目集没有可用的考试 ID。');
+      return progressResult(problemSet, 'unavailable', '题目集没有可用的考试 ID。', undefined, deadline);
     }
 
     const statusUrl = new URL(
@@ -759,7 +797,7 @@ type FetchQuestionOptions = {
     const statusResult = await responseData(statusResponse);
     const statusNow = serverTimeFromResponse(statusResult.data, statusResponse.headers.get('date')) ?? serverNow;
     if (statusNow === null) {
-      return progressResult(problemSet, 'unavailable', '接口未提供可用的服务端时间。');
+      return progressResult(problemSet, 'unavailable', '接口未提供可用的服务端时间。', undefined, deadline);
     }
     if (isPastProgressDeadline(deadline, statusNow)) {
       return progressResult(problemSet, 'expired');
@@ -771,10 +809,17 @@ type FetchQuestionOptions = {
         problemSet,
         progress.completed === progress.total ? 'complete' : 'incomplete',
         undefined,
-        progress
+        progress,
+        deadline
       );
     } catch (error) {
-      return progressResult(problemSet, 'unavailable', error instanceof Error ? error.message : '题目状态无法解析。');
+      return progressResult(
+        problemSet,
+        'unavailable',
+        error instanceof Error ? error.message : '题目状态无法解析。',
+        undefined,
+        deadline
+      );
     }
   }
 

@@ -144,6 +144,7 @@ export interface PintiaProblemSetProgress {
   completed: number | null;
   total: number | null;
   percentage: number | null;
+  deadline?: number | null;
   reason?: string;
 }
 
